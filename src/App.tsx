@@ -1,5 +1,24 @@
 import { useState, useEffect, useRef } from 'react'
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+
 import logo from './assets/logo.png';
+import Header from './Header';
+import HeroSlider from './HeroSlider';
+import WhyChooseUs from './WhyChooseUs';
+import ServicesOffer from './ServicesOffer';
+import OurProducts from './OurProducts';
+import CareerCulture from './CareerCulture';
+import HappyClientele from './HappyClientele';
+import ClientTestimonials from './ClientTestimonials';
+import ScheduleAppointment from './ScheduleAppointment';
+import Footer from './Footer';
+import AboutUs from './AboutUs';
+import Clients from './Clients';
+import CareerPage from './CareerPage';
+import BlogPage from './BlogPage';
+import ContactUs from './ContactUs';
+import ServiceList from './ServiceList';
+import ProductDetails from './ProductDetails';
 
 // ── Smooth scroll helper ──────────────────────────────────────────────────────
 function scrollToBooking() {
@@ -61,6 +80,8 @@ const Ic = {
 
 // ── Navbar ────────────────────────────────────────────────────────────────────
 function Nav({ scrolled }: { scrolled: boolean }) {
+  const navigate = useNavigate();
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
@@ -109,24 +130,12 @@ function Nav({ scrolled }: { scrolled: boolean }) {
         {/* Actions */}
         <div className="flex items-center gap-3">
 
-          <a
-            href="#booking"
-            className="hidden md:block text-sm font-medium transition-colors duration-200"
-            style={{
-              color: 'rgba(255,255,255,0.75)',
-            }}
-            onMouseEnter={e =>
-              (e.currentTarget.style.color = '#ffffff')
-            }
-            onMouseLeave={e =>
-              (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')
-            }
-          >
-            Sign In
-          </a>
+        
 
           <button
-            onClick={scrollToBooking}
+            onClick={() => {
+              navigate("/book-demo");
+            }}
             className="px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:scale-105 active:scale-95"
             style={{
               background: '#ffffff',
@@ -146,7 +155,7 @@ function Nav({ scrolled }: { scrolled: boolean }) {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 // ── Section 1: Hero ───────────────────────────────────────────────────────────
 function Hero() {
@@ -610,7 +619,7 @@ const BENEFITS = [
   return (
     <section
       id="solutions"
-      className="py-28"
+      className="py-2"
       style={{ background: '#ffffff' }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1050,7 +1059,7 @@ function DashboardShowcase() {
 
   return (
     <section
-      className="py-28 overflow-hidden"
+      className="py-12 overflow-hidden"
       style={{
         background: '#ffffff',
       }}
@@ -1447,55 +1456,161 @@ function CalendarView({ industry, qualData }: { industry: string, qualData: any 
     else if (!/^\d{10}$/.test(form.phone)) e.phone = 'Enter a valid 10-digit mobile number'
     return e
   }
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
+async function handleSubmit(e: React.FormEvent) {
+  e.preventDefault()
 
-    const errs = validate()
+  const errs = validate()
 
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs)
-      return
-    }
-    const submitData = {
-      qualification: {
-        step1: {
-          industry: qualData?.industry ?? '',
-        },
-        step2: {
-          employees: qualData?.employees ?? '',
-        },
-        step3: {
-          challenges: qualData?.challenges ?? [],
-        },
-        step4: {
-          intent: qualData?.intent ?? '',
-        },
+  if (Object.keys(errs).length > 0) {
+    setErrors(errs)
+    return
+  }
+
+  const submitData = {
+    qualification: {
+      step1: {
+        industry: qualData?.industry ?? '',
       },
+      step2: {
+        employees: qualData?.employees ?? '',
+      },
+      step3: {
+        challenges: qualData?.challenges ?? [],
+      },
+      step4: {
+        intent: qualData?.intent ?? '',
+      },
+    },
 
-      booking: {
-        date: selDate
+    booking: {
+      date: selDate
+        ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
+        : '',
+      time: selSlot ?? '',
+      timezone: tz,
+    },
+
+    contact: {
+      name: form.name,
+      company: form.company,
+      email: form.email,
+      phone: form.phone,
+      notes: form.notes,
+    },
+  }
+
+  console.log('FINAL SUBMIT DATA:', submitData)
+
+  try {
+    // ==========================================
+    // 1. ADMIN EMAIL
+    // ==========================================
+
+    const body = `
+      <h2>New ERP Inquiry</h2>
+
+      <h3>Contact Details</h3>
+      <p><strong>Name:</strong> ${form.name}</p>
+      <p><strong>Company:</strong> ${form.company}</p>
+      <p><strong>Email:</strong> ${form.email}</p>
+      <p><strong>Phone:</strong> ${form.phone}</p>
+      <p><strong>Notes:</strong> ${form.notes}</p>
+
+      <h3>Qualification</h3>
+      <p><strong>Industry:</strong> ${qualData?.industry ?? ''}</p>
+      <p><strong>Employees:</strong> ${qualData?.employees ?? ''}</p>
+      <p>
+        <strong>Challenges:</strong>
+        ${(qualData?.challenges ?? []).join(', ')}
+      </p>
+      <p><strong>Intent:</strong> ${qualData?.intent ?? ''}</p>
+
+      <h3>Booking</h3>
+      <p><strong>Date:</strong> ${
+        selDate
           ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
-          : '',
-        time: selSlot ?? '',
-        timezone: tz,
-      },
+          : ''
+      }</p>
+      <p><strong>Time:</strong> ${selSlot ?? ''}</p>
+      <p><strong>Timezone:</strong> ${tz}</p>
+    `
 
-      contact: {
-        name: form.name,
-        company: form.company,
-        email: form.email,
-        phone: form.phone,
-        notes: form.notes,
-      },
+    const adminPayload = {
+      key: 'Deverp@2021',
+      Subject: 'ERP Inquiry',
+      To: 'admin@deverp.com',
+      CC: '',
+      BCC: '',
+      Body: body,
     }
 
-    console.log('FINAL SUBMIT DATA:+++++++++++++++++', submitData)
+    console.log('ADMIN MAIL PAYLOAD:', adminPayload)
+
+    const adminResponse = await fetch(
+      '/APP/api.aspx/SendMail',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(adminPayload),
+      }
+    )
+
+    const adminResult = await adminResponse.json()
+
+    console.log('ADMIN MAIL RESPONSE:', adminResult)
+
+    if (!adminResponse.ok) {
+      throw new Error('Admin mail API request failed')
+    }
 
 
-    console.log('SUBMIT DATA:')
+    // ==========================================
+    // 2. USER THANK YOU EMAIL
+    // ==========================================
+
+    const userPayload = {
+      key: 'Deverp@2021',
+      Subject: 'Deverp inquiry',
+      To: form.email,
+      CC: '',
+      BCC: '',
+      Body: 'Thank you for your inquiry. We will inform time shortly.',
+    }
+
+    console.log('USER MAIL PAYLOAD:', userPayload)
+
+    const userResponse = await fetch(
+      '/APP/api.aspx/SendMail',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userPayload),
+      }
+    )
+
+    const userResult = await userResponse.json()
+
+    console.log('USER MAIL RESPONSE:', userResult)
+
+    if (!userResponse.ok) {
+      throw new Error('User confirmation mail API request failed')
+    }
+
+
+    // ==========================================
+    // BOTH SUCCESS
+    // ==========================================
 
     setSubmitted(true)
+
+  } catch (error) {
+    console.error('SUBMIT ERROR:', error)
   }
+}
 
   if (submitted) {
     return (
@@ -1645,7 +1760,7 @@ function BookingSection() {
   return (
     <section
       id="booking"
-      className="py-28"
+      className="py-6"
       style={{ background: '#F8FCFF' }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1953,7 +2068,7 @@ function ProcessTimeline() {
 
   return (
     <section
-      className="py-28"
+      className="py-6"
       style={{ background: '#ffffff' }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -2137,7 +2252,7 @@ function TrustStats() {
 
   return (
     <section
-      className="py-28"
+      className="py-4"
       style={{
         background: '#ffffff',
       }}
@@ -2358,221 +2473,351 @@ function TrustStats() {
 
 
 // ── Footer ────────────────────────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer
-      style={{
-        background: '#040D20',
-        borderTop: '1px solid rgba(3,158,227,0.12)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+// function Footer() {
+//   return (
+//     <footer
+//       style={{
+//         background: '#040D20',
+//         borderTop: '1px solid rgba(3,158,227,0.12)',
+//       }}
+//     >
+//       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
 
-        {/* Logo / Company Name */}
-        <div className="flex justify-center mb-8">
-          <div className="flex items-center gap-2">
+//         {/* Logo / Company Name */}
+//         <div className="flex justify-center mb-8">
+//           <div className="flex items-center gap-2">
 
-            <span
-              className="font-bold text-xl tracking-tight"
-              style={{
-                color: '#ffffff',
-              }}
-            >
-              DevERP
-            </span>
+//             <span
+//               className="font-bold text-xl tracking-tight"
+//               style={{
+//                 color: '#ffffff',
+//               }}
+//             >
+//               DevERP
+//             </span>
 
-          </div>
-        </div>
+//           </div>
+//         </div>
 
-        {/* Contact Info */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 text-sm"
-          style={{
-            color: 'rgba(255,255,255,0.45)',
-          }}
-        >
+//         {/* Contact Info */}
+//         <div
+//           className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 text-sm"
+//           style={{
+//             color: 'rgba(255,255,255,0.45)',
+//           }}
+//         >
 
-          {/* Email */}
-          <a
-            href="mailto:mkt@deverp.in"
-            className="flex items-center gap-2 transition-all duration-200"
-            style={{
-              color: 'rgba(255,255,255,0.45)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.color = '#039EE3'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.color =
-                'rgba(255,255,255,0.45)'
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              className="w-4 h-4"
-            >
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
+//           {/* Email */}
+//           <a
+//             href="mailto:mkt@deverp.in"
+//             className="flex items-center gap-2 transition-all duration-200"
+//             style={{
+//               color: 'rgba(255,255,255,0.45)',
+//             }}
+//             onMouseEnter={e => {
+//               e.currentTarget.style.color = '#039EE3'
+//             }}
+//             onMouseLeave={e => {
+//               e.currentTarget.style.color =
+//                 'rgba(255,255,255,0.45)'
+//             }}
+//           >
+//             <svg
+//               viewBox="0 0 24 24"
+//               fill="none"
+//               stroke="currentColor"
+//               strokeWidth={1.5}
+//               className="w-4 h-4"
+//             >
+//               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+//               <polyline points="22,6 12,13 2,6" />
+//             </svg>
 
-            mkt@deverp.in
-          </a>
+//             mkt@deverp.in
+//           </a>
 
-          {/* Separator */}
-          <span
-            className="hidden sm:block"
-            style={{
-              color: 'rgba(3,158,227,0.20)',
-            }}
-          >
-            |
-          </span>
+//           {/* Separator */}
+//           <span
+//             className="hidden sm:block"
+//             style={{
+//               color: 'rgba(3,158,227,0.20)',
+//             }}
+//           >
+//             |
+//           </span>
 
-          {/* Phone */}
-          <a
-            href="tel:+918799692554"
-            className="flex items-center gap-2 transition-all duration-200"
-            style={{
-              color: 'rgba(255,255,255,0.45)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.color = '#039EE3'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.color =
-                'rgba(255,255,255,0.45)'
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              className="w-4 h-4"
-            >
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.22 2 2 0 012.08 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.07 7.91a16 16 0 006.02 6.02l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-            </svg>
+//           {/* Phone */}
+//           <a
+//             href="tel:+918799692554"
+//             className="flex items-center gap-2 transition-all duration-200"
+//             style={{
+//               color: 'rgba(255,255,255,0.45)',
+//             }}
+//             onMouseEnter={e => {
+//               e.currentTarget.style.color = '#039EE3'
+//             }}
+//             onMouseLeave={e => {
+//               e.currentTarget.style.color =
+//                 'rgba(255,255,255,0.45)'
+//             }}
+//           >
+//             <svg
+//               viewBox="0 0 24 24"
+//               fill="none"
+//               stroke="currentColor"
+//               strokeWidth={1.5}
+//               className="w-4 h-4"
+//             >
+//               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.22 2 2 0 012.08 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.07 7.91a16 16 0 006.02 6.02l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+//             </svg>
 
-            +91 87996 92554
-          </a>
+//             +91 87996 92554
+//           </a>
 
-          {/* Separator */}
-          <span
-            className="hidden sm:block"
-            style={{
-              color: 'rgba(3,158,227,0.20)',
-            }}
-          >
-            |
-          </span>
+//           {/* Separator */}
+//           <span
+//             className="hidden sm:block"
+//             style={{
+//               color: 'rgba(3,158,227,0.20)',
+//             }}
+//           >
+//             |
+//           </span>
 
-          {/* Location */}
-          <span
-            className="flex items-center gap-2"
-            style={{
-              color: 'rgba(255,255,255,0.45)',
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              className="w-4 h-4"
-            >
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
+//           {/* Location */}
+//           <span
+//             className="flex items-center gap-2"
+//             style={{
+//               color: 'rgba(255,255,255,0.45)',
+//             }}
+//           >
+//             <svg
+//               viewBox="0 0 24 24"
+//               fill="none"
+//               stroke="currentColor"
+//               strokeWidth={1.5}
+//               className="w-4 h-4"
+//             >
+//               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+//               <circle cx="12" cy="10" r="3" />
+//             </svg>
 
-            Ahmedabad, Gujarat, India
-          </span>
+//             Ahmedabad, Gujarat, India
+//           </span>
 
-        </div>
+//         </div>
 
-        {/* Bottom Bar */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs"
-          style={{
-            borderTop:
-              '1px solid rgba(3,158,227,0.10)',
-            color: 'rgba(255,255,255,0.22)',
-          }}
-        >
+//         {/* Bottom Bar */}
+//         <div
+//           className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs"
+//           style={{
+//             borderTop:
+//               '1px solid rgba(3,158,227,0.10)',
+//             color: 'rgba(255,255,255,0.22)',
+//           }}
+//         >
 
-          <span>
-            DevERP
-          </span>
+//           <span>
+//             DevERP
+//           </span>
 
-          <div className="flex gap-6">
+//           <div className="flex gap-6">
 
-            {/* Privacy Policy */}
-            <a
-              href="#"
-              className="transition-all duration-200"
-              style={{
-                color: 'rgba(255,255,255,0.30)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.color =
-                  '#039EE3'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.color =
-                  'rgba(255,255,255,0.30)'
-              }}
-            >
-              Privacy Policy
-            </a>
+//             {/* Privacy Policy */}
+//             <a
+//               href="#"
+//               className="transition-all duration-200"
+//               style={{
+//                 color: 'rgba(255,255,255,0.30)',
+//               }}
+//               onMouseEnter={e => {
+//                 e.currentTarget.style.color =
+//                   '#039EE3'
+//               }}
+//               onMouseLeave={e => {
+//                 e.currentTarget.style.color =
+//                   'rgba(255,255,255,0.30)'
+//               }}
+//             >
+//               Privacy Policy
+//             </a>
 
-            {/* Terms */}
-            <a
-              href="#"
-              className="transition-all duration-200"
-              style={{
-                color: 'rgba(255,255,255,0.30)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.color =
-                  '#039EE3'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.color =
-                  'rgba(255,255,255,0.30)'
-              }}
-            >
-              Terms &amp; Conditions
-            </a>
+//             {/* Terms */}
+//             <a
+//               href="#"
+//               className="transition-all duration-200"
+//               style={{
+//                 color: 'rgba(255,255,255,0.30)',
+//               }}
+//               onMouseEnter={e => {
+//                 e.currentTarget.style.color =
+//                   '#039EE3'
+//               }}
+//               onMouseLeave={e => {
+//                 e.currentTarget.style.color =
+//                   'rgba(255,255,255,0.30)'
+//               }}
+//             >
+//               Terms &amp; Conditions
+//             </a>
 
-          </div>
+//           </div>
 
-        </div>
-      </div>
-    </footer>
-  )
-}
+//         </div>
+//       </div>
+//     </footer>
+//   )
+// }
 
 // ── Root ──────────────────────────────────────────────────────────────────────
 export default function App() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', h, { passive: true })
-    return () => window.removeEventListener('scroll', h)
-  }, [])
+    const h = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", h, { passive: true });
+
+    return () => window.removeEventListener("scroll", h);
+  }, []);
 
   return (
-    <div style={{ fontFamily: "'Inter',-apple-system,BlinkMacSystemFont,sans-serif" }}>
-      <Nav scrolled={scrolled} />
-      <Hero />
-      <Benefits />
-      <DashboardShowcase />
-      <BookingSection />
-      <ProcessTimeline />
-      <TrustStats />
-      <Footer />
-    </div>
-  )
+    <BrowserRouter>
+      <div
+        style={{
+          fontFamily:
+            "'Inter',-apple-system,BlinkMacSystemFont,sans-serif",
+        }}
+      >
+        <Nav scrolled={scrolled} />
+
+        <Routes>
+          {/* Home */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <HeroSlider />
+                <WhyChooseUs />
+                <ServicesOffer />
+                <OurProducts />
+                <CareerCulture />
+                <HappyClientele />
+                <ClientTestimonials />
+                <Footer />
+              </>
+            }
+          />
+
+          {/* About */}
+          <Route
+            path="/about"
+            element={
+              <>
+                <Header />
+                <AboutUs />
+                <Footer />
+              </>
+            }
+          />
+   {/* ServiceList */}
+          <Route
+            path="/services"
+            element={
+              <>
+                <Header />
+                <ServiceList />
+                <Footer />
+              </>
+            }
+          />
+            {/* Product list */}
+          <Route
+            path="/productslist"
+            element={
+              <>
+                <Header />
+                <OurProducts />
+                <Footer />
+              </>
+            }
+          />
+           {/* Products */}
+          <Route
+            path="/products"
+            element={
+              <>
+                <Header />
+                <ProductDetails />
+                <Footer />
+              </>
+            }
+          />  
+          {/* Clients */}
+          <Route
+            path="/clients"
+            element={
+              <>
+                <Header />
+                <Clients />
+                <Footer />
+              </>
+            }
+          />
+
+           {/* Clients */}
+          <Route
+            path="/career"
+            element={
+              <>
+                <Header />
+                <CareerPage />
+                <Footer />
+              </>
+            }
+          />
+  {/* Blog */}
+          <Route
+            path="/blog"
+            element={
+              <>
+                <Header />
+                <BlogPage />
+                <Footer />
+              </>
+            }
+          />
+
+            {/* contact_us */}
+          <Route
+            path="/contact_us"
+            element={
+              <>
+                <Header />
+                <ContactUs />
+                <Footer />
+              </>
+            }
+          />
+
+          {/* Book Demo */}
+          <Route
+            path="/book-demo"
+            element={
+              <>
+                <Header />
+                <Hero />
+                <Benefits />
+                <DashboardShowcase />
+                <BookingSection />
+                <ProcessTimeline />
+                <TrustStats />
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }

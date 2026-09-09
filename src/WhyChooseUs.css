@@ -1,0 +1,426 @@
+/* =========================================================
+   WHY CHOOSE US
+========================================================= */
+
+.why-choose-section {
+  width: 100%;
+  padding: 105px 0 110px;
+
+  background: #f7faff;
+
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.why-choose-container {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.why-choose-heading {
+  max-width: 720px;
+
+  margin: 0 auto 65px;
+
+  text-align: center;
+}
+
+.why-choose-eyebrow {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 15px;
+
+  color: #1769ff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.why-choose-eyebrow::before,
+.why-choose-eyebrow::after {
+  content: "";
+
+  width: 24px;
+  height: 2px;
+
+  background: #1769ff;
+
+  border-radius: 5px;
+}
+
+.why-choose-heading h2 {
+  margin: 0;
+
+  color: #0b172a;
+
+  font-size: clamp(36px, 4vw, 50px);
+  line-height: 1.15;
+
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.why-choose-heading h2 span {
+  color: #1769ff;
+}
+
+.why-choose-heading p {
+  margin: 17px 0 0;
+
+  color: #68778d;
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.why-choose-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 22px;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.why-choose-card {
+  position: relative;
+
+  min-height: 385px;
+
+  padding: 42px 30px 32px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8eef7;
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 30px rgba(20, 50, 90, 0.04);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.why-choose-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: #1769ff;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.35s ease;
+}
+
+.why-choose-card:hover {
+  transform: translateY(-9px);
+
+  border-color: rgba(23, 105, 255, 0.25);
+
+  box-shadow:
+    0 20px 50px rgba(23, 105, 255, 0.11);
+}
+
+.why-choose-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.why-choose-number {
+  position: absolute;
+
+  top: 20px;
+  right: 24px;
+
+  color: #edf2f9;
+
+  font-size: 42px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.why-choose-card:hover .why-choose-number {
+  color: #e6efff;
+
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.why-choose-icon-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin-bottom: 30px;
+}
+
+.why-choose-icon {
+  width: 78px;
+  height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #edf4ff;
+
+  border-radius: 16px;
+
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.why-choose-icon img {
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+
+  transition: transform 0.35s ease;
+}
+
+.why-choose-card:hover .why-choose-icon {
+  background: #1769ff;
+
+  transform: rotate(-3deg);
+}
+
+.why-choose-card:hover .why-choose-icon img {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.why-choose-content {
+  position: relative;
+  z-index: 2;
+}
+
+.why-choose-content h3 {
+  margin: 0 0 15px;
+
+  color: #0b172a;
+
+  font-size: 19px;
+  line-height: 1.35;
+
+  font-weight: 700;
+
+  transition: color 0.3s ease;
+}
+
+.why-choose-card:hover .why-choose-content h3 {
+  color: #1769ff;
+}
+
+.why-choose-content p {
+  margin: 0;
+
+  color: #718096;
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.why-choose-arrow {
+  position: absolute;
+
+  left: 30px;
+  bottom: 25px;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e5ebf4;
+  border-radius: 50%;
+
+  color: #1769ff;
+
+  font-size: 18px;
+
+  opacity: 0;
+
+  transform: translateX(-8px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.why-choose-card:hover .why-choose-arrow {
+  opacity: 1;
+
+  transform: translateX(0);
+
+  background: #1769ff;
+
+  color: #ffffff;
+
+  border-color: #1769ff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .why-choose-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-choose-card {
+    min-height: 350px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+  .why-choose-section {
+    padding: 75px 0 80px;
+  }
+
+  .why-choose-container {
+    padding: 0 22px;
+  }
+
+  .why-choose-heading {
+    margin-bottom: 45px;
+  }
+
+  .why-choose-heading h2 {
+    font-size: 36px;
+  }
+
+  .why-choose-heading p {
+    font-size: 15px;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .why-choose-card {
+    min-height: auto;
+
+    padding: 32px 26px 55px;
+  }
+
+  .why-choose-icon-wrapper {
+    margin-bottom: 24px;
+  }
+
+  .why-choose-icon {
+    width: 68px;
+    height: 68px;
+  }
+
+  .why-choose-icon img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .why-choose-content h3 {
+    font-size: 18px;
+  }
+
+  .why-choose-content p {
+    font-size: 14px;
+  }
+
+  .why-choose-arrow {
+    opacity: 1;
+
+    transform: none;
+
+    left: auto;
+    right: 26px;
+    bottom: 25px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .why-choose-heading h2 {
+    font-size: 32px;
+  }
+
+  .why-choose-card {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}

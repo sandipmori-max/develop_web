@@ -1,0 +1,1093 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.de-header {
+  --primary: #1769ff;
+  --primary-dark: #0b52d4;
+  --dark: #0b172a;
+  --text: #172033;
+  --text-dark: #0a1425;
+  --muted: #667085;
+  --border: #e3e8ef;
+
+  position: relative;
+  z-index: 9999;
+  width: 100%;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.de-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.de-topbar {
+  width: 100%;
+  background: #0b172a;
+  color: #ffffff;
+}
+
+.de-topbar-inner {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   TOP CONTACT
+========================================================= */
+
+.de-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  min-width: 0;
+}
+
+.de-top-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.de-top-item:hover {
+  color: #8fc1ff;
+}
+
+.de-top-icon {
+  width: 24px;
+  height: 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: #8fc1ff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   TOP RIGHT
+========================================================= */
+
+.de-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  flex-shrink: 0;
+}
+
+.de-socials {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.de-socials a {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition: all 0.2s ease;
+}
+
+.de-socials a:hover {
+  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   APPOINTMENT
+========================================================= */
+
+.de-appointment {
+  height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 0 18px;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: var(--primary);
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.de-appointment:hover {
+  background: var(--primary-dark);
+
+  box-shadow: 0 7px 18px rgba(23, 105, 255, 0.3);
+}
+
+.de-appointment-arrow {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.de-navbar {
+  width: 100%;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e5e9ef;
+
+  box-shadow: 0 4px 18px rgba(16, 24, 40, 0.06);
+}
+
+.de-navbar-inner {
+  min-height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.de-logo {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  text-decoration: none;
+}
+
+.de-logo img {
+  display: block;
+
+  width: auto;
+
+  max-width: 185px;
+  max-height: 60px;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.de-navigation {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+}
+
+.de-menu {
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.de-menu-item {
+  position: relative;
+
+  list-style: none;
+}
+
+
+/* =========================================================
+   MAIN MENU TEXT
+========================================================= */
+
+.de-menu-link {
+  position: relative;
+
+  min-height: 88px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0 15px;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: #111c2e;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  font-family: inherit;
+
+  /* UPDATED */
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.25px;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+
+/* Bottom active line */
+
+.de-menu-link::before {
+  content: "";
+
+  position: absolute;
+
+  left: 15px;
+  right: 15px;
+
+  bottom: 0;
+
+  height: 3px;
+
+  border-radius: 3px 3px 0 0;
+
+  background: var(--primary);
+
+  transform: scaleX(0);
+
+  transition: transform 0.25s ease;
+}
+
+.de-menu-link:hover,
+.de-menu-link.de-active {
+  color: var(--primary);
+}
+
+.de-menu-link:hover::before,
+.de-menu-link.de-active::before {
+  transform: scaleX(1);
+}
+
+
+/* =========================================================
+   CHEVRON
+========================================================= */
+
+.de-chevron {
+  color: #526071;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: transform 0.25s ease;
+}
+
+.de-menu-link:hover .de-chevron {
+  color: var(--primary);
+}
+
+.de-dropdown-open .de-chevron {
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   DROPDOWN BASE
+========================================================= */
+
+.de-dropdown {
+  position: absolute;
+
+  top: calc(100% + 1px);
+  left: 50%;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe5ed;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 20px 55px rgba(16, 24, 40, 0.16),
+    0 4px 12px rgba(16, 24, 40, 0.07);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform: translate(-50%, 12px);
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+.de-has-dropdown:hover > .de-dropdown,
+.de-dropdown-open > .de-dropdown {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform: translate(-50%, 0);
+}
+
+
+/* =========================================================
+   DROPDOWN HEADER
+========================================================= */
+
+.de-dropdown-header {
+  padding: 24px 25px 19px;
+
+  border-bottom: 1px solid #e9edf3;
+}
+
+.de-dropdown-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--primary);
+
+  /* UPDATED */
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.de-dropdown-header h3 {
+  margin: 0 0 6px;
+
+  color: #0d1b30;
+
+  /* UPDATED */
+  font-size: 21px;
+  font-weight: 800;
+
+  line-height: 1.3;
+}
+
+.de-dropdown-header p {
+  margin: 0;
+
+  color: #667085;
+
+  /* UPDATED */
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   PRODUCTS MEGA MENU
+========================================================= */
+
+.de-products-dropdown {
+  width: 850px;
+
+  padding: 0;
+
+  overflow: hidden;
+}
+
+.de-product-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 3px;
+
+  padding: 16px;
+}
+
+.de-product-grid a {
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 8px 10px;
+
+  border-radius: 8px;
+
+  color: #1d2939;
+
+  text-decoration: none;
+
+  /* UPDATED */
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.45;
+
+  transition: all 0.2s ease;
+}
+
+.de-product-grid a:hover {
+  color: var(--primary);
+
+  background: #eef5ff;
+
+  transform: translateX(2px);
+}
+
+.de-product-number {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid #dbe3ee;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #667085;
+
+  /* UPDATED */
+  font-size: 10px;
+  font-weight: 800;
+
+  transition: all 0.2s ease;
+}
+
+.de-product-grid a:hover .de-product-number {
+  background: var(--primary);
+
+  border-color: var(--primary);
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.de-service-dropdown {
+  width: 750px;
+
+  padding: 0;
+
+  overflow: hidden;
+}
+
+.de-service-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 5px;
+
+  padding: 16px;
+}
+
+.de-service-grid a {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px;
+
+  border: 1px solid transparent;
+
+  border-radius: 9px;
+
+  color: #172033;
+
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.de-service-grid a:hover {
+  background: #eef5ff;
+
+  border-color: #dbe8ff;
+
+  transform: translateY(-1px);
+}
+
+.de-service-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: #eaf2ff;
+
+  color: var(--primary);
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.de-service-grid strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #162033;
+
+  /* UPDATED */
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.de-service-grid small {
+  display: block;
+
+  color: #667085;
+
+  /* UPDATED */
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   SMALL DROPDOWN
+========================================================= */
+
+.de-small-dropdown {
+  width: 290px;
+
+  padding: 13px;
+}
+
+.de-mini-heading {
+  padding: 8px 10px 12px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.de-mini-heading span {
+  color: var(--primary);
+
+  /* UPDATED */
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.de-small-dropdown > a {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  margin-top: 4px;
+
+  padding: 7px 9px;
+
+  border-radius: 8px;
+
+  color: #172033;
+
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.de-small-dropdown > a:hover {
+  color: var(--primary);
+
+  background: #eef5ff;
+}
+
+.de-small-dropdown > a > span {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: #edf2f7;
+
+  color: #536174;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.de-small-dropdown > a strong {
+  color: inherit;
+
+  /* UPDATED */
+  font-size: 13px;
+  font-weight: 650;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.de-contact-link {
+  min-height: 42px;
+
+  margin-left: 6px;
+
+  padding: 0 18px;
+
+  border-radius: 7px;
+
+  background: var(--primary);
+
+  color: #ffffff !important;
+
+  gap: 9px;
+
+  /* UPDATED */
+  font-size: 14px;
+}
+
+.de-contact-link::before {
+  display: none;
+}
+
+.de-contact-link:hover {
+  background: var(--primary-dark);
+
+  color: #ffffff !important;
+}
+
+.de-contact-arrow {
+  font-size: 15px;
+
+  transition: transform 0.2s ease;
+}
+
+.de-contact-link:hover .de-contact-arrow {
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+.de-mobile-button {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 0;
+
+  border: 1px solid #dce3ec;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+}
+
+.de-mobile-button span {
+  width: 21px;
+  height: 2px;
+
+  display: block;
+
+  border-radius: 5px;
+
+  background: #172033;
+
+  transition: all 0.25s ease;
+}
+
+.de-mobile-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.de-mobile-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.de-mobile-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .de-container {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .de-topbar-left {
+    gap: 14px;
+  }
+
+  .de-top-item {
+    font-size: 11px;
+  }
+
+  .de-socials {
+    display: none;
+  }
+
+  .de-navbar-inner {
+    min-height: 75px;
+  }
+
+  .de-logo img {
+    max-width: 155px;
+  }
+
+  .de-mobile-button {
+    display: flex;
+
+    margin-left: auto;
+  }
+
+  .de-navigation {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    padding: 10px 20px 20px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #dfe5ed;
+
+    box-shadow: 0 20px 40px rgba(16, 24, 40, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px);
+
+    transition: all 0.25s ease;
+  }
+
+  .de-navigation.de-navigation-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+  }
+
+  .de-menu {
+    width: 100%;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 3px;
+  }
+
+  .de-menu-item {
+    width: 100%;
+  }
+
+  .de-menu-link {
+    width: 100%;
+
+    min-height: 48px;
+
+    justify-content: space-between;
+
+    padding: 0 14px;
+
+    border-radius: 8px;
+
+    color: #101828;
+
+    /* UPDATED */
+    font-size: 14px;
+  }
+
+  .de-menu-link::before {
+    display: none;
+  }
+
+  .de-menu-link:hover,
+  .de-menu-link.de-active {
+    background: #eef5ff;
+
+    color: var(--primary);
+  }
+
+  .de-dropdown {
+    position: static;
+
+    width: 100% !important;
+
+    display: none;
+
+    margin: 0;
+
+    padding: 8px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: #f7f9fc;
+
+    box-shadow: none;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: none;
+  }
+
+  .de-has-dropdown:hover > .de-dropdown {
+    display: none;
+  }
+
+  .de-dropdown-open > .de-dropdown {
+    display: block;
+  }
+
+  .de-product-grid,
+  .de-service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .de-contact-link {
+    margin-left: 0;
+
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .de-topbar {
+    display: none;
+  }
+
+  .de-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .de-navbar-inner {
+    min-height: 68px;
+  }
+
+  .de-logo img {
+    max-width: 140px;
+    max-height: 46px;
+  }
+
+  .de-navigation {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .de-product-grid,
+  .de-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .de-dropdown-header {
+    padding: 18px;
+  }
+
+  .de-dropdown-header h3 {
+    font-size: 18px;
+  }
+
+  .de-dropdown-header p {
+    font-size: 12px;
+  }
+
+  .de-product-grid {
+    padding: 10px;
+  }
+
+  .de-product-grid a {
+    font-size: 13px;
+  }
+
+  .de-service-grid {
+    padding: 10px;
+  }
+
+  .de-service-grid strong {
+    font-size: 13px;
+  }
+
+  .de-service-grid small {
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .de-logo img {
+    max-width: 125px;
+  }
+
+  .de-mobile-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .de-menu-link {
+    min-height: 46px;
+
+    font-size: 14px;
+  }
+
+  .de-product-grid a {
+    font-size: 13px;
+  }
+
+  .de-small-dropdown > a strong {
+    font-size: 13px;
+  }
+
+}

@@ -1,0 +1,527 @@
+/* =========================================================
+   SERVICES WE OFFER
+========================================================= */
+
+.services-offer-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 105px 0 115px;
+
+  background: #f4f7fb;
+
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.services-offer-section::before {
+  content: "";
+
+  position: absolute;
+
+  top: -180px;
+  right: -180px;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background: rgba(23, 105, 255, 0.045);
+
+  pointer-events: none;
+}
+
+.services-offer-section::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -180px;
+  left: -180px;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background: rgba(23, 105, 255, 0.035);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.services-offer-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 0 40px;
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.services-offer-heading {
+  max-width: 800px;
+
+  margin: 0 auto 62px;
+
+  text-align: center;
+}
+
+.services-offer-eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 16px;
+
+  color: #1769ff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.services-offer-eyebrow::before,
+.services-offer-eyebrow::after {
+  content: "";
+
+  width: 25px;
+  height: 2px;
+
+  border-radius: 5px;
+
+  background: #1769ff;
+}
+
+.services-offer-heading h2 {
+  margin: 0;
+
+  color: #0b172a;
+
+  font-size: clamp(38px, 4vw, 52px);
+  line-height: 1.12;
+
+  font-weight: 700;
+
+  letter-spacing: -1.8px;
+
+  text-transform: none;
+}
+
+.services-offer-heading h2 span {
+  color: #1769ff;
+}
+
+.services-offer-heading p {
+  max-width: 700px;
+
+  margin: 18px auto 0;
+
+  color: #6c7b91;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.services-offer-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.service-offer-card {
+  position: relative;
+
+  min-height: 270px;
+
+  padding: 38px 34px 32px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5ebf4;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 30px rgba(20, 50, 90, 0.035);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Top blue line */
+
+.service-offer-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: #1769ff;
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition: transform 0.4s ease;
+}
+
+/* Background circle */
+
+.service-offer-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -65px;
+  bottom: -65px;
+
+  width: 170px;
+  height: 170px;
+
+  border-radius: 50%;
+
+  background: #f1f6ff;
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease;
+}
+
+.service-offer-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(23, 105, 255, 0.25);
+
+  box-shadow:
+    0 22px 50px rgba(23, 105, 255, 0.1);
+}
+
+.service-offer-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-offer-card:hover::after {
+  background: #e9f1ff;
+
+  transform: scale(1.2);
+}
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.service-offer-number {
+  position: absolute;
+
+  top: 24px;
+  right: 28px;
+
+  z-index: 2;
+
+  color: #e9eef6;
+
+  font-size: 38px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  transition: color 0.3s ease;
+}
+
+.service-offer-card:hover .service-offer-number {
+  color: #dce9ff;
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.service-offer-icon {
+  position: relative;
+  z-index: 3;
+
+  width: 76px;
+  height: 76px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 28px;
+
+  background: #edf4ff;
+
+  border-radius: 16px;
+
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.service-offer-icon img {
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+
+  transition: transform 0.35s ease;
+}
+
+.service-offer-card:hover .service-offer-icon {
+  background: #1769ff;
+
+  transform: translateY(-3px) rotate(-3deg);
+
+  box-shadow:
+    0 10px 25px rgba(23, 105, 255, 0.2);
+}
+
+.service-offer-card:hover .service-offer-icon img {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.service-offer-content {
+  position: relative;
+
+  z-index: 3;
+}
+
+.service-offer-content h3 {
+  max-width: 270px;
+
+  margin: 0;
+
+  color: #0b172a;
+
+  font-size: 19px;
+  line-height: 1.4;
+
+  font-weight: 700;
+
+  transition: color 0.3s ease;
+}
+
+.service-offer-card:hover .service-offer-content h3 {
+  color: #1769ff;
+}
+
+/* =========================================================
+   SMALL LINE
+========================================================= */
+
+.service-offer-line {
+  width: 35px;
+  height: 3px;
+
+  margin-top: 18px;
+
+  border-radius: 5px;
+
+  background: #1769ff;
+
+  transition: width 0.35s ease;
+}
+
+.service-offer-card:hover .service-offer-line {
+  width: 65px;
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.service-offer-arrow {
+  position: absolute;
+
+  right: 28px;
+  bottom: 27px;
+
+  z-index: 4;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e2e9f3;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #1769ff;
+
+  font-size: 19px;
+
+  opacity: 0;
+
+  transform: translateX(-8px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.service-offer-card:hover .service-offer-arrow {
+  opacity: 1;
+
+  transform: translateX(0);
+
+  color: #ffffff;
+
+  background: #1769ff;
+
+  border-color: #1769ff;
+}
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .services-offer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 767px) {
+  .services-offer-section {
+    padding: 75px 0 80px;
+  }
+
+  .services-offer-container {
+    padding: 0 22px;
+  }
+
+  .services-offer-heading {
+    margin-bottom: 45px;
+  }
+
+  .services-offer-heading h2 {
+    font-size: 36px;
+
+    letter-spacing: -1px;
+  }
+
+  .services-offer-heading p {
+    font-size: 15px;
+
+    line-height: 1.65;
+  }
+
+  .services-offer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .service-offer-card {
+    min-height: 235px;
+
+    padding: 30px 26px 30px;
+  }
+
+  .service-offer-icon {
+    width: 68px;
+    height: 68px;
+
+    margin-bottom: 23px;
+  }
+
+  .service-offer-icon img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .service-offer-content h3 {
+    font-size: 18px;
+  }
+
+  .service-offer-arrow {
+    opacity: 1;
+
+    right: 24px;
+    bottom: 25px;
+
+    transform: none;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .services-offer-heading h2 {
+    font-size: 32px;
+  }
+
+  .service-offer-card {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .service-offer-number {
+    right: 20px;
+  }
+}
