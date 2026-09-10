@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./AboutUs.css";
+import { useNavigate } from "react-router-dom";
 
 interface AboutUsProps {
   setShow?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -7,6 +8,7 @@ interface AboutUsProps {
 
 const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -106,23 +108,90 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
       {/* =========================================
           ABOUT HERO
       ========================================= */}
-      <section className="about-hero">
-        <div className="about-hero-overlay" />
+  <section className="about-hero">
 
-        <div className="about-container about-hero-content">
-          <div className="about-hero-badge">
-            <span />
-            DEVErp SOLUTIONS
-          </div>
+  <div className="about-hero-bg">
+    <img
+      src="https://deverp.com/CMSassets/images/it_service/800.jpg"
+      alt="DevERP Solutions"
+    />
+  </div>
 
-          <h1>ABOUT US</h1>
+  <div className="about-hero-overlay" />
 
-          <p>
-            Building smarter businesses through technology,
-            innovation and intelligent ERP solutions.
-          </p>
+  <div className="about-hero-grid-pattern" />
+
+  <div className="about-hero-glow about-hero-glow-one" />
+  <div className="about-hero-glow about-hero-glow-two" />
+
+  <div className="about-container about-hero-inner">
+
+    {/* LEFT CONTENT */}
+    <div className="about-hero-content">
+
+      <div className="about-hero-badge">
+        <span className="about-hero-badge-line" />
+      </div>
+
+      <h1>
+        ABOUT US 
+      </h1>
+
+      <p>
+        Building smarter businesses through technology,
+        innovation and intelligent ERP solutions.
+      </p>
+
+      <div className="about-hero-bottom">
+
+        <div className="about-hero-breadcrumb">
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+          >
+            Home
+          </button>
+
+          <span>→</span>
+
+          <strong>About Us</strong>
         </div>
-      </section>
+
+        <div className="about-hero-scroll">
+          <span />
+          EXPLORE
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* RIGHT VISUAL */}
+    <div className="about-hero-visual">
+
+      <div className="about-hero-orbit about-orbit-one" />
+      <div className="about-hero-orbit about-orbit-two" />
+
+      <div className="about-hero-core">
+        <span>ERP</span>
+        <strong>360°</strong>
+      </div>
+
+      <div className="about-hero-floating about-floating-top">
+        <span>01</span>
+        <p>SMART<br />SOLUTIONS</p>
+      </div>
+
+      <div className="about-hero-floating about-floating-bottom">
+        <span>∞</span>
+        <p>BUSINESS<br />GROWTH</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* =========================================
           INTRO SECTION

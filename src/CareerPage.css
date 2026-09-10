@@ -913,3 +913,511 @@
     font-size: 14px;
   }
 }
+/* =========================================================
+   CAREER HERO — PREMIUM REDESIGN
+========================================================= */
+
+.career-hero {
+  position: relative;
+  min-height: 510px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #071426;
+  isolation: isolate;
+}
+
+/* Background Image */
+.career-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.career-hero-bg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.85);
+  transform: scale(1.03);
+}
+
+/* Main Overlay */
+.career-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 14, 29, 0.98) 0%,
+      rgba(5, 20, 38, 0.94) 38%,
+      rgba(5, 20, 38, 0.72) 65%,
+      rgba(5, 20, 38, 0.55) 100%
+    ),
+    radial-gradient(
+      circle at 78% 45%,
+      rgba(3, 158, 227, 0.25),
+      transparent 32%
+    );
+}
+
+/* Decorative glow */
+.career-hero::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  right: -280px;
+  top: -230px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 70px rgba(255, 255, 255, 0.025),
+    0 0 0 140px rgba(3, 158, 227, 0.025),
+    0 0 0 210px rgba(255, 255, 255, 0.015);
+
+  pointer-events: none;
+}
+
+/* Small decorative circle */
+.career-hero::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  left: -170px;
+  bottom: -170px;
+
+  border: 1px solid rgba(3, 158, 227, 0.22);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   HERO GRID
+========================================================= */
+
+.career-hero-grid {
+  position: relative;
+  z-index: 3;
+
+  min-height: 510px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+
+  align-items: center;
+}
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.career-hero-content {
+  position: relative;
+  padding: 90px 0 105px;
+}
+
+/* Label */
+.career-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 20px;
+
+  color: #62ceff;
+
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.career-hero-label span {
+  width: 38px;
+  height: 2px;
+
+  display: block;
+
+  background: #039ee3;
+  border-radius: 10px;
+}
+
+/* Heading */
+.career-hero h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(62px, 8vw, 108px);
+  line-height: 0.88;
+
+  font-weight: 900;
+  letter-spacing: -6px;
+}
+
+.career-hero h1 span {
+  color: #039ee3;
+}
+
+/* Description */
+.career-hero p {
+  max-width: 570px;
+
+  margin: 28px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.career-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 32px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.career-hero-breadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.career-hero-breadcrumb a:hover {
+  color: #55c7ff;
+}
+
+.career-hero-breadcrumb span {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.career-hero-breadcrumb strong {
+  color: #55c7ff;
+  font-weight: 700;
+}
+
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
+
+.career-hero-visual {
+  position: relative;
+
+  width: 100%;
+  height: 380px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Orbit */
+.career-orbit {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.career-orbit-one {
+  width: 350px;
+  height: 350px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.career-orbit-two {
+  width: 260px;
+  height: 260px;
+
+  border: 1px solid rgba(3, 158, 227, 0.3);
+}
+
+.career-orbit-three {
+  width: 155px;
+  height: 155px;
+
+  border: 1px solid rgba(98, 206, 255, 0.4);
+}
+
+/* Orbit dots */
+.career-orbit-one::before,
+.career-orbit-two::before,
+.career-orbit-three::before {
+  content: "";
+
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #039ee3;
+
+  box-shadow: 0 0 18px rgba(3, 158, 227, 0.8);
+}
+
+.career-orbit-one::before {
+  top: 35px;
+  right: 35px;
+}
+
+.career-orbit-two::before {
+  left: 15px;
+  top: 50%;
+}
+
+.career-orbit-three::before {
+  right: 12px;
+  bottom: 30px;
+}
+
+/* Center */
+.career-orbit-center {
+  position: relative;
+  z-index: 5;
+
+  width: 125px;
+  height: 125px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.2),
+    inset 0 0 30px rgba(255, 255, 255, 0.04);
+}
+
+.career-orbit-center span {
+  color: #ffffff;
+
+  font-size: 30px;
+  line-height: 1;
+
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.career-orbit-center small {
+  margin-top: 8px;
+
+  color: #55c7ff;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+/* Vertical Text */
+.career-vertical-text {
+  position: absolute;
+
+  right: 0;
+  bottom: 15px;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  writing-mode: vertical-rl;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+/* =========================================================
+   BOTTOM META BAR
+========================================================= */
+
+.career-hero-bottom {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 34px;
+
+  padding: 15px max(24px, calc((100vw - 1180px) / 2));
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(4, 14, 29, 0.3);
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 992px) {
+
+  .career-hero {
+    min-height: 450px;
+  }
+
+  .career-hero-grid {
+    min-height: 450px;
+    grid-template-columns: 1fr;
+  }
+
+  .career-hero-content {
+    padding: 85px 0 105px;
+  }
+
+  .career-hero-visual {
+    display: none;
+  }
+
+  .career-hero-bottom {
+    justify-content: flex-start;
+    padding-left: 24px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .career-container {
+    width: calc(100% - 32px);
+  }
+
+  .career-hero {
+    min-height: 370px;
+  }
+
+  .career-hero-grid {
+    min-height: 370px;
+  }
+
+  .career-hero-content {
+    padding: 70px 0 90px;
+  }
+
+  .career-hero-label {
+    margin-bottom: 17px;
+
+    font-size: 10px;
+    letter-spacing: 2.3px;
+  }
+
+  .career-hero-label span {
+    width: 27px;
+  }
+
+  .career-hero h1 {
+    font-size: 58px;
+    letter-spacing: -3px;
+  }
+
+  .career-hero p {
+    max-width: 430px;
+
+    margin-top: 21px;
+
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .career-hero-breadcrumb {
+    margin-top: 23px;
+    font-size: 12px;
+  }
+
+  .career-hero-bottom {
+    gap: 20px;
+
+    padding: 13px 16px;
+
+    font-size: 8px;
+    letter-spacing: 1.5px;
+
+    overflow: hidden;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .career-container {
+    width: calc(100% - 28px);
+  }
+
+  .career-hero {
+    min-height: 335px;
+  }
+
+  .career-hero-grid {
+    min-height: 335px;
+  }
+
+  .career-hero-content {
+    padding: 65px 0 82px;
+  }
+
+  .career-hero h1 {
+    font-size: 47px;
+    letter-spacing: -2px;
+  }
+
+  .career-hero p {
+    max-width: 330px;
+    font-size: 13px;
+  }
+
+  .career-hero-bottom {
+    gap: 14px;
+  }
+}

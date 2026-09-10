@@ -8,21 +8,73 @@ const CareerPage = () => {
       {/* =========================
           HERO / INNER BANNER
       ========================== */}
-      <section className="career-hero">
-        <div className="career-hero-overlay" />
+     <section className="career-hero">
+  <div className="career-hero-bg">
+    <img
+      src="https://deverp.com/CMSassets/images/it_service/career.jpg"
+      alt="Career at Dev ERP"
+    />
+  </div>
 
-        <div className="career-container">
-          <div className="career-hero-content">
-            <span className="career-hero-label">DEV ERP</span>
+  <div className="career-hero-overlay" />
 
-            <h1>CAREER</h1>
+  <div className="career-container career-hero-grid">
+    <div className="career-hero-content">
+      <div className="career-hero-label">
+        <span></span>
+        DEV ERP
+      </div>
 
-            <p>
-              Build your future with technology, innovation and great people.
-            </p>
-          </div>
+      <h1>
+        CAREER<span>.</span>
+      </h1>
+
+      <p>
+        Build your future with technology, innovation and great people.
+      </p>
+
+       <div className="clients-hero-bottom">
+
+        <div className="clients-breadcrumb">
+          <a href="/">
+            Home
+          </a>
+
+          <span>→</span>
+
+          <strong>Clients</strong>
         </div>
-      </section>
+
+        <div className="clients-hero-explore">
+          <span />
+          EXPLORE OUR CLIENTS
+        </div>
+
+      </div>
+    </div>
+
+    <div className="career-hero-visual" aria-hidden="true">
+      <div className="career-orbit career-orbit-one"></div>
+      <div className="career-orbit career-orbit-two"></div>
+      <div className="career-orbit career-orbit-three"></div>
+
+      <div className="career-orbit-center">
+        <span>01</span>
+        <small>CAREER</small>
+      </div>
+
+      <div className="career-vertical-text">
+        DEV ERP SOLUTIONS
+      </div>
+    </div>
+  </div>
+
+  <div className="career-hero-bottom">
+    <span>PEOPLE</span>
+    <span>INNOVATION</span>
+    <span>GROWTH</span>
+  </div>
+</section>
 
       {/* =========================
           INTRO

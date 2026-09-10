@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "./Clients.css";
+import { useNavigate } from "react-router-dom";
 
 interface Client {
   image: string;
@@ -452,6 +453,7 @@ const filters = [
 const Clients: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
+  const navigate = useNavigate();
 
   const filteredClients = useMemo(() => {
     if (activeFilter === "all") {
@@ -464,25 +466,96 @@ const Clients: React.FC = () => {
   return (
     <main className="clients-page">
       {/* HERO */}
-      <section className="clients-hero">
-        <div className="clients-hero-overlay" />
+   <section className="clients-hero">
 
-        <div className="clients-hero-content">
-          <div className="clients-container">
-            <span className="clients-eyebrow">OUR CLIENTS</span>
+  <div className="clients-hero-bg">
+    <img
+      src="https://deverp.com/CMSassets/images/it_service/800.jpg"
+      alt="DevERP Clients"
+    />
+  </div>
 
-            <h1>CLIENTS</h1>
+  <div className="clients-hero-overlay" />
 
-            <div className="clients-breadcrumb">
-              <a href="index.aspx?q=home">Home</a>
-              <span>/</span>
-              <strong>Clients</strong>
-            </div>
-          </div>
+  <div className="clients-hero-grid" />
+
+  <div className="clients-hero-glow clients-glow-one" />
+  <div className="clients-hero-glow clients-glow-two" />
+
+  <div className="clients-container clients-hero-inner">
+
+    {/* LEFT */}
+    <div className="clients-hero-content">
+
+      <div className="clients-eyebrow">
+        <span className="clients-eyebrow-line" />
+        <span>OUR CLIENTS</span>
+      </div>
+
+      <h1>
+        CLIENT
+        <span>PARTNERS</span>
+      </h1>
+
+      <p>
+        Trusted by businesses that choose technology,
+        innovation and intelligent solutions to grow.
+      </p>
+
+      <div className="clients-hero-bottom">
+
+        <div className="clients-breadcrumb">
+          <a href="index.aspx?q=home">
+            Home
+          </a>
+
+          <span>→</span>
+
+          <strong>Clients</strong>
         </div>
 
-        <div className="clients-hero-shape" />
-      </section>
+        <div className="clients-hero-explore">
+          <span />
+          EXPLORE OUR CLIENTS
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* RIGHT VISUAL */}
+    <div className="clients-hero-visual">
+
+      <div className="clients-orbit clients-orbit-one" />
+      <div className="clients-orbit clients-orbit-two" />
+      <div className="clients-orbit clients-orbit-three" />
+
+      <div className="clients-hero-core">
+        <span>DEV.ERP</span>
+        <strong>+</strong>
+        <small>CLIENTS</small>
+      </div>
+
+      <div className="clients-floating-card clients-floating-one">
+        <span>01</span>
+        <div>
+          <strong>TRUST</strong>
+          <small>BUILT TOGETHER</small>
+        </div>
+      </div>
+
+      <div className="clients-floating-card clients-floating-two">
+        <span>∞</span>
+        <div>
+          <strong>GROWTH</strong>
+          <small>LONG-TERM PARTNERS</small>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
       {/* INTRO */}
       <section className="clients-intro">

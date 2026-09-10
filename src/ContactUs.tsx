@@ -11,46 +11,78 @@ const ContactUs: React.FC = () => {
       {/* =====================================================
           HERO / INNER BANNER
       ====================================================== */}
-      <section className="contact-hero">
-        <div className="contact-hero-image">
-          <img
-            src="./CMSassets/images/it_service/contactus.png"
-            alt="Contact DevERP"
-          />
+    <section className="contact-hero">
+  <div className="contact-hero-image">
+    <img
+      src="./CMSassets/images/it_service/contactus.png"
+      alt="Contact DevERP"
+    />
+  </div>
+
+  <div className="contact-hero-overlay" />
+
+  <div className="contact-container contact-hero-grid">
+    <div className="contact-hero-content">
+
+      <div className="contact-hero-label">
+        <span></span>
+        GET IN TOUCH
+      </div>
+
+      <h1>
+        CONTACT US<span>.</span>
+      </h1>
+
+      <p>
+        Let's discuss how DevERP can help transform
+        your business with smarter technology solutions.
+      </p>
+
+      <div className="clients-hero-bottom">
+
+        <div className="clients-breadcrumb">
+          <a href="/">
+            Home
+          </a>
+
+          <span>→</span>
+
+          <strong>Contact Us</strong>
         </div>
 
-        <div className="contact-hero-overlay" />
-
-        <div className="contact-container">
-          <div className="contact-hero-content">
-
-            <span className="contact-hero-label">
-              GET IN TOUCH
-            </span>
-
-            <h1>CONTACT US</h1>
-
-            <p>
-              Let's discuss how DevERP can help transform
-              your business with smarter technology solutions.
-            </p>
-
-            <div className="contact-breadcrumb">
-              <button
-                type="button"
-                onClick={() => navigate("/")}
-              >
-                Home
-              </button>
-
-              <span>/</span>
-
-              <strong>Contact Us</strong>
-            </div>
-
-          </div>
+        <div className="clients-hero-explore">
+          <span />
+          EXPLORE OUR Blogs
         </div>
-      </section>
+
+      </div>
+
+    </div>
+
+    <div className="contact-hero-visual" aria-hidden="true">
+
+      <div className="contact-orbit contact-orbit-one"></div>
+      <div className="contact-orbit contact-orbit-two"></div>
+      <div className="contact-orbit contact-orbit-three"></div>
+
+      <div className="contact-orbit-center">
+        <span>01</span>
+        <small>CONTACT</small>
+      </div>
+
+      <div className="contact-vertical-text">
+        DEV ERP SOLUTIONS
+      </div>
+
+    </div>
+  </div>
+
+  <div className="contact-hero-bottom">
+    <span>CONNECT</span>
+    <span>COLLABORATE</span>
+    <span>GROW</span>
+  </div>
+</section>
 
       {/* =====================================================
           INTRO
@@ -96,142 +128,204 @@ const ContactUs: React.FC = () => {
       </section>
 
       {/* =====================================================
-          CONTACT CARDS
-      ====================================================== */}
-      <section className="contact-details">
+    CONTACT CARDS
+====================================================== */}
+<section className="contact-details">
 
-        <div className="contact-container">
+  <div className="contact-container">
 
-          <div className="contact-details-grid">
+    <div className="contact-details-heading">
+      <div className="contact-section-label">
+        <span></span>
+        OUR LOCATIONS
+      </div>
 
-            {/* INDIA */}
-            <div className="contact-info-card">
+      <h2>
+        Let’s <span>connect.</span>
+      </h2>
 
-              <div className="contact-card-icon">
-                <span>⌖</span>
-              </div>
+      <p>
+        Reach out to our teams across India and the UAE,
+        or connect with our sales and support team.
+      </p>
+    </div>
 
-              <div className="contact-card-content">
+    <div className="contact-details-grid">
 
-                <span className="contact-card-label">
-                  OUR OFFICE
-                </span>
+      {/* INDIA */}
+      <div className="contact-info-card">
 
-                <h3>India</h3>
+        <div className="contact-card-top">
+          <div className="contact-card-icon">
+            <span>⌖</span>
+          </div>
 
-                <p>
-                  405, 407B Primate Complex,
-                  <br />
-                  Opp. Gormoh Hotel,
-                  <br />
-                  Nr. Judges Bunglow Cross Road,
-                  <br />
-                  Bodakdev, Ahmedabad-380054.
-                  <br />
-                  Gujarat, India.
-                </p>
+          <span className="contact-card-number">
+            01
+          </span>
+        </div>
 
-                <a href="mailto:admin@deverp.com">
-                  admin@deverp.com
-                </a>
+        <div className="contact-card-content">
 
-                <a href="tel:07935312554">
-                  079 3531 2554 (30 Lines)
-                </a>
+          <span className="contact-card-label">
+            OUR OFFICE
+          </span>
 
-                <a href="tel:+919327940159">
-                  +91 93279 40159
-                </a>
+          <h3>India</h3>
 
-              </div>
+          <div className="contact-card-line"></div>
 
-            </div>
+          <p>
+            405, 407B Primate Complex,
+            <br />
+            Opp. Gormoh Hotel,
+            <br />
+            Nr. Judges Bunglow Cross Road,
+            <br />
+            Bodakdev, Ahmedabad-380054.
+            <br />
+            Gujarat, India.
+          </p>
 
-            {/* UAE */}
-            <div className="contact-info-card">
+          <div className="contact-card-links">
 
-              <div className="contact-card-icon">
-                <span>⌖</span>
-              </div>
+            <a href="mailto:admin@deverp.com">
+              <span>✉</span>
+              admin@deverp.com
+            </a>
 
-              <div className="contact-card-content">
+            <a href="tel:07935312554">
+              <span>☎</span>
+              079 3531 2554 (30 Lines)
+            </a>
 
-                <span className="contact-card-label">
-                  OUR OFFICE
-                </span>
-
-                <h3>United Arab Emirates</h3>
-
-                <p>
-                  FDCW1699, Compass Building,
-                  <br />
-                  Al Sahada Road,
-                  <br />
-                  Al Hamara Industrial zone-FZ,
-                  <br />
-                  Ras Al Khaimah,
-                  <br />
-                  United Arab Emirates.
-                </p>
-
-                <a href="mailto:sales@deverp.com">
-                  sales@deverp.com
-                </a>
-
-                <a href="tel:+971561612075">
-                  +971 56 161 2075
-                </a>
-
-              </div>
-
-            </div>
-
-            {/* EMAIL / SALES */}
-            <div className="contact-info-card">
-
-              <div className="contact-card-icon">
-                <span>✉</span>
-              </div>
-
-              <div className="contact-card-content">
-
-                <span className="contact-card-label">
-                  SALES & SUPPORT
-                </span>
-
-                <h3>Let's talk</h3>
-
-                <p>
-                  Have a project in mind or need help
-                  selecting the right ERP solution?
-                </p>
-
-                <a href="mailto:mkt@deverp.com">
-                  mkt@deverp.com
-                </a>
-
-                <a href="mailto:suppprt@deverp.com">
-                  suppprt@deverp.com
-                </a>
-
-                <a href="tel:+918818812554">
-                  +91 88188 12554
-                </a>
-
-                <a href="tel:+919904083255">
-                  +91 99040 83255
-                </a>
-
-              </div>
-
-            </div>
+            <a href="tel:+919327940159">
+              <span>☎</span>
+              +91 93279 40159
+            </a>
 
           </div>
 
         </div>
 
-      </section>
+      </div>
 
+
+      {/* UAE */}
+      <div className="contact-info-card">
+
+        <div className="contact-card-top">
+          <div className="contact-card-icon">
+            <span>⌖</span>
+          </div>
+
+          <span className="contact-card-number">
+            02
+          </span>
+        </div>
+
+        <div className="contact-card-content">
+
+          <span className="contact-card-label">
+            OUR OFFICE
+          </span>
+
+          <h3>United Arab Emirates</h3>
+
+          <div className="contact-card-line"></div>
+
+          <p>
+            FDCW1699, Compass Building,
+            <br />
+            Al Sahada Road,
+            <br />
+            Al Hamara Industrial zone-FZ,
+            <br />
+            Ras Al Khaimah,
+            <br />
+            United Arab Emirates.
+          </p>
+
+          <div className="contact-card-links">
+
+            <a href="mailto:sales@deverp.com">
+              <span>✉</span>
+              sales@deverp.com
+            </a>
+
+            <a href="tel:+971561612075">
+              <span>☎</span>
+              +971 56 161 2075
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {/* SALES & SUPPORT */}
+      <div className="contact-info-card contact-info-card-highlight">
+
+        <div className="contact-card-top">
+          <div className="contact-card-icon">
+            <span>✉</span>
+          </div>
+
+          <span className="contact-card-number">
+            03
+          </span>
+        </div>
+
+        <div className="contact-card-content">
+
+          <span className="contact-card-label">
+            SALES & SUPPORT
+          </span>
+
+          <h3>Let’s talk</h3>
+
+          <div className="contact-card-line"></div>
+
+          <p>
+            Have a project in mind or need help
+            selecting the right ERP solution?
+          </p>
+
+          <div className="contact-card-links">
+
+            <a href="mailto:mkt@deverp.com">
+              <span>✉</span>
+              mkt@deverp.com
+            </a>
+
+            <a href="mailto:suppprt@deverp.com">
+              <span>✉</span>
+              suppprt@deverp.com
+            </a>
+
+            <a href="tel:+918818812554">
+              <span>☎</span>
+              +91 88188 12554
+            </a>
+
+            <a href="tel:+919904083255">
+              <span>☎</span>
+              +91 99040 83255
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
       {/* =====================================================
           CONTACT FORM + IMAGE
       ====================================================== */}

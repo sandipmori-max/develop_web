@@ -163,32 +163,74 @@ const BlogPage = () => {
           HERO
       ====================================================== */}
       <section className="blog-hero">
+  <div className="blog-hero-image">
+    <img
+      src="https://deverp.com/CMSassets/images/it_service/inner_page_banner2.jpg"
+      alt="Dev ERP Blog"
+    />
+  </div>
 
-        <div className="blog-hero-image" />
+  <div className="blog-hero-overlay" />
 
-        <div className="blog-hero-overlay" />
+  <div className="blog-container blog-hero-grid">
+    <div className="blog-hero-content">
 
-        <div className="blog-container">
+      <div className="blog-hero-kicker">
+        <span></span>
+        DEV ERP INSIGHTS
+      </div>
 
-          <div className="blog-hero-content">
+      <h1>
+        Blog<span>.</span>
+      </h1>
 
-            <span className="blog-hero-kicker">
-              DEV ERP INSIGHTS
-            </span>
+      <p>
+        Technology insights, ERP knowledge and ideas
+        from the DevERP team.
+      </p>
 
-            <h1>Blog</h1>
+     <div className="clients-hero-bottom">
 
-            <p>
-              Technology insights, ERP knowledge and ideas
-              from the DevERP team.
-            </p>
+        <div className="clients-breadcrumb">
+          <a href="/">
+            Home
+          </a>
 
-          </div>
+          <span>→</span>
 
+          <strong>Blog</strong>
         </div>
 
-      </section>
+        <div className="clients-hero-explore">
+          <span />
+          EXPLORE OUR Blogs
+        </div>
 
+      </div>
+    </div>
+
+    <div className="blog-hero-visual" aria-hidden="true">
+      <div className="blog-orbit blog-orbit-one"></div>
+      <div className="blog-orbit blog-orbit-two"></div>
+      <div className="blog-orbit blog-orbit-three"></div>
+
+      <div className="blog-orbit-center">
+        <span>01</span>
+        <small>INSIGHTS</small>
+      </div>
+
+      <div className="blog-vertical-text">
+        TECHNOLOGY • ERP • IDEAS
+      </div>
+    </div>
+  </div>
+
+  <div className="blog-hero-bottom">
+    <span>TECHNOLOGY</span>
+    <span>ERP</span>
+    <span>INNOVATION</span>
+  </div>
+</section>
 
       {/* =====================================================
           BLOG SECTION

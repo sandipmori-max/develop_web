@@ -838,3 +838,892 @@
     font-size: 14px;
   }
 }
+/* =========================================================
+   CLIENTS HERO — PREMIUM REDESIGN
+========================================================= */
+
+.clients-hero {
+  position: relative;
+
+  min-height: 530px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background: #061426;
+
+  isolation: isolate;
+}
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.clients-hero-bg {
+  position: absolute;
+  inset: 0;
+
+  z-index: -5;
+
+  overflow: hidden;
+}
+
+.clients-hero-bg img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1.04);
+
+  animation: clientsHeroZoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes clientsHeroZoom {
+
+  from {
+    transform: scale(1.04);
+  }
+
+  to {
+    transform: scale(1.09);
+  }
+
+}
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.clients-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: -4;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 14, 28, 0.98) 0%,
+      rgba(3, 14, 28, 0.93) 32%,
+      rgba(3, 14, 28, 0.75) 60%,
+      rgba(3, 14, 28, 0.40) 100%
+    );
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.clients-hero-grid {
+  position: absolute;
+  inset: 0;
+
+  z-index: -3;
+
+  opacity: 0.17;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      90deg,
+      #000 0%,
+      rgba(0, 0, 0, 0.65) 50%,
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.clients-hero-glow {
+  position: absolute;
+
+  z-index: -2;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(15px);
+}
+
+.clients-glow-one {
+  width: 520px;
+  height: 520px;
+
+  top: -300px;
+  left: 40%;
+
+  background: rgba(3, 158, 227, 0.20);
+}
+
+.clients-glow-two {
+  width: 360px;
+  height: 360px;
+
+  right: -150px;
+  bottom: -190px;
+
+  background: rgba(3, 158, 227, 0.15);
+}
+
+/* =========================================================
+   INNER
+========================================================= */
+
+.clients-hero-inner {
+  position: relative;
+
+  min-height: 530px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 60px;
+}
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.clients-hero-content {
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 760px;
+
+  padding: 85px 0 75px;
+}
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.clients-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 22px;
+
+  color: #6ccfff;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.8px;
+
+  text-transform: uppercase;
+}
+
+.clients-eyebrow-line {
+  position: relative;
+
+  width: 42px;
+  height: 2px;
+
+  overflow: hidden;
+
+  background: rgba(108, 207, 255, 0.30);
+}
+
+.clients-eyebrow-line::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 18px;
+  height: 100%;
+
+  background: #6ccfff;
+
+  animation: clientsEyebrowLine 2s ease-in-out infinite;
+}
+
+@keyframes clientsEyebrowLine {
+
+  0% {
+    transform: translateX(-20px);
+  }
+
+  50% {
+    transform: translateX(42px);
+  }
+
+  100% {
+    transform: translateX(-20px);
+  }
+
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.clients-hero h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(58px, 8vw, 96px);
+
+  line-height: 0.88;
+
+  font-weight: 900;
+
+  letter-spacing: -5px;
+}
+
+.clients-hero h1 span {
+  display: block;
+
+  margin-top: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #b9e9ff 48%,
+      #039ee3 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.clients-hero-content > p {
+  max-width: 610px;
+
+  margin: 29px 0 34px;
+
+  color: rgba(255, 255, 255, 0.70);
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   HERO BOTTOM
+========================================================= */
+
+.clients-hero-bottom {
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+}
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.clients-breadcrumb {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  min-height: 43px;
+
+  padding: 0 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 12px;
+}
+
+.clients-breadcrumb a {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: color 0.25s ease;
+}
+
+.clients-breadcrumb a:hover {
+  color: #6ccfff;
+}
+
+.clients-breadcrumb span {
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 15px;
+}
+
+.clients-breadcrumb strong {
+  color: #6ccfff;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   EXPLORE
+========================================================= */
+
+.clients-hero-explore {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.clients-hero-explore span {
+  width: 35px;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
+
+.clients-hero-visual {
+  position: relative;
+
+  width: 310px;
+  height: 310px;
+
+  flex: 0 0 310px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 20px;
+}
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.clients-orbit {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.clients-orbit-one {
+  width: 310px;
+  height: 310px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  animation:
+    clientsOrbitRotate 20s linear infinite;
+}
+
+.clients-orbit-one::before {
+  content: "";
+
+  position: absolute;
+
+  top: 34px;
+  left: 75px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #6ccfff;
+
+  box-shadow:
+    0 0 15px rgba(108, 207, 255, 0.9),
+    0 0 30px rgba(108, 207, 255, 0.5);
+}
+
+.clients-orbit-two {
+  width: 230px;
+  height: 230px;
+
+  border: 1px dashed rgba(3, 158, 227, 0.32);
+
+  animation:
+    clientsOrbitReverse 15s linear infinite;
+}
+
+.clients-orbit-two::after {
+  content: "";
+
+  position: absolute;
+
+  right: 30px;
+  top: 50px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #039ee3;
+
+  box-shadow:
+    0 0 15px rgba(3, 158, 227, 0.9);
+}
+
+.clients-orbit-three {
+  width: 165px;
+  height: 165px;
+
+  border: 1px solid rgba(108, 207, 255, 0.13);
+
+  transform: rotate(45deg);
+
+  animation:
+    clientsOrbitThird 12s ease-in-out infinite alternate;
+}
+
+@keyframes clientsOrbitRotate {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes clientsOrbitReverse {
+
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+
+}
+
+@keyframes clientsOrbitThird {
+
+  from {
+    transform: rotate(35deg) scale(0.96);
+  }
+
+  to {
+    transform: rotate(55deg) scale(1.04);
+  }
+
+}
+
+/* =========================================================
+   CENTER CORE
+========================================================= */
+
+.clients-hero-core {
+  position: relative;
+
+  z-index: 4;
+
+  width: 128px;
+  height: 128px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.24);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(3, 158, 227, 0.25),
+      rgba(3, 158, 227, 0.08) 55%,
+      rgba(3, 158, 227, 0.01) 75%
+    );
+
+  box-shadow:
+    0 0 55px rgba(3, 158, 227, 0.24),
+    inset 0 0 35px rgba(108, 207, 255, 0.08);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.clients-hero-core span {
+  color: #6ccfff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+.clients-hero-core strong {
+  margin: 5px 0;
+
+  color: #ffffff;
+
+  font-size: 34px;
+
+  line-height: 1;
+
+  font-weight: 900;
+}
+
+.clients-hero-core small {
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+/* =========================================================
+   FLOATING CARDS
+========================================================= */
+
+.clients-floating-card {
+  position: absolute;
+
+  z-index: 6;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 10px;
+
+  background: rgba(5, 20, 40, 0.68);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+.clients-floating-card > span {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 31px;
+  height: 31px;
+
+  border-radius: 8px;
+
+  background: rgba(3, 158, 227, 0.18);
+
+  color: #6ccfff;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.clients-floating-card div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.clients-floating-card strong {
+  color: #ffffff;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.clients-floating-card small {
+  color: rgba(255, 255, 255, 0.43);
+
+  font-size: 7px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+}
+
+.clients-floating-one {
+  top: 12px;
+  right: -20px;
+}
+
+.clients-floating-two {
+  left: -20px;
+  bottom: 18px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .clients-container {
+    width: min(100% - 36px, 960px);
+  }
+
+  .clients-hero {
+    min-height: 490px;
+  }
+
+  .clients-hero-inner {
+    min-height: 490px;
+
+    gap: 30px;
+  }
+
+  .clients-hero-content {
+    padding: 70px 0 60px;
+  }
+
+  .clients-hero h1 {
+    font-size: clamp(52px, 8vw, 74px);
+  }
+
+  .clients-hero-visual {
+    width: 235px;
+    height: 235px;
+
+    flex-basis: 235px;
+  }
+
+  .clients-orbit-one {
+    width: 235px;
+    height: 235px;
+  }
+
+  .clients-orbit-two {
+    width: 175px;
+    height: 175px;
+  }
+
+  .clients-orbit-three {
+    width: 130px;
+    height: 130px;
+  }
+
+  .clients-hero-core {
+    width: 100px;
+    height: 100px;
+  }
+
+  .clients-hero-core strong {
+    font-size: 26px;
+  }
+
+  .clients-floating-one {
+    right: -5px;
+  }
+
+  .clients-floating-two {
+    left: -5px;
+  }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .clients-container {
+    width: min(100% - 28px, 680px);
+  }
+
+  .clients-hero {
+    min-height: 430px;
+  }
+
+  .clients-hero-inner {
+    min-height: 430px;
+
+    display: block;
+  }
+
+  .clients-hero-content {
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 72px 0 55px;
+  }
+
+  .clients-hero h1 {
+    font-size: 58px;
+
+    letter-spacing: -3px;
+  }
+
+  .clients-hero-content > p {
+    max-width: 520px;
+
+    margin: 23px 0 28px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .clients-hero-bottom {
+    gap: 15px;
+  }
+
+  .clients-hero-explore {
+    display: none;
+  }
+
+  .clients-hero-visual {
+    display: none;
+  }
+
+  .clients-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 14, 28, 0.97) 0%,
+        rgba(3, 14, 28, 0.88) 70%,
+        rgba(3, 14, 28, 0.70) 100%
+      );
+  }
+
+  .clients-hero-grid {
+    opacity: 0.10;
+  }
+
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .clients-container {
+    width: calc(100% - 24px);
+  }
+
+  .clients-hero {
+    min-height: 390px;
+  }
+
+  .clients-hero-inner {
+    min-height: 390px;
+  }
+
+  .clients-hero-content {
+    padding: 62px 0 48px;
+  }
+
+  .clients-eyebrow {
+    margin-bottom: 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 2.2px;
+  }
+
+  .clients-eyebrow-line {
+    width: 29px;
+  }
+
+  .clients-hero h1 {
+    font-size: 49px;
+
+    letter-spacing: -2.5px;
+  }
+
+  .clients-hero-content > p {
+    margin: 20px 0 25px;
+
+    font-size: 13.5px;
+  }
+
+  .clients-breadcrumb {
+    min-height: 38px;
+
+    padding: 0 13px;
+
+    font-size: 11px;
+  }
+
+}

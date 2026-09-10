@@ -106,44 +106,75 @@ const ServiceList: React.FC = () => {
     <> 
 
       {/* ================= HERO ================= */}
-      <section className="service-page-hero">
-        <div className="service-page-hero-bg">
-          <img
-            src="CMSassets/images/it_service/inner_page_banner2.jpg"
-            alt="DevERP Services"
-          />
+   <section className="service-page-hero">
+  <div className="service-page-hero-bg">
+    <img
+      src="CMSassets/images/it_service/inner_page_banner2.jpg"
+      alt="DevERP Services"
+    />
+  </div>
+
+  <div className="service-page-hero-overlay" />
+
+  <div className="service-page-hero-glow service-page-hero-glow-one" />
+  <div className="service-page-hero-glow service-page-hero-glow-two" />
+
+  <div className="service-page-container">
+    <div className="service-page-hero-content">
+
+      <div className="service-page-eyebrow">
+        <span className="service-page-eyebrow-line" />
+        <span>WHAT WE DO</span>
+      </div>
+
+      <h1>
+        Smart Technology.
+        <span> Powerful Services.</span>
+      </h1>
+
+      <p>
+        Technology solutions designed to simplify,
+        connect and accelerate your business.
+      </p>
+
+      <div className="service-page-hero-bottom">
+
+        <div className="service-page-breadcrumb">
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+          >
+            Home
+          </button>
+
+          <span className="breadcrumb-arrow">→</span>
+
+          <strong>Services</strong>
         </div>
 
-        <div className="service-page-hero-overlay" />
-
-        <div className="service-page-container">
-          <div className="service-page-hero-content">
-            <span className="service-page-eyebrow">
-              WHAT WE DO
-            </span>
-
-            <h1>SERVICE LIST</h1>
-
-            <p>
-              Technology solutions designed to simplify,
-              connect and accelerate your business.
-            </p>
-
-            <div className="service-page-breadcrumb">
-              <button
-                type="button"
-                onClick={() => navigate("/")}
-              >
-                Home
-              </button>
-
-              <span>/</span>
-
-              <strong>Services</strong>
-            </div>
-          </div>
+        <div className="service-page-hero-scroll">
+          <span className="scroll-line" />
+          <span>EXPLORE SERVICES</span>
         </div>
-      </section>
+
+      </div>
+
+    </div>
+
+    <div className="service-page-hero-side">
+
+      <div className="hero-side-circle">
+        <span>01</span>
+      </div>
+
+      <div className="hero-side-text">
+        <span>DEV.ERP</span>
+        <strong>BUSINESS<br />SOLUTIONS</strong>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* ================= INTRO ================= */}
       <section className="services-intro">
