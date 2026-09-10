@@ -8,73 +8,79 @@ const CareerPage = () => {
       {/* =========================
           HERO / INNER BANNER
       ========================== */}
-     <section className="career-hero">
-  <div className="career-hero-bg">
-    <img
-      src="https://deverp.com/CMSassets/images/it_service/career.jpg"
-      alt="Career at Dev ERP"
-    />
-  </div>
-
-  <div className="career-hero-overlay" />
-
-  <div className="career-container career-hero-grid">
-    <div className="career-hero-content">
-      <div className="career-hero-label">
-        <span></span>
-        DEV ERP
-      </div>
-
-      <h1>
-        CAREER<span>.</span>
-      </h1>
-
-      <p>
-        Build your future with technology, innovation and great people.
-      </p>
-
-       <div className="clients-hero-bottom">
-
-        <div className="clients-breadcrumb">
-          <a href="/">
-            Home
-          </a>
-
-          <span>→</span>
-
-          <strong>Clients</strong>
+      <section className="career-hero">
+        <div className="career-hero-bg">
+          <img
+            src="https://deverp.com/CMSassets/images/it_service/career.jpg"
+            alt="Career at Dev ERP"
+          />
         </div>
 
-        <div className="clients-hero-explore">
-          <span />
-          EXPLORE OUR CLIENTS
+        <div className="career-hero-overlay" />
+
+        <div className="career-container career-hero-grid">
+
+          {/* HERO LEFT */}
+          <div className="career-hero-content career-hero-slide-left">
+            <div className="career-hero-label">
+              <span></span>
+              DEV ERP
+            </div>
+
+            <h1>
+              CAREER<span>.</span>
+            </h1>
+
+            <p>
+              Build your future with technology, innovation and great people.
+            </p>
+
+            <div className="clients-hero-bottom career-hero-bottom-content">
+
+              <div className="clients-breadcrumb">
+                <a href="/">
+                  Home
+                </a>
+
+                <span>→</span>
+
+                <strong>Clients</strong>
+              </div>
+
+              <div className="clients-hero-explore">
+                <span />
+                EXPLORE OUR CLIENTS
+              </div>
+
+            </div>
+          </div>
+
+          {/* HERO RIGHT */}
+          <div
+            className="career-hero-visual career-hero-slide-right"
+            aria-hidden="true"
+          >
+            <div className="career-orbit career-orbit-one"></div>
+            <div className="career-orbit career-orbit-two"></div>
+            <div className="career-orbit career-orbit-three"></div>
+
+            <div className="career-orbit-center">
+              <span>01</span>
+              <small>CAREER</small>
+            </div>
+
+            <div className="career-vertical-text">
+              DEV ERP SOLUTIONS
+            </div>
+          </div>
         </div>
 
-      </div>
-    </div>
-
-    <div className="career-hero-visual" aria-hidden="true">
-      <div className="career-orbit career-orbit-one"></div>
-      <div className="career-orbit career-orbit-two"></div>
-      <div className="career-orbit career-orbit-three"></div>
-
-      <div className="career-orbit-center">
-        <span>01</span>
-        <small>CAREER</small>
-      </div>
-
-      <div className="career-vertical-text">
-        DEV ERP SOLUTIONS
-      </div>
-    </div>
-  </div>
-
-  <div className="career-hero-bottom">
-    <span>PEOPLE</span>
-    <span>INNOVATION</span>
-    <span>GROWTH</span>
-  </div>
-</section>
+        <div className="career-hero-bottom career-hero-bottom-reveal">
+          <span>PEOPLE</span>
+          <span>INNOVATION</span>
+          <span>GROWTH</span>
+        </div>
+      </section>
 
       {/* =========================
           INTRO
@@ -82,7 +88,7 @@ const CareerPage = () => {
       <section className="career-intro">
         <div className="career-container">
 
-          <div className="career-section-heading">
+          <div className="career-section-heading career-scroll-left">
             <span className="career-eyebrow">
               JOIN OUR TEAM
             </span>
@@ -102,7 +108,7 @@ const CareerPage = () => {
           <div className="career-main-grid">
 
             {/* LEFT CONTENT */}
-            <div className="career-content">
+            <div className="career-content career-content-slide-left">
 
               <span className="career-content-number">
                 01
@@ -127,7 +133,7 @@ const CareerPage = () => {
               {/* BENEFITS */}
               <div className="career-benefits">
 
-                <div className="career-benefit">
+                <div className="career-benefit career-benefit-reveal career-benefit-delay-1">
                   <div className="career-check">
                     ✓
                   </div>
@@ -140,7 +146,7 @@ const CareerPage = () => {
                   </div>
                 </div>
 
-                <div className="career-benefit">
+                <div className="career-benefit career-benefit-reveal career-benefit-delay-2">
                   <div className="career-check">
                     ✓
                   </div>
@@ -153,7 +159,7 @@ const CareerPage = () => {
                   </div>
                 </div>
 
-                <div className="career-benefit">
+                <div className="career-benefit career-benefit-reveal career-benefit-delay-3">
                   <div className="career-check">
                     ✓
                   </div>
@@ -166,7 +172,7 @@ const CareerPage = () => {
                   </div>
                 </div>
 
-                <div className="career-benefit">
+                <div className="career-benefit career-benefit-reveal career-benefit-delay-4">
                   <div className="career-check">
                     ✓
                   </div>
@@ -179,7 +185,7 @@ const CareerPage = () => {
                   </div>
                 </div>
 
-                <div className="career-benefit">
+                <div className="career-benefit career-benefit-reveal career-benefit-delay-5">
                   <div className="career-check">
                     ✓
                   </div>
@@ -195,7 +201,7 @@ const CareerPage = () => {
               </div>
 
               {/* EMAIL CTA */}
-              <div className="career-apply-box">
+              <div className="career-apply-box career-apply-reveal">
 
                 <div className="career-apply-icon">
                   @
@@ -221,7 +227,7 @@ const CareerPage = () => {
             </div>
 
             {/* RIGHT IMAGE */}
-            <div className="career-image-wrapper">
+            <div className="career-image-wrapper career-content-slide-right">
 
               <div className="career-image-card">
 
@@ -259,7 +265,7 @@ const CareerPage = () => {
 
           <div className="career-cta-inner">
 
-            <div>
+            <div className="career-cta-content career-cta-slide-left">
               <span className="career-eyebrow">
                 LET'S BUILD SOMETHING GREAT
               </span>
@@ -276,7 +282,7 @@ const CareerPage = () => {
 
             <a
               href="mailto:admin@deverp.com"
-              className="career-cta-button"
+              className="career-cta-button career-cta-slide-right"
             >
               Apply Now
               <span>↗</span>
@@ -291,4 +297,4 @@ const CareerPage = () => {
   );
 };
 
-export default CareerPage;
+ export default CareerPage;

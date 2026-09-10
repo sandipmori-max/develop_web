@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
+import ScrollProgress from "./ScrollProgress";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -91,15 +92,7 @@ const Header = () => {
   };
   return (
     <header className="de-header" id="default_header">
-
-      {/* =====================================================
-          TOP INFORMATION BAR
-      ====================================================== */}
-
-
-      {/* =====================================================
-          MAIN NAVIGATION
-      ====================================================== */}
+ 
       <div className="de-navbar">
         <div className="de-container">
 
@@ -588,7 +581,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-
+                        <ScrollProgress />
+                
     </header>
   );
 };

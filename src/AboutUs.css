@@ -1914,3 +1914,265 @@
     font-size: 11px;
   }
 }
+/* =========================================================
+   ABOUT HERO - REPEAT ON SCROLL
+========================================================= */
+
+.about-hero-slide-left {
+  opacity: 0;
+  transform: translateX(-75px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-hero-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.about-hero-slide-right {
+  opacity: 0;
+  transform: translateX(75px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-hero-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition-delay: 0.15s;
+}
+
+
+/* =========================================================
+   INTRO HEADING
+========================================================= */
+
+.about-scroll-left {
+  opacity: 0;
+  transform: translateX(-60px);
+
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-scroll-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   ABOUT CONTENT LEFT / IMAGE RIGHT
+========================================================= */
+
+.about-content-slide-left {
+  opacity: 0;
+  transform: translateX(-65px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-content-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.about-content-slide-right {
+  opacity: 0;
+  transform: translateX(65px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-content-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition-delay: 0.12s;
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.about-value-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-value-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.about-value-delay-1 {
+  transition-delay: 0.05s;
+}
+
+.about-value-delay-2 {
+  transition-delay: 0.13s;
+}
+
+.about-value-delay-3 {
+  transition-delay: 0.21s;
+}
+
+.about-value-delay-4 {
+  transition-delay: 0.29s;
+}
+
+
+/* =========================================================
+   EXPERIENCE STRIP
+========================================================= */
+
+.about-experience-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-experience-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.about-experience-delay-1 {
+  transition-delay: 0.05s;
+}
+
+.about-experience-delay-2 {
+  transition-delay: 0.13s;
+}
+
+.about-experience-delay-3 {
+  transition-delay: 0.21s;
+}
+
+.about-experience-delay-4 {
+  transition-delay: 0.29s;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.about-cta-slide-left {
+  opacity: 0;
+  transform: translateX(-70px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-cta-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.about-cta-slide-right {
+  opacity: 0;
+  transform: translateX(70px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-cta-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition-delay: 0.18s;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .about-hero-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .about-hero-slide-right {
+    transform: translateX(40px);
+  }
+
+  .about-scroll-left {
+    transform: translateX(-40px);
+  }
+
+  .about-content-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .about-content-slide-right {
+    transform: translateX(40px);
+  }
+
+  .about-value-reveal,
+  .about-experience-reveal {
+    transform: translateY(25px);
+  }
+
+  .about-cta-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .about-cta-slide-right {
+    transform: translateX(40px);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-hero-slide-left,
+  .about-hero-slide-right,
+  .about-scroll-left,
+  .about-content-slide-left,
+  .about-content-slide-right,
+  .about-value-reveal,
+  .about-experience-reveal,
+  .about-cta-slide-left,
+  .about-cta-slide-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+}

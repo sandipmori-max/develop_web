@@ -464,300 +464,400 @@ const Clients: React.FC = () => {
   }, [activeFilter]);
 
   return (
-    <main className="clients-page">
-      {/* HERO */}
-   <section className="clients-hero">
+  <main className="clients-page">
 
-  <div className="clients-hero-bg">
-    <img
-      src="https://deverp.com/CMSassets/images/it_service/800.jpg"
-      alt="DevERP Clients"
-    />
-  </div>
+  {/* =========================================
+      HERO
+  ========================================= */}
+  <section className="clients-hero">
 
-  <div className="clients-hero-overlay" />
-
-  <div className="clients-hero-grid" />
-
-  <div className="clients-hero-glow clients-glow-one" />
-  <div className="clients-hero-glow clients-glow-two" />
-
-  <div className="clients-container clients-hero-inner">
-
-    {/* LEFT */}
-    <div className="clients-hero-content">
-
-      <div className="clients-eyebrow">
-        <span className="clients-eyebrow-line" />
-        <span>OUR CLIENTS</span>
-      </div>
-
-      <h1>
-        CLIENT
-        <span>PARTNERS</span>
-      </h1>
-
-      <p>
-        Trusted by businesses that choose technology,
-        innovation and intelligent solutions to grow.
-      </p>
-
-      <div className="clients-hero-bottom">
-
-        <div className="clients-breadcrumb">
-          <a href="index.aspx?q=home">
-            Home
-          </a>
-
-          <span>→</span>
-
-          <strong>Clients</strong>
-        </div>
-
-        <div className="clients-hero-explore">
-          <span />
-          EXPLORE OUR CLIENTS
-        </div>
-
-      </div>
-
+    <div className="clients-hero-bg">
+      <img
+        src="https://deverp.com/CMSassets/images/it_service/800.jpg"
+        alt="DevERP Clients"
+      />
     </div>
 
-    {/* RIGHT VISUAL */}
-    <div className="clients-hero-visual">
+    <div className="clients-hero-overlay" />
 
-      <div className="clients-orbit clients-orbit-one" />
-      <div className="clients-orbit clients-orbit-two" />
-      <div className="clients-orbit clients-orbit-three" />
+    <div className="clients-hero-grid" />
 
-      <div className="clients-hero-core">
-        <span>DEV.ERP</span>
-        <strong>+</strong>
-        <small>CLIENTS</small>
-      </div>
+    <div className="clients-hero-glow clients-glow-one" />
+    <div className="clients-hero-glow clients-glow-two" />
 
-      <div className="clients-floating-card clients-floating-one">
-        <span>01</span>
-        <div>
-          <strong>TRUST</strong>
-          <small>BUILT TOGETHER</small>
+    <div className="clients-container clients-hero-inner">
+
+      {/* LEFT */}
+      <div className="clients-hero-content clients-hero-slide-left">
+
+        <div className="clients-eyebrow">
+          <span className="clients-eyebrow-line" />
+          <span>OUR CLIENTS</span>
         </div>
-      </div>
 
-      <div className="clients-floating-card clients-floating-two">
-        <span>∞</span>
-        <div>
-          <strong>GROWTH</strong>
-          <small>LONG-TERM PARTNERS</small>
-        </div>
-      </div>
+        <h1>
+          CLIENT
+          <span>PARTNERS</span>
+        </h1>
 
-    </div>
+        <p>
+          Trusted by businesses that choose technology,
+          innovation and intelligent solutions to grow.
+        </p>
 
-  </div>
-</section>
+        <div className="clients-hero-bottom">
 
-      {/* INTRO */}
-      <section className="clients-intro">
-        <div className="clients-container">
-          <div className="clients-intro-grid">
-            <div>
-              <span className="clients-section-label">
-                TRUSTED PARTNERS
-              </span>
-
-              <h2>
-                Client <span>List</span>
-              </h2>
-            </div>
-
-            <div className="clients-intro-text">
-              <p>
-                We are proud to work with businesses across multiple
-                industries. Our ERP solutions help organizations simplify
-                operations, improve visibility and build smarter workflows.
-              </p>
-
-              <div className="clients-stats">
-                <div>
-                  <strong>{clients.length}+</strong>
-                  <span>Businesses</span>
-                </div>
-
-                <div>
-                  <strong>15+</strong>
-                  <span>Industries</span>
-                </div>
-
-                <div>
-                  <strong>360°</strong>
-                  <span>ERP Solutions</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CLIENTS */}
-      <section className="clients-gallery-section">
-        <div className="clients-container">
-          {/* FILTER */}
-          <div className="clients-filter-wrapper">
-            <div className="clients-filter">
-              {filters.map((filter) => (
-                <button
-                  key={filter.key}
-                  type="button"
-                  className={
-                    activeFilter === filter.key
-                      ? "client-filter active"
-                      : "client-filter"
-                  }
-                  onClick={() => setActiveFilter(filter.key)}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* RESULT INFO */}
-          <div className="clients-result-bar">
-            <div>
-              Showing{" "}
-              <strong>{filteredClients.length}</strong> client
-              {filteredClients.length !== 1 ? "s" : ""}
-            </div>
-
-            {activeFilter !== "all" && (
-              <button
-                type="button"
-                onClick={() => setActiveFilter("all")}
-              >
-                Clear filter <span>×</span>
-              </button>
-            )}
-          </div>
-
-          {/* GRID */}
-          <div className="clients-grid">
-            {filteredClients.map((client, index) => (
-              <article
-                className="client-card"
-                key={`${client.name}-${index}`}
-                onClick={() => setSelectedClient(client)}
-              >
-                <div className="client-card-number">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-
-                <div className="client-logo-box">
-                  <img
-                    src={client.image}
-                    alt={client.name}
-                    loading="lazy"
-                  />
-                </div>
-
-                <div className="client-card-footer">
-                  <span>{client.name}</span>
-
-                  <span className="client-card-arrow">
-                    ↗
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {filteredClients.length === 0 && (
-            <div className="clients-empty">
-              <div className="clients-empty-icon">⌕</div>
-              <h3>No clients found</h3>
-              <p>
-                There are no clients available in this category.
-              </p>
-
-              <button
-                type="button"
-                onClick={() => setActiveFilter("all")}
-              >
-                Show all clients
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="clients-cta">
-        <div className="clients-cta-glow" />
-
-        <div className="clients-container">
-          <div className="clients-cta-inner">
-            <div>
-              <span className="clients-section-label">
-                LET'S WORK TOGETHER
-              </span>
-
-              <h2>
-                Ready to build a smarter
-                <br />
-                <span>business?</span>
-              </h2>
-
-              <p>
-                Discover how DevERP can help your organization
-                simplify operations and grow faster.
-              </p>
-            </div>
-
-            <a
-              href="index.aspx?q=contact_us"
-              className="clients-cta-button"
-            >
-              <span>Contact Us</span>
-              <strong>↗</strong>
+          <div className="clients-breadcrumb">
+            <a href="/">
+              Home
             </a>
+
+            <span>→</span>
+
+            <strong>Clients</strong>
+          </div>
+
+          <div className="clients-hero-explore">
+            <span />
+            EXPLORE OUR CLIENTS
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* RIGHT VISUAL */}
+      <div className="clients-hero-visual clients-hero-slide-right">
+
+        <div className="clients-orbit clients-orbit-one" />
+        <div className="clients-orbit clients-orbit-two" />
+        <div className="clients-orbit clients-orbit-three" />
+
+        <div className="clients-hero-core">
+          <span>DEV.ERP</span>
+          <strong>+</strong>
+          <small>CLIENTS</small>
+        </div>
+
+        <div className="clients-floating-card clients-floating-one">
+          <span>01</span>
+
+          <div>
+            <strong>TRUST</strong>
+            <small>BUILT TOGETHER</small>
           </div>
         </div>
-      </section>
 
-      {/* LOGO PREVIEW */}
-      {selectedClient && (
-        <div
-          className="client-lightbox"
-          onClick={() => setSelectedClient(null)}
-        >
-          <div
-            className="client-lightbox-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className="clients-floating-card clients-floating-two">
+          <span>∞</span>
+
+          <div>
+            <strong>GROWTH</strong>
+            <small>LONG-TERM PARTNERS</small>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  {/* =========================================
+      INTRO
+  ========================================= */}
+  <section className="clients-intro">
+
+    <div className="clients-container">
+
+      <div className="clients-intro-grid">
+
+        <div className="clients-intro-heading clients-scroll-left">
+
+          <span className="clients-section-label">
+            TRUSTED PARTNERS
+          </span>
+
+          <h2>
+            Client <span>List</span>
+          </h2>
+
+        </div>
+
+
+        <div className="clients-intro-text clients-scroll-right">
+
+          <p>
+            We are proud to work with businesses across multiple
+            industries. Our ERP solutions help organizations simplify
+            operations, improve visibility and build smarter workflows.
+          </p>
+
+          <div className="clients-stats">
+
+            <div className="clients-stat-reveal clients-stat-delay-1">
+              <strong>{clients.length}+</strong>
+              <span>Businesses</span>
+            </div>
+
+            <div className="clients-stat-reveal clients-stat-delay-2">
+              <strong>15+</strong>
+              <span>Industries</span>
+            </div>
+
+            <div className="clients-stat-reveal clients-stat-delay-3">
+              <strong>360°</strong>
+              <span>ERP Solutions</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  {/* =========================================
+      CLIENTS
+  ========================================= */}
+  <section className="clients-gallery-section">
+
+    <div className="clients-container">
+
+      {/* FILTER */}
+      <div className="clients-filter-wrapper clients-filter-reveal">
+
+        <div className="clients-filter">
+
+          {filters.map((filter) => (
+
             <button
+              key={filter.key}
               type="button"
-              className="client-lightbox-close"
-              onClick={() => setSelectedClient(null)}
-              aria-label="Close"
+              className={
+                activeFilter === filter.key
+                  ? "client-filter active"
+                  : "client-filter"
+              }
+              onClick={() => setActiveFilter(filter.key)}
             >
-              ×
+              {filter.label}
             </button>
 
-            <div className="client-lightbox-image">
-              <img
-                src={selectedClient.image}
-                alt={selectedClient.name}
-              />
+          ))}
+
+        </div>
+
+      </div>
+
+
+      {/* RESULT INFO */}
+      <div className="clients-result-bar clients-result-reveal">
+
+        <div>
+          Showing{" "}
+          <strong>{filteredClients.length}</strong> client
+          {filteredClients.length !== 1 ? "s" : ""}
+        </div>
+
+        {activeFilter !== "all" && (
+
+          <button
+            type="button"
+            onClick={() => setActiveFilter("all")}
+          >
+            Clear filter <span>×</span>
+          </button>
+
+        )}
+
+      </div>
+
+
+      {/* GRID */}
+      <div className="clients-grid">
+
+        {filteredClients.map((client, index) => (
+
+          <article
+            className={`
+              client-card
+              client-card-reveal
+              client-card-delay-${Math.min(index + 1, 5)}
+            `}
+            key={`${client.name}-${index}`}
+            onClick={() => setSelectedClient(client)}
+          >
+
+            <div className="client-card-number">
+              {String(index + 1).padStart(2, "0")}
             </div>
 
-            <div className="client-lightbox-info">
-              <span>{selectedClient.category}</span>
-              <h3>{selectedClient.name}</h3>
+            <div className="client-logo-box">
+
+              <img
+                src={client.image}
+                alt={client.name}
+                loading="lazy"
+              />
+
             </div>
+
+            <div className="client-card-footer">
+
+              <span>
+                {client.name}
+              </span>
+
+              <span className="client-card-arrow">
+                ↗
+              </span>
+
+            </div>
+
+          </article>
+
+        ))}
+
+      </div>
+
+
+      {/* EMPTY */}
+      {filteredClients.length === 0 && (
+
+        <div className="clients-empty clients-empty-reveal">
+
+          <div className="clients-empty-icon">
+            ⌕
           </div>
+
+          <h3>
+            No clients found
+          </h3>
+
+          <p>
+            There are no clients available in this category.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => setActiveFilter("all")}
+          >
+            Show all clients
+          </button>
+
         </div>
+
       )}
-    </main>
+
+    </div>
+
+  </section>
+
+
+  {/* =========================================
+      CTA
+  ========================================= */}
+  <section className="clients-cta">
+
+    <div className="clients-cta-glow" />
+
+    <div className="clients-container">
+
+      <div className="clients-cta-inner">
+
+        <div className="clients-cta-content clients-cta-slide-left">
+
+          <span className="clients-section-label">
+            LET'S WORK TOGETHER
+          </span>
+
+          <h2>
+            Ready to build a smarter
+            <br />
+            <span>business?</span>
+          </h2>
+
+          <p>
+            Discover how DevERP can help your organization
+            simplify operations and grow faster.
+          </p>
+
+        </div>
+
+
+        <a
+          href="index.aspx?q=contact_us"
+          className="clients-cta-button clients-cta-slide-right"
+        >
+          <span>Contact Us</span>
+          <strong>↗</strong>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  {/* =========================================
+      LOGO PREVIEW
+  ========================================= */}
+  {selectedClient && (
+
+    <div
+      className="client-lightbox"
+      onClick={() => setSelectedClient(null)}
+    >
+
+      <div
+        className="client-lightbox-content"
+        onClick={(e) => e.stopPropagation()}
+      >
+
+        <button
+          type="button"
+          className="client-lightbox-close"
+          onClick={() => setSelectedClient(null)}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        <div className="client-lightbox-image">
+
+          <img
+            src={selectedClient.image}
+            alt={selectedClient.name}
+          />
+
+        </div>
+
+        <div className="client-lightbox-info">
+
+          <span>
+            {selectedClient.category}
+          </span>
+
+          <h3>
+            {selectedClient.name}
+          </h3>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  )}
+
+</main>
   );
 };
 

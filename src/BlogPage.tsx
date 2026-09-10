@@ -163,74 +163,80 @@ const BlogPage = () => {
           HERO
       ====================================================== */}
       <section className="blog-hero">
-  <div className="blog-hero-image">
-    <img
-      src="https://deverp.com/CMSassets/images/it_service/inner_page_banner2.jpg"
-      alt="Dev ERP Blog"
-    />
-  </div>
-
-  <div className="blog-hero-overlay" />
-
-  <div className="blog-container blog-hero-grid">
-    <div className="blog-hero-content">
-
-      <div className="blog-hero-kicker">
-        <span></span>
-        DEV ERP INSIGHTS
-      </div>
-
-      <h1>
-        Blog<span>.</span>
-      </h1>
-
-      <p>
-        Technology insights, ERP knowledge and ideas
-        from the DevERP team.
-      </p>
-
-     <div className="clients-hero-bottom">
-
-        <div className="clients-breadcrumb">
-          <a href="/">
-            Home
-          </a>
-
-          <span>→</span>
-
-          <strong>Blog</strong>
+        <div className="blog-hero-image">
+          <img
+            src="https://deverp.com/CMSassets/images/it_service/inner_page_banner2.jpg"
+            alt="Dev ERP Blog"
+          />
         </div>
 
-        <div className="clients-hero-explore">
-          <span />
-          EXPLORE OUR Blogs
+        <div className="blog-hero-overlay" />
+
+        <div className="blog-container blog-hero-grid">
+
+          {/* HERO LEFT */}
+          <div className="blog-hero-content blog-hero-slide-left">
+
+            <div className="blog-hero-kicker">
+              <span></span>
+              DEV ERP INSIGHTS
+            </div>
+
+            <h1>
+              Blog<span>.</span>
+            </h1>
+
+            <p>
+              Technology insights, ERP knowledge and ideas
+              from the DevERP team.
+            </p>
+
+            <div className="clients-hero-bottom blog-hero-bottom-content">
+
+              <div className="clients-breadcrumb">
+                <a href="/">
+                  Home
+                </a>
+
+                <span>→</span>
+
+                <strong>Blog</strong>
+              </div>
+
+              <div className="clients-hero-explore">
+                <span />
+                EXPLORE OUR Blogs
+              </div>
+
+            </div>
+          </div>
+
+          {/* HERO RIGHT */}
+          <div
+            className="blog-hero-visual blog-hero-slide-right"
+            aria-hidden="true"
+          >
+            <div className="blog-orbit blog-orbit-one"></div>
+            <div className="blog-orbit blog-orbit-two"></div>
+            <div className="blog-orbit blog-orbit-three"></div>
+
+            <div className="blog-orbit-center">
+              <span>01</span>
+              <small>INSIGHTS</small>
+            </div>
+
+            <div className="blog-vertical-text">
+              TECHNOLOGY • ERP • IDEAS
+            </div>
+          </div>
         </div>
 
-      </div>
-    </div>
-
-    <div className="blog-hero-visual" aria-hidden="true">
-      <div className="blog-orbit blog-orbit-one"></div>
-      <div className="blog-orbit blog-orbit-two"></div>
-      <div className="blog-orbit blog-orbit-three"></div>
-
-      <div className="blog-orbit-center">
-        <span>01</span>
-        <small>INSIGHTS</small>
-      </div>
-
-      <div className="blog-vertical-text">
-        TECHNOLOGY • ERP • IDEAS
-      </div>
-    </div>
-  </div>
-
-  <div className="blog-hero-bottom">
-    <span>TECHNOLOGY</span>
-    <span>ERP</span>
-    <span>INNOVATION</span>
-  </div>
-</section>
+        <div className="blog-hero-bottom blog-hero-bottom-reveal">
+          <span>TECHNOLOGY</span>
+          <span>ERP</span>
+          <span>INNOVATION</span>
+        </div>
+      </section>
 
       {/* =====================================================
           BLOG SECTION
@@ -240,7 +246,7 @@ const BlogPage = () => {
         <div className="blog-container">
 
           {/* SECTION HEADER */}
-          <div className="blog-heading">
+          <div className="blog-heading blog-scroll-left">
 
             <div>
               <span className="blog-eyebrow">
@@ -264,7 +270,6 @@ const BlogPage = () => {
 
           </div>
 
-
           {/* =================================================
               BLOG GRID
           ================================================== */}
@@ -273,7 +278,11 @@ const BlogPage = () => {
             {blogPosts.map((post, index) => (
 
               <article
-                className="blog-card"
+                className={`
+                  blog-card
+                  blog-card-reveal
+                  blog-card-delay-${Math.min(index + 1, 5)}
+                `}
                 key={`${post.link}-${index}`}
               >
 
@@ -301,7 +310,6 @@ const BlogPage = () => {
                   </span>
 
                 </a>
-
 
                 {/* CONTENT */}
                 <div className="blog-card-content">
@@ -349,6 +357,7 @@ const BlogPage = () => {
                     }
                   >
                     <span>READ MORE</span>
+
                     <span className="blog-read-arrow">
                       →
                     </span>
@@ -366,7 +375,6 @@ const BlogPage = () => {
 
       </section>
 
-
       {/* =====================================================
           BOTTOM CTA
       ====================================================== */}
@@ -376,7 +384,7 @@ const BlogPage = () => {
 
           <div className="blog-bottom-inner">
 
-            <div>
+            <div className="blog-bottom-content blog-cta-slide-left">
 
               <span className="blog-eyebrow">
                 KEEP EXPLORING
@@ -395,7 +403,7 @@ const BlogPage = () => {
 
             <a
               href="/"
-              className="blog-cta"
+              className="blog-cta blog-cta-slide-right"
               onClick={(e) => {
                 e.preventDefault();
                 navigate("/");
@@ -416,3 +424,5 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
+
+ 

@@ -42,10 +42,12 @@ const whyChooseItems: WhyChooseItem[] = [
 const WhyChooseUs: React.FC = () => {
   return (
     <section className="why-choose-section">
+
       <div className="why-choose-container">
 
         {/* Heading */}
-        <div className="why-choose-heading">
+        <div className="why-choose-heading scroll-reveal">
+
           <span className="why-choose-eyebrow">
             WHY DEVERP
           </span>
@@ -57,46 +59,74 @@ const WhyChooseUs: React.FC = () => {
           <p>
             We take pride in the solutions we deliver!
           </p>
+
         </div>
+
 
         {/* Cards */}
         <div className="why-choose-grid">
-          {whyChooseItems.map((item) => (
+
+          {whyChooseItems.map((item, index) => (
             <div
-              className="why-choose-card"
+              className={`
+                why-choose-card
+                scroll-reveal
+                scroll-reveal-delay-${Math.min(index + 1, 5)}
+              `}
               key={item.number}
             >
+
               {/* Number */}
               <div className="why-choose-number">
                 {item.number}
               </div>
 
+
               {/* Icon */}
               <div className="why-choose-icon-wrapper">
+
                 <div className="why-choose-icon">
+
                   <img
                     src={item.icon}
                     alt={item.title}
                   />
+
                 </div>
+
               </div>
+
 
               {/* Content */}
               <div className="why-choose-content">
-                <h3>{item.title}</h3>
 
-                <p>{item.description}</p>
+                <h3>
+                  {item.title}
+                </h3>
+
+                <p>
+                  {item.description}
+                </p>
+
               </div>
+
 
               {/* Bottom Arrow */}
               <div className="why-choose-arrow">
-                <span>→</span>
+
+                <span>
+                  →
+                </span>
+
               </div>
+
             </div>
           ))}
+
         </div>
 
       </div>
+
     </section>
   );
 };

@@ -43,11 +43,12 @@ const Footer: React.FC = () => {
       {/* =====================================================
           TOP FOOTER
       ====================================================== */}
-
       <div className="de-footer-top">
+
         <div className="de-footer-container">
 
-          <div className="de-footer-topline">
+          <div className="de-footer-topline de-footer-reveal-up">
+
             <div>
               <span className="de-footer-eyebrow">
                 DEV.ERP SOLUTIONS
@@ -62,23 +63,25 @@ const Footer: React.FC = () => {
             <div className="de-footer-topline-arrow">
               ↗
             </div>
+
           </div>
 
         </div>
+
       </div>
+
 
       {/* =====================================================
           MAIN FOOTER
       ====================================================== */}
-
       <div className="de-footer-main">
+
         <div className="de-footer-container">
 
           <div className="de-footer-grid">
 
             {/* COMPANY */}
-
-            <div className="de-footer-company">
+            <div className="de-footer-company de-footer-slide-left">
 
               <button
                 type="button"
@@ -149,17 +152,20 @@ const Footer: React.FC = () => {
                 </a>
 
               </div>
+
             </div>
 
-            {/* QUICK LINKS */}
 
-            <div className="de-footer-column">
+            {/* QUICK LINKS */}
+            <div className="de-footer-column de-footer-column-reveal de-footer-delay-1">
 
               <div className="de-footer-column-number">
                 01
               </div>
 
-              <h3>Explore</h3>
+              <h3>
+                Explore
+              </h3>
 
               <ul>
 
@@ -225,17 +231,20 @@ const Footer: React.FC = () => {
                 </li>
 
               </ul>
+
             </div>
 
-            {/* PRODUCTS */}
 
-            <div className="de-footer-column">
+            {/* PRODUCTS */}
+            <div className="de-footer-column de-footer-column-reveal de-footer-delay-2">
 
               <div className="de-footer-column-number">
                 02
               </div>
 
-              <h3>Products</h3>
+              <h3>
+                Products
+              </h3>
 
               <ul>
 
@@ -296,20 +305,23 @@ const Footer: React.FC = () => {
                 </li>
 
               </ul>
+
             </div>
 
-            {/* CONTACT */}
 
-            <div className="de-footer-contact">
+            {/* CONTACT */}
+            <div className="de-footer-contact de-footer-column-reveal de-footer-delay-3">
 
               <div className="de-footer-column-number">
                 03
               </div>
 
-              <h3>Contact</h3>
+              <h3>
+                Contact
+              </h3>
+
 
               {/* INDIA */}
-
               <div className="de-footer-contact-card">
 
                 <div className="de-footer-country">
@@ -318,7 +330,9 @@ const Footer: React.FC = () => {
                     IN
                   </span>
 
-                  <span>India</span>
+                  <span>
+                    India
+                  </span>
 
                 </div>
 
@@ -366,8 +380,8 @@ const Footer: React.FC = () => {
 
               </div>
 
-              {/* UAE */}
 
+              {/* UAE */}
               <div className="de-footer-contact-card">
 
                 <div className="de-footer-country">
@@ -376,7 +390,9 @@ const Footer: React.FC = () => {
                     AE
                   </span>
 
-                  <span>UAE</span>
+                  <span>
+                    UAE
+                  </span>
 
                 </div>
 
@@ -409,17 +425,18 @@ const Footer: React.FC = () => {
           </div>
 
         </div>
+
       </div>
+
 
       {/* =====================================================
           MAP
       ====================================================== */}
-
       <section className="de-footer-map-section">
 
         <div className="de-footer-container">
 
-          <div className="de-map-card">
+          <div className="de-map-card de-footer-reveal-up">
 
             <div className="de-map-header">
 
@@ -446,8 +463,13 @@ const Footer: React.FC = () => {
                 rel="noreferrer"
                 className="de-map-link"
               >
-                <span>Open in Google Maps</span>
-                <b>↗</b>
+                <span>
+                  Open in Google Maps
+                </span>
+
+                <b>
+                  ↗
+                </b>
               </a>
 
             </div>
@@ -470,15 +492,15 @@ const Footer: React.FC = () => {
 
       </section>
 
+
       {/* =====================================================
           NEWSLETTER
       ====================================================== */}
-
       <section className="de-footer-newsletter">
 
         <div className="de-footer-container">
 
-          <div className="de-newsletter-card">
+          <div className="de-newsletter-card de-footer-reveal-up">
 
             <div className="de-newsletter-left">
 
@@ -545,15 +567,15 @@ const Footer: React.FC = () => {
 
       </section>
 
+
       {/* =====================================================
           BOTTOM
       ====================================================== */}
-
       <div className="de-footer-bottom">
 
         <div className="de-footer-container">
 
-          <div className="de-footer-bottom-inner">
+          <div className="de-footer-bottom-inner de-footer-bottom-reveal">
 
             <p>
               © {currentYear} DevERP Solutions Private Limited.
@@ -585,3 +607,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+ 

@@ -103,85 +103,92 @@ const ServiceList: React.FC = () => {
   };
 
   return (
-    <> 
+    <>
 
       {/* ================= HERO ================= */}
-   <section className="service-page-hero">
-  <div className="service-page-hero-bg">
-    <img
-      src="CMSassets/images/it_service/inner_page_banner2.jpg"
-      alt="DevERP Services"
-    />
-  </div>
-
-  <div className="service-page-hero-overlay" />
-
-  <div className="service-page-hero-glow service-page-hero-glow-one" />
-  <div className="service-page-hero-glow service-page-hero-glow-two" />
-
-  <div className="service-page-container">
-    <div className="service-page-hero-content">
-
-      <div className="service-page-eyebrow">
-        <span className="service-page-eyebrow-line" />
-        <span>WHAT WE DO</span>
-      </div>
-
-      <h1>
-        Smart Technology.
-        <span> Powerful Services.</span>
-      </h1>
-
-      <p>
-        Technology solutions designed to simplify,
-        connect and accelerate your business.
-      </p>
-
-      <div className="service-page-hero-bottom">
-
-        <div className="service-page-breadcrumb">
-          <button
-            type="button"
-            onClick={() => navigate("/")}
-          >
-            Home
-          </button>
-
-          <span className="breadcrumb-arrow">→</span>
-
-          <strong>Services</strong>
+      <section className="service-page-hero">
+        <div className="service-page-hero-bg">
+          <img
+            src="CMSassets/images/it_service/inner_page_banner2.jpg"
+            alt="DevERP Services"
+          />
         </div>
 
-        <div className="service-page-hero-scroll">
-          <span className="scroll-line" />
-          <span>EXPLORE SERVICES</span>
+        <div className="service-page-hero-overlay" />
+
+        <div className="service-page-hero-glow service-page-hero-glow-one" />
+        <div className="service-page-hero-glow service-page-hero-glow-two" />
+
+        <div className="service-page-container">
+          <div className="service-page-hero-content service-hero-slide-left">
+
+            <div className="service-page-eyebrow">
+              <span className="service-page-eyebrow-line" />
+              <span>WHAT WE DO</span>
+            </div>
+
+            <h1>
+              Smart Technology.
+              <span> Powerful Services.</span>
+            </h1>
+
+            <p>
+              Technology solutions designed to simplify,
+              connect and accelerate your business.
+            </p>
+
+            <div className="service-page-hero-bottom">
+
+              <div className="service-page-breadcrumb">
+                <button
+                  type="button"
+                  onClick={() => navigate("/")}
+                >
+                  Home
+                </button>
+
+                <span className="breadcrumb-arrow">→</span>
+
+                <strong>Services</strong>
+              </div>
+
+              <div className="service-page-hero-scroll">
+                <span className="scroll-line" />
+                <span>EXPLORE SERVICES</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="service-page-hero-side service-hero-slide-right">
+
+            <div className="hero-side-circle">
+              <span>01</span>
+            </div>
+
+            <div className="hero-side-text">
+              <span>DEV.ERP</span>
+              <strong>
+                BUSINESS
+                <br />
+                SOLUTIONS
+              </strong>
+            </div>
+
+          </div>
         </div>
+      </section>
 
-      </div>
-
-    </div>
-
-    <div className="service-page-hero-side">
-
-      <div className="hero-side-circle">
-        <span>01</span>
-      </div>
-
-      <div className="hero-side-text">
-        <span>DEV.ERP</span>
-        <strong>BUSINESS<br />SOLUTIONS</strong>
-      </div>
-
-    </div>
-  </div>
-</section>
 
       {/* ================= INTRO ================= */}
       <section className="services-intro">
         <div className="service-page-container">
+
           <div className="services-intro-grid">
 
-            <div className="services-intro-title">
+            <div className="services-intro-title service-scroll-left">
+
               <span className="service-section-label">
                 OUR SERVICES
               </span>
@@ -191,9 +198,11 @@ const ServiceList: React.FC = () => {
                 <br />
                 <span>moves business forward.</span>
               </h2>
+
             </div>
 
-            <div className="services-intro-text">
+            <div className="services-intro-text service-scroll-right">
+
               <p>
                 From business intelligence and mobile applications
                 to cloud, web and communication solutions, DevERP
@@ -206,36 +215,46 @@ const ServiceList: React.FC = () => {
                 scalable solutions designed to help your business
                 work smarter.
               </p>
+
             </div>
 
           </div>
         </div>
       </section>
 
+
       {/* ================= SERVICE LIST ================= */}
       <section className="services-list-section">
         <div className="service-page-container">
 
-          <div className="services-list-header">
+          <div className="services-list-header service-scroll-left">
+
             <div>
               <span className="service-section-label">
                 EXPLORE OUR EXPERTISE
               </span>
 
-              <h2>Solutions built for your business</h2>
+              <h2>
+                Solutions built for your business
+              </h2>
             </div>
 
             <div className="services-count">
               <strong>09</strong>
               <span>Services</span>
             </div>
+
           </div>
 
           <div className="services-grid">
 
-            {services.map((service) => (
+            {services.map((service, index) => (
               <article
-                className="modern-service-card"
+                className={`
+                  modern-service-card
+                  service-card-reveal
+                  service-card-delay-${Math.min(index + 1, 5)}
+                `}
                 key={service.number}
               >
 
@@ -256,12 +275,16 @@ const ServiceList: React.FC = () => {
                   <span className="service-tag">
                     {service.tag}
                   </span>
+
                 </div>
+
 
                 {/* Content */}
                 <div className="modern-service-content">
 
-                  <h3>{service.title}</h3>
+                  <h3>
+                    {service.title}
+                  </h3>
 
                   <p>
                     {service.description}
@@ -274,7 +297,9 @@ const ServiceList: React.FC = () => {
                       handleServiceClick(service.link)
                     }
                   >
-                    <span>View Service</span>
+                    <span>
+                      View Service
+                    </span>
 
                     <span className="service-arrow">
                       ↗
@@ -287,15 +312,19 @@ const ServiceList: React.FC = () => {
             ))}
 
           </div>
+
         </div>
       </section>
+
 
       {/* ================= CTA ================= */}
       <section className="services-cta">
         <div className="service-page-container">
+
           <div className="services-cta-box">
 
-            <div className="services-cta-content">
+            <div className="services-cta-content service-cta-left">
+
               <span className="service-section-label">
                 NEED A CUSTOM SOLUTION?
               </span>
@@ -311,21 +340,28 @@ const ServiceList: React.FC = () => {
                 Our team can help you choose the right
                 technology and approach.
               </p>
+
             </div>
 
             <button
               type="button"
-              className="services-cta-button"
+              className="services-cta-button service-cta-right"
               onClick={() => navigate("/contact")}
             >
-              <span>Talk to our team</span>
-              <span>↗</span>
+              <span>
+                Talk to our team
+              </span>
+
+              <span>
+                ↗
+              </span>
             </button>
 
           </div>
+
         </div>
       </section>
- 
+
     </>
   );
 };

@@ -1245,3 +1245,176 @@
   }
 
 }
+
+/* =========================================================
+   HERO LEFT / RIGHT SLIDE ANIMATION
+========================================================= */
+
+.hero-slide-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: heroSlideLeft 1s cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s forwards;
+}
+
+.hero-slide-right {
+  opacity: 0;
+  transform: translateX(80px);
+  animation: heroSlideRight 1s cubic-bezier(0.22, 1, 0.36, 1)
+    0.25s forwards;
+}
+
+
+@keyframes heroSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes heroSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .hero-slide-left {
+    transform: translateX(-45px);
+    animation-name: heroSlideLeftMobile;
+  }
+
+  .hero-slide-right {
+    transform: translateX(45px);
+    animation-name: heroSlideRightMobile;
+  }
+
+  @keyframes heroSlideLeftMobile {
+    0% {
+      opacity: 0;
+      transform: translateX(-45px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes heroSlideRightMobile {
+    0% {
+      opacity: 0;
+      transform: translateX(45px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-slide-left,
+  .hero-slide-right {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+}
+
+/* =========================================================
+   CTA SCROLL LEFT / RIGHT
+========================================================= */
+
+.cta-scroll-left {
+  opacity: 0;
+  transform: translateX(-70px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta-scroll-right {
+  opacity: 0;
+  transform: translateX(70px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   WHEN CTA ENTERS VIEWPORT
+========================================================= */
+
+.cta-scroll-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cta-scroll-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* Button slightly delayed */
+.cta-scroll-right.is-visible {
+  transition-delay: 0.18s;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .cta-scroll-left {
+    transform: translateX(-40px);
+  }
+
+  .cta-scroll-right {
+    transform: translateX(40px);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cta-scroll-left,
+  .cta-scroll-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+}

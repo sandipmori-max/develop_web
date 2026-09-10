@@ -1294,3 +1294,258 @@
     transform: none;
   }
 }
+/* =========================================================
+   PRODUCTS HERO - REPEAT ON SCROLL
+========================================================= */
+
+.product-hero-slide-left {
+  opacity: 0;
+  transform: translateX(-70px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-hero-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.product-hero-slide-right {
+  opacity: 0;
+  transform: translateX(70px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-hero-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+
+/* =========================================================
+   PRODUCTS SECTION HEADER
+========================================================= */
+
+.product-scroll-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-scroll-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   PRODUCT CARDS - REPEAT ON SCROLL
+========================================================= */
+
+.product-card-reveal {
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(55px);
+
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-card-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   CARD STAGGER
+========================================================= */
+
+.product-card-delay-1 {
+  transition-delay: 0.05s;
+}
+
+.product-card-delay-2 {
+  transition-delay: 0.13s;
+}
+
+.product-card-delay-3 {
+  transition-delay: 0.21s;
+}
+
+.product-card-delay-4 {
+  transition-delay: 0.29s;
+}
+
+.product-card-delay-5 {
+  transition-delay: 0.37s;
+}
+
+
+/* =========================================================
+   CARD INNER CONTENT
+========================================================= */
+
+.product-card-reveal .solution-card-image,
+.product-card-reveal .solution-card-body {
+  opacity: 0;
+  transform: translateY(18px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-card-reveal.is-visible .solution-card-image {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.12s;
+}
+
+.product-card-reveal.is-visible .solution-card-body {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.22s;
+}
+
+
+/* =========================================================
+   LIGHT SWEEP
+========================================================= */
+
+.product-card-reveal::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(3, 158, 227, 0.06),
+    transparent
+  );
+
+  transform: skewX(-18deg);
+
+  pointer-events: none;
+  z-index: 5;
+}
+
+.product-card-reveal.is-visible::after {
+  left: 140%;
+
+  transition:
+    left 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   CTA LEFT
+========================================================= */
+
+.product-cta-slide-left {
+  opacity: 0;
+  transform: translateX(-70px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-cta-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   CTA RIGHT
+========================================================= */
+
+.product-cta-slide-right {
+  opacity: 0;
+  transform: translateX(70px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-cta-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition-delay: 0.18s;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .product-hero-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .product-hero-slide-right {
+    transform: translateX(40px);
+  }
+
+  .product-scroll-left {
+    transform: translateX(-40px);
+  }
+
+  .product-card-reveal {
+    transform: translateY(35px);
+  }
+
+  .product-cta-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .product-cta-slide-right {
+    transform: translateX(40px);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .product-hero-slide-left,
+  .product-hero-slide-right,
+  .product-scroll-left,
+  .product-card-reveal,
+  .product-cta-slide-left,
+  .product-cta-slide-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .product-card-reveal::after {
+    display: none;
+  }
+
+}

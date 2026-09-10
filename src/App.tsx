@@ -27,6 +27,9 @@ import ServiceList from './ServiceList';
 import ProductDetails from './ProductDetails';
 import StickyActions from './StickyActions';
 import BookDemoButton from './BookDemoButton';
+import ScrollProgress from './ScrollProgress';
+import ScrollReveal from './ScrollReveal';
+import "./ScrollReveal.css";
 
 // ── Smooth scroll helper ──────────────────────────────────────────────────────
 function scrollToBooking() {
@@ -2617,6 +2620,8 @@ export default function App() {
             "'Inter',-apple-system,BlinkMacSystemFont,sans-serif",
         }}
       >
+         <ScrollReveal />
+        
 
         <Header/>
         <Routes>

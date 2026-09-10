@@ -1421,3 +1421,319 @@
     gap: 14px;
   }
 }
+/* =========================================================
+   CAREER PAGE SCROLL ANIMATIONS
+   Repeat whenever element enters viewport
+========================================================= */
+
+/* HERO LEFT */
+.career-hero-slide-left {
+  opacity: 0;
+  transform: translateX(-75px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-hero-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* HERO RIGHT */
+.career-hero-slide-right {
+  opacity: 0;
+  transform: translateX(75px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-hero-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+
+/* HERO BOTTOM */
+.career-hero-bottom-reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-hero-bottom-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+
+/* INTRO HEADING */
+.career-scroll-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-scroll-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* MAIN LEFT CONTENT */
+.career-content-slide-left {
+  opacity: 0;
+  transform: translateX(-65px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-content-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* MAIN RIGHT IMAGE */
+.career-content-slide-right {
+  opacity: 0;
+  transform: translateX(65px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-content-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.12s;
+}
+
+
+/* BENEFIT CARDS */
+.career-benefit-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-benefit-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.career-benefit-delay-1 {
+  transition-delay: 0.05s;
+}
+
+.career-benefit-delay-2 {
+  transition-delay: 0.12s;
+}
+
+.career-benefit-delay-3 {
+  transition-delay: 0.19s;
+}
+
+.career-benefit-delay-4 {
+  transition-delay: 0.26s;
+}
+
+.career-benefit-delay-5 {
+  transition-delay: 0.33s;
+}
+
+
+/* APPLY BOX */
+.career-apply-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-apply-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+
+/* APPLY BOX INNER CONTENT */
+.career-apply-reveal .career-apply-icon,
+.career-apply-reveal .career-apply-text,
+.career-apply-reveal .career-apply-arrow {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-apply-reveal.is-visible .career-apply-icon {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.22s;
+}
+
+.career-apply-reveal.is-visible .career-apply-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.career-apply-reveal.is-visible .career-apply-arrow {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.38s;
+}
+
+
+/* CTA LEFT */
+.career-cta-slide-left {
+  opacity: 0;
+  transform: translateX(-70px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-cta-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* CTA RIGHT */
+.career-cta-slide-right {
+  opacity: 0;
+  transform: translateX(70px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.career-cta-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.18s;
+}
+
+
+/* =========================================================
+   LIGHT SWEEP EFFECT
+========================================================= */
+
+.career-benefit-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.career-benefit-reveal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(3, 158, 227, 0.06),
+    transparent
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+
+.career-benefit-reveal.is-visible::after {
+  left: 140%;
+  transition:
+    left 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .career-hero-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .career-hero-slide-right {
+    transform: translateX(40px);
+  }
+
+  .career-hero-bottom-reveal {
+    transform: translateY(20px);
+  }
+
+  .career-scroll-left {
+    transform: translateX(-40px);
+  }
+
+  .career-content-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .career-content-slide-right {
+    transform: translateX(40px);
+  }
+
+  .career-benefit-reveal {
+    transform: translateY(25px);
+  }
+
+  .career-apply-reveal {
+    transform: translateY(25px);
+  }
+
+  .career-cta-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .career-cta-slide-right {
+    transform: translateX(40px);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .career-hero-slide-left,
+  .career-hero-slide-right,
+  .career-hero-bottom-reveal,
+  .career-scroll-left,
+  .career-content-slide-left,
+  .career-content-slide-right,
+  .career-benefit-reveal,
+  .career-apply-reveal,
+  .career-cta-slide-left,
+  .career-cta-slide-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .career-benefit-reveal::after {
+    display: none;
+  }
+}

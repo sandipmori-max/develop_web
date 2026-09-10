@@ -46,7 +46,7 @@ const ServicesOffer: React.FC = () => {
       <div className="services-offer-container">
 
         {/* Section Heading */}
-        <div className="services-offer-heading">
+        <div className="services-offer-heading scroll-reveal">
           <span className="services-offer-eyebrow">
             WHAT WE DO
           </span>
@@ -63,9 +63,13 @@ const ServicesOffer: React.FC = () => {
 
         {/* Services Grid */}
         <div className="services-offer-grid">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div
-              className="service-offer-card"
+              className={`
+                service-offer-card
+                scroll-reveal
+                scroll-reveal-delay-${Math.min(index + 1, 5)}
+              `}
               key={service.number}
             >
               {/* Number */}

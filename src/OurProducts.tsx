@@ -132,7 +132,9 @@ const OurProducts: React.FC = () => {
 
           <div className="products-hero-grid">
 
-            <div className="products-hero-content">
+            {/* ================= HERO LEFT ================= */}
+
+            <div className="products-hero-content product-hero-slide-left">
 
               <div className="products-kicker">
                 <span className="products-kicker-line" />
@@ -173,9 +175,12 @@ const OurProducts: React.FC = () => {
                 </div>
 
               </div>
+
             </div>
 
-            <div className="products-hero-visual">
+            {/* ================= HERO RIGHT ================= */}
+
+            <div className="products-hero-visual product-hero-slide-right">
 
               <div className="products-hero-circle" />
 
@@ -189,34 +194,49 @@ const OurProducts: React.FC = () => {
                 <div className="products-hero-image-overlay" />
 
                 <div className="products-hero-product-info">
-                  <span>FEATURED SOLUTION</span>
 
-                  <h3>{featuredProduct.title}</h3>
+                  <span>
+                    FEATURED SOLUTION
+                  </span>
+
+                  <h3>
+                    {featuredProduct.title}
+                  </h3>
 
                   <a href={featuredProduct.link}>
                     Explore solution
                     <span>↗</span>
                   </a>
+
                 </div>
 
               </div>
 
               <div className="products-floating-card">
+
                 <div className="products-floating-icon">
                   ✓
                 </div>
 
                 <div>
-                  <strong>Industry Focused</strong>
-                  <span>Built around your workflow</span>
+                  <strong>
+                    Industry Focused
+                  </strong>
+
+                  <span>
+                    Built around your workflow
+                  </span>
                 </div>
+
               </div>
 
             </div>
 
           </div>
+
         </div>
       </div>
+
 
       {/* =====================================================
           PRODUCTS
@@ -226,9 +246,12 @@ const OurProducts: React.FC = () => {
 
         <div className="products-container">
 
-          <div className="products-section-header">
+          {/* ================= SECTION HEADER ================= */}
+
+          <div className="products-section-header product-scroll-left">
 
             <div>
+
               <span className="products-section-label">
                 OUR PRODUCTS
               </span>
@@ -237,6 +260,7 @@ const OurProducts: React.FC = () => {
                 Solutions for every
                 <span> industry.</span>
               </h2>
+
             </div>
 
             <p>
@@ -247,14 +271,24 @@ const OurProducts: React.FC = () => {
 
           </div>
 
+
+          {/* ================= PRODUCTS GRID ================= */}
+
           <div className="products-grid">
 
             {remainingProducts.map((product, index) => (
+
               <a
-                href={'products'}
-                className="solution-card"
+                href={"products"}
+                className={`
+                  solution-card
+                  product-card-reveal
+                  product-card-delay-${Math.min(index + 1, 5)}
+                `}
                 key={product.link}
               >
+
+                {/* ================= IMAGE ================= */}
 
                 <div className="solution-card-image">
 
@@ -275,6 +309,9 @@ const OurProducts: React.FC = () => {
 
                 </div>
 
+
+                {/* ================= CONTENT ================= */}
+
                 <div className="solution-card-body">
 
                   <div className="solution-card-title-row">
@@ -294,16 +331,19 @@ const OurProducts: React.FC = () => {
                   </p>
 
                   <div className="solution-card-footer">
+
                     <span>
                       Explore solution
                     </span>
 
                     <span className="solution-footer-line" />
+
                   </div>
 
                 </div>
 
               </a>
+
             ))}
 
           </div>
@@ -312,8 +352,11 @@ const OurProducts: React.FC = () => {
 
       </div>
 
+
       {/* =====================================================
           CTA
+          {\"seq\":\"7\",\"name\":\"Business Card\",\"code\":\"BC\",\"link\":\"BusinessCardMst\",\"iconname\":\"add-card\"}
+          {\"seq\":\"7\",\"name\":\"Business Card\",\"code\":\"BC\",\"link\":\"BusinessCardMst\",\"iconname\":\"add-card\",\"isapplink\":\"True\",\"title\":\"\",\"url\":\"BusinessCardMst\",\"isfrombusinesscard\":\"True\"}
       ===================================================== */}
 
       <div className="products-cta-section">
@@ -324,7 +367,10 @@ const OurProducts: React.FC = () => {
 
             <div className="products-cta-pattern" />
 
-            <div className="products-cta-content">
+
+            {/* ================= CTA LEFT ================= */}
+
+            <div className="products-cta-content product-cta-slide-left">
 
               <span>
                 NEED A CUSTOM SOLUTION?
@@ -342,9 +388,12 @@ const OurProducts: React.FC = () => {
 
             </div>
 
+
+            {/* ================= CTA RIGHT ================= */}
+
             <a
               href="index.aspx?q=contact"
-              className="products-cta-button"
+              className="products-cta-button product-cta-slide-right"
             >
               Talk to our team
               <span>→</span>

@@ -245,7 +245,7 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: 8px;
+  border-radius: 18px;
 
   background: #edf4ff;
 
@@ -1680,9 +1680,7 @@
   margin-bottom: 38px;
 }
 
-.contact-card-icon {
-  width: 58px;
-  height: 58px;
+.contact-card-icon { 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1947,10 +1945,7 @@
     padding: 23px;
   }
 
-  .contact-card-icon {
-    width: 52px;
-    height: 52px;
-  }
+   
 
   .contact-card-number {
     font-size: 31px;
@@ -1964,4 +1959,381 @@
     font-size: 12px;
   }
 
+}
+/* =========================================================
+   CONTACT PAGE SCROLL ANIMATIONS
+========================================================= */
+
+/* HERO LEFT */
+.contact-hero-slide-left {
+  opacity: 0;
+  transform: translateX(-75px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-hero-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* HERO RIGHT */
+.contact-hero-slide-right {
+  opacity: 0;
+  transform: translateX(75px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-hero-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+
+/* HERO BOTTOM */
+.contact-hero-bottom-reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-hero-bottom-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.contact-scroll-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-scroll-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.contact-scroll-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-scroll-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.12s;
+}
+
+
+/* CONTACT DETAILS HEADING */
+.contact-scroll-up {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-scroll-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   CONTACT CARDS
+========================================================= */
+
+.contact-card-reveal {
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(50px);
+
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-card-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* STAGGER */
+.contact-card-delay-1 {
+  transition-delay: 0.05s;
+}
+
+.contact-card-delay-2 {
+  transition-delay: 0.14s;
+}
+
+.contact-card-delay-3 {
+  transition-delay: 0.23s;
+}
+
+
+/* CARD INNER CONTENT */
+.contact-card-reveal .contact-card-top,
+.contact-card-reveal .contact-card-content {
+  opacity: 0;
+  transform: translateY(16px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-card-reveal.is-visible .contact-card-top {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.13s;
+}
+
+.contact-card-reveal.is-visible .contact-card-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.23s;
+}
+
+
+/* CARD LIGHT SWEEP */
+.contact-card-reveal::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(3, 158, 227, 0.07),
+    transparent
+  );
+
+  transform: skewX(-18deg);
+
+  pointer-events: none;
+  z-index: 10;
+}
+
+.contact-card-reveal.is-visible::after {
+  left: 140%;
+
+  transition:
+    left 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+.contact-form-slide-left {
+  opacity: 0;
+  transform: translateX(-70px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-form-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.contact-form-slide-right {
+  opacity: 0;
+  transform: translateX(70px);
+
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-form-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+
+/* FORM HEADING */
+.contact-form-slide-right .contact-form-heading {
+  opacity: 0;
+  transform: translateY(18px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-form-slide-right.is-visible .contact-form-heading {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+
+/* FORM FIELDS STAGGER */
+.contact-form-slide-right .contact-field {
+  opacity: 0;
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.55s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-form-slide-right.is-visible .contact-field:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.contact-form-slide-right.is-visible .contact-field:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.36s;
+}
+
+.contact-form-slide-right.is-visible .contact-field:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.42s;
+}
+
+.contact-form-slide-right.is-visible .contact-field:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.48s;
+}
+
+.contact-form-slide-right.is-visible .contact-field:nth-child(5) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.54s;
+}
+
+
+/* SUBMIT BUTTON */
+.contact-form-slide-right .contact-submit {
+  opacity: 0;
+  transform: translateY(18px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-form-slide-right.is-visible .contact-submit {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.62s;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .contact-hero-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .contact-hero-slide-right {
+    transform: translateX(40px);
+  }
+
+  .contact-hero-bottom-reveal {
+    transform: translateY(20px);
+  }
+
+  .contact-scroll-left {
+    transform: translateX(-40px);
+  }
+
+  .contact-scroll-right {
+    transform: translateX(40px);
+  }
+
+  .contact-scroll-up {
+    transform: translateY(25px);
+  }
+
+  .contact-card-reveal {
+    transform: translateY(35px);
+  }
+
+  .contact-form-slide-left {
+    transform: translateX(-40px);
+  }
+
+  .contact-form-slide-right {
+    transform: translateX(40px);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-hero-slide-left,
+  .contact-hero-slide-right,
+  .contact-hero-bottom-reveal,
+  .contact-scroll-left,
+  .contact-scroll-right,
+  .contact-scroll-up,
+  .contact-card-reveal,
+  .contact-form-slide-left,
+  .contact-form-slide-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .contact-card-reveal::after {
+    display: none;
+  }
+
+  .contact-form-slide-right .contact-form-heading,
+  .contact-form-slide-right .contact-field,
+  .contact-form-slide-right .contact-submit {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
