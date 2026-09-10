@@ -99,7 +99,7 @@
 
   margin-bottom: 22px;
 
-  color: #1769ff;
+  color: #007bff;
 
   font-size: 12px;
 
@@ -116,7 +116,7 @@
 
   border-radius: 10px;
 
-  background: #1769ff;
+  background: #007bff;
 }
 
 .products-hero-content h1 {
@@ -136,7 +136,7 @@
 .products-hero-content h1 span {
   display: block;
 
-  color: #1769ff;
+  color: #007bff;
 }
 
 .products-hero-content > p {
@@ -382,7 +382,7 @@
 
   background: #eaf2ff;
 
-  color: #1769ff;
+  color: #007bff;
 
   font-size: 16px;
 
@@ -442,7 +442,7 @@
 
   margin-bottom: 14px;
 
-  color: #1769ff;
+  color: #007bff;
 
   font-size: 11px;
 
@@ -468,7 +468,7 @@
 }
 
 .products-section-header h2 span {
-  color: #1769ff;
+  color: #007bff;
 }
 
 .products-section-header > p {
@@ -611,7 +611,7 @@
 
   background: rgba(255, 255, 255, 0.94);
 
-  color: #1769ff;
+  color: #007bff;
 
   font-size: 10px;
 
@@ -650,7 +650,7 @@
 
   background: rgba(255, 255, 255, 0.94);
 
-  color: #1769ff;
+  color: #007bff;
 
   font-size: 18px;
 
@@ -713,7 +713,7 @@
 
 .solution-card:hover
 .solution-card-title-row h3 {
-  color: #1769ff;
+  color: #007bff;
 }
 
 .solution-arrow {
@@ -743,7 +743,7 @@
 
 .solution-card:hover
 .solution-arrow {
-  background: #1769ff;
+  background: #007bff;
 
   color: #ffffff;
 
@@ -775,7 +775,7 @@
 
   padding-top: 22px;
 
-  color: #1769ff;
+  color: #007bff;
 
   font-size: 12px;
 
@@ -786,7 +786,7 @@
   width: 35px;
   height: 1px;
 
-  background: #1769ff;
+  background: #007bff;
 
   transition:
     width 0.3s ease;
@@ -826,7 +826,7 @@
       115deg,
       #0b172a 0%,
       #102c50 60%,
-      #1769ff 100%
+      #007bff 100%
     );
 
   box-shadow:

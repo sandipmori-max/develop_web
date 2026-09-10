@@ -33,7 +33,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 16px;
-  color: #1769ff;
+  color: #007bff;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -44,7 +44,7 @@
   width: 28px;
   height: 2px;
   border-radius: 10px;
-  background: #1769ff;
+  background: #007bff;
 }
 
 .happy-clientele-heading h2 {
@@ -57,7 +57,7 @@
 }
 
 .happy-clientele-heading h2 span {
-  color: #1769ff;
+  color: #007bff;
 }
 
 .happy-clientele-heading p {
@@ -78,7 +78,7 @@
 
 .client-count strong {
   display: block;
-  color: #1769ff;
+  color: #007bff;
   font-size: 28px;
   line-height: 1;
   font-weight: 800;

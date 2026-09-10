@@ -49,7 +49,7 @@
 
   margin-bottom: 15px;
 
-  color: #1769ff;
+  color: #007bff;
 
   font-size: 12px;
   font-weight: 700;
@@ -65,7 +65,7 @@
   width: 24px;
   height: 2px;
 
-  background: #1769ff;
+  background: #007bff;
 
   border-radius: 5px;
 }
@@ -83,7 +83,7 @@
 }
 
 .why-choose-heading h2 span {
-  color: #1769ff;
+  color: #007bff;
 }
 
 .why-choose-heading p {
@@ -145,7 +145,7 @@
   width: 100%;
   height: 4px;
 
-  background: #1769ff;
+  background: #007bff;
 
   transform: scaleX(0);
   transform-origin: left;
@@ -235,7 +235,7 @@
 }
 
 .why-choose-card:hover .why-choose-icon {
-  background: #1769ff;
+  background: #007bff;
 
   transform: rotate(-3deg);
 }
@@ -267,7 +267,7 @@
 }
 
 .why-choose-card:hover .why-choose-content h3 {
-  color: #1769ff;
+  color: #007bff;
 }
 
 .why-choose-content p {
@@ -299,7 +299,7 @@
   border: 1px solid #e5ebf4;
   border-radius: 50%;
 
-  color: #1769ff;
+  color: #007bff;
 
   font-size: 18px;
 
@@ -319,11 +319,11 @@
 
   transform: translateX(0);
 
-  background: #1769ff;
+  background: #007bff;
 
   color: #ffffff;
 
-  border-color: #1769ff;
+  border-color: #007bff;
 }
 
 /* =========================================================
@@ -423,4 +423,13 @@
     padding-left: 22px;
     padding-right: 22px;
   }
+}
+.why-choose-card:hover .why-choose-icon {
+  background: #007bff;
+  transform: rotate(-3deg);
+}
+
+.why-choose-card:hover .why-choose-icon img {
+  transform: scale(1.08);
+  filter: brightness(0) invert(1);
 }

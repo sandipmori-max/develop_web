@@ -75,7 +75,7 @@
   font-weight: 750;
   letter-spacing: 2px;
 
-  color: #1769ff;
+  color: #007bff;
 }
 
 .schedule-modal-eyebrow::before {
@@ -84,7 +84,7 @@
   width: 24px;
   height: 2px;
 
-  background: #1769ff;
+  background: #007bff;
 }
 
 .schedule-modal-header h2 {
@@ -150,8 +150,8 @@
 }
 
 .schedule-close:hover {
-  background: #1769ff;
-  border-color: #1769ff;
+  background: #007bff;
+  border-color: #007bff;
   color: #ffffff;
   transform: rotate(90deg);
 }
@@ -203,7 +203,7 @@
 
 .schedule-field label span {
   margin-left: 3px;
-  color: #1769ff;
+  color: #007bff;
 }
 
 /* ========================================
@@ -263,7 +263,7 @@
 
 .schedule-field input:focus,
 .schedule-field textarea:focus {
-  border-color: #1769ff;
+  border-color: #007bff;
   background: #ffffff;
 
   box-shadow:
@@ -345,7 +345,7 @@
   border: 0;
   border-radius: 10px;
 
-  background: #1769ff;
+  background: #007bff;
 
   color: #ffffff;
 

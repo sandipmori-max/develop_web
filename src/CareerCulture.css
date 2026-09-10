@@ -37,7 +37,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 17px;
-  color: #1769ff;
+  color: #007bff;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -47,7 +47,7 @@
   content: "";
   width: 28px;
   height: 2px;
-  background: #1769ff;
+  background: #007bff;
   border-radius: 10px;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .section-intro h2 span {
-  color: #1769ff;
+  color: #007bff;
 }
 
 .section-intro p {
@@ -118,7 +118,7 @@
   justify-content: center;
   border-radius: 13px;
   background: #eaf1ff;
-  color: #1769ff;
+  color: #007bff;
   font-size: 17px;
   font-weight: 800;
   transition:
@@ -128,7 +128,7 @@
 }
 
 .culture-item.is-active .culture-icon {
-  background: #1769ff;
+  background: #007bff;
   color: #fff;
   transform: translateY(-2px);
 }
@@ -155,7 +155,7 @@
   justify-content: center;
   border: 1px solid #dce2ea;
   border-radius: 50%;
-  color: #1769ff;
+  color: #007bff;
   font-size: 20px;
   line-height: 1;
   transition:
@@ -165,8 +165,8 @@
 }
 
 .culture-item.is-active .culture-arrow {
-  background: #1769ff;
-  border-color: #1769ff;
+  background: #007bff;
+  border-color: #007bff;
   color: #fff;
 }
 
@@ -295,7 +295,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #1769ff;
+  background: #007bff;
   font-size: 16px;
 }
 
@@ -360,7 +360,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 14px;
-  background: #1769ff;
+  background: #007bff;
   color: #fff;
   font-size: 21px;
   transition: transform 0.3s ease;
@@ -424,7 +424,7 @@
 
 .career-button:hover {
   transform: translateY(-3px);
-  background: #1769ff;
+  background: #007bff;
   color: #fff;
 }
 
@@ -435,7 +435,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #1769ff;
+  background: #007bff;
   color: #fff;
   transition:
     background 0.3s ease,
@@ -444,7 +444,7 @@
 
 .career-button:hover .career-button-arrow {
   background: #fff;
-  color: #1769ff;
+  color: #007bff;
 }
 
 .career-card-decoration {
@@ -569,8 +569,8 @@
 .lightbox-prev:hover,
 .lightbox-next:hover,
 .lightbox-close:hover {
-  background: #1769ff;
-  border-color: #1769ff;
+  background: #007bff;
+  border-color: #007bff;
 }
 
 .lightbox-prev {
@@ -623,7 +623,7 @@
 }
 
 .lightbox-thumbnail.active {
-  border-color: #1769ff;
+  border-color: #007bff;
 }
 
 /* =========================================================
