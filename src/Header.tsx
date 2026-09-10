@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+ import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
-
+ const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleDropdown = (name: string) => {
     setOpenDropdown((prev) => (prev === name ? null : name));
+  };
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
   };
 
   const closeMenu = () => {
@@ -63,17 +67,25 @@ const Header = () => {
             {/* =====================================================
                 LOGO
             ====================================================== */}
-            <a
-              href="/"
-              className="de-logo"
-              onClick={goHome}
-            >
-              <img
-                src="CMSassets/images/logos/logo.png"
-                alt="DevERP logo"
-              />
-            </a>
+           <a
+  href="/"
+  className="de-logo"
+  onClick={goHome}
+>
+  <span className="de-logo-mark">
+    <span className="de-logo-dot" />
+  </span>
 
+  <span className="de-logo-content">
+    <span className="de-logo-title">
+      DevERP  Solutions Private Limited
+    </span>
+
+    {/* <span className="de-logo-company">
+     
+    </span> */}
+  </span>
+</a>
 
             {/* =====================================================
                 DESKTOP / MOBILE NAV
@@ -91,7 +103,9 @@ const Header = () => {
                 <li className="de-menu-item">
                   <a
                     href="/"
-                    className="de-menu-link de-active"
+                   className={`de-menu-link ${
+  isActive("/") ? "de-active" : ""
+}`}
                     onClick={goHome}
                   >
                     Home
@@ -111,7 +125,11 @@ const Header = () => {
 >
   <button
     type="button"
-    className="de-menu-link de-dropdown-trigger"
+    className={`de-menu-link de-dropdown-trigger ${
+  location.pathname.startsWith("/products")
+    ? "de-active"
+    : ""
+}`}
     onClick={() => toggleDropdown("products")}
   >
     <span>Products</span>
@@ -234,7 +252,11 @@ const Header = () => {
 >
   <button
     type="button"
-    className="de-menu-link de-dropdown-trigger"
+    className={`de-menu-link de-dropdown-trigger ${
+  location.pathname.startsWith("/services")
+    ? "de-active"
+    : ""
+}`}
     onClick={() => toggleDropdown("services")}
   >
     <span>Services</span>
@@ -375,7 +397,11 @@ const Header = () => {
                 >
                   <button
                     type="button"
-                    className="de-menu-link de-dropdown-trigger"
+                    className={`de-menu-link de-dropdown-trigger ${
+  location.pathname.startsWith("/about")
+    ? "de-active"
+    : ""
+}`}
                     onClick={() => toggleDropdown("about")}
                   >
                     <span>About Us</span>
@@ -416,7 +442,9 @@ const Header = () => {
                 <li className="de-menu-item">
                   <a
                     href="/clients"
-                    className="de-menu-link"
+                     className={`de-menu-link ${
+    isActive("/clients") ? "de-active" : ""
+  }`}
                     onClick={goClients}
                   >
                     Clients
@@ -435,7 +463,11 @@ const Header = () => {
                 >
                   <button
                     type="button"
-                    className="de-menu-link de-dropdown-trigger"
+                   className={`de-menu-link de-dropdown-trigger ${
+  location.pathname.startsWith("/career")
+    ? "de-active"
+    : ""
+}`}
                     onClick={() => toggleDropdown("career")}
                   >
                     <span>Career</span>
@@ -466,7 +498,9 @@ const Header = () => {
                 <li className="de-menu-item">
                   <a
                     href="/blog"
-                    className="de-menu-link"
+                      className={`de-menu-link ${
+    isActive("/blog") ? "de-active" : ""
+  }`}
                     onClick={(e) => {
                       e.preventDefault();
                       closeMenu();
@@ -477,25 +511,25 @@ const Header = () => {
                   </a>
                 </li>
 
-
-                {/* =====================================================
+  {/* =====================================================
                     CONTACT
                 ====================================================== */}
                 <li className="de-menu-item">
                   <a
-                    href="contact_us"
-                    className="de-menu-link de-contact-link"
+                  className={`de-menu-link ${
+    isActive("/contact_us") ? "de-active" : ""
+  }`}
+                    href="contact_us" 
                     onClick={(e) => {
                       e.preventDefault();
                       closeMenu();
                       navigate("/contact_us");
                     }}
                   >
-                    Contact Us
-                    <span className="de-contact-arrow">↗</span>
+                    Contact Us 
                   </a>
                 </li>
-
+             
               </ul>
             </nav>
 
@@ -505,8 +539,9 @@ const Header = () => {
             ====================================================== */}
             <button
               type="button"
-              className={`de-mobile-button ${mobileOpen ? "de-mobile-active" : ""
-                }`}
+              className={`de-menu-item de-has-dropdown ${
+    openDropdown === "about" ? "de-dropdown-open" : ""
+  }`}
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label="Toggle navigation"
               aria-expanded={mobileOpen}

@@ -1,0 +1,151 @@
+.book-demo-sticky {
+  position: fixed !important;
+  left: 24px !important;
+  bottom: 24px !important;
+  z-index: 999999 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px;
+
+  min-width: 138px;
+  height: 50px;
+  padding: 0 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    #1769ff 0%,
+    #1257df 100%
+  ) !important;
+
+  color: #fff !important;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+
+  cursor: pointer;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 24px rgba(23, 105, 255, 0.28),
+    0 3px 8px rgba(11, 23, 42, 0.12);
+
+  transform: translateY(0);
+
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s ease,
+    padding 0.3s ease;
+}
+
+/* Shine effect */
+.book-demo-sticky::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+/* Hover */
+.book-demo-sticky:hover {
+  transform: translateY(-5px) scale(1.03);
+
+  box-shadow:
+    0 14px 35px rgba(23, 105, 255, 0.38),
+    0 5px 12px rgba(11, 23, 42, 0.14);
+}
+
+.book-demo-sticky:hover::before {
+  left: 140%;
+}
+
+/* Icon */
+.book-demo-sticky svg {
+  position: relative;
+  z-index: 2;
+
+  width: 19px;
+  height: 19px;
+
+  color: #fff;
+
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.book-demo-sticky:hover svg {
+  transform: rotate(-8deg) scale(1.12);
+}
+
+/* Text */
+.book-demo-sticky span {
+  position: relative;
+  z-index: 2;
+
+  white-space: nowrap;
+
+  transition: transform 0.3s ease;
+}
+
+.book-demo-sticky:hover span {
+  transform: translateX(2px);
+}
+
+/* Click */
+.book-demo-sticky:active {
+  transform: translateY(-1px) scale(0.98);
+
+  box-shadow:
+    0 6px 16px rgba(23, 105, 255, 0.25);
+}
+
+/* Keyboard accessibility */
+.book-demo-sticky:focus-visible {
+  outline: 3px solid rgba(23, 105, 255, 0.3);
+  outline-offset: 4px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .book-demo-sticky {
+    left: 16px !important;
+    bottom: 16px !important;
+
+    min-width: 125px;
+    height: 46px;
+
+    padding: 0 17px;
+
+    font-size: 13px;
+  }
+
+  .book-demo-sticky svg {
+    width: 18px;
+    height: 18px;
+  }
+}

@@ -13,173 +13,352 @@ const products: Product[] = [
     image: "CMSassets/images/it_service/RMC.jpg",
     title: "Ready Mix Concrete ERP",
     description:
-      "DevERP specializes in an integrated information system designed for the Ready-Mix Concrete Industry.",
+      "Integrated ERP solution designed specifically for the Ready-Mix Concrete Industry.",
     link: "index.aspx?q=ready_mix_concrete_erp",
   },
   {
     image: "CMSassets/images/it_service/REAL-ESTATE.png",
     title: "Real Estate ERP",
     description:
-      "DevERP Real Estate software provide all in one highly secure solution to real estate firms of various sizes.",
+      "Secure all-in-one business management solution for real estate companies of every size.",
     link: "index.aspx?q=real_estate_erp",
   },
   {
     image: "CMSassets/images/it_service/Engraving.jpg",
     title: "Engraving ERP",
     description:
-      "DevERP Gravure software is among the first to provide engraving ERP solution in India.",
+      "A specialized ERP solution designed for modern engraving and gravure operations.",
     link: "index.aspx?q=engraving_erp",
   },
   {
     image: "CMSassets/images/it_service/Flexo.jpg",
     title: "Flexo Printing ERP",
     description:
-      "DevERP Flexo Printing software is an integrated ERP software specially designed for high quality printing and operational processes.",
+      "Integrated software for high-quality printing, production and operational management.",
     link: "index.aspx?q=flexo_printing_erp",
   },
   {
     image: "CMSassets/images/it_service/LIGHT_WEIGHT.jpg",
     title: "Light Weight Block (AAC) ERP",
     description:
-      "DevERP Light Weight Block software is the exclusive and unique software solution for Brick & Block Industry.",
+      "Complete management solution for Brick, Block and AAC manufacturing businesses.",
     link: "index.aspx?q=light_weight_block_erp",
   },
   {
     image: "CMSassets/images/it_service/RICE-MILL.jpg",
-    title: "Pulse/Rice Mill ERP",
+    title: "Pulse / Rice Mill ERP",
     description:
-      "DevERP Pulse/Rice Mill software is specially designed to support all your business-related concern in the Food Manufacturing and Export industry.",
+      "Powerful ERP solution for food manufacturing, processing and export operations.",
     link: "index.aspx?q=pulse/rice_mill_erp",
   },
   {
     image: "CMSassets/images/it_service/SCHOOL-MANAGEMENT.jpg",
     title: "School Management ERP",
     description:
-      "DevERP School Management software aims at easing administrative hassles and enhancing efficiency and productivity.",
+      "Simplify administration, improve productivity and manage educational operations efficiently.",
     link: "index.aspx?q=school_management_erp",
   },
   {
     image: "CMSassets/images/it_service/PRINTING.jpg",
     title: "Printing & Packaging ERP",
     description:
-      "DevERP Printing & Packaging software has a full set of comprehensive features such as CRM, Production Management, Work Management, and Reporting to Accounting.",
+      "Comprehensive solution covering CRM, production, work management, reporting and accounting.",
     link: "index.aspx?q=printing_packaging_erp",
   },
   {
     image: "CMSassets/images/it_service/AUTOMOBILE.jpg",
-    title: "Automobiles and Work shop Management ERP",
+    title: "Automobiles & Workshop ERP",
     description:
-      "DevERP Automobiles and Workshop Management software help in meeting the desired requirements of highly competitive automotive business industries.",
+      "Business management software built for modern automotive and workshop operations.",
     link: "index.aspx?q=automobiles_and_work_shop_management_erp",
   },
   {
     image: "CMSassets/images/it_service/FLEET.jpg",
     title: "Transportation ERP",
     description:
-      "DevERP Fleet Management software solutions is designed specifically for fleet operation’s needs and plays a crucial role in Supply Chain Management.",
+      "Fleet-focused ERP solution designed for transportation and supply-chain operations.",
     link: "index.aspx?q=transportation_erp",
   },
   {
     image: "CMSassets/images/it_service/MANUFACTURING.jpg",
     title: "Machine Manufacturing ERP",
     description:
-      "DevERP Machine Manufacturing software is a complete and centralized solution for managing entire range of manufacturing processes industry wide.",
+      "Centralized platform for managing complete manufacturing processes and operations.",
     link: "index.aspx?q=machine_manufacturing_erp",
   },
   {
     image: "CMSassets/images/it_service/PHARMA.jpg",
-    title: "Pharmaceutical Production and Management ERP",
+    title: "Pharmaceutical ERP",
     description:
-      "DevERP Pharmaceutical Production and Management software is a sophisticated and complete package for pharmaceutical manufacturers and companies to streamline their business process.",
+      "Sophisticated ERP platform designed to streamline pharmaceutical production and management.",
     link: "index.aspx?q=pharmaceutical_production_and_management_erp",
   },
   {
     image: "CMSassets/images/it_service/CRM.png",
     title: "CRM ERP",
     description:
-      "DevERP CRM software is a complete and compact package, which is designed to provide the best of solution which aims at routing, prioritizing, and solving support tickets.",
+      "Complete customer relationship solution for routing, prioritizing and resolving support requests.",
     link: "index.aspx?q=crm_erp",
   },
   {
     image: "CMSassets/images/it_service/BOOK-DEPOT.jpg",
-    title: "Book Depot / Shop Management ERP",
+    title: "Book Depot / Shop ERP",
     description:
-      "DevERP Book Depot/Shop Management software is a smart way to manage your bookstore in a systematic way for all types of bookstores may it be small or big.",
+      "Smart management solution for bookstores and retail book businesses of every size.",
     link: "index.aspx?q=book_depot_shop_management_erp",
   },
   {
     image: "CMSassets/images/it_service/TRADING.jpg",
     title: "Trading ERP",
     description:
-      "DevERP Trading software is built keeping in mind the requirements of Indian trading and distribution industry.",
+      "Built specifically around the requirements of India's trading and distribution industry.",
     link: "index.aspx?q=trading_erp",
   },
 ];
 
 const OurProducts: React.FC = () => {
+  const featuredProduct = products[0];
+  const remainingProducts = products.slice(1);
+
   return (
-    <section className="our-products-section">
-      <div className="our-products-container">
+    <section className="products-page">
 
-        {/* Header */}
-        <div className="our-products-heading">
-          <span className="our-products-eyebrow">
-            OUR SOLUTIONS
-          </span>
+      {/* =====================================================
+          HERO
+      ===================================================== */}
 
-          <h2>
-            Our <span>Products</span>
-          </h2>
+      <div className="products-hero">
+        <div className="products-container">
 
-          <p>
-            We package the products with best services to make
-            you a happy customer.
-          </p>
-        </div>
+          <div className="products-hero-grid">
 
-        {/* Products */}
-        <div className="our-products-grid">
-          {products.map((product, index) => (
-            <a
-               href="/products"
-              className="product-card"
-              key={product.link}
-            >
-              {/* Image */}
-              <div className="product-card-image">
+            <div className="products-hero-content">
+
+              <div className="products-kicker">
+                <span className="products-kicker-line" />
+                DEV ERP SOLUTIONS
+              </div>
+
+              <h1>
+                Software built for
+                <span> real businesses.</span>
+              </h1>
+
+              <p>
+                Powerful ERP solutions designed around the unique
+                requirements of different industries — helping
+                businesses simplify operations, improve visibility
+                and grow with confidence.
+              </p>
+
+              <div className="products-hero-meta">
+
+                <div className="products-meta-item">
+                  <strong>15+</strong>
+                  <span>Industry Solutions</span>
+                </div>
+
+                <div className="products-meta-divider" />
+
+                <div className="products-meta-item">
+                  <strong>ERP</strong>
+                  <span>Business Management</span>
+                </div>
+
+                <div className="products-meta-divider" />
+
+                <div className="products-meta-item">
+                  <strong>360°</strong>
+                  <span>Business Visibility</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div className="products-hero-visual">
+
+              <div className="products-hero-circle" />
+
+              <div className="products-hero-image-card">
+
                 <img
-                  src={product.image}
-                  alt={product.title}
+                  src={featuredProduct.image}
+                  alt={featuredProduct.title}
                 />
 
-                <div className="product-card-overlay">
-                  <span>View Product</span>
-                  <span className="product-card-arrow">→</span>
+                <div className="products-hero-image-overlay" />
+
+                <div className="products-hero-product-info">
+                  <span>FEATURED SOLUTION</span>
+
+                  <h3>{featuredProduct.title}</h3>
+
+                  <a href={featuredProduct.link}>
+                    Explore solution
+                    <span>↗</span>
+                  </a>
                 </div>
 
-                <div className="product-card-number">
-                  {String(index + 1).padStart(2, "0")}
+              </div>
+
+              <div className="products-floating-card">
+                <div className="products-floating-icon">
+                  ✓
+                </div>
+
+                <div>
+                  <strong>Industry Focused</strong>
+                  <span>Built around your workflow</span>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="product-card-content">
-                <h3>{product.title}</h3>
+            </div>
 
-                <p>{product.description}</p>
+          </div>
+        </div>
+      </div>
 
-                <div className="product-card-link">
-                  Explore Solution
-                  <span>→</span>
+      {/* =====================================================
+          PRODUCTS
+      ===================================================== */}
+
+      <div className="products-list-section">
+
+        <div className="products-container">
+
+          <div className="products-section-header">
+
+            <div>
+              <span className="products-section-label">
+                OUR PRODUCTS
+              </span>
+
+              <h2>
+                Solutions for every
+                <span> industry.</span>
+              </h2>
+            </div>
+
+            <p>
+              Explore our collection of industry-specific ERP
+              solutions designed to bring your entire business
+              onto one powerful platform.
+            </p>
+
+          </div>
+
+          <div className="products-grid">
+
+            {remainingProducts.map((product, index) => (
+              <a
+                href={'products'}
+                className="solution-card"
+                key={product.link}
+              >
+
+                <div className="solution-card-image">
+
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
+
+                  <span className="solution-number">
+                    {String(index + 2).padStart(2, "0")}
+                  </span>
+
+                  <div className="solution-card-image-arrow">
+                    ↗
+                  </div>
+
                 </div>
-              </div>
-            </a>
-          ))}
+
+                <div className="solution-card-body">
+
+                  <div className="solution-card-title-row">
+
+                    <h3>
+                      {product.title}
+                    </h3>
+
+                    <span className="solution-arrow">
+                      →
+                    </span>
+
+                  </div>
+
+                  <p>
+                    {product.description}
+                  </p>
+
+                  <div className="solution-card-footer">
+                    <span>
+                      Explore solution
+                    </span>
+
+                    <span className="solution-footer-line" />
+                  </div>
+
+                </div>
+
+              </a>
+            ))}
+
+          </div>
+
         </div>
 
       </div>
+
+      {/* =====================================================
+          CTA
+      ===================================================== */}
+
+      <div className="products-cta-section">
+
+        <div className="products-container">
+
+          <div className="products-cta">
+
+            <div className="products-cta-pattern" />
+
+            <div className="products-cta-content">
+
+              <span>
+                NEED A CUSTOM SOLUTION?
+              </span>
+
+              <h2>
+                Let's build the right
+                <strong> ERP for your business.</strong>
+              </h2>
+
+              <p>
+                Tell us about your business requirements and
+                we'll help you find the right solution.
+              </p>
+
+            </div>
+
+            <a
+              href="index.aspx?q=contact"
+              className="products-cta-button"
+            >
+              Talk to our team
+              <span>→</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
   );
 };
 
 export default OurProducts;
+

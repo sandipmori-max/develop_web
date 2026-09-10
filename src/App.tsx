@@ -1,5 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  CalendarDays,
+  MessageCircle,
+  Mail,
+  ArrowUp,
+} from "lucide-react";
 
 import logo from './assets/logo.png';
 import Header from './Header';
@@ -19,6 +25,8 @@ import BlogPage from './BlogPage';
 import ContactUs from './ContactUs';
 import ServiceList from './ServiceList';
 import ProductDetails from './ProductDetails';
+import StickyActions from './StickyActions';
+import BookDemoButton from './BookDemoButton';
 
 // ── Smooth scroll helper ──────────────────────────────────────────────────────
 function scrollToBooking() {
@@ -78,528 +86,450 @@ const Ic = {
   lock: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>,
 }
 
-// ── Navbar ────────────────────────────────────────────────────────────────────
-function Nav({ scrolled }: { scrolled: boolean }) {
-  const navigate = useNavigate();
 
-  return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={{
-        background: scrolled
-          ? 'rgba(3, 158, 227, 0.95)'
-          : 'rgba(3, 158, 227, 0.95)',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled
-          ? '1px solid rgba(255,255,255,0.15)'
-          : 'none',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
-
-        {/* Logo / Brand */}
-        <div className="flex items-center gap-2">
-          <span className="text-white font-bold text-xl tracking-tight">
-            DevERP
-          </span>
-        </div>
-
-        {/* Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {['Solutions', 'Platform', 'Pricing'].map(item => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium transition-colors duration-200"
-              style={{
-                color: 'rgba(255,255,255,0.75)',
-              }}
-              onMouseEnter={e =>
-                (e.currentTarget.style.color = '#ffffff')
-              }
-              onMouseLeave={e =>
-                (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')
-              }
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-
-        {/* Actions */}
-        <div className="flex items-center gap-3">
-
-        
-
-          <button
-            onClick={() => {
-              navigate("/book-demo");
-            }}
-            className="px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:scale-105 active:scale-95"
-            style={{
-              background: '#ffffff',
-              color: '#039EE3',
-              boxShadow: '0 4px 14px rgba(0,0,0,0.12)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = '#f0f9ff'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = '#ffffff'
-            }}
-          >
-            Book Free Demo
-          </button>
-
-        </div>
-      </div>
-    </nav>
-  );
-}
 // ── Section 1: Hero ───────────────────────────────────────────────────────────
 function Hero() {
   return (
- <section
-  className="relative min-h-screen flex items-center overflow-hidden"
-  style={{
-    background: '#ffffff',
-  }}
->
-  {/* Soft blue background glow */}
-  <div
-    className="absolute pointer-events-none"
-    style={{
-      width: '650px',
-      height: '650px',
-      top: '-220px',
-      right: '-180px',
-      borderRadius: '50%',
-      background: 'rgba(3,158,227,0.10)',
-      filter: 'blur(90px)',
-    }}
-  />
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{
+        background: '#ffffff',
+      }}
+    >
+      {/* Soft blue background glow */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: '650px',
+          height: '650px',
+          top: '-220px',
+          right: '-180px',
+          borderRadius: '50%',
+          background: 'rgba(3,158,227,0.10)',
+          filter: 'blur(90px)',
+        }}
+      />
 
-  <div
-    className="absolute pointer-events-none"
-    style={{
-      width: '500px',
-      height: '500px',
-      bottom: '-220px',
-      left: '-180px',
-      borderRadius: '50%',
-      background: 'rgba(56,189,248,0.08)',
-      filter: 'blur(90px)',
-    }}
-  />
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: '500px',
+          height: '500px',
+          bottom: '-220px',
+          left: '-180px',
+          borderRadius: '50%',
+          background: 'rgba(56,189,248,0.08)',
+          filter: 'blur(90px)',
+        }}
+      />
 
-  {/* Subtle dot pattern */}
-  <div
-    className="absolute inset-0 pointer-events-none"
-    style={{
-      opacity: 0.35,
-      backgroundImage:
-        'radial-gradient(circle, rgba(3,158,227,0.25) 1px, transparent 1px)',
-      backgroundSize: '28px 28px',
-      maskImage:
-        'linear-gradient(to bottom, black 0%, transparent 75%)',
-      WebkitMaskImage:
-        'linear-gradient(to bottom, black 0%, transparent 75%)',
-    }}
-  />
+      {/* Subtle dot pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          opacity: 0.35,
+          backgroundImage:
+            'radial-gradient(circle, rgba(3,158,227,0.25) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          maskImage:
+            'linear-gradient(to bottom, black 0%, transparent 75%)',
+          WebkitMaskImage:
+            'linear-gradient(to bottom, black 0%, transparent 75%)',
+        }}
+      />
 
-  <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10">
-    <div className="grid lg:grid-cols-2 gap-14 items-center py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10">
+        <div className="grid lg:grid-cols-2 gap-14 items-center py-28">
 
-      {/* LEFT CONTENT */}
-      <div>
-        {/* Badge */}
-        <div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-7"
-          style={{
-            background: 'rgba(3,158,227,0.08)',
-            border: '1px solid rgba(3,158,227,0.18)',
-            color: '#0284C7',
-          }}
-        >
-          <span
-            className="w-2 h-2 rounded-full animate-pulse-dot"
-            style={{
-              background: '#039EE3',
-              boxShadow: '0 0 10px rgba(3,158,227,0.45)',
-            }}
-          />
-          Smart ERP for Modern Businesses
-        </div>
-
-        {/* Heading */}
-        <h1
-          className="font-black tracking-tight leading-[1.05] mb-6"
-          style={{
-            fontSize: 'clamp(2.8rem, 5.5vw, 5.2rem)',
-            color: '#040D20',
-          }}
-        >
-          Run Your Business
-          <br />
-          <span style={{ color: '#039EE3' }}>
-            Smarter. Faster.
-          </span>
-          <br />
-          Better.
-        </h1>
-
-        {/* Description */}
-        <p
-          className="text-lg lg:text-xl leading-relaxed max-w-xl mb-8"
-          style={{
-            color: '#64748B',
-          }}
-        >
-          DevERP brings production, inventory, sales, purchase,
-          finance and operations together in one powerful ERP
-          platform built for growing businesses.
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button
-            onClick={scrollToBooking}
-            className="px-7 py-4 rounded-xl text-base font-bold text-white transition-all duration-200 hover:scale-105 active:scale-95"
-            style={{
-              background:
-                'linear-gradient(135deg, #039EE3 0%, #38BDF8 100%)',
-              boxShadow:
-                '0 10px 30px rgba(3,158,227,0.25)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.boxShadow =
-                '0 14px 38px rgba(3,158,227,0.35)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.boxShadow =
-                '0 10px 30px rgba(3,158,227,0.25)'
-            }}
-          >
-            Book Your Free Demo →
-          </button>
-
-          <button
-            onClick={scrollToBooking}
-            className="px-7 py-4 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
-            style={{
-              background: '#ffffff',
-              border: '1.5px solid #BAE6FD',
-              color: '#040D20',
-              boxShadow:
-                '0 6px 20px rgba(3,158,227,0.06)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = '#F8FCFF'
-              e.currentTarget.style.borderColor = '#039EE3'
-              e.currentTarget.style.color = '#039EE3'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = '#ffffff'
-              e.currentTarget.style.borderColor = '#BAE6FD'
-              e.currentTarget.style.color = '#040D20'
-            }}
-          >
-            Explore Platform
-          </button>
-        </div>
-
-        {/* Trust line */}
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-9">
-          {[
-            'Production',
-            'Inventory',
-            'Finance',
-            'Sales & Purchase',
-          ].map(item => (
+          {/* LEFT CONTENT */}
+          <div>
+            {/* Badge */}
             <div
-              key={item}
-              className="flex items-center gap-2 text-sm"
-              style={{ color: '#64748B' }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-7"
+              style={{
+                background: 'rgba(3,158,227,0.08)',
+                border: '1px solid rgba(3,158,227,0.18)',
+                color: '#0284C7',
+              }}
             >
               <span
-                className="w-5 h-5 rounded-full flex items-center justify-center"
+                className="w-2 h-2 rounded-full animate-pulse-dot"
                 style={{
-                  background: 'rgba(3,158,227,0.10)',
-                  color: '#039EE3',
+                  background: '#039EE3',
+                  boxShadow: '0 0 10px rgba(3,158,227,0.45)',
                 }}
-              >
-                ✓
-              </span>
-              {item}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* RIGHT DASHBOARD */}
-      <div className="relative">
-        {/* Blue glow behind dashboard */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            inset: '8%',
-            borderRadius: '32px',
-            background: 'rgba(3,158,227,0.14)',
-            filter: 'blur(45px)',
-          }}
-        />
-
-        <div
-          className="relative rounded-3xl overflow-hidden"
-          style={{
-            background: '#ffffff',
-            border: '1px solid #DDF2FC',
-            boxShadow:
-              '0 24px 70px rgba(3,158,227,0.14), 0 8px 28px rgba(15,23,42,0.06)',
-          }}
-        >
-          {/* Dashboard Header */}
-          <div
-            className="px-6 py-5 flex items-center justify-between"
-            style={{
-              background: '#F8FCFF',
-              borderBottom: '1px solid #E0F2FE',
-            }}
-          >
-            <div>
-              <div
-                className="text-xs font-semibold mb-1"
-                style={{ color: '#94A3B8' }}
-              >
-                DevERP Dashboard
-              </div>
-
-              <div
-                className="font-bold text-lg"
-                style={{ color: '#040D20' }}
-              >
-                Business Overview
-              </div>
+              />
+              Smart ERP for Modern Businesses
             </div>
 
-            <div
-              className="px-3 py-1.5 rounded-full text-xs font-semibold"
+            {/* Heading */}
+            <h1
+              className="font-black tracking-tight leading-[1.05] mb-6"
               style={{
-                background: 'rgba(34,197,94,0.10)',
-                color: '#16A34A',
+                fontSize: 'clamp(2.8rem, 5.5vw, 5.2rem)',
+                color: '#040D20',
               }}
             >
-              ● Live Data
-            </div>
-          </div>
+              Run Your Business
+              <br />
+              <span style={{ color: '#039EE3' }}>
+                Smarter. Faster.
+              </span>
+              <br />
+              Better.
+            </h1>
 
-          {/* KPI Cards */}
-          <div className="p-6 grid grid-cols-2 gap-4">
-            {[
-              {
-                label: 'Production',
-                value: '92%',
-                change: '+12.4%',
-                icon: '↗',
-                color: '#22C55E',
-              },
-              {
-                label: 'Machine Utilization',
-                value: '87%',
-                change: '+8.2%',
-                icon: '⚙',
-                color: '#039EE3',
-              },
-              {
-                label: 'Pending Orders',
-                value: '24',
-                change: '-14.5%',
-                icon: '◷',
-                color: '#F59E0B',
-              },
-              {
-                label: 'Revenue',
-                value: '₹48.6L',
-                change: '+18.7%',
-                icon: '₹',
-                color: '#039EE3',
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="rounded-2xl p-5"
+            {/* Description */}
+            <p
+              className="text-lg lg:text-xl leading-relaxed max-w-xl mb-8"
+              style={{
+                color: '#64748B',
+              }}
+            >
+              DevERP brings production, inventory, sales, purchase,
+              finance and operations together in one powerful ERP
+              platform built for growing businesses.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={scrollToBooking}
+                className="px-7 py-4 rounded-xl text-base font-bold text-white transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{
-                  background: '#F8FCFF',
-                  border: '1px solid #DDF2FC',
+                  background:
+                    'linear-gradient(135deg, #039EE3 0%, #38BDF8 100%)',
+                  boxShadow:
+                    '0 10px 30px rgba(3,158,227,0.25)',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.boxShadow =
+                    '0 14px 38px rgba(3,158,227,0.35)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.boxShadow =
+                    '0 10px 30px rgba(3,158,227,0.25)'
                 }}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <span
-                    className="text-xs font-medium"
-                    style={{ color: '#64748B' }}
-                  >
-                    {item.label}
-                  </span>
+                Book Your Free Demo →
+              </button>
 
+              <button
+                onClick={scrollToBooking}
+                className="px-7 py-4 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
+                style={{
+                  background: '#ffffff',
+                  border: '1.5px solid #BAE6FD',
+                  color: '#040D20',
+                  boxShadow:
+                    '0 6px 20px rgba(3,158,227,0.06)',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#F8FCFF'
+                  e.currentTarget.style.borderColor = '#039EE3'
+                  e.currentTarget.style.color = '#039EE3'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = '#ffffff'
+                  e.currentTarget.style.borderColor = '#BAE6FD'
+                  e.currentTarget.style.color = '#040D20'
+                }}
+              >
+                Explore Platform
+              </button>
+            </div>
+
+            {/* Trust line */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-9">
+              {[
+                'Production',
+                'Inventory',
+                'Finance',
+                'Sales & Purchase',
+              ].map(item => (
+                <div
+                  key={item}
+                  className="flex items-center gap-2 text-sm"
+                  style={{ color: '#64748B' }}
+                >
                   <span
-                    className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold"
+                    className="w-5 h-5 rounded-full flex items-center justify-center"
                     style={{
-                      background: `${item.color}14`,
-                      color: item.color,
+                      background: 'rgba(3,158,227,0.10)',
+                      color: '#039EE3',
                     }}
                   >
-                    {item.icon}
+                    ✓
                   </span>
+                  {item}
                 </div>
-
-                <div
-                  className="text-2xl font-black mb-1"
-                  style={{ color: '#040D20' }}
-                >
-                  {item.value}
-                </div>
-
-                <div
-                  className="text-xs font-semibold"
-                  style={{ color: item.color }}
-                >
-                  {item.change}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* Chart */}
-          <div className="px-6 pb-6">
+          {/* RIGHT DASHBOARD */}
+          <div className="relative">
+            {/* Blue glow behind dashboard */}
             <div
-              className="rounded-2xl p-5"
+              className="absolute pointer-events-none"
               style={{
-                background: '#F8FCFF',
+                inset: '8%',
+                borderRadius: '32px',
+                background: 'rgba(3,158,227,0.14)',
+                filter: 'blur(45px)',
+              }}
+            />
+
+            <div
+              className="relative rounded-3xl overflow-hidden"
+              style={{
+                background: '#ffffff',
                 border: '1px solid #DDF2FC',
+                boxShadow:
+                  '0 24px 70px rgba(3,158,227,0.14), 0 8px 28px rgba(15,23,42,0.06)',
               }}
             >
-              <div className="flex items-center justify-between mb-5">
+              {/* Dashboard Header */}
+              <div
+                className="px-6 py-5 flex items-center justify-between"
+                style={{
+                  background: '#F8FCFF',
+                  borderBottom: '1px solid #E0F2FE',
+                }}
+              >
                 <div>
                   <div
-                    className="text-xs font-medium"
-                    style={{ color: '#64748B' }}
+                    className="text-xs font-semibold mb-1"
+                    style={{ color: '#94A3B8' }}
                   >
-                    Monthly Revenue
+                    DevERP Dashboard
                   </div>
 
                   <div
-                    className="text-xl font-black mt-1"
+                    className="font-bold text-lg"
                     style={{ color: '#040D20' }}
                   >
-                    ₹48.6L
+                    Business Overview
                   </div>
                 </div>
 
                 <div
-                  className="text-xs font-semibold"
-                  style={{ color: '#16A34A' }}
+                  className="px-3 py-1.5 rounded-full text-xs font-semibold"
+                  style={{
+                    background: 'rgba(34,197,94,0.10)',
+                    color: '#16A34A',
+                  }}
                 >
-                  +18.7%
+                  ● Live Data
                 </div>
               </div>
 
-              <div className="flex items-end gap-2 h-28">
-                {[35, 48, 42, 62, 58, 76, 68, 88, 80, 96].map(
-                  (height, i) => (
+              {/* KPI Cards */}
+              <div className="p-6 grid grid-cols-2 gap-4">
+                {[
+                  {
+                    label: 'Production',
+                    value: '92%',
+                    change: '+12.4%',
+                    icon: '↗',
+                    color: '#22C55E',
+                  },
+                  {
+                    label: 'Machine Utilization',
+                    value: '87%',
+                    change: '+8.2%',
+                    icon: '⚙',
+                    color: '#039EE3',
+                  },
+                  {
+                    label: 'Pending Orders',
+                    value: '24',
+                    change: '-14.5%',
+                    icon: '◷',
+                    color: '#F59E0B',
+                  },
+                  {
+                    label: 'Revenue',
+                    value: '₹48.6L',
+                    change: '+18.7%',
+                    icon: '₹',
+                    color: '#039EE3',
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl p-5"
+                    style={{
+                      background: '#F8FCFF',
+                      border: '1px solid #DDF2FC',
+                    }}
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <span
+                        className="text-xs font-medium"
+                        style={{ color: '#64748B' }}
+                      >
+                        {item.label}
+                      </span>
+
+                      <span
+                        className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold"
+                        style={{
+                          background: `${item.color}14`,
+                          color: item.color,
+                        }}
+                      >
+                        {item.icon}
+                      </span>
+                    </div>
+
                     <div
-                      key={i}
-                      className="flex-1 rounded-t-md transition-all duration-300"
-                      style={{
-                        height: `${height}%`,
-                        background:
-                          i === 9
-                            ? '#039EE3'
-                            : 'rgba(3,158,227,0.22)',
-                      }}
-                    />
-                  )
-                )}
+                      className="text-2xl font-black mb-1"
+                      style={{ color: '#040D20' }}
+                    >
+                      {item.value}
+                    </div>
+
+                    <div
+                      className="text-xs font-semibold"
+                      style={{ color: item.color }}
+                    >
+                      {item.change}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Chart */}
+              <div className="px-6 pb-6">
+                <div
+                  className="rounded-2xl p-5"
+                  style={{
+                    background: '#F8FCFF',
+                    border: '1px solid #DDF2FC',
+                  }}
+                >
+                  <div className="flex items-center justify-between mb-5">
+                    <div>
+                      <div
+                        className="text-xs font-medium"
+                        style={{ color: '#64748B' }}
+                      >
+                        Monthly Revenue
+                      </div>
+
+                      <div
+                        className="text-xl font-black mt-1"
+                        style={{ color: '#040D20' }}
+                      >
+                        ₹48.6L
+                      </div>
+                    </div>
+
+                    <div
+                      className="text-xs font-semibold"
+                      style={{ color: '#16A34A' }}
+                    >
+                      +18.7%
+                    </div>
+                  </div>
+
+                  <div className="flex items-end gap-2 h-28">
+                    {[35, 48, 42, 62, 58, 76, 68, 88, 80, 96].map(
+                      (height, i) => (
+                        <div
+                          key={i}
+                          className="flex-1 rounded-t-md transition-all duration-300"
+                          style={{
+                            height: `${height}%`,
+                            background:
+                              i === 9
+                                ? '#039EE3'
+                                : 'rgba(3,158,227,0.22)',
+                          }}
+                        />
+                      )
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Alert */}
+              <div
+                className="mx-6 mb-6 rounded-xl px-4 py-3 flex items-center gap-3"
+                style={{
+                  background: 'rgba(3,158,227,0.06)',
+                  border: '1px solid rgba(3,158,227,0.14)',
+                  boxShadow:
+                    '0 6px 20px rgba(3,158,227,0.06)',
+                }}
+              >
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center"
+                  style={{
+                    background: 'rgba(3,158,227,0.10)',
+                    color: '#039EE3',
+                  }}
+                >
+                  ✦
+                </div>
+
+                <div>
+                  <div
+                    className="text-sm font-semibold"
+                    style={{ color: '#040D20' }}
+                  >
+                    AI Business Alert
+                  </div>
+
+                  <div
+                    className="text-xs"
+                    style={{ color: '#64748B' }}
+                  >
+                    Production efficiency improved by 12.4%
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Bottom Alert */}
-          <div
-            className="mx-6 mb-6 rounded-xl px-4 py-3 flex items-center gap-3"
-            style={{
-              background: 'rgba(3,158,227,0.06)',
-              border: '1px solid rgba(3,158,227,0.14)',
-              boxShadow:
-                '0 6px 20px rgba(3,158,227,0.06)',
-            }}
-          >
+            {/* Floating Status Card */}
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center"
+              className="absolute -bottom-7 -left-7 hidden sm:block rounded-2xl px-5 py-4"
               style={{
-                background: 'rgba(3,158,227,0.10)',
-                color: '#039EE3',
+                background: '#ffffff',
+                border: '1px solid #DDF2FC',
+                boxShadow:
+                  '0 16px 40px rgba(3,158,227,0.16)',
               }}
             >
-              ✦
-            </div>
-
-            <div>
               <div
-                className="text-sm font-semibold"
-                style={{ color: '#040D20' }}
-              >
-                AI Business Alert
-              </div>
-
-              <div
-                className="text-xs"
+                className="text-xs font-medium mb-1"
                 style={{ color: '#64748B' }}
               >
-                Production efficiency improved by 12.4%
+                Quality Score
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div
+                  className="text-2xl font-black"
+                  style={{ color: '#040D20' }}
+                >
+                  98.4%
+                </div>
+
+                <span
+                  className="text-xs font-bold"
+                  style={{ color: '#16A34A' }}
+                >
+                  ↑ 4.2%
+                </span>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Floating Status Card */}
-        <div
-          className="absolute -bottom-7 -left-7 hidden sm:block rounded-2xl px-5 py-4"
-          style={{
-            background: '#ffffff',
-            border: '1px solid #DDF2FC',
-            boxShadow:
-              '0 16px 40px rgba(3,158,227,0.16)',
-          }}
-        >
-          <div
-            className="text-xs font-medium mb-1"
-            style={{ color: '#64748B' }}
-          >
-            Quality Score
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div
-              className="text-2xl font-black"
-              style={{ color: '#040D20' }}
-            >
-              98.4%
-            </div>
-
-            <span
-              className="text-xs font-bold"
-              style={{ color: '#16A34A' }}
-            >
-              ↑ 4.2%
-            </span>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
- 
+    </section>
+
   )
 }
 // ── Benefits ──────────────────────────────────────────────────────────────────
@@ -612,7 +542,7 @@ const BENEFITS = [
   { icon: <Ic.target />, label: 'Increase Profitability', stat: '+24%', color: '#DC2626', desc: 'Faster quotes, accurate costing, and reduced waste add directly to your margin.' },
 ]
 
- function Benefits() {
+function Benefits() {
   const [hovered, setHovered] = useState<number | null>(null)
   const { ref, visible } = useFadeIn()
 
@@ -756,8 +686,8 @@ const BENEFITS = [
     </section>
   )
 }
- 
- 
+
+
 // ── Section: Dashboard Showcase ───────────────────────────────────────────────
 type Slide = { industry: string; impact: string; tag: string; accent: string; widgets: { label: string; value: string; delta: string; up: boolean }[]; bars: number[] }
 
@@ -857,7 +787,7 @@ function DashboardCard({ slide }: { slide: Slide }) {
           className="flex-1 mx-4 h-5 rounded-md flex items-center px-2 gap-1.5"
           style={{
             background: '#ffffff',
-            
+
           }}
         >
           <span
@@ -976,9 +906,9 @@ function DashboardCard({ slide }: { slide: Slide }) {
                     i === slide.bars.length - 1
                       ? 'linear-gradient(to top, #039EE3, #38BDF8)'
                       : `rgba(3,158,227,${Math.min(
-                          0.18 + h * 0.003,
-                          0.45
-                        )})`,
+                        0.18 + h * 0.003,
+                        0.45
+                      )})`,
                 }}
               />
             ))}
@@ -1456,57 +1386,57 @@ function CalendarView({ industry, qualData }: { industry: string, qualData: any 
     else if (!/^\d{10}$/.test(form.phone)) e.phone = 'Enter a valid 10-digit mobile number'
     return e
   }
-async function handleSubmit(e: React.FormEvent) {
-  e.preventDefault()
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
 
-  const errs = validate()
+    const errs = validate()
 
-  if (Object.keys(errs).length > 0) {
-    setErrors(errs)
-    return
-  }
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs)
+      return
+    }
 
-  const submitData = {
-    qualification: {
-      step1: {
-        industry: qualData?.industry ?? '',
+    const submitData = {
+      qualification: {
+        step1: {
+          industry: qualData?.industry ?? '',
+        },
+        step2: {
+          employees: qualData?.employees ?? '',
+        },
+        step3: {
+          challenges: qualData?.challenges ?? [],
+        },
+        step4: {
+          intent: qualData?.intent ?? '',
+        },
       },
-      step2: {
-        employees: qualData?.employees ?? '',
+
+      booking: {
+        date: selDate
+          ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
+          : '',
+        time: selSlot ?? '',
+        timezone: tz,
       },
-      step3: {
-        challenges: qualData?.challenges ?? [],
+
+      contact: {
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        notes: form.notes,
       },
-      step4: {
-        intent: qualData?.intent ?? '',
-      },
-    },
+    }
 
-    booking: {
-      date: selDate
-        ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
-        : '',
-      time: selSlot ?? '',
-      timezone: tz,
-    },
+    console.log('FINAL SUBMIT DATA:', submitData)
 
-    contact: {
-      name: form.name,
-      company: form.company,
-      email: form.email,
-      phone: form.phone,
-      notes: form.notes,
-    },
-  }
+    try {
+      // ==========================================
+      // 1. ADMIN EMAIL
+      // ==========================================
 
-  console.log('FINAL SUBMIT DATA:', submitData)
-
-  try {
-    // ==========================================
-    // 1. ADMIN EMAIL
-    // ==========================================
-
-    const body = `
+      const body = `
       <h2>New ERP Inquiry</h2>
 
       <h3>Contact Details</h3>
@@ -1526,91 +1456,90 @@ async function handleSubmit(e: React.FormEvent) {
       <p><strong>Intent:</strong> ${qualData?.intent ?? ''}</p>
 
       <h3>Booking</h3>
-      <p><strong>Date:</strong> ${
-        selDate
+      <p><strong>Date:</strong> ${selDate
           ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
           : ''
-      }</p>
+        }</p>
       <p><strong>Time:</strong> ${selSlot ?? ''}</p>
       <p><strong>Timezone:</strong> ${tz}</p>
     `
 
-    const adminPayload = {
-      key: 'Deverp@2021',
-      Subject: 'ERP Inquiry',
-      To: 'admin@deverp.com',
-      CC: '',
-      BCC: '',
-      Body: body,
-    }
-
-    console.log('ADMIN MAIL PAYLOAD:', adminPayload)
-
-    const adminResponse = await fetch(
-      '/APP/api.aspx/SendMail',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(adminPayload),
+      const adminPayload = {
+        key: 'Deverp@2021',
+        Subject: 'ERP Inquiry',
+        To: 'admin@deverp.com',
+        CC: '',
+        BCC: '',
+        Body: body,
       }
-    )
 
-    const adminResult = await adminResponse.json()
+      console.log('ADMIN MAIL PAYLOAD:', adminPayload)
 
-    console.log('ADMIN MAIL RESPONSE:', adminResult)
+      const adminResponse = await fetch(
+        '/APP/api.aspx/SendMail',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(adminPayload),
+        }
+      )
 
-    if (!adminResponse.ok) {
-      throw new Error('Admin mail API request failed')
-    }
+      const adminResult = await adminResponse.json()
 
+      console.log('ADMIN MAIL RESPONSE:', adminResult)
 
-    // ==========================================
-    // 2. USER THANK YOU EMAIL
-    // ==========================================
-
-    const userPayload = {
-      key: 'Deverp@2021',
-      Subject: 'Deverp inquiry',
-      To: form.email,
-      CC: '',
-      BCC: '',
-      Body: 'Thank you for your inquiry. We will inform time shortly.',
-    }
-
-    console.log('USER MAIL PAYLOAD:', userPayload)
-
-    const userResponse = await fetch(
-      '/APP/api.aspx/SendMail',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userPayload),
+      if (!adminResponse.ok) {
+        throw new Error('Admin mail API request failed')
       }
-    )
 
-    const userResult = await userResponse.json()
 
-    console.log('USER MAIL RESPONSE:', userResult)
+      // ==========================================
+      // 2. USER THANK YOU EMAIL
+      // ==========================================
 
-    if (!userResponse.ok) {
-      throw new Error('User confirmation mail API request failed')
+      const userPayload = {
+        key: 'Deverp@2021',
+        Subject: 'Deverp inquiry',
+        To: form.email,
+        CC: '',
+        BCC: '',
+        Body: 'Thank you for your inquiry. We will inform time shortly.',
+      }
+
+      console.log('USER MAIL PAYLOAD:', userPayload)
+
+      const userResponse = await fetch(
+        '/APP/api.aspx/SendMail',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userPayload),
+        }
+      )
+
+      const userResult = await userResponse.json()
+
+      console.log('USER MAIL RESPONSE:', userResult)
+
+      if (!userResponse.ok) {
+        throw new Error('User confirmation mail API request failed')
+      }
+
+
+      // ==========================================
+      // BOTH SUCCESS
+      // ==========================================
+
+      setSubmitted(true)
+
+    } catch (error) {
+      console.error('SUBMIT ERROR:', error)
     }
-
-
-    // ==========================================
-    // BOTH SUCCESS
-    // ==========================================
-
-    setSubmitted(true)
-
-  } catch (error) {
-    console.error('SUBMIT ERROR:', error)
   }
-}
 
   if (submitted) {
     return (
@@ -2688,15 +2617,15 @@ export default function App() {
             "'Inter',-apple-system,BlinkMacSystemFont,sans-serif",
         }}
       >
-        <Nav scrolled={scrolled} />
 
+        <Header/>
         <Routes>
           {/* Home */}
           <Route
             path="/"
             element={
               <>
-                <Header />
+
                 <HeroSlider />
                 <WhyChooseUs />
                 <ServicesOffer />
@@ -2704,7 +2633,7 @@ export default function App() {
                 <CareerCulture />
                 <HappyClientele />
                 <ClientTestimonials />
-                <Footer />
+
               </>
             }
           />
@@ -2714,88 +2643,73 @@ export default function App() {
             path="/about"
             element={
               <>
-                <Header />
+
                 <AboutUs />
-                <Footer />
               </>
             }
           />
-   {/* ServiceList */}
+          {/* ServiceList */}
           <Route
             path="/services"
             element={
               <>
-                <Header />
                 <ServiceList />
-                <Footer />
               </>
             }
           />
-            {/* Product list */}
+          {/* Product list */}
           <Route
             path="/productslist"
             element={
               <>
-                <Header />
                 <OurProducts />
-                <Footer />
               </>
             }
           />
-           {/* Products */}
+          {/* Products */}
           <Route
             path="/products"
             element={
               <>
-                <Header />
                 <ProductDetails />
-                <Footer />
               </>
             }
-          />  
+          />
           {/* Clients */}
           <Route
             path="/clients"
             element={
               <>
-                <Header />
                 <Clients />
-                <Footer />
               </>
             }
           />
 
-           {/* Clients */}
+          {/* Clients */}
           <Route
             path="/career"
             element={
               <>
-                <Header />
                 <CareerPage />
-                <Footer />
               </>
             }
           />
-  {/* Blog */}
+          {/* Blog */}
           <Route
             path="/blog"
             element={
               <>
-                <Header />
                 <BlogPage />
-                <Footer />
               </>
             }
           />
 
-            {/* contact_us */}
+          {/* contact_us */}
           <Route
             path="/contact_us"
             element={
               <>
-                <Header />
                 <ContactUs />
-                <Footer />
               </>
             }
           />
@@ -2805,18 +2719,19 @@ export default function App() {
             path="/book-demo"
             element={
               <>
-                <Header />
                 <Hero />
                 <Benefits />
                 <DashboardShowcase />
                 <BookingSection />
                 <ProcessTimeline />
                 <TrustStats />
-                <Footer />
               </>
             }
           />
-        </Routes>
+        </Routes> 
+        <BookDemoButton />
+            <StickyActions />
+        <Footer />
       </div>
     </BrowserRouter>
   );
