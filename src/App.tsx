@@ -6,6 +6,7 @@ import {
   Mail,
   ArrowUp,
 } from "lucide-react";
+import "./Hero.css";
 
 import logo from './assets/logo.png';
 import Header from './Header';
@@ -29,6 +30,8 @@ import StickyActions from './StickyActions';
 import BookDemoButton from './BookDemoButton';
 import ScrollProgress from './ScrollProgress';
 import ScrollReveal from './ScrollReveal';
+import AnimatedCursor from "react-animated-cursor"
+
 import "./ScrollReveal.css";
 
 // ── Smooth scroll helper ──────────────────────────────────────────────────────
@@ -89,452 +92,379 @@ const Ic = {
   lock: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>,
 }
 
+const Hero: React.FC = () => {
+  const navigate = useNavigate();
 
-// ── Section 1: Hero ───────────────────────────────────────────────────────────
-function Hero() {
+  const handleExplore = () => {
+    navigate("/products");
+  };
+
+  const handleContact = () => {
+    navigate("/contact");
+  };
+
   return (
-    <section
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{
-        background: '#ffffff',
-      }}
-    >
-      {/* Soft blue background glow */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          width: '650px',
-          height: '650px',
-          top: '-220px',
-          right: '-180px',
-          borderRadius: '50%',
-          background: 'rgba(3,158,227,0.10)',
-          filter: 'blur(90px)',
-        }}
-      />
+    <section className="hero-section">
+      {/* Background Effects */}
+      <div className="hero-bg-glow hero-bg-glow-1" />
+      <div className="hero-bg-glow hero-bg-glow-2" />
+      <div className="hero-grid" />
 
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          width: '500px',
-          height: '500px',
-          bottom: '-220px',
-          left: '-180px',
-          borderRadius: '50%',
-          background: 'rgba(56,189,248,0.08)',
-          filter: 'blur(90px)',
-        }}
-      />
+      <div className="hero-container">
 
-      {/* Subtle dot pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          opacity: 0.35,
-          backgroundImage:
-            'radial-gradient(circle, rgba(3,158,227,0.25) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-          maskImage:
-            'linear-gradient(to bottom, black 0%, transparent 75%)',
-          WebkitMaskImage:
-            'linear-gradient(to bottom, black 0%, transparent 75%)',
-        }}
-      />
+        {/* LEFT CONTENT */}
+        <div className="hero-content hero-slide-left">
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-14 items-center py-28">
-
-          {/* LEFT CONTENT */}
-          <div>
-            {/* Badge */}
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-7"
-              style={{
-                background: 'rgba(3,158,227,0.08)',
-                border: '1px solid rgba(3,158,227,0.18)',
-                color: '#0284C7',
-              }}
-            >
-              <span
-                className="w-2 h-2 rounded-full animate-pulse-dot"
-                style={{
-                  background: '#039EE3',
-                  boxShadow: '0 0 10px rgba(3,158,227,0.45)',
-                }}
-              />
-              Smart ERP for Modern Businesses
-            </div>
-
-            {/* Heading */}
-            <h1
-              className="font-black tracking-tight leading-[1.05] mb-6"
-              style={{
-                fontSize: 'clamp(2.8rem, 5.5vw, 5.2rem)',
-                color: '#040D20',
-              }}
-            >
-              Run Your Business
-              <br />
-              <span style={{ color: '#039EE3' }}>
-                Smarter. Faster.
-              </span>
-              <br />
-              Better.
-            </h1>
-
-            {/* Description */}
-            <p
-              className="text-lg lg:text-xl leading-relaxed max-w-xl mb-8"
-              style={{
-                color: '#64748B',
-              }}
-            >
-              DevERP brings production, inventory, sales, purchase,
-              finance and operations together in one powerful ERP
-              platform built for growing businesses.
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={scrollToBooking}
-                className="px-7 py-4 rounded-xl text-base font-bold text-white transition-all duration-200 hover:scale-105 active:scale-95"
-                style={{
-                  background:
-                    'linear-gradient(135deg, #039EE3 0%, #38BDF8 100%)',
-                  boxShadow:
-                    '0 10px 30px rgba(3,158,227,0.25)',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.boxShadow =
-                    '0 14px 38px rgba(3,158,227,0.35)'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.boxShadow =
-                    '0 10px 30px rgba(3,158,227,0.25)'
-                }}
-              >
-                Book Your Free Demo →
-              </button>
-
-              <button
-                onClick={scrollToBooking}
-                className="px-7 py-4 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
-                style={{
-                  background: '#ffffff',
-                  border: '1.5px solid #BAE6FD',
-                  color: '#040D20',
-                  boxShadow:
-                    '0 6px 20px rgba(3,158,227,0.06)',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = '#F8FCFF'
-                  e.currentTarget.style.borderColor = '#039EE3'
-                  e.currentTarget.style.color = '#039EE3'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = '#ffffff'
-                  e.currentTarget.style.borderColor = '#BAE6FD'
-                  e.currentTarget.style.color = '#040D20'
-                }}
-              >
-                Explore Platform
-              </button>
-            </div>
-
-            {/* Trust line */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-9">
-              {[
-                'Production',
-                'Inventory',
-                'Finance',
-                'Sales & Purchase',
-              ].map(item => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 text-sm"
-                  style={{ color: '#64748B' }}
-                >
-                  <span
-                    className="w-5 h-5 rounded-full flex items-center justify-center"
-                    style={{
-                      background: 'rgba(3,158,227,0.10)',
-                      color: '#039EE3',
-                    }}
-                  >
-                    ✓
-                  </span>
-                  {item}
-                </div>
-              ))}
-            </div>
+          <div className="hero-badge">
+            <span className="hero-badge-dot" />
+            Smart ERP Solutions for Modern Businesses
           </div>
 
-          {/* RIGHT DASHBOARD */}
-          <div className="relative">
-            {/* Blue glow behind dashboard */}
-            <div
-              className="absolute pointer-events-none"
-              style={{
-                inset: '8%',
-                borderRadius: '32px',
-                background: 'rgba(3,158,227,0.14)',
-                filter: 'blur(45px)',
-              }}
-            />
+          <h1 className="hero-title">
+            Manage Your Business
+            <span> Smarter & Faster</span>
+          </h1>
 
-            <div
-              className="relative rounded-3xl overflow-hidden"
-              style={{
-                background: '#ffffff',
-                border: '1px solid #DDF2FC',
-                boxShadow:
-                  '0 24px 70px rgba(3,158,227,0.14), 0 8px 28px rgba(15,23,42,0.06)',
-              }}
+          <p className="hero-description">
+            DevERP brings your business operations together in one powerful,
+            intelligent and easy-to-use ERP platform designed to simplify
+            everyday work and accelerate growth.
+          </p>
+
+          <div className="hero-actions">
+            <button
+              type="button"
+              className="hero-primary-btn"
+              onClick={handleExplore}
             >
-              {/* Dashboard Header */}
-              <div
-                className="px-6 py-5 flex items-center justify-between"
-                style={{
-                  background: '#F8FCFF',
-                  borderBottom: '1px solid #E0F2FE',
-                }}
+              <span>Explore DevERP</span>
+
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div>
-                  <div
-                    className="text-xs font-semibold mb-1"
-                    style={{ color: '#94A3B8' }}
-                  >
-                    DevERP Dashboard
+                <path
+                  d="M5 12H19"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M13 6L19 12L13 18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              className="hero-secondary-btn"
+              onClick={handleContact}
+            >
+              Contact Us
+            </button>
+          </div>
+
+          {/* Trust Stats */}
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <strong>10+</strong>
+              <span>Modules</span>
+            </div>
+
+            <div className="hero-stat-divider" />
+
+            <div className="hero-stat">
+              <strong>100%</strong>
+              <span>Cloud Based</span>
+            </div>
+
+            <div className="hero-stat-divider" />
+
+            <div className="hero-stat">
+              <strong>24/7</strong>
+              <span>Accessibility</span>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT VISUAL */}
+        <div className="hero-visual hero-slide-right">
+
+          <div className="hero-dashboard-wrapper">
+
+            {/* Floating Card - Top */}
+            <div className="hero-floating-card hero-floating-card-top">
+              <div className="floating-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M4 19V5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M4 19H20"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M7 15L11 11L14 13L19 7"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div>
+                <strong>Business Growth</strong>
+                <span>+28.6% this month</span>
+              </div>
+            </div>
+
+            {/* Dashboard */}
+            <div className="hero-dashboard">
+
+              <div className="dashboard-topbar">
+                <div className="dashboard-brand">
+                  <div className="dashboard-logo">
+                    DE
                   </div>
 
-                  <div
-                    className="font-bold text-lg"
-                    style={{ color: '#040D20' }}
-                  >
-                    Business Overview
+                  <div>
+                    <strong>DevERP</strong>
+                    <span>Business Dashboard</span>
                   </div>
                 </div>
 
-                <div
-                  className="px-3 py-1.5 rounded-full text-xs font-semibold"
-                  style={{
-                    background: 'rgba(34,197,94,0.10)',
-                    color: '#16A34A',
-                  }}
-                >
-                  ● Live Data
+                <div className="dashboard-actions">
+                  <span />
+                  <span />
+                  <span />
                 </div>
               </div>
 
-              {/* KPI Cards */}
-              <div className="p-6 grid grid-cols-2 gap-4">
-                {[
-                  {
-                    label: 'Production',
-                    value: '92%',
-                    change: '+12.4%',
-                    icon: '↗',
-                    color: '#22C55E',
-                  },
-                  {
-                    label: 'Machine Utilization',
-                    value: '87%',
-                    change: '+8.2%',
-                    icon: '⚙',
-                    color: '#039EE3',
-                  },
-                  {
-                    label: 'Pending Orders',
-                    value: '24',
-                    change: '-14.5%',
-                    icon: '◷',
-                    color: '#F59E0B',
-                  },
-                  {
-                    label: 'Revenue',
-                    value: '₹48.6L',
-                    change: '+18.7%',
-                    icon: '₹',
-                    color: '#039EE3',
-                  },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="rounded-2xl p-5"
-                    style={{
-                      background: '#F8FCFF',
-                      border: '1px solid #DDF2FC',
-                    }}
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className="text-xs font-medium"
-                        style={{ color: '#64748B' }}
-                      >
-                        {item.label}
-                      </span>
+              <div className="dashboard-content">
 
-                      <span
-                        className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold"
-                        style={{
-                          background: `${item.color}14`,
-                          color: item.color,
-                        }}
-                      >
-                        {item.icon}
-                      </span>
+                <div className="dashboard-heading">
+                  <div>
+                    <span>Overview</span>
+                    <h3>Business Performance</h3>
+                  </div>
+
+                  <div className="dashboard-date">
+                    This Month
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M6 9L12 15L18 9"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Cards */}
+                <div className="dashboard-cards">
+
+                  <div className="dashboard-card">
+                    <div className="dashboard-card-header">
+                      <span>Total Revenue</span>
+
+                      <div className="card-icon revenue-icon">
+                        $
+                      </div>
                     </div>
 
-                    <div
-                      className="text-2xl font-black mb-1"
-                      style={{ color: '#040D20' }}
-                    >
-                      {item.value}
-                    </div>
+                    <strong>₹24.8L</strong>
 
-                    <div
-                      className="text-xs font-semibold"
-                      style={{ color: item.color }}
-                    >
-                      {item.change}
+                    <div className="card-growth">
+                      <span>↑ 18.4%</span>
+                      <small>vs last month</small>
                     </div>
                   </div>
-                ))}
-              </div>
 
-              {/* Chart */}
-              <div className="px-6 pb-6">
-                <div
-                  className="rounded-2xl p-5"
-                  style={{
-                    background: '#F8FCFF',
-                    border: '1px solid #DDF2FC',
-                  }}
-                >
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="dashboard-card">
+                    <div className="dashboard-card-header">
+                      <span>Employees</span>
+
+                      <div className="card-icon employee-icon">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <circle
+                            cx="12"
+                            cy="8"
+                            r="3"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          />
+                          <path
+                            d="M5 20C5.5 16.5 8 14 12 14C16 14 18.5 16.5 19 20"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+
+                    <strong>248</strong>
+
+                    <div className="card-growth">
+                      <span>↑ 12.2%</span>
+                      <small>this month</small>
+                    </div>
+                  </div>
+
+                  <div className="dashboard-card">
+                    <div className="dashboard-card-header">
+                      <span>Orders</span>
+
+                      <div className="card-icon order-icon">
+                        #
+                      </div>
+                    </div>
+
+                    <strong>1,842</strong>
+
+                    <div className="card-growth">
+                      <span>↑ 24.8%</span>
+                      <small>this month</small>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Chart */}
+                <div className="dashboard-chart">
+
+                  <div className="chart-header">
                     <div>
-                      <div
-                        className="text-xs font-medium"
-                        style={{ color: '#64748B' }}
-                      >
-                        Monthly Revenue
-                      </div>
-
-                      <div
-                        className="text-xl font-black mt-1"
-                        style={{ color: '#040D20' }}
-                      >
-                        ₹48.6L
-                      </div>
+                      <span>Revenue Overview</span>
+                      <strong>₹8.42L</strong>
                     </div>
 
-                    <div
-                      className="text-xs font-semibold"
-                      style={{ color: '#16A34A' }}
+                    <div className="chart-growth">
+                      +18.4%
+                    </div>
+                  </div>
+
+                  <div className="chart-area">
+
+                    <div className="chart-lines">
+                      <span />
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+
+                    <svg
+                      className="chart-svg"
+                      viewBox="0 0 500 150"
+                      preserveAspectRatio="none"
                     >
-                      +18.7%
-                    </div>
-                  </div>
+                      <defs>
+                        <linearGradient
+                          id="heroChartGradient"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                        >
+                          <stop
+                            offset="0%"
+                            stopColor="#1769ff"
+                            stopOpacity="0.28"
+                          />
+                          <stop
+                            offset="100%"
+                            stopColor="#1769ff"
+                            stopOpacity="0"
+                          />
+                        </linearGradient>
+                      </defs>
 
-                  <div className="flex items-end gap-2 h-28">
-                    {[35, 48, 42, 62, 58, 76, 68, 88, 80, 96].map(
-                      (height, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 rounded-t-md transition-all duration-300"
-                          style={{
-                            height: `${height}%`,
-                            background:
-                              i === 9
-                                ? '#039EE3'
-                                : 'rgba(3,158,227,0.22)',
-                          }}
-                        />
-                      )
-                    )}
-                  </div>
-                </div>
-              </div>
+                      <path
+                        d="M0 125 C45 118 55 102 90 108 C125 114 140 78 175 85 C210 92 220 70 250 76 C280 82 295 48 330 58 C365 68 380 34 410 42 C440 50 455 20 500 28 L500 150 L0 150 Z"
+                        fill="url(#heroChartGradient)"
+                      />
 
-              {/* Bottom Alert */}
-              <div
-                className="mx-6 mb-6 rounded-xl px-4 py-3 flex items-center gap-3"
-                style={{
-                  background: 'rgba(3,158,227,0.06)',
-                  border: '1px solid rgba(3,158,227,0.14)',
-                  boxShadow:
-                    '0 6px 20px rgba(3,158,227,0.06)',
-                }}
-              >
-                <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center"
-                  style={{
-                    background: 'rgba(3,158,227,0.10)',
-                    color: '#039EE3',
-                  }}
-                >
-                  ✦
-                </div>
+                      <path
+                        d="M0 125 C45 118 55 102 90 108 C125 114 140 78 175 85 C210 92 220 70 250 76 C280 82 295 48 330 58 C365 68 380 34 410 42 C440 50 455 20 500 28"
+                        fill="none"
+                        stroke="#1769ff"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                      />
 
-                <div>
-                  <div
-                    className="text-sm font-semibold"
-                    style={{ color: '#040D20' }}
-                  >
-                    AI Business Alert
-                  </div>
-
-                  <div
-                    className="text-xs"
-                    style={{ color: '#64748B' }}
-                  >
-                    Production efficiency improved by 12.4%
+                      <circle
+                        cx="500"
+                        cy="28"
+                        r="5"
+                        fill="#1769ff"
+                      />
+                    </svg>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Floating Status Card */}
-            <div
-              className="absolute -bottom-7 -left-7 hidden sm:block rounded-2xl px-5 py-4"
-              style={{
-                background: '#ffffff',
-                border: '1px solid #DDF2FC',
-                boxShadow:
-                  '0 16px 40px rgba(3,158,227,0.16)',
-              }}
-            >
-              <div
-                className="text-xs font-medium mb-1"
-                style={{ color: '#64748B' }}
-              >
-                Quality Score
+            {/* Floating Card - Bottom */}
+            <div className="hero-floating-card hero-floating-card-bottom">
+
+              <div className="attendance-avatar">
+                <span />
               </div>
 
-              <div className="flex items-center gap-3">
-                <div
-                  className="text-2xl font-black"
-                  style={{ color: '#040D20' }}
-                >
-                  98.4%
-                </div>
+              <div>
+                <strong>Attendance</strong>
+                <span>92% employees present</span>
+              </div>
 
-                <span
-                  className="text-xs font-bold"
-                  style={{ color: '#16A34A' }}
-                >
-                  ↑ 4.2%
-                </span>
+              <div className="attendance-value">
+                92%
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-  )
-}
+      {/* Bottom Scroll Indicator */}
+      <div className="hero-scroll-indicator">
+        <span>Scroll to explore</span>
+
+        <div className="hero-scroll-line">
+          <span />
+        </div>
+      </div>
+    </section>
+  );
+};
+ 
 // ── Benefits ──────────────────────────────────────────────────────────────────
 const BENEFITS = [
   { icon: <Ic.trend />, label: 'Increase Productivity', stat: '+32%', color: '#039EE3', desc: 'Up to 32% improvement in plant output within 6 months of go-live.' },
@@ -546,34 +476,28 @@ const BENEFITS = [
 ]
 
 function Benefits() {
-  const [hovered, setHovered] = useState<number | null>(null)
-  const { ref, visible } = useFadeIn()
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <section
       id="solutions"
       className="py-2"
-      style={{ background: '#ffffff' }}
+      style={{
+        background: "#ffffff",
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        {/* Section Heading */}
-        <div
-          ref={ref}
-          className="text-center mb-16"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible
-              ? 'none'
-              : 'translateY(24px)',
-            transition: 'all 0.7s ease',
-          }}
-        >
+        {/* =====================================================
+            SECTION HEADING
+        ===================================================== */}
+        <div className="text-center mb-16 scroll-reveal">
+
           <div
             className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
             style={{
-              background: 'rgba(3,158,227,0.08)',
-              color: '#039EE3',
+              background: "rgba(3,158,227,0.08)",
+              color: "#039EE3",
             }}
           >
             Business Benefits
@@ -582,201 +506,356 @@ function Benefits() {
           <h2
             className="font-black tracking-tight mb-4"
             style={{
-              fontSize: 'clamp(2rem,3.5vw,3rem)',
-              color: '#040D20',
+              fontSize: "clamp(2rem,3.5vw,3rem)",
+              color: "#040D20",
             }}
           >
             Results That Move
             <br />
             Your Business Forward
           </h2>
+
+          <p
+            className="max-w-2xl mx-auto text-sm md:text-base leading-relaxed"
+            style={{
+              color: "#64748B",
+            }}
+          >
+            Powerful tools and intelligent workflows designed to help your
+            business work smarter, faster and more efficiently.
+          </p>
         </div>
 
-        {/* Benefits */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-  {BENEFITS.map((b, i) => (
-    <div
-      key={i}
-      className="rounded-2xl p-8 cursor-pointer"
-      style={{
-        background: "#F8FCFF",
 
-        border:
-          hovered === i
-            ? "1.5px solid rgba(3,158,227,0.45)"
-            : "1.5px solid #DDF2FC",
+        {/* =====================================================
+            BENEFITS
+        ===================================================== */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-        boxShadow:
-          hovered === i
-            ? "0 20px 55px rgba(3,158,227,0.18)"
-            : "0 8px 30px rgba(20,50,90,0.035)",
+          {BENEFITS.map((b, i) => (
+            <div
+              key={i}
+              className={`
+                rounded-2xl p-8 cursor-pointer
+                ${i % 2 === 0
+                  ? "service-scroll-left"
+                  : "service-scroll-right"
+                }
+              `}
+              style={{
+                background: "#F8FCFF",
 
-        transform:
-          hovered === i
-            ? "translateY(-7px)"
-            : "translateY(0)",
+                border:
+                  hovered === i
+                    ? "1.5px solid rgba(3,158,227,0.45)"
+                    : "1.5px solid #DDF2FC",
 
-        opacity: visible ? 1 : 0,
+                boxShadow:
+                  hovered === i
+                    ? "0 20px 55px rgba(3,158,227,0.18)"
+                    : "0 8px 30px rgba(20,50,90,0.035)",
 
-        transition: `
-          border-color 0.35s ease,
-          box-shadow 0.4s ease,
-          transform 0.4s cubic-bezier(0.22,1,0.36,1),
-          opacity 0.6s ease ${i * 0.1}s
-        `,
+                transform:
+                  hovered === i
+                    ? "translateY(-8px)"
+                    : undefined,
 
-        position: "relative",
-        overflow: "hidden",
-      }}
-      onMouseEnter={() => setHovered(i)}
-      onMouseLeave={() => setHovered(null)}
-    >
+                transition: `
+                  border-color 0.35s ease,
+                  box-shadow 0.4s ease,
+                  transform 0.4s cubic-bezier(0.22,1,0.36,1)
+                `,
 
-      {/* Background Glow */}
-      <div
-        style={{
-          position: "absolute",
-          width: "180px",
-          height: "180px",
-          borderRadius: "50%",
-          background: "rgba(3,158,227,0.10)",
-          filter: "blur(45px)",
-          right: "-80px",
-          bottom: "-80px",
+                position: "relative",
+                overflow: "hidden",
 
-          opacity: hovered === i ? 1 : 0,
+                transitionDelay: `${i * 70}ms`,
+              }}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+            >
 
-          transform:
-            hovered === i
-              ? "scale(1.2)"
-              : "scale(0.8)",
+              {/* =================================================
+                  BACKGROUND GLOW
+              ================================================= */}
+              <div
+                style={{
+                  position: "absolute",
 
-          transition:
-            "opacity 0.4s ease, transform 0.5s ease",
+                  width: "200px",
+                  height: "200px",
 
-          pointerEvents: "none",
-        }}
-      />
+                  borderRadius: "50%",
 
-      {/* Top Blue Line */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "4px",
-          background: "#039EE3",
+                  background:
+                    "radial-gradient(circle, rgba(3,158,227,0.14), transparent 70%)",
 
-          transform:
-            hovered === i
-              ? "scaleX(1)"
-              : "scaleX(0)",
+                  filter: "blur(20px)",
 
-          transformOrigin: "left",
+                  right: "-95px",
+                  bottom: "-95px",
 
-          transition:
-            "transform 0.4s cubic-bezier(0.22,1,0.36,1)",
+                  opacity:
+                    hovered === i
+                      ? 1
+                      : 0,
 
-          zIndex: 3,
-        }}
-      />
+                  transform:
+                    hovered === i
+                      ? "scale(1.25)"
+                      : "scale(0.7)",
 
-      {/* Icon */}
-      <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-        style={{
-          background:
-            hovered === i
-              ? "#fff"
-              : "rgba(3,158,227,0.08)",
+                  transition:
+                    "opacity 0.45s ease, transform 0.6s cubic-bezier(0.22,1,0.36,1)",
 
-          color: "#039EE3",
+                  pointerEvents: "none",
+                }}
+              />
 
-          transform:
-            hovered === i
-              ? "translateY(-3px) rotate(-4deg) scale(1.06)"
-              : "translateY(0) rotate(0) scale(1)",
 
-          boxShadow:
-            hovered === i
-              ? "0 10px 28px rgba(3,158,227,0.30)"
-              : "none",
+              {/* =================================================
+                  TOP BLUE LINE
+              ================================================= */}
+              <div
+                style={{
+                  position: "absolute",
 
-          transition:
-            "all 0.35s cubic-bezier(0.22,1,0.36,1)",
+                  top: 0,
+                  left: 0,
 
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        {b.icon}
-      </div>
+                  width: "100%",
+                  height: "4px",
 
-      {/* Stat */}
-      <div
-        className="text-4xl font-black mb-1 leading-none"
-        style={{
-          color: "#039EE3",
+                  background:
+                    "linear-gradient(90deg, #039EE3, #1769ff)",
 
-          transform:
-            hovered === i
-              ? "translateX(3px)"
-              : "translateX(0)",
+                  transform:
+                    hovered === i
+                      ? "scaleX(1)"
+                      : "scaleX(0)",
 
-          transition:
-            "transform 0.35s ease",
+                  transformOrigin: "left",
 
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        {b.stat}
-      </div>
+                  transition:
+                    "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
 
-      {/* Title */}
-      <h3
-        className="font-bold text-base mb-2"
-        style={{
-          color: "#040D20",
+                  zIndex: 3,
+                }}
+              />
 
-          transform:
-            hovered === i
-              ? "translateX(3px)"
-              : "translateX(0)",
 
-          transition:
-            "transform 0.35s ease",
+              {/* =================================================
+                  SHINE EFFECT
+              ================================================= */}
+              <div
+                style={{
+                  position: "absolute",
 
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        {b.label}
-      </h3>
+                  top: 0,
+                  left: "-120%",
 
-      {/* Description */}
-      <p
-        className="text-sm leading-relaxed"
-        style={{
-          color: "#64748B",
+                  width: "80%",
+                  height: "100%",
 
-          transition: "color 0.3s ease",
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)",
 
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        {b.desc}
-      </p>
-    </div>
-  ))}
-</div>
+                  transform:
+                    hovered === i
+                      ? "translateX(250%)"
+                      : "translateX(0)",
+
+                  transition:
+                    "transform 0.8s ease",
+
+                  pointerEvents: "none",
+                  zIndex: 1,
+                }}
+              />
+
+
+              {/* =================================================
+                  ICON
+              ================================================= */}
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                style={{
+                  background:
+                    hovered === i
+                      ? "#ffffff"
+                      : "rgba(3,158,227,0.08)",
+
+                  color: "#039EE3",
+
+                  transform:
+                    hovered === i
+                      ? "translateY(-4px) rotate(-5deg) scale(1.08)"
+                      : "translateY(0) rotate(0) scale(1)",
+
+                  boxShadow:
+                    hovered === i
+                      ? "0 10px 28px rgba(3,158,227,0.25)"
+                      : "none",
+
+                  transition:
+                    "all 0.4s cubic-bezier(0.22,1,0.36,1)",
+
+                  position: "relative",
+                  zIndex: 2,
+                }}
+              >
+                {b.icon}
+              </div>
+
+
+              {/* =================================================
+                  STAT
+              ================================================= */}
+              <div
+                className="text-4xl font-black mb-1 leading-none"
+                style={{
+                  color: "#039EE3",
+
+                  transform:
+                    hovered === i
+                      ? "translateX(5px)"
+                      : "translateX(0)",
+
+                  transition:
+                    "transform 0.35s ease",
+
+                  position: "relative",
+                  zIndex: 2,
+                }}
+              >
+                {b.stat}
+              </div>
+
+
+              {/* =================================================
+                  TITLE
+              ================================================= */}
+              <h3
+                className="font-bold text-base mb-2"
+                style={{
+                  color: "#040D20",
+
+                  transform:
+                    hovered === i
+                      ? "translateX(5px)"
+                      : "translateX(0)",
+
+                  transition:
+                    "transform 0.35s ease",
+
+                  position: "relative",
+                  zIndex: 2,
+                }}
+              >
+                {b.label}
+              </h3>
+
+
+              {/* =================================================
+                  DESCRIPTION
+              ================================================= */}
+              <p
+                className="text-sm leading-relaxed"
+                style={{
+                  color:
+                    hovered === i
+                      ? "#526277"
+                      : "#64748B",
+
+                  transform:
+                    hovered === i
+                      ? "translateX(2px)"
+                      : "translateX(0)",
+
+                  transition:
+                    "color 0.3s ease, transform 0.35s ease",
+
+                  position: "relative",
+                  zIndex: 2,
+                }}
+              >
+                {b.desc}
+              </p>
+
+
+              {/* =================================================
+                  BOTTOM ARROW
+              ================================================= */}
+              <div
+                style={{
+                  position: "absolute",
+
+                  right: "24px",
+                  bottom: "22px",
+
+                  width: "30px",
+                  height: "30px",
+
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+
+                  borderRadius: "50%",
+
+                  background:
+                    hovered === i
+                      ? "rgba(3,158,227,0.10)"
+                      : "transparent",
+
+                  color: "#039EE3",
+
+                  opacity:
+                    hovered === i
+                      ? 1
+                      : 0,
+
+                  transform:
+                    hovered === i
+                      ? "translateX(0)"
+                      : "translateX(-8px)",
+
+                  transition:
+                    "all 0.35s ease",
+
+                  zIndex: 3,
+                }}
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M5 12H19"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+
+                  <path
+                    d="M13 6L19 12L13 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+            </div>
+          ))}
+
+        </div>
       </div>
     </section>
-  )
+  );
 }
-
 
 // ── Section: Dashboard Showcase ───────────────────────────────────────────────
 type Slide = { industry: string; impact: string; tag: string; accent: string; widgets: { label: string; value: string; delta: string; up: boolean }[]; bars: number[] }
@@ -1059,52 +1138,52 @@ function DashboardCard({ slide }: { slide: Slide }) {
 function DashboardShowcase() {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
+
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const { ref, visible } = useFadeIn()
 
-  const next = () => setActive(a => (a + 1) % SLIDES.length)
+  const next = () => {
+    setActive((a) => (a + 1) % SLIDES.length)
+  }
 
-  const prev = () =>
-    setActive(a => (a - 1 + SLIDES.length) % SLIDES.length)
+  const prev = () => {
+    setActive((a) => (a - 1 + SLIDES.length) % SLIDES.length)
+  }
 
   useEffect(() => {
     if (paused) return
 
-    timerRef.current = setInterval(next, 4500)
+    timerRef.current = setInterval(() => {
+      setActive((a) => (a + 1) % SLIDES.length)
+    }, 4500)
 
     return () => {
-      if (timerRef.current) clearInterval(timerRef.current)
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+      }
     }
-  }, [paused, active])
+  }, [paused])
 
   return (
     <section
       className="py-12 overflow-hidden"
       style={{
-        background: '#ffffff',
+        background: "#ffffff",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        {/* Header */}
-        <div
-          ref={ref}
-          className="text-center mb-14"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible
-              ? 'none'
-              : 'translateY(24px)',
-            transition: 'all 0.7s ease',
-          }}
-        >
+        {/* =====================================================
+            HEADER
+        ===================================================== */}
+        <div className="text-center mb-14 scroll-reveal">
+
           {/* Badge */}
           <div
             className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
             style={{
-              background: 'rgba(3,158,227,0.08)',
-              border: '1px solid rgba(3,158,227,0.18)',
-              color: '#039EE3',
+              background: "rgba(3,158,227,0.08)",
+              border: "1px solid rgba(3,158,227,0.18)",
+              color: "#039EE3",
             }}
           >
             Platform Showcase
@@ -1114,14 +1193,18 @@ function DashboardShowcase() {
           <h2
             className="font-black tracking-tight mb-4"
             style={{
-              fontSize: 'clamp(2rem,3.5vw,3rem)',
-              color: '#040D20',
+              fontSize: "clamp(2rem,3.5vw,3rem)",
+              color: "#040D20",
             }}
           >
             See DevERP
             <br />
 
-            <span style={{ color: '#039EE3' }}>
+            <span
+              style={{
+                color: "#039EE3",
+              }}
+            >
               Across Industries
             </span>
           </h2>
@@ -1130,47 +1213,47 @@ function DashboardShowcase() {
           <p
             className="text-lg max-w-lg mx-auto"
             style={{
-              color: '#64748B',
+              color: "#64748B",
             }}
           >
             One ERP platform. Industry-specific dashboards.
           </p>
         </div>
 
-        {/* Slider */}
+
+        {/* =====================================================
+            SLIDER
+        ===================================================== */}
         <div
-          className="relative"
+          className="relative service-card-reveal"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
 
-          {/* Slide */}
+          {/* ===================================================
+              DASHBOARD
+          =================================================== */}
           <div
-            style={{
-              opacity: visible ? 1 : 0,
-              transition: 'opacity 0.7s ease 0.2s',
-            }}
+            key={active}
+            className="dashboard-showcase-slide"
           >
-            <div
-              className="transition-all duration-500"
-              style={{
-                opacity: 1,
-              }}
-            >
-              <DashboardCard
-                slide={SLIDES[active]}
-                key={active}
-              />
-            </div>
+            <DashboardCard
+              slide={SLIDES[active]}
+            />
           </div>
 
-          {/* Industry Label + Impact */}
-          <div className="mt-8 text-center">
 
+          {/* ===================================================
+              INDUSTRY INFO
+          =================================================== */}
+          <div
+            key={`info-${active}`}
+            className="text-center mt-8 service-scroll-left"
+          >
             <h3
               className="text-xl font-bold mb-1"
               style={{
-                color: '#040D20',
+                color: "#040D20",
               }}
             >
               {SLIDES[active].industry}
@@ -1178,112 +1261,89 @@ function DashboardShowcase() {
 
             <p
               style={{
-                color: '#64748B',
+                color: "#64748B",
               }}
             >
               {SLIDES[active].impact}
             </p>
-
           </div>
 
-          {/* Controls */}
-          <div className="flex items-center justify-center gap-4 mt-8">
 
-            {/* Previous */}
+          {/* ===================================================
+              CONTROLS
+          =================================================== */}
+          <div
+            className="flex items-center justify-center gap-4 mt-8 service-scroll-right"
+          >
+
+            {/* PREVIOUS */}
             <button
+              type="button"
               onClick={prev}
               aria-label="Previous slide"
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-              style={{
-                background: 'rgba(3,158,227,0.06)',
-                border: '1px solid rgba(3,158,227,0.20)',
-                color: '#039EE3',
-                boxShadow:
-                  '0 4px 14px rgba(3,158,227,0.06)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background =
-                  'rgba(3,158,227,0.12)'
-                e.currentTarget.style.borderColor =
-                  'rgba(3,158,227,0.45)'
-                e.currentTarget.style.boxShadow =
-                  '0 6px 18px rgba(3,158,227,0.12)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background =
-                  'rgba(3,158,227,0.06)'
-                e.currentTarget.style.borderColor =
-                  'rgba(3,158,227,0.20)'
-                e.currentTarget.style.boxShadow =
-                  '0 4px 14px rgba(3,158,227,0.06)'
-              }}
+              className="dashboard-control-btn"
             >
               <Ic.chevL />
             </button>
 
-            {/* Dots */}
+
+            {/* DOTS */}
             <div className="flex gap-2 items-center">
+
               {SLIDES.map((_, i) => (
                 <button
+                  type="button"
                   key={i}
                   onClick={() => setActive(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className="rounded-full transition-all duration-300"
+                  className="dashboard-dot"
                   style={{
                     width:
                       active === i
-                        ? '24px'
-                        : '8px',
-
-                    height: '8px',
+                        ? "24px"
+                        : "8px",
 
                     background:
                       active === i
-                        ? '#039EE3'
-                        : '#BAE6FD',
+                        ? "#039EE3"
+                        : "#BAE6FD",
 
                     boxShadow:
                       active === i
-                        ? '0 0 12px rgba(3,158,227,0.40)'
-                        : 'none',
+                        ? "0 0 12px rgba(3,158,227,0.40)"
+                        : "none",
                   }}
                 />
               ))}
+
             </div>
 
-            {/* Next */}
+
+            {/* NEXT */}
             <button
+              type="button"
               onClick={next}
               aria-label="Next slide"
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-              style={{
-                background: 'rgba(3,158,227,0.06)',
-                border: '1px solid rgba(3,158,227,0.20)',
-                color: '#039EE3',
-                boxShadow:
-                  '0 4px 14px rgba(3,158,227,0.06)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background =
-                  'rgba(3,158,227,0.12)'
-                e.currentTarget.style.borderColor =
-                  'rgba(3,158,227,0.45)'
-                e.currentTarget.style.boxShadow =
-                  '0 6px 18px rgba(3,158,227,0.12)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background =
-                  'rgba(3,158,227,0.06)'
-                e.currentTarget.style.borderColor =
-                  'rgba(3,158,227,0.20)'
-                e.currentTarget.style.boxShadow =
-                  '0 4px 14px rgba(3,158,227,0.06)'
-              }}
+              className="dashboard-control-btn"
             >
               <Ic.chevR />
             </button>
 
           </div>
+
+
+          {/* ===================================================
+              PROGRESS BAR
+          =================================================== */}
+          {!paused && (
+            <div className="dashboard-progress">
+              <div
+                key={active}
+                className="dashboard-progress-bar"
+              />
+            </div>
+          )}
+
         </div>
       </div>
     </section>
@@ -1769,7 +1829,6 @@ function CalendarView({ industry, qualData }: { industry: string, qualData: any 
 function BookingSection() {
   const [qualDone, setQualDone] = useState(false)
   const [qualData, setQualData] = useState<QualData | null>(null)
-  const { ref, visible } = useFadeIn()
 
   function handleQualComplete(data: QualData) {
     setQualData(data)
@@ -1785,17 +1844,7 @@ function BookingSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
-        <div
-          ref={ref}
-          className="text-center mb-14"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible
-              ? 'none'
-              : 'translateY(24px)',
-            transition: 'all 0.7s ease',
-          }}
-        >
+        <div className="scroll-reveal text-center mb-14">
           <div
             className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
             style={{
@@ -1839,7 +1888,7 @@ function BookingSection() {
           ======================================== */}
 
           <div
-            className="rounded-2xl p-8 transition-all duration-500"
+            className="service-scroll-left rounded-2xl p-8 transition-all duration-500"
             style={{
               background: '#ffffff',
               border: '1.5px solid #DDF2FC',
@@ -1853,7 +1902,7 @@ function BookingSection() {
                 onComplete={handleQualComplete}
               />
             ) : (
-              <div>
+              <div className="booking-profile-reveal">
 
                 {/* Profile Complete */}
                 <div className="flex items-center gap-2 mb-6">
@@ -1970,7 +2019,7 @@ function BookingSection() {
           ======================================== */}
 
           <div
-            className="relative rounded-2xl transition-all duration-700"
+            className="service-scroll-right relative rounded-2xl transition-all duration-700"
             style={{
               background: '#ffffff',
 
@@ -2080,36 +2129,146 @@ const TIMELINE_STEPS = [
   { step: '03', label: 'Your Personalized Walkthrough', desc: 'A live ERP demo configured for your exact industry, processes, and team size.', icon: '🖥️', color: '#0891B2' },
   { step: '04', label: 'Your Implementation Roadmap', desc: 'A clear go-live plan with timelines, training schedule, and dedicated onboarding support.', icon: '🚀', color: '#22C55E' },
 ]
+  
 
 function ProcessTimeline() {
-  const [activeStep, setActiveStep] = useState<number | null>(null)
-  const { ref, visible } = useFadeIn()
+  const [activeStep, setActiveStep] = useState(0)
+  const [hoverStep, setHoverStep] = useState<number | null>(null)
+
+  const timelineRef = useRef<HTMLDivElement | null>(null)
+
+  const positions = [
+    { top: 55 },
+    { top: 245 },
+    { top: 55 },
+    { top: 245 },
+  ]
+
+  /*
+   * Hover active priority:
+   * Hover -> hovered card active
+   * No hover -> scroll active card
+   */
+  const displayStep =
+    hoverStep !== null
+      ? hoverStep
+      : activeStep
+
+  /*
+   * Roadmap progress
+   */
+  const activeProgress =
+    TIMELINE_STEPS.length > 1
+      ? displayStep / (TIMELINE_STEPS.length - 1)
+      : 0
+
+  /*
+   * Scroll based active step
+   */
+  useEffect(() => {
+    const updateActiveStep = () => {
+      if (!timelineRef.current) return
+
+      const rect =
+        timelineRef.current.getBoundingClientRect()
+
+      const viewportHeight =
+        window.innerHeight
+
+      const startOffset =
+        viewportHeight * 0.15
+
+      const endOffset =
+        viewportHeight * 0.85
+
+      const totalDistance =
+        rect.height +
+        viewportHeight -
+        startOffset -
+        endOffset
+
+      const currentDistance =
+        viewportHeight -
+        rect.top -
+        startOffset
+
+      let progress =
+        currentDistance / totalDistance
+
+      progress = Math.max(
+        0,
+        Math.min(1, progress)
+      )
+
+      let step = Math.floor(
+        progress * TIMELINE_STEPS.length
+      )
+
+      if (step < 0) {
+        step = 0
+      }
+
+      if (
+        step >= TIMELINE_STEPS.length
+      ) {
+        step =
+          TIMELINE_STEPS.length - 1
+      }
+
+      setActiveStep((previous) =>
+        previous === step
+          ? previous
+          : step
+      )
+    }
+
+    updateActiveStep()
+
+    window.addEventListener(
+      "scroll",
+      updateActiveStep,
+      { passive: true }
+    )
+
+    window.addEventListener(
+      "resize",
+      updateActiveStep
+    )
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        updateActiveStep
+      )
+
+      window.removeEventListener(
+        "resize",
+        updateActiveStep
+      )
+    }
+  }, [])
 
   return (
     <section
-      className="py-6"
-      style={{ background: '#ffffff' }}
+      className="py-8"
+      style={{
+        background: "#ffffff",
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        {/* Header */}
-        <div
-          ref={ref}
-          className="text-center mb-16"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible
-              ? 'none'
-              : 'translateY(24px)',
-            transition: 'all 0.7s ease',
-          }}
-        >
+        {/* =====================================================
+            HEADER
+        ===================================================== */}
+
+        <div className="scroll-reveal text-center mb-14">
+
           <div
             className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
             style={{
-              background: 'rgba(3,158,227,0.08)',
-              border: '1px solid rgba(3,158,227,0.15)',
-              color: '#039EE3',
+              background: "#F0F9FF",
+              border: "1px solid #D8F1FC",
+              color: "#039EE3",
             }}
           >
             Your Journey
@@ -2118,14 +2277,19 @@ function ProcessTimeline() {
           <h2
             className="font-black tracking-tight mb-4"
             style={{
-              fontSize: 'clamp(2rem,3.5vw,3rem)',
-              color: '#040D20',
+              fontSize:
+                "clamp(2rem,3.5vw,3rem)",
+              color: "#040D20",
             }}
           >
             From Demo to
             <br />
 
-            <span style={{ color: '#039EE3' }}>
+            <span
+              style={{
+                color: "#039EE3",
+              }}
+            >
               Digital Transformation
             </span>
           </h2>
@@ -2133,115 +2297,537 @@ function ProcessTimeline() {
           <p
             className="text-lg max-w-xl mx-auto"
             style={{
-              color: '#64748B',
+              color: "#64748B",
             }}
           >
             A guided journey from first conversation to a fully
             running ERP — without the guesswork.
           </p>
+
         </div>
 
-        {/* Timeline */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        {/* =====================================================
+            SCROLL AREA
+        ===================================================== */}
 
-          {/* Timeline Track */}
+        <div
+          ref={timelineRef}
+          className="relative"
+          style={{
+            minHeight: "155vh",
+          }}
+        >
+
+          {/* =====================================================
+              DESKTOP
+          ===================================================== */}
+
           <div
-            className="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-px"
+            className="hidden md:block sticky top-24"
             style={{
-              background:
-                'linear-gradient(90deg, #039EE3, #38BDF8, #7DD3FC, #039EE3)',
-              backgroundSize: '200% 100%',
-              animation:
-                'gradientFlow 3s linear infinite',
+              height: "390px",
             }}
-          />
+          >
 
-          {TIMELINE_STEPS.map((s, i) => {
+            <div
+              className="relative max-w-6xl mx-auto"
+              style={{
+                height: "390px",
+              }}
+            >
 
-            const isActive = activeStep === i
+              {/* =================================================
+                  CURVED ROADMAP
+              ================================================= */}
 
-            return (
-              <div
-                key={i}
-                className="flex flex-col items-center text-center cursor-default"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible
-                    ? 'none'
-                    : 'translateY(24px)',
-                  transition: `all 0.6s ease ${i * 0.12}s`,
-                }}
-                onMouseEnter={() => setActiveStep(i)}
-                onMouseLeave={() => setActiveStep(null)}
+              <svg
+                className="absolute inset-0 w-full h-[390px] pointer-events-none"
+                viewBox="0 0 1200 390"
+                preserveAspectRatio="none"
               >
 
-                {/* Step Icon */}
-                <div
-                  className="w-20 h-20 rounded-2xl flex items-center justify-center mb-5 relative z-10 transition-all duration-300"
+                {/* Full inactive road */}
+
+                <path
+                  d="
+                    M 70 95
+                    C 220 95, 245 285, 390 285
+                    C 535 285, 565 95, 710 95
+                    C 855 95, 880 285, 1130 285
+                  "
+                  fill="none"
+                  stroke="#D9EEF7"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                />
+
+                {/* Inactive dotted road */}
+
+                <path
+                  d="
+                    M 70 95
+                    C 220 95, 245 285, 390 285
+                    C 535 285, 565 95, 710 95
+                    C 855 95, 880 285, 1130 285
+                  "
+                  fill="none"
+                  stroke="#BDE8F8"
+                  strokeWidth="2"
+                  strokeDasharray="5 9"
+                  strokeLinecap="round"
+                />
+
+                {/* ACTIVE BLUE ROAD */}
+
+                <path
+                  d="
+                    M 70 95
+                    C 220 95, 245 285, 390 285
+                    C 535 285, 565 95, 710 95
+                    C 855 95, 880 285, 1130 285
+                  "
+                  fill="none"
+                  stroke="#039EE3"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  pathLength="1"
+                  strokeDasharray="1"
+                  strokeDashoffset={
+                    1 - activeProgress
+                  }
                   style={{
-                    background: isActive
-                      ? '#039EE3'
-                      : '#ffffff',
+                    transition:
+                      "stroke-dashoffset 0.65s cubic-bezier(0.22,1,0.36,1)",
 
-                    border:
-                      '2px solid #039EE3',
-
-                    boxShadow: isActive
-                      ? '0 8px 32px rgba(3,158,227,0.28)'
-                      : '0 4px 16px rgba(3,158,227,0.10)',
-
-                    transform: isActive
-                      ? 'scale(1.1) translateY(-4px)'
-                      : 'none',
+                    filter:
+                      "drop-shadow(0 2px 6px rgba(3,158,227,0.20))",
                   }}
-                >
-                  <span
-                    className="text-2xl transition-all duration-300"
-                    style={{
-                      color: isActive
-                        ? '#ffffff'
-                        : '#039EE3',
-                    }}
-                  >
-                    {s.icon}
-                  </span>
-                </div>
+                />
 
-                {/* Step Number */}
-                <div
-                  className="text-xs font-bold mb-1"
+                {/* ACTIVE DOTTED HIGHLIGHT */}
+
+                <path
+                  d="
+                    M 70 95
+                    C 220 95, 245 285, 390 285
+                    C 535 285, 565 95, 710 95
+                    C 855 95, 880 285, 1130 285
+                  "
+                  fill="none"
+                  stroke="#8DD8F5"
+                  strokeWidth="2"
+                  strokeDasharray="5 9"
+                  strokeLinecap="round"
+                  pathLength="1"
+                  strokeDashoffset={
+                    1 - activeProgress
+                  }
                   style={{
-                    color: '#039EE3',
+                    transition:
+                      "stroke-dashoffset 0.65s cubic-bezier(0.22,1,0.36,1)",
                   }}
-                >
-                  {s.step}
-                </div>
+                />
 
-                {/* Title */}
-                <h3
-                  className="font-bold text-base mb-2"
-                  style={{
-                    color: '#040D20',
-                  }}
-                >
-                  {s.label}
-                </h3>
+              </svg>
 
-                {/* Description */}
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{
-                    color: '#64748B',
-                  }}
-                >
-                  {s.desc}
-                </p>
+              {/* =================================================
+                  DESKTOP CARDS
+              ================================================= */}
+
+              <div
+                className="relative grid grid-cols-4 h-[390px]"
+              >
+
+                {TIMELINE_STEPS.map(
+                  (s, i) => {
+
+                    const isActive =
+                      displayStep === i
+
+                    const isCompleted =
+                      i < displayStep
+
+                    const position =
+                      positions[i]
+
+                    return (
+                      <div
+                        key={i}
+                        className="relative flex flex-col items-center"
+                        style={{
+                          paddingTop:
+                            position.top,
+                        }}
+                        onMouseEnter={() =>
+                          setHoverStep(i)
+                        }
+                        onMouseLeave={() =>
+                          setHoverStep(null)
+                        }
+                      >
+
+                        {/* =====================================
+                            ICON
+                        ===================================== */}
+
+                        <div
+                          className="relative z-10"
+                        >
+
+                          <div
+                            className="w-14 h-14 rounded-full flex items-center justify-center"
+                            style={{
+                              background:
+                                isActive ||
+                                isCompleted
+                                  ? "#039EE3"
+                                  : "#ffffff",
+
+                              border:
+                                "3px solid #039EE3",
+
+                              boxShadow:
+                                isActive
+                                  ? "0 8px 28px rgba(3,158,227,0.30)"
+                                  : isCompleted
+                                  ? "0 5px 18px rgba(3,158,227,0.16)"
+                                  : "0 2px 8px rgba(3,158,227,0.10)",
+
+                              transform:
+                                isActive
+                                  ? "scale(1.15)"
+                                  : "scale(1)",
+
+                              transition:
+                                "all 0.45s cubic-bezier(0.22,1,0.36,1)",
+                            }}
+                          >
+
+                            <span
+                              className="text-xl"
+                              style={{
+                                color:
+                                  isActive ||
+                                  isCompleted
+                                    ? "#ffffff"
+                                    : "#039EE3",
+
+                                transition:
+                                  "color 0.3s ease",
+                              }}
+                            >
+                              {s.icon}
+                            </span>
+
+                          </div>
+
+                          {/* NUMBER */}
+
+                          <div
+                            className="absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-bold"
+                            style={{
+                              background:
+                                isActive
+                                  ? "#039EE3"
+                                  : "#040D20",
+
+                              color:
+                                "#ffffff",
+
+                              border:
+                                "2px solid #ffffff",
+
+                              boxShadow:
+                                isActive
+                                  ? "0 3px 10px rgba(3,158,227,0.25)"
+                                  : "none",
+
+                              transition:
+                                "all 0.3s ease",
+                            }}
+                          >
+                            {i + 1}
+                          </div>
+
+                        </div>
+
+                        {/* =====================================
+                            CARD
+                        ===================================== */}
+
+                        <div
+                          className="mt-4 w-[215px] rounded-xl px-5 py-4 text-center"
+                          style={{
+                            background:
+                              isActive
+                                ? "#F8FCFE"
+                                : "#ffffff",
+
+                            border:
+                              isActive
+                                ? "1px solid #8DD8F5"
+                                : "1px solid #E7EDF3",
+
+                            boxShadow:
+                              isActive
+                                ? "0 14px 32px rgba(3,158,227,0.14)"
+                                : "0 3px 12px rgba(15,23,42,0.035)",
+
+                            transform:
+                              isActive
+                                ? "translateY(-8px)"
+                                : "translateY(0)",
+
+                            transition:
+                              "all 0.45s cubic-bezier(0.22,1,0.36,1)",
+                          }}
+                        >
+
+                          <div
+                            className="text-[10px] font-bold uppercase tracking-[0.15em] mb-1.5"
+                            style={{
+                              color:
+                                "#039EE3",
+                            }}
+                          >
+                            {s.step}
+                          </div>
+
+                          <h3
+                            className="font-bold text-sm mb-1.5"
+                            style={{
+                              color:
+                                "#040D20",
+                            }}
+                          >
+                            {s.label}
+                          </h3>
+
+                          <p
+                            className="text-xs leading-relaxed"
+                            style={{
+                              color:
+                                "#64748B",
+                            }}
+                          >
+                            {s.desc}
+                          </p>
+
+                        </div>
+
+                      </div>
+                    )
+                  }
+                )}
 
               </div>
-            )
-          })}
+
+            </div>
+
+          </div>
+
+          {/* =====================================================
+              MOBILE
+          ===================================================== */}
+
+          <div className="md:hidden">
+
+            <div
+              className="relative"
+              style={{
+                minHeight:
+                  "100vh",
+              }}
+            >
+
+              {/* MOBILE BASE LINE */}
+
+              <div
+                className="absolute left-[27px] top-7 bottom-7 w-[4px] rounded-full"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, #D9EEF7, #BDE8F8, #D9EEF7)",
+                }}
+              />
+
+              {/* MOBILE ACTIVE LINE */}
+
+              <div
+                className="absolute left-[27px] top-7 w-[4px] rounded-full"
+                style={{
+                  height:
+                    `${activeProgress * 100}%`,
+
+                  background:
+                    "#039EE3",
+
+                  boxShadow:
+                    "0 0 8px rgba(3,158,227,0.25)",
+
+                  transition:
+                    "height 0.65s cubic-bezier(0.22,1,0.36,1)",
+                }}
+              />
+
+              <div className="space-y-7">
+
+                {TIMELINE_STEPS.map(
+                  (s, i) => {
+
+                    const isActive =
+                      displayStep === i
+
+                    const isCompleted =
+                      i < displayStep
+
+                    return (
+                      <div
+                        key={i}
+                        className="relative flex items-start gap-5"
+                      >
+
+                        {/* MOBILE ICON */}
+
+                        <div
+                          className="relative z-10 shrink-0 w-14 h-14 rounded-full flex items-center justify-center"
+                          style={{
+                            background:
+                              isActive ||
+                              isCompleted
+                                ? "#039EE3"
+                                : "#ffffff",
+
+                            border:
+                              "3px solid #039EE3",
+
+                            boxShadow:
+                              isActive
+                                ? "0 8px 25px rgba(3,158,227,0.28)"
+                                : "0 2px 8px rgba(3,158,227,0.08)",
+
+                            transform:
+                              isActive
+                                ? "scale(1.08)"
+                                : "scale(1)",
+
+                            transition:
+                              "all 0.4s cubic-bezier(0.22,1,0.36,1)",
+                          }}
+                        >
+
+                          <span
+                            className="text-xl"
+                            style={{
+                              color:
+                                isActive ||
+                                isCompleted
+                                  ? "#ffffff"
+                                  : "#039EE3",
+
+                              transition:
+                                "color 0.3s ease",
+                            }}
+                          >
+                            {s.icon}
+                          </span>
+
+                          {/* NUMBER */}
+
+                          <div
+                            className="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold"
+                            style={{
+                              background:
+                                isActive
+                                  ? "#039EE3"
+                                  : "#040D20",
+
+                              color:
+                                "#ffffff",
+
+                              border:
+                                "2px solid #ffffff",
+                            }}
+                          >
+                            {i + 1}
+                          </div>
+
+                        </div>
+
+                        {/* MOBILE CARD */}
+
+                        <div
+                          className="flex-1 rounded-xl px-5 py-4"
+                          style={{
+                            background:
+                              isActive
+                                ? "#F8FCFE"
+                                : "#ffffff",
+
+                            border:
+                              isActive
+                                ? "1px solid #8DD8F5"
+                                : "1px solid #E7EDF3",
+
+                            boxShadow:
+                              isActive
+                                ? "0 10px 26px rgba(3,158,227,0.12)"
+                                : "0 3px 12px rgba(15,23,42,0.035)",
+
+                            transform:
+                              isActive
+                                ? "translateX(5px)"
+                                : "translateX(0)",
+
+                            transition:
+                              "all 0.4s cubic-bezier(0.22,1,0.36,1)",
+                          }}
+                        >
+
+                          <div
+                            className="text-[10px] font-bold uppercase tracking-[0.15em] mb-1"
+                            style={{
+                              color:
+                                "#039EE3",
+                            }}
+                          >
+                            {s.step}
+                          </div>
+
+                          <h3
+                            className="font-bold text-sm mb-1.5"
+                            style={{
+                              color:
+                                "#040D20",
+                            }}
+                          >
+                            {s.label}
+                          </h3>
+
+                          <p
+                            className="text-xs leading-relaxed"
+                            style={{
+                              color:
+                                "#64748B",
+                            }}
+                          >
+                            {s.desc}
+                          </p>
+
+                        </div>
+
+                      </div>
+                    )
+                  }
+                )}
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
+
       </div>
     </section>
   )
@@ -2267,11 +2853,9 @@ function StatCard({ icon, value, suffix, label, color, triggered }: typeof STATS
 }
 
 function TrustStats() {
-  const { ref, visible } = useFadeIn()
-
   return (
     <section
-      className="py-4"
+      className="py-24"
       style={{
         background: '#ffffff',
       }}
@@ -2279,17 +2863,8 @@ function TrustStats() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
-        <div
-          ref={ref}
-          className="text-center mb-14"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible
-              ? 'none'
-              : 'translateY(24px)',
-            transition: 'all 0.7s ease',
-          }}
-        >
+        <div className="scroll-reveal text-center mb-14">
+
           {/* Badge */}
           <div
             className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
@@ -2344,18 +2919,18 @@ function TrustStats() {
           {STATS.map((s, i) => (
             <div
               key={i}
+              className={
+                i % 2 === 0
+                  ? 'service-scroll-left'
+                  : 'service-scroll-right'
+              }
               style={{
-                opacity: visible ? 1 : 0,
-                transform: visible
-                  ? 'none'
-                  : 'translateY(24px)',
-                transition: `all 0.6s ease ${i * 0.12}s`,
                 borderColor: '#DDF2FC',
               }}
             >
               <StatCard
                 {...s}
-                triggered={visible}
+                triggered={true}
               />
             </div>
           ))}
@@ -2363,7 +2938,7 @@ function TrustStats() {
 
         {/* CTA Banner */}
         <div
-          className="mt-12 rounded-2xl p-10 text-center relative overflow-hidden"
+          className="service-card-reveal mt-12 rounded-2xl p-10 text-center relative overflow-hidden"
           style={{
             background:
               'linear-gradient(135deg, #F8FCFF 0%, #EAF8FE 100%)',
@@ -2489,7 +3064,6 @@ function TrustStats() {
     </section>
   )
 }
-
 
 // ── Footer ────────────────────────────────────────────────────────────────────
 // function Footer() {
@@ -2701,6 +3275,32 @@ export default function App() {
 
   return (
     <BrowserRouter>
+  <AnimatedCursor
+  innerSize={12}
+  outerSize={48}
+  color="3, 158, 227"
+  outerAlpha={0.18}
+  innerScale={1}
+  outerScale={2}
+  trailingSpeed={8}
+  clickables={[
+    "a",
+    "button",
+    "input",
+    "textarea",
+    "select",
+    ".cursor-hover",
+  ]}
+  innerStyle={{
+    backgroundColor: "#039EE3",
+  }}
+  outerStyle={{
+    border: "1px solid rgba(3, 158, 227, 0.75)",
+    backgroundColor: "rgba(3, 158, 227, 0.05)",
+    boxShadow: "0 0 18px rgba(3, 158, 227, 0.25)",
+  }}
+/>
+
       <div
         style={{
           fontFamily:

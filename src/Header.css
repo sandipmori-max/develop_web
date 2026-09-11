@@ -1802,3 +1802,14 @@
     
   }
 }
+/* Header par AnimatedCursor ka custom effect nahi */
+.cursor-normal,
+.cursor-normal * {
+  cursor: auto !important;
+}
+
+/* Clickable elements par normal hand pointer */
+.cursor-normal a,
+.cursor-normal button {
+  cursor: pointer !important;
+}

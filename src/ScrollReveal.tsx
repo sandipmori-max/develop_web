@@ -5,6 +5,9 @@ const ScrollReveal = () => {
         const selector = `
     .scroll-reveal,
 
+  .hero-slide-left,
+  .hero-slide-right,
+
   .cta-slide-left,
   .cta-slide-right,
 
@@ -55,26 +58,33 @@ const ScrollReveal = () => {
   .career-apply-reveal,
   .career-cta-slide-left,
   .career-cta-slide-right,
+
   .blog-hero-slide-left,
-.blog-hero-slide-right,
-.blog-hero-bottom-reveal,
-.blog-scroll-left,
-.blog-card-reveal,
-.blog-cta-slide-left,
-.blog-cta-slide-right,
-.contact-hero-slide-left,
-.contact-hero-slide-right,
-.contact-hero-bottom-reveal,
-.contact-scroll-left,
-.contact-scroll-right,
-.contact-scroll-up,
-.contact-card-reveal,
-.contact-form-slide-left,
-.contact-form-slide-right,
-.de-footer-reveal-up,
-.de-footer-slide-left,
-.de-footer-column-reveal,
-.de-footer-bottom-reveal
+  .blog-hero-slide-right,
+  .blog-hero-bottom-reveal,
+  .blog-scroll-left,
+  .blog-card-reveal,
+  .blog-cta-slide-left,
+  .blog-cta-slide-right,
+
+  .contact-hero-slide-left,
+  .contact-hero-slide-right,
+  .contact-hero-bottom-reveal,
+  .contact-scroll-left,
+  .contact-scroll-right,
+  .contact-scroll-up,
+  .contact-card-reveal,
+  .contact-form-slide-left,
+  .contact-form-slide-right,
+
+  .de-footer-reveal-up,
+  .de-footer-slide-left,
+  .de-footer-column-reveal,
+  .de-footer-bottom-reveal
+
+  .benefit-slide-left,
+  .benefit-slide-right
+  
     `;
 
         const observedElements = new WeakSet<Element>();

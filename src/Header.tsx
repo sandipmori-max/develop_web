@@ -179,8 +179,8 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className="de-header"
-      id="default_header"
+      className="de-header cursor-normal"
+  id="default_header"
     >
       <div className="de-navbar">
         <div className="de-container">

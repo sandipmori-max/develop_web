@@ -151,3 +151,48 @@
   }
 }
 
+/* =========================================================
+   HERO REVEAL
+========================================================= */
+
+.hero-slide-left,
+.hero-slide-right {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-slide-left {
+  transform: translateX(-70px);
+}
+
+.hero-slide-right {
+  transform: translateX(70px);
+}
+
+.hero-slide-left.is-visible,
+.hero-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   GENERIC SCROLL REVEAL
+========================================================= */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  will-change: transform, opacity;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
