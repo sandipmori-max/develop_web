@@ -14,12 +14,12 @@
   padding: 0 20px;
 
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
+  border-radius: 9px;
 
   background: linear-gradient(
     135deg,
-    #007bff 0%,
-    #1257df 100%
+    #039EE3 0%,
+    #039EE3 100%
   ) !important;
 
   color: #fff !important;

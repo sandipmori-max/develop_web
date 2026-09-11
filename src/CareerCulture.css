@@ -37,7 +37,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 17px;
-  color: #007bff;
+  color: #039EE3;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -47,7 +47,7 @@
   content: "";
   width: 28px;
   height: 2px;
-  background: #007bff;
+  background: #039EE3;
   border-radius: 10px;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .section-intro h2 span {
-  color: #007bff;
+  color: #039EE3;
 }
 
 .section-intro p {
@@ -118,7 +118,7 @@
   justify-content: center;
   border-radius: 13px;
   background: #eaf1ff;
-  color: #007bff;
+  color: #039EE3;
   font-size: 17px;
   font-weight: 800;
   transition:
@@ -128,7 +128,7 @@
 }
 
 .culture-item.is-active .culture-icon {
-  background: #007bff;
+  background: #039EE3;
   color: #fff;
   transform: translateY(-2px);
 }
@@ -155,7 +155,7 @@
   justify-content: center;
   border: 1px solid #dce2ea;
   border-radius: 50%;
-  color: #007bff;
+  color: #039EE3;
   font-size: 20px;
   line-height: 1;
   transition:
@@ -165,8 +165,8 @@
 }
 
 .culture-item.is-active .culture-arrow {
-  background: #007bff;
-  border-color: #007bff;
+  background: #039EE3;
+  border-color: #039EE3;
   color: #fff;
 }
 
@@ -295,7 +295,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #007bff;
+  background: #039EE3;
   font-size: 16px;
 }
 
@@ -360,7 +360,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 14px;
-  background: #007bff;
+  background: #039EE3;
   color: #fff;
   font-size: 21px;
   transition: transform 0.3s ease;
@@ -377,7 +377,7 @@
 }
 
 .career-eyebrow {
-  color: #6ea1ff;
+  color: #039EE3;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.8px;
@@ -393,7 +393,7 @@
 }
 
 .career-card h3 span {
-  color: #6ea1ff;
+  color: #039EE3;
 }
 
 .career-card p {
@@ -424,7 +424,7 @@
 
 .career-button:hover {
   transform: translateY(-3px);
-  background: #007bff;
+  background: #039EE3;
   color: #fff;
 }
 
@@ -435,7 +435,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #007bff;
+  background: #039EE3;
   color: #fff;
   transition:
     background 0.3s ease,
@@ -444,7 +444,7 @@
 
 .career-button:hover .career-button-arrow {
   background: #fff;
-  color: #007bff;
+  color: #039EE3;
 }
 
 .career-card-decoration {
@@ -569,8 +569,8 @@
 .lightbox-prev:hover,
 .lightbox-next:hover,
 .lightbox-close:hover {
-  background: #007bff;
-  border-color: #007bff;
+  background: #039EE3;
+  border-color: #039EE3;
 }
 
 .lightbox-prev {
@@ -623,7 +623,7 @@
 }
 
 .lightbox-thumbnail.active {
-  border-color: #007bff;
+  border-color: #039EE3;
 }
 
 /* =========================================================

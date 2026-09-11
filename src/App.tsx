@@ -593,98 +593,185 @@ function Benefits() {
         </div>
 
         {/* Benefits */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {BENEFITS.map((b, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-8 cursor-pointer transition-all duration-300"
-              style={{
-                background:
-                  hovered === i
-                    ? '#040D20'
-                    : '#F8FCFF',
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  {BENEFITS.map((b, i) => (
+    <div
+      key={i}
+      className="rounded-2xl p-8 cursor-pointer"
+      style={{
+        background: "#F8FCFF",
 
-                border:
-                  hovered === i
-                    ? '1.5px solid rgba(3,158,227,0.35)'
-                    : '1.5px solid #DDF2FC',
+        border:
+          hovered === i
+            ? "1.5px solid rgba(3,158,227,0.45)"
+            : "1.5px solid #DDF2FC",
 
-                boxShadow:
-                  hovered === i
-                    ? '0 16px 48px rgba(3,158,227,0.15)'
-                    : 'none',
+        boxShadow:
+          hovered === i
+            ? "0 20px 55px rgba(3,158,227,0.18)"
+            : "0 8px 30px rgba(20,50,90,0.035)",
 
-                transform:
-                  hovered === i
-                    ? 'translateY(-4px)'
-                    : 'none',
+        transform:
+          hovered === i
+            ? "translateY(-7px)"
+            : "translateY(0)",
 
-                opacity: visible ? 1 : 0,
+        opacity: visible ? 1 : 0,
 
-                transition: `all 0.3s ease, opacity 0.6s ease ${i * 0.1}s`,
-              }}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-            >
+        transition: `
+          border-color 0.35s ease,
+          box-shadow 0.4s ease,
+          transform 0.4s cubic-bezier(0.22,1,0.36,1),
+          opacity 0.6s ease ${i * 0.1}s
+        `,
 
-              {/* Icon */}
-              <div
-                className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-300"
-                style={{
-                  background:
-                    hovered === i
-                      ? 'rgba(3,158,227,0.18)'
-                      : 'rgba(3,158,227,0.08)',
+        position: "relative",
+        overflow: "hidden",
+      }}
+      onMouseEnter={() => setHovered(i)}
+      onMouseLeave={() => setHovered(null)}
+    >
 
-                  color: '#039EE3',
-                }}
-              >
-                {b.icon}
-              </div>
+      {/* Background Glow */}
+      <div
+        style={{
+          position: "absolute",
+          width: "180px",
+          height: "180px",
+          borderRadius: "50%",
+          background: "rgba(3,158,227,0.10)",
+          filter: "blur(45px)",
+          right: "-80px",
+          bottom: "-80px",
 
-              {/* Stat */}
-              <div
-                className="text-4xl font-black mb-1 leading-none"
-                style={{
-                  color:
-                    hovered === i
-                      ? '#ffffff'
-                      : '#039EE3',
-                }}
-              >
-                {b.stat}
-              </div>
+          opacity: hovered === i ? 1 : 0,
 
-              {/* Title */}
-              <h3
-                className="font-bold text-base mb-2"
-                style={{
-                  color:
-                    hovered === i
-                      ? '#ffffff'
-                      : '#040D20',
-                }}
-              >
-                {b.label}
-              </h3>
+          transform:
+            hovered === i
+              ? "scale(1.2)"
+              : "scale(0.8)",
 
-              {/* Description */}
-              <p
-                className="text-sm leading-relaxed"
-                style={{
-                  color:
-                    hovered === i
-                      ? 'rgba(255,255,255,0.5)'
-                      : '#64748B',
-                }}
-              >
-                {b.desc}
-              </p>
+          transition:
+            "opacity 0.4s ease, transform 0.5s ease",
 
-            </div>
-          ))}
-        </div>
+          pointerEvents: "none",
+        }}
+      />
 
+      {/* Top Blue Line */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "4px",
+          background: "#039EE3",
+
+          transform:
+            hovered === i
+              ? "scaleX(1)"
+              : "scaleX(0)",
+
+          transformOrigin: "left",
+
+          transition:
+            "transform 0.4s cubic-bezier(0.22,1,0.36,1)",
+
+          zIndex: 3,
+        }}
+      />
+
+      {/* Icon */}
+      <div
+        className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+        style={{
+          background:
+            hovered === i
+              ? "#fff"
+              : "rgba(3,158,227,0.08)",
+
+          color: "#039EE3",
+
+          transform:
+            hovered === i
+              ? "translateY(-3px) rotate(-4deg) scale(1.06)"
+              : "translateY(0) rotate(0) scale(1)",
+
+          boxShadow:
+            hovered === i
+              ? "0 10px 28px rgba(3,158,227,0.30)"
+              : "none",
+
+          transition:
+            "all 0.35s cubic-bezier(0.22,1,0.36,1)",
+
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
+        {b.icon}
+      </div>
+
+      {/* Stat */}
+      <div
+        className="text-4xl font-black mb-1 leading-none"
+        style={{
+          color: "#039EE3",
+
+          transform:
+            hovered === i
+              ? "translateX(3px)"
+              : "translateX(0)",
+
+          transition:
+            "transform 0.35s ease",
+
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
+        {b.stat}
+      </div>
+
+      {/* Title */}
+      <h3
+        className="font-bold text-base mb-2"
+        style={{
+          color: "#040D20",
+
+          transform:
+            hovered === i
+              ? "translateX(3px)"
+              : "translateX(0)",
+
+          transition:
+            "transform 0.35s ease",
+
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
+        {b.label}
+      </h3>
+
+      {/* Description */}
+      <p
+        className="text-sm leading-relaxed"
+        style={{
+          color: "#64748B",
+
+          transition: "color 0.3s ease",
+
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
+        {b.desc}
+      </p>
+    </div>
+  ))}
+</div>
       </div>
     </section>
   )

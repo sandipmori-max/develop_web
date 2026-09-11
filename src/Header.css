@@ -5,7 +5,7 @@
 ========================================================= */
 
 .de-header {
-  --primary: #007bff;
+  --primary: #039EE3;
   --primary-dark: #0b52d4;
   --dark: #0b172a;
   --text: #172033;
@@ -1136,7 +1136,7 @@
 
   background: linear-gradient(
     135deg,
-    #007bff 0%,
+    #039EE3 0%,
     #4285ff 50%,
     #0b52d4 100%
   );
@@ -1234,7 +1234,7 @@
   background: linear-gradient(
     110deg,
     #0b172a 0%,
-    #007bff 35%,
+    #039EE3 35%,
     #4285ff 55%,
     #0b52d4 75%,
     #0b172a 100%
@@ -1271,9 +1271,9 @@
 
   background: linear-gradient(
     90deg,
-    #007bff,
+    #039EE3,
     #60a5fa,
-    #007bff
+    #039EE3
   );
 
   box-shadow:
@@ -1344,7 +1344,7 @@
 }
 
 .de-logo:hover .de-logo-company {
-  color: #007bff;
+  color: #039EE3;
 
   opacity: 1;
 
@@ -1606,7 +1606,7 @@
 ===================================================== */
 
 .de-menu-item > .de-menu-link:hover {
-  color: #007bff;
+  color: #039EE3;
 
   transform: translateY(-1px);
 }
@@ -1623,7 +1623,7 @@
 ===================================================== */
 
 .de-menu-item > .de-menu-link.de-active {
-  color: #007bff;
+  color: #039EE3;
   background: transparent;
   box-shadow: none;
 }
@@ -1644,7 +1644,7 @@
 
   border-radius: 20px;
 
-  background: #007bff;
+  background: #039EE3;
 
   transform: translateX(-50%);
 
@@ -1709,7 +1709,7 @@
 /* Hover chevron */
 
 .de-menu-item:hover > .de-dropdown-trigger .de-chevron {
-  color: #007bff;
+  color: #039EE3;
 }
 
 
@@ -1717,7 +1717,7 @@
 
 .de-menu-item.de-dropdown-open
   > .de-dropdown-trigger {
-  color: #007bff;
+  color: #039EE3;
 
   background: rgba(23, 105, 255, 0.08);
 }
@@ -1728,7 +1728,7 @@
 .de-menu-item.de-dropdown-open
   > .de-dropdown-trigger
   .de-chevron {
-  color: #007bff;
+  color: #039EE3;
 
   transform: rotate(180deg) translateY(1px);
 }

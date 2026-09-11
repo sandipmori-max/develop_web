@@ -132,7 +132,7 @@
 .service-section-label {
   display: inline-block;
   margin-bottom: 18px;
-  color: #007bff;
+  color: #039EE3;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -148,7 +148,7 @@
 }
 
 .services-intro-title h2 span {
-  color: #007bff;
+  color: #039EE3;
 }
 
 .services-intro-text {
@@ -200,7 +200,7 @@
 }
 
 .services-count strong {
-  color: #007bff;
+  color: #039EE3;
   font-size: 34px;
   line-height: 1;
   font-weight: 800;
@@ -346,7 +346,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: #007bff;
+  color: #039EE3;
   cursor: pointer;
   font-family: inherit;
   font-size: 14px;
@@ -369,7 +369,7 @@
 
 .modern-service-card:hover .service-arrow {
   transform: translate(3px, -3px);
-  background: #007bff;
+  background: #039EE3;
   color: #ffffff;
 }
 
@@ -470,7 +470,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #007bff;
+  background: #039EE3;
   color: #ffffff;
   font-size: 17px;
 }

@@ -320,7 +320,7 @@
 
   background: rgba(255, 255, 255, 0.92);
 
-  color: #039ee3;
+  color: #039EE3;
 
   font-size: 12px;
   font-weight: 800;
@@ -503,7 +503,7 @@
 
   background: #f2f7fa;
 
-  color: #039ee3;
+  color: #039EE3;
 
   font-size: 16px;
 
@@ -514,7 +514,7 @@
 }
 
 .blog-read-more:hover .blog-read-arrow {
-  background: #039ee3;
+  background: #039EE3;
   color: #ffffff;
 
   transform: translateX(3px);
@@ -590,7 +590,7 @@
 
   border-radius: 12px;
 
-  background: #039ee3;
+  background: #039EE3;
 
   color: #ffffff;
 
@@ -623,7 +623,7 @@
 }
 
 .blog-cta:hover {
-  background: #028bc9;
+  background: #039EE3;
 
   transform: translateY(-2px);
 }
@@ -933,7 +933,7 @@
 
   margin-bottom: 20px;
 
-  color: #62ceff;
+  color: #039EE3;
 
   font-size: 11px;
   line-height: 1;
@@ -949,7 +949,7 @@
 
   display: block;
 
-  background: #039ee3;
+  background: #039EE3;
 
   border-radius: 10px;
 }
@@ -1095,7 +1095,7 @@
 
   border-radius: 50%;
 
-  background: #039ee3;
+  background: #039EE3;
 
   box-shadow:
     0 0 18px rgba(3, 158, 227, 0.85);

@@ -181,7 +181,7 @@
   width: 30px;
   height: 2px;
 
-  background: #007bff;
+  background: #039EE3;
 }
 
 /* =========================================================
@@ -229,9 +229,9 @@
   padding: 0 24px;
 
   color: #ffffff;
-  background: #007bff;
+  background: #039EE3;
 
-  border: 1px solid #007bff;
+  border: 1px solid #039EE3;
   border-radius: 7px;
 
   text-decoration: none;
@@ -310,8 +310,8 @@
 }
 
 .hero-slider-arrow:hover {
-  background: #007bff;
-  border-color: #007bff;
+  background: #039EE3;
+  border-color: #039EE3;
 
   transform: translateY(-50%) scale(1.06);
 }
@@ -435,7 +435,7 @@
 
   transform-origin: left center;
 
-  background: #007bff;
+  background: #039EE3;
 
   animation: sliderProgress 5.5s linear forwards;
 }
