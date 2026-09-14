@@ -7,7 +7,7 @@ import {
   ArrowUp,
 } from "lucide-react";
 import "./Hero.css";
-
+import emailjs from '@emailjs/browser'
 import logo from './assets/logo.png';
 import Header from './Header';
 import HeroSlider from './HeroSlider';
@@ -33,6 +33,7 @@ import ScrollReveal from './ScrollReveal';
 import AnimatedCursor from "react-animated-cursor"
 
 import "./ScrollReveal.css";
+import KnowledgeCenter from './KnowledgeCenter';
 
 // ── Smooth scroll helper ──────────────────────────────────────────────────────
 function scrollToBooking() {
@@ -1354,9 +1355,16 @@ function DashboardShowcase() {
 // ── Qualification + Calendar ──────────────────────────────────────────────────
 type QualData = { industry: string; employees: string; challenges: string[]; intent: string }
 
-const QUAL_INDUSTRIES = ['Printing & Packaging', 'Gravure / Cylinder Manufacturing', 'Cylinder Engraving', 'Ready Mix Concrete', 'Construction', 'Medical', 'Other']
+const QUAL_INDUSTRIES = [
+  'Engineering Company',
+  'Machine Manufacturing',
+  'Hospital management system',
+  'Pharmaceutical',
+  'Printing & Packaging', 'Gravure / Cylinder Manufacturing', 'Ready Mix Concrete', 'Construction', 'Medical', 'Other']
 const QUAL_EMP = ['1–25', '26–50', '51–100', '101–250', '250+']
-const QUAL_CHALLENGES = ['Production Planning', 'Inventory', 'Quality', 'Job Costing', 'Dispatch', 'Manual Work', 'Reporting', 'Purchase', 'Sales', 'Other']
+const QUAL_CHALLENGES = [
+  
+'Accounting', 'CRM', 'Production Planning', 'Inventory', 'Quality', 'Job Costing', 'Dispatch', 'Manual Work', 'Reporting', 'Purchase', 'Sales', 'Other']
 const QUAL_INTENT = ['Book Live Demo', 'Need ERP Consultation', 'Want Pricing', 'Need Product Information', 'Exploring ERP Solutions']
 
 const CAL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -1371,13 +1379,13 @@ function genCalendarDays(year: number, month: number): (number | null)[] {
   return days
 }
 function isAvailableDate(y: number, m: number, d: number) {
-  const date = new Date(y, m, d); date.setHours(0, 0, 0, 0)
-  const tomorrow = new Date(); tomorrow.setHours(0, 0, 0, 0); tomorrow.setDate(tomorrow.getDate() + 1)
-  if (date < tomorrow) return false
-  const dow = date.getDay()
-  if (dow === 0 || dow === 6) return false
-  const max = new Date(tomorrow); max.setDate(max.getDate() + 27)
-  return date <= max
+  const date = new Date(y, m, d);
+  date.setHours(0, 0, 0, 0);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  return date >= today;
 }
 function getSlotsForDate(d: number) {
   return ALL_SLOTS.filter((_, i) => (d * 7 + i * 3) % 7 !== 0)
@@ -1536,160 +1544,134 @@ function CalendarView({ industry, qualData }: { industry: string, qualData: any 
     else if (!/^\d{10}$/.test(form.phone)) e.phone = 'Enter a valid 10-digit mobile number'
     return e
   }
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
+ async function handleSubmit(e: React.FormEvent) {
+  e.preventDefault()
 
-    const errs = validate()
+  const errs = validate()
 
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs)
-      return
-    }
-
-    const submitData = {
-      qualification: {
-        step1: {
-          industry: qualData?.industry ?? '',
-        },
-        step2: {
-          employees: qualData?.employees ?? '',
-        },
-        step3: {
-          challenges: qualData?.challenges ?? [],
-        },
-        step4: {
-          intent: qualData?.intent ?? '',
-        },
-      },
-
-      booking: {
-        date: selDate
-          ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
-          : '',
-        time: selSlot ?? '',
-        timezone: tz,
-      },
-
-      contact: {
-        name: form.name,
-        company: form.company,
-        email: form.email,
-        phone: form.phone,
-        notes: form.notes,
-      },
-    }
-
-    console.log('FINAL SUBMIT DATA:', submitData)
-
-    try {
-      // ==========================================
-      // 1. ADMIN EMAIL
-      // ==========================================
-
-      const body = `
-      <h2>New ERP Inquiry</h2>
-
-      <h3>Contact Details</h3>
-      <p><strong>Name:</strong> ${form.name}</p>
-      <p><strong>Company:</strong> ${form.company}</p>
-      <p><strong>Email:</strong> ${form.email}</p>
-      <p><strong>Phone:</strong> ${form.phone}</p>
-      <p><strong>Notes:</strong> ${form.notes}</p>
-
-      <h3>Qualification</h3>
-      <p><strong>Industry:</strong> ${qualData?.industry ?? ''}</p>
-      <p><strong>Employees:</strong> ${qualData?.employees ?? ''}</p>
-      <p>
-        <strong>Challenges:</strong>
-        ${(qualData?.challenges ?? []).join(', ')}
-      </p>
-      <p><strong>Intent:</strong> ${qualData?.intent ?? ''}</p>
-
-      <h3>Booking</h3>
-      <p><strong>Date:</strong> ${selDate
-          ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
-          : ''
-        }</p>
-      <p><strong>Time:</strong> ${selSlot ?? ''}</p>
-      <p><strong>Timezone:</strong> ${tz}</p>
-    `
-
-      const adminPayload = {
-        key: 'Deverp@2021',
-        Subject: 'ERP Inquiry',
-        To: 'admin@deverp.com',
-        CC: '',
-        BCC: '',
-        Body: body,
-      }
-
-      console.log('ADMIN MAIL PAYLOAD:', adminPayload)
-
-      const adminResponse = await fetch(
-        '/APP/api.aspx/SendMail',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(adminPayload),
-        }
-      )
-
-      const adminResult = await adminResponse.json()
-
-      console.log('ADMIN MAIL RESPONSE:', adminResult)
-
-      if (!adminResponse.ok) {
-        throw new Error('Admin mail API request failed')
-      }
-
-
-      // ==========================================
-      // 2. USER THANK YOU EMAIL
-      // ==========================================
-
-      const userPayload = {
-        key: 'Deverp@2021',
-        Subject: 'Deverp inquiry',
-        To: form.email,
-        CC: '',
-        BCC: '',
-        Body: 'Thank you for your inquiry. We will inform time shortly.',
-      }
-
-      console.log('USER MAIL PAYLOAD:', userPayload)
-
-      const userResponse = await fetch(
-        '/APP/api.aspx/SendMail',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userPayload),
-        }
-      )
-
-      const userResult = await userResponse.json()
-
-      console.log('USER MAIL RESPONSE:', userResult)
-
-      if (!userResponse.ok) {
-        throw new Error('User confirmation mail API request failed')
-      }
-
-
-      // ==========================================
-      // BOTH SUCCESS
-      // ==========================================
-
-      setSubmitted(true)
-
-    } catch (error) {
-      console.error('SUBMIT ERROR:', error)
-    }
+  if (Object.keys(errs).length > 0) {
+    setErrors(errs)
+    return
   }
+
+  const bookingDate = selDate
+    ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
+    : ''
+
+  const submitData = {
+    qualification: {
+      step1: {
+        industry: qualData?.industry ?? '',
+      },
+      step2: {
+        employees: qualData?.employees ?? '',
+      },
+      step3: {
+        challenges: qualData?.challenges ?? [],
+      },
+      step4: {
+        intent: qualData?.intent ?? '',
+      },
+    },
+
+    booking: {
+      date: bookingDate,
+      time: selSlot ?? '',
+      timezone: tz,
+    },
+
+    contact: {
+      name: form.name,
+      company: form.company,
+      email: form.email,
+      phone: form.phone,
+      notes: form.notes,
+    },
+  }
+
+  console.log('FINAL SUBMIT DATA:', submitData)
+
+  try {
+    // ==========================================
+    // EMAILJS TEMPLATE PARAMETERS
+    // ==========================================
+
+    const templateParams = {
+      name: form.name ?? '',
+      company: form.company ?? '',
+      email: form.email ?? '',
+      phone: form.phone ?? '',
+
+      industry: qualData?.industry ?? '',
+
+      employees: qualData?.employees ?? '',
+
+      challenges: (qualData?.challenges ?? []).join(', '),
+
+      intent: qualData?.intent ?? '',
+
+      date: bookingDate,
+
+      time: selSlot ?? '',
+
+      timezone: tz ?? '',
+
+      notes: form.notes ?? '',
+    }
+
+    console.log('EMAILJS TEMPLATE PARAMS:', templateParams)
+
+    // ==========================================
+    // 1. ADMIN EMAIL
+    // ==========================================
+
+    const adminResponse = await emailjs.send(
+      'service_qgskadb',
+      'template_87r9tyh',
+      templateParams,
+      {
+        publicKey: 'FeOzGWONpKAKG4Ohs',
+      }
+    )
+
+    console.log('ADMIN EMAIL SENT:', adminResponse)
+
+    // ==========================================
+    // 2. USER THANK YOU EMAIL
+    // ==========================================
+
+   const userTemplateParams = {
+  customer_name: form.name,
+  to_email: form.email,
+
+  company: form.company,
+  industry: qualData?.industry ?? '',
+  date: bookingDate,
+  time: selSlot ?? '',
+  timezone: tz ?? '',
+}
+
+    const userResponse = await emailjs.send(
+      'service_qgskadb',
+      'template_ovk7ifk',
+      userTemplateParams,
+      {
+        publicKey: 'FeOzGWONpKAKG4Ohs',
+      }
+    )
+
+    // console.log('USER EMAIL SENT:', userResponse)
+
+    // ==========================================
+    // BOTH SUCCESS
+    // ==========================================
+
+    setSubmitted(true)
+
+  } catch (error) {
+    console.error('SUBMIT ERROR:', error)
+  }
+}
 
   if (submitted) {
     return (
@@ -1785,7 +1767,7 @@ function CalendarView({ industry, qualData }: { industry: string, qualData: any 
         </div>
       </div>
       <div className="flex items-center gap-1.5 mb-4 text-xs" style={{ color: '#94A3B8' }}>
-        <Ic.map /><span>{tz}</span>
+         
       </div>
       <div className="grid grid-cols-7 mb-2">
         {CAL_DAYS.map(d => <div key={d} className="text-center text-xs font-semibold py-1" style={{ color: '#94A3B8' }}>{d}</div>)}
@@ -1845,16 +1827,7 @@ function BookingSection() {
 
         {/* Header */}
         <div className="scroll-reveal text-center mb-14">
-          <div
-            className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
-            style={{
-              background: 'rgba(3,158,227,0.08)',
-              border: '1px solid rgba(3,158,227,0.15)',
-              color: '#039EE3',
-            }}
-          >
-            Book Your Demo
-          </div>
+         
 
           <h2
             className="font-black tracking-tight mb-4"
@@ -1863,10 +1836,22 @@ function BookingSection() {
               color: '#040D20',
             }}
           >
+             Book Your Demo
+            
+          </h2>
+
+           <div
+            className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
+            style={{
+              background: 'rgba(3,158,227,0.08)',
+              border: '1px solid rgba(3,158,227,0.15)',
+              color: '#039EE3',
+            }}
+          >
             {qualDone
               ? 'Choose Your Demo Slot'
               : 'Tell Us About Your Business'}
-          </h2>
+          </div>
 
           <p
             className="text-lg max-w-lg mx-auto"
@@ -2835,8 +2820,8 @@ function ProcessTimeline() {
 
 // ── Trust Stats ───────────────────────────────────────────────────────────────
 const STATS = [
-  { icon: <Ic.users />, value: 200, suffix: '+', label: 'Happy Customers', color: '#039EE3' },
-  { icon: <Ic.globe />, value: 14, suffix: '', label: 'Industries Served', color: '#7C3AED' },
+  { icon: <Ic.users />, value: 400, suffix: '+', label: 'Happy Customers', color: '#039EE3' },
+  { icon: <Ic.globe />, value: 18, suffix: '', label: 'Industries Served', color: '#7C3AED' },
   { icon: <Ic.award />, value: 8, suffix: '+', label: 'Years Experience', color: '#0891B2' },
   { icon: <Ic.barChart />, value: 500, suffix: '+', label: 'Successful Implementations', color: '#22C55E' },
 ]
@@ -3275,31 +3260,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-  <AnimatedCursor
-  innerSize={12}
-  outerSize={48}
-  color="3, 158, 227"
-  outerAlpha={0.18}
-  innerScale={1}
-  outerScale={2}
-  trailingSpeed={8}
-  clickables={[
-    "a",
-    "button",
-    "input",
-    "textarea",
-    "select",
-    ".cursor-hover",
-  ]}
-  innerStyle={{
-    backgroundColor: "#039EE3",
-  }}
-  outerStyle={{
-    border: "1px solid rgba(3, 158, 227, 0.75)",
-    backgroundColor: "rgba(3, 158, 227, 0.05)",
-    boxShadow: "0 0 18px rgba(3, 158, 227, 0.25)",
-  }}
-/>
+ 
 
       <div
         style={{
@@ -3322,6 +3283,7 @@ export default function App() {
                 <WhyChooseUs />
                 <ServicesOffer />
                 <OurProducts />
+                <ServiceList />
                 <CareerCulture />
                 <HappyClientele />
                 <ClientTestimonials />
@@ -3410,13 +3372,25 @@ export default function App() {
           <Route
             path="/book-demo"
             element={
-              <>
+              <> 
+              <BookingSection />
                 <Hero />
                 <Benefits />
                 <DashboardShowcase />
-                <BookingSection />
+               
                 <ProcessTimeline />
                 <TrustStats />
+              </>
+            }
+          />
+
+          {/* knowledge */}
+          <Route
+            path="/knowledge"
+            element={
+              <>
+
+                <KnowledgeCenter />
               </>
             }
           />

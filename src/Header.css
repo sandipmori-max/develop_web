@@ -1813,3 +1813,12 @@
 .cursor-normal button {
   cursor: pointer !important;
 }
+
+
+/* Temporarily disable dropdown hover after navigation */
+.dropdown-closing .de-has-dropdown:hover > .de-dropdown {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translate(-50%, 12px) !important;
+}

@@ -179,10 +179,10 @@ const ContactUs: React.FC = () => {
               <div className="contact-card-content">
 
                 <span className="contact-card-label">
-                  OUR OFFICE
+                  Head OFFICE
                 </span>
 
-                <h3>India</h3>
+                <h3>Ahmedabad</h3>
 
                 <div className="contact-card-line"></div>
 
@@ -238,15 +238,15 @@ const ContactUs: React.FC = () => {
               <div className="contact-card-content">
 
                 <span className="contact-card-label">
-                  OUR OFFICE
+                  Branch OFFICE
                 </span>
 
-                <h3>United Arab Emirates</h3>
+                <h3>Mumbai</h3>
 
                 <div className="contact-card-line"></div>
 
                 <p>
-                  FDCW1699, Compass Building,
+                 Mumbai, Maharashtra 400076
                   <br />
                   Al Sahada Road,
                   <br />

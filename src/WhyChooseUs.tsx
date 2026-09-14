@@ -49,7 +49,7 @@ const WhyChooseUs: React.FC = () => {
         <div className="why-choose-heading scroll-reveal">
 
           <span className="why-choose-eyebrow">
-            WHY DEVERP
+            WHY DevERP
           </span>
 
           <h2>

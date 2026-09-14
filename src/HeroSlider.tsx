@@ -104,7 +104,7 @@ const HeroSlider: React.FC = () => {
             <div className="hero-slide-container">
               <div className="hero-slide-content">
                 <span className="hero-slide-label">
-                  DEVERP ERP SOLUTIONS
+                  DevERP ERP SOLUTIONS
                 </span>
 
                 <h1>{slide.title}</h1>

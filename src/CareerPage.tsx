@@ -2,6 +2,11 @@ import React from "react";
 import "./CareerPage.css";
 
 const CareerPage = () => {
+  const emailAddress = "hr@devsoftindia.com";
+
+   const handleEmail = () => {
+    window.location.href = `mailto:${emailAddress}`;
+  };
   return (
     <main className="career-page">
 
@@ -201,28 +206,26 @@ const CareerPage = () => {
               </div>
 
               {/* EMAIL CTA */}
-              <div className="career-apply-box career-apply-reveal">
+ <div
+  className="career-apply-box career-apply-reveal"
+  onClick={handleEmail}
+  style={{ cursor: "pointer" }}
+>
+  <div className="career-apply-icon">
+    @
+  </div>
 
-                <div className="career-apply-icon">
-                  @
-                </div>
+  <div className="career-apply-text">
+    <span>Interested in joining us?</span>
 
-                <div className="career-apply-text">
-                  <span>Interested in joining us?</span>
+    <span>Send Your Resume</span>
+  </div>
 
-                  <a href="mailto:admin@deverp.com">
-                    Send Your Resume
-                  </a>
-                </div>
-
-                <a
-                  href="mailto:admin@deverp.com"
-                  className="career-apply-arrow"
-                >
-                  ↗
-                </a>
-
-              </div>
+  <div className="career-apply-arrow">
+    ↗
+  </div>
+</div>
+ 
 
             </div>
 
@@ -281,7 +284,7 @@ const CareerPage = () => {
             </div>
 
             <a
-              href="mailto:admin@deverp.com"
+              href="mailto:hr@devsoftindia.com"
               className="career-cta-button career-cta-slide-right"
             >
               Apply Now

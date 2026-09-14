@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import ScrollProgress from "./ScrollProgress";
+import { products } from "./OurProducts";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -129,6 +130,10 @@ const Header: React.FC = () => {
     handleNavigate("/about", e);
   };
 
+   const goKnowledge = (e: React.MouseEvent) => {
+    handleNavigate("/knowledge", e);
+  };
+
   // =====================================================
   // CLIENTS
   // =====================================================
@@ -149,9 +154,26 @@ const Header: React.FC = () => {
   // PRODUCTS
   // =====================================================
 
-  const goProducts = (e: React.MouseEvent) => {
-    handleNavigate("/productslist", e);
-  };
+ const goProducts = (
+  product: any,
+  e: React.MouseEvent
+) => {
+  e.preventDefault();
+
+  closeMenu();
+
+  navigate("/products", {
+    state: {
+      product,
+      products,
+    },
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
   // =====================================================
   // SERVICES
@@ -294,192 +316,27 @@ const Header: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="de-product-grid">
+                     <div className="de-product-grid">
 
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          01
-                        </span>
-                        <span>
-                          Ready Mix Concrete ERP
-                        </span>
-                      </a>
+  {products.map((product, index) => (
+    <a
+      href="/products"
+      key={product.id}
+      onClick={(e) =>
+        goProducts(product, e)
+      }
+    >
+      <span className="de-product-number">
+        {String(index + 1).padStart(2, "0")}
+      </span>
 
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          02
-                        </span>
-                        <span>
-                          Real Estate ERP
-                        </span>
-                      </a>
+      <span>
+        {product.title}
+      </span>
+    </a>
+  ))}
 
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          03
-                        </span>
-                        <span>
-                          Engraving ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          04
-                        </span>
-                        <span>
-                          Flexo Printing ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          05
-                        </span>
-                        <span>
-                          Light Weight Block (AAC) ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          06
-                        </span>
-                        <span>
-                          Pulse/Rice Mill ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          07
-                        </span>
-                        <span>
-                          School Management ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          08
-                        </span>
-                        <span>
-                          Printing &amp; Packaging ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          09
-                        </span>
-                        <span>
-                          Automobiles And Work Shop
-                          Management ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          10
-                        </span>
-                        <span>
-                          Transportation ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          11
-                        </span>
-                        <span>
-                          Machine Manufacturing ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          12
-                        </span>
-                        <span>
-                          Pharmaceutical Production
-                          And Management ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          13
-                        </span>
-                        <span>
-                          CRM ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          14
-                        </span>
-                        <span>
-                          Book Depot / Shop Management
-                          ERP
-                        </span>
-                      </a>
-
-                      <a
-                        href="/productslist"
-                        onClick={goProducts}
-                      >
-                        <span className="de-product-number">
-                          15
-                        </span>
-                        <span>
-                          Trading ERP
-                        </span>
-                      </a>
-
-                    </div>
+</div>
                   </div>
                 </li>
 
@@ -487,7 +344,7 @@ const Header: React.FC = () => {
                     SERVICES
                 ====================================================== */}
 
-                <li
+                {/* <li
                   className={`de-menu-item de-has-dropdown ${
                     openDropdown === "services"
                       ? "de-dropdown-open"
@@ -705,7 +562,7 @@ const Header: React.FC = () => {
 
                     </div>
                   </div>
-                </li>
+                </li> */}
 
                 {/* =====================================================
                     ABOUT US
@@ -761,8 +618,8 @@ const Header: React.FC = () => {
                     {/* KNOWLEDGE CENTER */}
 
                     <a
-                      href="index.aspx?q=knowledgecenter_deverp"
-                      onClick={closeMenu}
+                      href="/knowledge"
+                      onClick={goKnowledge}
                     >
                       <span>02</span>
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./CareerCulture.css";
+import { useNavigate } from "react-router-dom";
 
 type GalleryGroup = {
   title: string;
@@ -63,6 +64,7 @@ const accordionItems = [
 
 export default function CareerCulture() {
   const [activeItem, setActiveItem] = useState("healthy");
+  const navigate = useNavigate();
 
   const [activeGallery, setActiveGallery] = useState<number | null>(null);
   const [activeImage, setActiveImage] = useState(0);
@@ -104,7 +106,7 @@ export default function CareerCulture() {
             {/* LEFT */}
             <div className="culture-content">
               <div className="section-intro">
-                <span className="section-kicker">LIFE AT DEVERP</span>
+                <span className="section-kicker">LIFE AT DevERP</span>
 
                 <h2>
                   More than a workplace.
@@ -245,13 +247,18 @@ export default function CareerCulture() {
                   establish any of the processes keeping employees on mind.
                 </p>
 
+                
                 <a
-                  href="index.aspx?q=career"
-                  className="career-button"
-                >
-                  <span>Read More</span>
-                  <span className="career-button-arrow">→</span>
-                </a>
+  href="/career"
+ className="career-button"
+  onClick={(e) => {
+    e.preventDefault();
+    navigate("/career");
+  }}
+>
+  Read More
+  <span>→</span>
+</a>
               </div>
 
               <div className="career-card-decoration">
