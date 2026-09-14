@@ -407,7 +407,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
       <div className="about-experience-grid">
 
         <div className="about-experience-item about-experience-reveal about-experience-delay-1">
-          <strong>16+</strong>
+          <strong>18+</strong>
           <span>Years Experience</span>
         </div>
 

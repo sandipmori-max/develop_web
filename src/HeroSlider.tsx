@@ -13,19 +13,19 @@ const slides: Slide[] = [
     image: "CMSassets/images/it_service/slide1.jpg",
     title: "Thinking about ERP?",
     subtitle: "Available On deverp.com",
-    link: "index.aspx?q=who-we-are",
+    link: "/contact_us",
   },
   {
     image: "CMSassets/images/it_service/services.jpg",
     title: "Explore wide range of ERP solutions",
     subtitle: "Available On deverp.com",
-    link: "index.aspx?q=product_list",
+    link: "/products-list",
   },
   {
     image: "CMSassets/images/it_service/erp3.jpg",
     title: "Explore wide range of our end-to-end services",
     subtitle: "Available On deverp.com",
-    link: "index.aspx?q=service_list",
+    link: "/",
   },
 ];
 

@@ -97,11 +97,11 @@ const Hero: React.FC = () => {
   const navigate = useNavigate();
 
   const handleExplore = () => {
-    navigate("/products");
+    navigate("/productslist");
   };
 
   const handleContact = () => {
-    navigate("/contact");
+    navigate("/contact_us");
   };
 
   return (
