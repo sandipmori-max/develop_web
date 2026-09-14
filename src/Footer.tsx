@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Footer.css";
+import { products } from "./OurProducts";
 
 const Footer: React.FC = () => {
   const navigate = useNavigate();
@@ -37,6 +38,27 @@ const Footer: React.FC = () => {
     });
   };
 
+
+   const goProducts = (
+    product: any,
+    e: React.MouseEvent
+  ) => {
+    e.preventDefault();
+   
+  
+    navigate("/products", {
+      state: {
+        product,
+        products,
+      },
+    });
+  
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  
   return (
     <footer className="de-footer">
 
@@ -209,22 +231,17 @@ const Footer: React.FC = () => {
                   </button>
                 </li>
 
-                <li>
-                  <a href="index.aspx?q=service_list">
-                    <span>↗</span>
-                    Services
-                  </a>
-                </li>
+              
 
                 <li>
-                  <a href="index.aspx?q=contact_us">
+                  <a href="/contact_us">
                     <span>↗</span>
                     Contact Us
                   </a>
                 </li>
 
                 <li>
-                  <a href="index.aspx?q=deverp_privacy_policy">
+                  <a href="/">
                     <span>↗</span>
                     Privacy Policy
                   </a>
@@ -243,71 +260,24 @@ const Footer: React.FC = () => {
               </div>
 
               <h3>
-                Products
+               Tops Products
               </h3>
 
               <ul>
-
-                <li>
-                  <a href="index.aspx?q=ready_mix_concrete_erp">
-                    <span>↗</span>
-                    Ready Mix Concrete ERP
-                  </a>
-                </li>
-
-                <li>
-                  <a href="index.aspx?q=real_estate_erp">
-                    <span>↗</span>
-                    Real Estate ERP
-                  </a>
-                </li>
-
-                <li>
-                  <a href="index.aspx?q=engraving_erp">
-                    <span>↗</span>
-                    Engraving ERP
-                  </a>
-                </li>
-
-                <li>
-                  <a href="index.aspx?q=flexo_printing_erp">
-                    <span>↗</span>
-                    Flexo Printing ERP
-                  </a>
-                </li>
-
-                <li>
-                  <a href="index.aspx?q=light_weight_block_erp">
-                    <span>↗</span>
-                    Light Weight Block (AAC) ERP
-                  </a>
-                </li>
-
-                <li>
-                  <a href="index.aspx?q=rice_mill_erp">
-                    <span>↗</span>
-                    Pulse / Rice Mill ERP
-                  </a>
-                </li>
-
-                <li>
-                  <a href="index.aspx?q=school_management_erp">
-                    <span>↗</span>
-                    School Management ERP
-                  </a>
-                </li>
-
-                <li>
-                  <a href="index.aspx?q=trading_erp">
-                    <span>↗</span>
-                    Trading ERP
-                  </a>
-                </li>
-
+                 {products.slice(0,5).map((product, index) => (
+                   <a
+                     href="/products"
+                     key={product.id}
+                     onClick={(e) =>
+                       goProducts(product, e)
+                     }
+                   >
+                     <span>↗</span>
+                    {product.title}  
+                   </a>
+                 ))}
               </ul>
-
             </div>
-
 
             {/* CONTACT */}
             <div className="de-footer-contact de-footer-column-reveal de-footer-delay-3">

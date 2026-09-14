@@ -55,7 +55,29 @@ const Header: React.FC = () => {
       top: 0,
       behavior: "smooth",
     });
+
+    // Route change ke baad mobile menu close
+    setMobileOpen(false);
+    setOpenDropdown(null);
   }, [location.pathname]);
+
+  // =====================================================
+  // BODY SCROLL LOCK WHEN MOBILE MENU OPEN
+  // =====================================================
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 1100;
+
+    if (mobileOpen && isMobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   // =====================================================
   // DROPDOWN
@@ -85,6 +107,22 @@ const Header: React.FC = () => {
   };
 
   // =====================================================
+  // MOBILE MENU TOGGLE
+  // =====================================================
+
+  const toggleMobileMenu = () => {
+    setMobileOpen((prev) => {
+      const next = !prev;
+
+      if (!next) {
+        setOpenDropdown(null);
+      }
+
+      return next;
+    });
+  };
+
+  // =====================================================
   // REACT ROUTER NAVIGATION
   // =====================================================
 
@@ -94,18 +132,19 @@ const Header: React.FC = () => {
   ) => {
     e?.preventDefault();
 
-    closeMenu();
-
     // Same route
     if (location.pathname === path) {
+      closeMenu();
       moveToTop();
       return;
     }
 
+    // Close menu before navigation
+    closeMenu();
+
     // React Router SPA navigation
     navigate(path);
 
-    // Small delay so route change starts first
     requestAnimationFrame(() => {
       window.scrollTo({
         top: 0,
@@ -130,7 +169,11 @@ const Header: React.FC = () => {
     handleNavigate("/about", e);
   };
 
-   const goKnowledge = (e: React.MouseEvent) => {
+  // =====================================================
+  // KNOWLEDGE
+  // =====================================================
+
+  const goKnowledge = (e: React.MouseEvent) => {
     handleNavigate("/knowledge", e);
   };
 
@@ -154,26 +197,28 @@ const Header: React.FC = () => {
   // PRODUCTS
   // =====================================================
 
- const goProducts = (
-  product: any,
-  e: React.MouseEvent
-) => {
-  e.preventDefault();
+  const goProducts = (
+    product: any,
+    e: React.MouseEvent
+  ) => {
+    e.preventDefault();
 
-  closeMenu();
+    closeMenu();
 
-  navigate("/products", {
-    state: {
-      product,
-      products,
-    },
-  });
+    navigate("/products", {
+      state: {
+        product,
+        products,
+      },
+    });
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  };
 
   // =====================================================
   // SERVICES
@@ -202,7 +247,7 @@ const Header: React.FC = () => {
   return (
     <header
       className="de-header cursor-normal"
-  id="default_header"
+      id="default_header"
     >
       <div className="de-navbar">
         <div className="de-container">
@@ -239,7 +284,7 @@ const Header: React.FC = () => {
             </a>
 
             {/* =====================================================
-                DESKTOP / MOBILE NAV
+                NAVIGATION
             ====================================================== */}
 
             <nav
@@ -265,7 +310,7 @@ const Header: React.FC = () => {
                     }`}
                     onClick={goHome}
                   >
-                    Home
+                    <span>Home</span>
                   </a>
                 </li>
 
@@ -292,8 +337,12 @@ const Header: React.FC = () => {
                     onClick={() =>
                       toggleDropdown("products")
                     }
+                    aria-expanded={
+                      openDropdown === "products"
+                    }
                   >
                     <span>Products</span>
+
                     <span className="de-chevron">
                       ⌄
                     </span>
@@ -316,253 +365,36 @@ const Header: React.FC = () => {
                       </p>
                     </div>
 
-                     <div className="de-product-grid">
+                    <div className="de-product-grid">
 
-  {products.map((product, index) => (
-    <a
-      href="/products"
-      key={product.id}
-      onClick={(e) =>
-        goProducts(product, e)
-      }
-    >
-      <span className="de-product-number">
-        {String(index + 1).padStart(2, "0")}
-      </span>
+                      {products.map(
+                        (product, index) => (
+                          <a
+                            href="/products"
+                            key={product.id}
+                            onClick={(e) =>
+                              goProducts(
+                                product,
+                                e
+                              )
+                            }
+                          >
+                            <span className="de-product-number">
+                              {String(
+                                index + 1
+                              ).padStart(2, "0")}
+                            </span>
 
-      <span>
-        {product.title}
-      </span>
-    </a>
-  ))}
+                            <span>
+                              {product.title}
+                            </span>
+                          </a>
+                        )
+                      )}
 
-</div>
+                    </div>
                   </div>
                 </li>
-
-                {/* =====================================================
-                    SERVICES
-                ====================================================== */}
-
-                {/* <li
-                  className={`de-menu-item de-has-dropdown ${
-                    openDropdown === "services"
-                      ? "de-dropdown-open"
-                      : ""
-                  }`}
-                >
-                  <button
-                    type="button"
-                    className={`de-menu-link de-dropdown-trigger ${
-                      location.pathname.startsWith(
-                        "/services"
-                      )
-                        ? "de-active"
-                        : ""
-                    }`}
-                    onClick={() =>
-                      toggleDropdown("services")
-                    }
-                  >
-                    <span>Services</span>
-
-                    <span className="de-chevron">
-                      ⌄
-                    </span>
-                  </button>
-
-                  <div className="de-dropdown de-service-dropdown">
-
-                    <div className="de-dropdown-header">
-
-                      <span className="de-dropdown-label">
-                        WHAT WE DO
-                      </span>
-
-                      <h3>
-                        Technology &amp; Services
-                      </h3>
-
-                      <p>
-                        Digital solutions that help your
-                        business move faster.
-                      </p>
-
-                    </div>
-
-                    <div className="de-service-grid">
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          ↗
-                        </span>
-
-                        <span>
-                          <strong>MIS</strong>
-                          <small>
-                            BI &amp; Reporting
-                          </small>
-                        </span>
-                      </a>
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          ⇩
-                        </span>
-
-                        <span>
-                          <strong>
-                            Data Export
-                          </strong>
-
-                          <small>
-                            Secure data solutions
-                          </small>
-                        </span>
-                      </a>
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          ▣
-                        </span>
-
-                        <span>
-                          <strong>
-                            Mobile App Development
-                          </strong>
-
-                          <small>
-                            iOS &amp; Android apps
-                          </small>
-                        </span>
-                      </a>
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          ☁
-                        </span>
-
-                        <span>
-                          <strong>
-                            Cloud Back Up
-                          </strong>
-
-                          <small>
-                            Reliable cloud backup
-                          </small>
-                        </span>
-                      </a>
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          ✉
-                        </span>
-
-                        <span>
-                          <strong>
-                            SMS Services
-                          </strong>
-
-                          <small>
-                            Business messaging
-                          </small>
-                        </span>
-                      </a>
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          @
-                        </span>
-
-                        <span>
-                          <strong>
-                            Email Server
-                          </strong>
-
-                          <small>
-                            Professional email
-                          </small>
-                        </span>
-                      </a>
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          ◉
-                        </span>
-
-                        <span>
-                          <strong>
-                            Domain Registration
-                          </strong>
-
-                          <small>
-                            Build your identity
-                          </small>
-                        </span>
-                      </a>
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          ▤
-                        </span>
-
-                        <span>
-                          <strong>
-                            Website Hosting
-                          </strong>
-
-                          <small>
-                            Fast &amp; secure hosting
-                          </small>
-                        </span>
-                      </a>
-
-                      <a
-                        href="/services"
-                        onClick={goServices}
-                      >
-                        <span className="de-service-icon">
-                          &lt;/&gt;
-                        </span>
-
-                        <span>
-                          <strong>
-                            Web Development
-                          </strong>
-
-                          <small>
-                            Modern web solutions
-                          </small>
-                        </span>
-                      </a>
-
-                    </div>
-                  </div>
-                </li> */}
 
                 {/* =====================================================
                     ABOUT US
@@ -587,6 +419,9 @@ const Header: React.FC = () => {
                     onClick={() =>
                       toggleDropdown("about")
                     }
+                    aria-expanded={
+                      openDropdown === "about"
+                    }
                   >
                     <span>About Us</span>
 
@@ -603,19 +438,16 @@ const Header: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* WHO WE ARE */}
-
                     <a
                       href="/about"
                       onClick={goAbout}
                     >
                       <span>01</span>
+
                       <strong>
                         Who we are
                       </strong>
                     </a>
-
-                    {/* KNOWLEDGE CENTER */}
 
                     <a
                       href="/knowledge"
@@ -636,7 +468,6 @@ const Header: React.FC = () => {
                 ====================================================== */}
 
                 <li className="de-menu-item">
-
                   <a
                     href="/clients"
                     className={`de-menu-link ${
@@ -646,9 +477,8 @@ const Header: React.FC = () => {
                     }`}
                     onClick={goClients}
                   >
-                    Clients
+                    <span>Clients</span>
                   </a>
-
                 </li>
 
                 {/* =====================================================
@@ -662,7 +492,6 @@ const Header: React.FC = () => {
                       : ""
                   }`}
                 >
-
                   <button
                     type="button"
                     className={`de-menu-link de-dropdown-trigger ${
@@ -674,6 +503,9 @@ const Header: React.FC = () => {
                     }`}
                     onClick={() =>
                       toggleDropdown("career")
+                    }
+                    aria-expanded={
+                      openDropdown === "career"
                     }
                   >
                     <span>
@@ -707,7 +539,6 @@ const Header: React.FC = () => {
                     </a>
 
                   </div>
-
                 </li>
 
                 {/* =====================================================
@@ -715,7 +546,6 @@ const Header: React.FC = () => {
                 ====================================================== */}
 
                 <li className="de-menu-item">
-
                   <a
                     href="/blog"
                     className={`de-menu-link ${
@@ -725,9 +555,8 @@ const Header: React.FC = () => {
                     }`}
                     onClick={goBlog}
                   >
-                    Blog
+                    <span>Blog</span>
                   </a>
-
                 </li>
 
                 {/* =====================================================
@@ -735,7 +564,6 @@ const Header: React.FC = () => {
                 ====================================================== */}
 
                 <li className="de-menu-item">
-
                   <a
                     href="/contact_us"
                     className={`de-menu-link ${
@@ -745,9 +573,8 @@ const Header: React.FC = () => {
                     }`}
                     onClick={goContact}
                   >
-                    Contact Us
+                    <span>Contact Us</span>
                   </a>
-
                 </li>
 
               </ul>
@@ -759,10 +586,12 @@ const Header: React.FC = () => {
 
             <button
               type="button"
-              className="de-mobile-toggle"
-              onClick={() =>
-                setMobileOpen((prev) => !prev)
-              }
+              className={`de-mobile-toggle ${
+                mobileOpen
+                  ? "de-mobile-active"
+                  : ""
+              }`}
+              onClick={toggleMobileMenu}
               aria-label="Toggle navigation"
               aria-expanded={mobileOpen}
             >
@@ -776,7 +605,6 @@ const Header: React.FC = () => {
       </div>
 
       <ScrollProgress />
-
     </header>
   );
 };

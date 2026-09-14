@@ -3302,6 +3302,7 @@ export default function App() {
               </>
             }
           />
+          
           {/* ServiceList */}
           <Route
             path="/services"
@@ -3326,6 +3327,15 @@ export default function App() {
             element={
               <>
                 <ProductDetails />
+              </>
+            }
+          />
+            {/* Products */}
+          <Route
+            path="/products-list"
+            element={
+              <>
+                <OurProducts />
               </>
             }
           />

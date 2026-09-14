@@ -263,51 +263,7 @@ const KnowledgeCenter: React.FC = () => {
         </div>
       </section>
 
-      {/* =========================
-          BOTTOM CTA
-      ========================= */}
-      <section className="knowledge-cta">
-
-        <div className="knowledge-cta-glow" />
-
-        <div className="knowledge-container">
-          <div className="knowledge-cta-inner">
-
-            <div>
-              <span className="knowledge-kicker knowledge-kicker-light">
-                KEEP LEARNING
-              </span>
-
-              <h2>
-                Knowledge today,
-                <br />
-                <span>growth tomorrow.</span>
-              </h2>
-
-              <p>
-                Explore our training sessions and discover
-                practical knowledge for your business.
-              </p>
-            </div>
-
-            <button
-              type="button"
-              onClick={() =>
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                })
-              }
-            >
-              EXPLORE TRAINING
-              <span>↗</span>
-            </button>
-
-          </div>
-        </div>
-
-      </section>
-
+    
     </main>
   );
 };
