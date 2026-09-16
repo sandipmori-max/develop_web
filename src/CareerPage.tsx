@@ -17,7 +17,7 @@ const CareerPage = () => {
         <div className="career-hero-bg">
           <img
             src="https://deverp.com/CMSassets/images/it_service/career.jpg"
-            alt="Career at Dev ERP"
+            alt="Career at DevERP"
           />
         </div>
 
@@ -29,7 +29,7 @@ const CareerPage = () => {
           <div className="career-hero-content career-hero-slide-left">
             <div className="career-hero-label">
               <span></span>
-              DEV ERP
+              DevERP
             </div>
 
             <h1>
@@ -75,7 +75,7 @@ const CareerPage = () => {
             </div>
 
             <div className="career-vertical-text">
-              DEV ERP SOLUTIONS
+              DevERP SOLUTIONS
             </div>
           </div>
         </div>
@@ -249,7 +249,7 @@ const CareerPage = () => {
               </div>
 
               <div className="career-floating-card">
-                <span>DEV ERP</span>
+                <span>DevERP</span>
                 <strong>Grow With Us</strong>
               </div>
 

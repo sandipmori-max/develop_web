@@ -104,12 +104,12 @@ const HeroSlider: React.FC = () => {
             <div className="hero-slide-container">
               <div className="hero-slide-content">
                 <span className="hero-slide-label">
-                  DevERP ERP SOLUTIONS
+                  DevERP SOLUTIONS
                 </span>
 
                 <h1>{slide.title}</h1>
 
-                <p>{slide.subtitle}</p>
+                <p></p>
 
                 <a
                   href={slide.link}

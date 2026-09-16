@@ -34,6 +34,8 @@ import AnimatedCursor from "react-animated-cursor"
 
 import "./ScrollReveal.css";
 import KnowledgeCenter from './KnowledgeCenter';
+import CenterButton from './CenterButton';
+import Dashboard from './Dashboard';
 
 // ── Smooth scroll helper ──────────────────────────────────────────────────────
 function scrollToBooking() {
@@ -3260,8 +3262,6 @@ export default function App() {
 
   return (
     <BrowserRouter>
- 
-
       <div
         style={{
           fontFamily:
@@ -3278,7 +3278,7 @@ export default function App() {
             path="/"
             element={
               <>
-
+                {/* <Dashboard /> */}
                 <HeroSlider />
                 <WhyChooseUs />
                 <ServicesOffer />
@@ -3287,6 +3287,7 @@ export default function App() {
                 <CareerCulture />
                 <HappyClientele />
                 <ClientTestimonials />
+                {/* <Dashboard /> */}
 
               </>
             }
@@ -3299,6 +3300,16 @@ export default function App() {
               <>
 
                 <AboutUs />
+              </>
+            }
+          />
+
+          <Route
+            path="/dd"
+            element={
+              <>
+
+                <Dashboard />
               </>
             }
           />
@@ -3407,6 +3418,7 @@ export default function App() {
         </Routes> 
         <BookDemoButton />
             <StickyActions />
+            <CenterButton />
         <Footer />
       </div>
     </BrowserRouter>

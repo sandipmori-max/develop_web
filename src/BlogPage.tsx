@@ -166,7 +166,7 @@ const BlogPage = () => {
         <div className="blog-hero-image">
           <img
             src="https://deverp.com/CMSassets/images/it_service/inner_page_banner2.jpg"
-            alt="Dev ERP Blog"
+            alt="DevERP Blog"
           />
         </div>
 
@@ -179,7 +179,7 @@ const BlogPage = () => {
 
             <div className="blog-hero-kicker">
               <span></span>
-              DEV ERP INSIGHTS
+              DevERP INSIGHTS
             </div>
 
             <h1>
@@ -317,7 +317,7 @@ const BlogPage = () => {
                   <div className="blog-card-meta">
 
                     <span>
-                      DEV ERP
+                      DevERP
                     </span>
 
                     {post.date && (

@@ -171,8 +171,7 @@
 
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  letter-spacing: 2px; 
 }
 
 .hero-slide-label::before {

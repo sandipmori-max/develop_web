@@ -147,8 +147,7 @@
   font-size: 12px;
   line-height: 1;
   font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  letter-spacing: 0.2em; 
 }
 
 .career-section-heading h2 {
@@ -1039,8 +1038,7 @@
   line-height: 1;
   font-weight: 800;
 
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  letter-spacing: 3px; 
 }
 
 .career-hero-label span {

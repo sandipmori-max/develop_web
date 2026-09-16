@@ -2008,3 +2008,1176 @@ cta: {
 },
 },
 ];
+
+
+
+
+{
+  "dashboard": {
+    "title": "DevERP Dashboard",
+
+    "topBar": {
+      "branch": {
+        "label": "Company"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "count": 0,
+        "action": "Open Notification List"
+      },
+      "eTalk": {
+        "title": "E-Talk",
+        "count": 0,
+        "action": "Go to TalkBox"
+      },
+      "liveUsers": {
+        "title": "Live Users",
+        "count": 9
+      },
+      "profile": {
+        "user": "DEVAPP",
+        "items": [
+          "My Profile",
+          "Change Password",
+          "Logout",
+          "Dev Online Support"
+        ]
+      }
+    },
+
+    "home": {
+      "title": "Home",
+      "url": "app/index.html?dashboard"
+    },
+
+    "modules": [
+      {
+        "id": "accounts",
+        "title": "Accounts",
+        "icon": "fa-inr",
+
+        "subModules": [
+          {
+            "id": "accounts-report",
+            "title": "Accounts Report",
+
+            "items": [
+              {
+                "id": "balance-sheet",
+                "title": "Balance Sheet",
+                "url": "accounts/BS.aspx",
+                "menuId": "79"
+              },
+              {
+                "id": "cash-flow-report",
+                "title": "Cash Flow Report",
+                "url": "app/indexlist.html?CashFlow/&TDT=1",
+                "menuId": "144"
+              },
+              {
+                "id": "day-book",
+                "title": "Day Book",
+                "url": "app/indexlist.html?daybook",
+                "menuId": "141"
+              },
+              {
+                "id": "group-summary",
+                "title": "Group Summary",
+                "url": "app/indexlist.html?FasGroupSummary",
+                "menuId": "137"
+              },
+              {
+                "id": "hdfc-report",
+                "title": "HDFC Report",
+                "url": "app/indexlist.html?HDFCReport",
+                "menuId": "149"
+              },
+              {
+                "id": "icici-report",
+                "title": "ICICI Report",
+                "url": "app/indexlist.html?ICICIReport",
+                "menuId": "150"
+              },
+              {
+                "id": "ledger-report",
+                "title": "Ledger Report",
+                "url": "app/index.html?LedgerView",
+                "menuId": "71"
+              },
+              {
+                "id": "party-outstanding-report",
+                "title": "Party Outstanding Report",
+                "url": "app/indexlist.html?OutstandingReport/&paramlist=16",
+                "menuId": "132"
+              },
+              {
+                "id": "party-outstanding-report-yearly",
+                "title": "Party Outstanding Report Yearly",
+                "url": "app/indexlist.html?OutstandingReportYearly/&paramlist=16",
+                "menuId": "145"
+              },
+              {
+                "id": "profit-loss",
+                "title": "Profit & Loss",
+                "url": "accounts/pl.aspx",
+                "menuId": "80"
+              },
+              {
+                "id": "report-of-problems",
+                "title": "Report of Problems",
+                "url": "app/indexlist.html?FASEntryProblems",
+                "menuId": "84"
+              },
+              {
+                "id": "trial-balance",
+                "title": "Trial Balance",
+                "url": "accounts/tb.aspx",
+                "menuId": "81"
+              }
+            ]
+          },
+
+          {
+            "id": "accounts-trans",
+            "title": "Accounts Trans",
+
+            "items": [
+              {
+                "id": "bank-reco-entry",
+                "title": "Bank Reco Entry",
+                "url": "app/indexlist.html?BankRecoHdr",
+                "menuId": "110"
+              },
+              {
+                "id": "bank-statement-upload",
+                "title": "Bank Statement Upload",
+                "url": "App/IndexList.Html?UploadBankStatement",
+                "menuId": "148"
+              },
+              {
+                "id": "contra",
+                "title": "Contra",
+                "url": "app/indexlist.html?FasContra",
+                "addUrl": "app/index.html?FasTransaction/0/&VoucherTypeID=8",
+                "menuId": "70"
+              },
+              {
+                "id": "credit-note",
+                "title": "CreditNote",
+                "url": "app/indexlist.html?FasCreditNote",
+                "addUrl": "app/index.html?FasTransaction/0/&VoucherTypeID=3",
+                "menuId": "68"
+              },
+              {
+                "id": "debit-note",
+                "title": "DebitNote",
+                "url": "app/indexlist.html?FasDebitNote",
+                "addUrl": "app/index.html?FasTransaction/0/&VoucherTypeID=4",
+                "menuId": "69"
+              },
+              {
+                "id": "fas-stock-list",
+                "title": "FAS Stock List",
+                "url": "app/indexlist.html?FAS_Stock",
+                "menuId": "129"
+              },
+              {
+                "id": "journal",
+                "title": "Journal",
+                "url": "app/indexlist.html?FasJournal",
+                "addUrl": "app/index.html?FasTransaction/0/&VoucherTypeID=5",
+                "menuId": "67"
+              },
+              {
+                "id": "opening-bal",
+                "title": "Opening Bal",
+                "url": "app/indexlist.html?FasOpen",
+                "addUrl": "app/index.html?FasOpen/0",
+                "menuId": "82"
+              },
+              {
+                "id": "payment",
+                "title": "Payment",
+                "url": "app/indexlist.html?FasPayment",
+                "addUrl": "app/index.html?FasPayment",
+                "menuId": "65"
+              },
+              {
+                "id": "receipt",
+                "title": "Receipt",
+                "url": "app/indexlist.html?FasReceipt",
+                "addUrl": "app/index.html?FasReceipt",
+                "menuId": "66"
+              },
+              {
+                "id": "tds-challan",
+                "title": "TDS Challan",
+                "url": "app/indexlist.html?tdschallanmst",
+                "menuId": "140"
+              }
+            ]
+          },
+
+          {
+            "id": "auditing-reports",
+            "title": "Auditing Reports",
+
+            "items": [
+              {
+                "id": "approval-pending",
+                "title": "Approval Pending",
+                "url": "app/indexlist.html?FASAuthPend",
+                "menuId": "143"
+              }
+            ]
+          },
+
+          {
+            "id": "gst-report",
+            "title": "GST Report",
+
+            "items": [
+              {
+                "id": "gstr-1",
+                "title": "GSTR 1",
+                "url": "App/IndexList.Html?GST_GSTR1",
+                "menuId": "89"
+              },
+              {
+                "id": "gstr-2a",
+                "title": "GSTR 2A",
+                "url": "App/IndexList.Html?GST_GSTR2",
+                "menuId": "90"
+              },
+              {
+                "id": "gstr-2b",
+                "title": "GSTR 2B",
+                "url": "app/indexlist.html?GSTR2B",
+                "menuId": "117"
+              },
+              {
+                "id": "gstr-3b",
+                "title": "GSTR 3B",
+                "url": "app/indexlist.html?GSTR3B",
+                "menuId": "97"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "blood-bank",
+        "title": "Blood Bank",
+        "icon": "icon-book",
+
+        "subModules": [
+          {
+            "id": "blood-bank",
+            "title": "Blood Bank",
+
+            "items": [
+              {
+                "id": "blood-bank-inward",
+                "title": "Blood Bank Inward",
+                "url": "app/indexlist.html?BloodBankInward",
+                "menuId": "161"
+              },
+              {
+                "id": "sales-invoice-blood-bank",
+                "title": "Sales Invoice Blood Bank",
+                "url": "app/indexlist.html?FASSalesBloodBank",
+                "menuId": "160"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "config",
+        "title": "Config",
+        "icon": "icon-cog-2",
+
+        "subModules": [
+          {
+            "id": "config",
+            "title": "Config",
+
+            "items": [
+              {
+                "id": "all-doctor-report",
+                "title": "All Doctor Report",
+                "url": "app/indexlist.html?DailyDoctorAll",
+                "menuId": "125"
+              },
+              {
+                "id": "app-menu-config",
+                "title": "App Menu Config",
+                "url": "app/indexlist.html?AppMenuConfig",
+                "addUrl": "app/index.html?AppMenuConfig/0",
+                "menuId": "157"
+              },
+              {
+                "id": "app-page",
+                "title": "App Page",
+                "url": "../app/indexlist.html?APP_PAGE_MST",
+                "menuId": "5"
+              },
+              {
+                "id": "barcode-type",
+                "title": "Barcode Type",
+                "url": "app/indexlist.html?strbarcodetype",
+                "menuId": "135"
+              },
+              {
+                "id": "branch-master",
+                "title": "BranchMaster",
+                "url": "../app/indexlist.html?BranchMaster",
+                "menuId": "8"
+              },
+              {
+                "id": "city-master",
+                "title": "City Master",
+                "url": "app/indexlist.html?city_mst",
+                "menuId": "29"
+              },
+              {
+                "id": "company-master-invoice",
+                "title": "Company Master (invoice)",
+                "url": "app/indexlist.html?InvoiceByConfig",
+                "menuId": "53"
+              },
+              {
+                "id": "company-master",
+                "title": "CompanyMst",
+                "url": "../app/indexlist.html?CompanyMst",
+                "menuId": "6"
+              },
+              {
+                "id": "country-master",
+                "title": "Country Master",
+                "url": "app/indexlist.html?country_mst",
+                "menuId": "31"
+              },
+              {
+                "id": "crystal-report-list",
+                "title": "Crystal Report List",
+                "url": "app/indexlist.html?reportlist",
+                "menuId": "36"
+              },
+              {
+                "id": "daily-entry-list",
+                "title": "Daily Entry List",
+                "url": "app/indexlist.html?DailyEntryHdr",
+                "menuId": "118"
+              },
+              {
+                "id": "dashboard",
+                "title": "DashBoard",
+                "url": "../app/indexlist.html?DashBoardMst",
+                "menuId": "10"
+              },
+              {
+                "id": "db-sync-table-master",
+                "title": "DBSync Table Master",
+                "url": "app/indexList.html?DB_SYNC_SERVERS",
+                "menuId": "131"
+              },
+              {
+                "id": "dev-page-setting",
+                "title": "DevPage Setting",
+                "url": "app/indexlist.html?DevPSetting",
+                "menuId": "59"
+              },
+              {
+                "id": "doctor-wise-reports",
+                "title": "DoctorWise Reports",
+                "url": "app/indexlist.html?DailyReportDrWiseAccount",
+                "menuId": "120"
+              },
+              {
+                "id": "doctor-wise-reports-pharmacy",
+                "title": "DoctorWise Reports Pharmacy",
+                "url": "app/indexlist.html?DailyReportDrWise",
+                "menuId": "119"
+              },
+              {
+                "id": "form-master",
+                "title": "Form Master",
+                "url": "../App/IndexList.Html?FormMst",
+                "menuId": "2"
+              },
+              {
+                "id": "grid-report-list",
+                "title": "Grid Report List",
+                "url": "../App/IndexList.Html?ListReport",
+                "menuId": "4"
+              },
+              {
+                "id": "gst-masters",
+                "title": "GST Masters",
+                "url": "App/IndexList.Html?GST_GSTR1_MST",
+                "menuId": "88"
+              },
+              {
+                "id": "module-mst",
+                "title": "Module Mst",
+                "url": "../app/indexlist.html?ModuleMst",
+                "menuId": "7"
+              },
+              {
+                "id": "payment-terms-list",
+                "title": "Payment Terms List",
+                "url": "app/indexlist.html?PaymentTermMst",
+                "menuId": "45"
+              },
+              {
+                "id": "printer-mst",
+                "title": "PRINTER MST",
+                "url": "app/indexlist.html?PRINTERMST",
+                "menuId": "136"
+              },
+              {
+                "id": "property-master",
+                "title": "Property Master",
+                "url": "../app/indexlist.html?PropMst",
+                "menuId": "9"
+              },
+              {
+                "id": "report-list",
+                "title": "Report List",
+                "url": "App/Indexlist.Html?reportmaster",
+                "menuId": "21"
+              },
+              {
+                "id": "sms-email-setting",
+                "title": "SMS EMAIL SETTING",
+                "url": "app/index.html?smsemailsettings/1",
+                "menuId": "138"
+              },
+              {
+                "id": "state-master",
+                "title": "State Master",
+                "url": "app/indexlist.html?state_mst",
+                "menuId": "30"
+              },
+              {
+                "id": "voucher-master",
+                "title": "Voucher Master",
+                "url": "app/indexlist.html?vouchermst",
+                "menuId": "55"
+              },
+              {
+                "id": "walk-in-party",
+                "title": "Walk in Party",
+                "url": "app/indexlist.html?partymaster",
+                "menuId": "39"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "masters",
+        "title": "Masters",
+        "icon": "icon-home-1",
+
+        "subModules": [
+          {
+            "id": "accounts-master",
+            "title": "Accounts Master",
+
+            "items": [
+              {
+                "id": "acc-config-parameter",
+                "title": "Acc Config Parameter",
+                "url": "app/indexlist.html?FAS_CONFIGGROUP",
+                "menuId": "96"
+              },
+              {
+                "id": "asset-register",
+                "title": "Asset Register",
+                "url": "app/indexlist.html?assetmst",
+                "menuId": "142"
+              },
+              {
+                "id": "financial-year",
+                "title": "Financial Year",
+                "url": "app/indexlist.html?finyear",
+                "menuId": "52"
+              },
+              {
+                "id": "group-master",
+                "title": "Group Master",
+                "url": "app/indexlist.html?Fas_group",
+                "menuId": "44"
+              },
+              {
+                "id": "ledger-master",
+                "title": "Ledger Master",
+                "url": "App/IndexList.Html?FAS_LEDGER",
+                "menuId": "43"
+              },
+              {
+                "id": "ledger-merge",
+                "title": "Ledger Merge",
+                "url": "app/indexlist.html?FAS_LEDGER_MERGEList",
+                "menuId": "83"
+              },
+              {
+                "id": "tax-class-master",
+                "title": "Tax Class Master",
+                "url": "app/indexlist.html?TaxClassMst",
+                "menuId": "51"
+              },
+              {
+                "id": "tds-section-master",
+                "title": "TDS Section Master",
+                "url": "app/indexlist.html?fas_tdsmst",
+                "addUrl": "app/index.html?fas_tdsmst",
+                "menuId": "156"
+              },
+              {
+                "id": "voucher-type-master",
+                "title": "Voucher Type Master",
+                "url": "app/indexlist.html?VoucherType",
+                "menuId": "41"
+              }
+            ]
+          },
+
+          {
+            "id": "hospital-master",
+            "title": "Hospital Master",
+
+            "items": [
+              {
+                "id": "bed-master",
+                "title": "Bed Master",
+                "url": "app/indexlist.html?bedmst",
+                "menuId": "28"
+              },
+              {
+                "id": "certificate-list",
+                "title": "Certificate List",
+                "url": "app/indexlist.html?cerificatemaster",
+                "menuId": "74"
+              },
+              {
+                "id": "department-master",
+                "title": "Department Master",
+                "url": "app/indexlist.html?departmentmaster",
+                "menuId": "26"
+              },
+              {
+                "id": "description-master",
+                "title": "Description Master",
+                "url": "app/indexlist.html?descriptionmst",
+                "menuId": "72"
+              },
+              {
+                "id": "diagnosis-master",
+                "title": "Diagnosis Master",
+                "url": "app/indexlist.html?diagnosticmaster",
+                "menuId": "32"
+              },
+              {
+                "id": "dialysis-master",
+                "title": "Dialysis Master",
+                "url": "app/indexlist.html?DialysisMaster",
+                "menuId": "133"
+              },
+              {
+                "id": "doctor-list",
+                "title": "Doctor List",
+                "url": "app/indexlist.html?doctormaster",
+                "menuId": "14"
+              },
+              {
+                "id": "doctor-wise-patient-master-list",
+                "title": "Doctor Wise Patient Master List",
+                "url": "app/indexlist.html?DOCPatientMaster",
+                "menuId": "153"
+              },
+              {
+                "id": "echo-master-list",
+                "title": "Echo Master List",
+                "url": "app/indexlist.html?echomaster",
+                "menuId": "85"
+              },
+              {
+                "id": "estimate-charge-list",
+                "title": "Estimate Charge List",
+                "url": "app/indexlist.html?EstimateChargeMst",
+                "menuId": "146"
+              },
+              {
+                "id": "history-master",
+                "title": "History Master",
+                "url": "app/indexlist.html?HistoryMst",
+                "menuId": "78"
+              },
+              {
+                "id": "insurance-master",
+                "title": "Insurance Master",
+                "url": "app/indexlist.html?insurancemst",
+                "menuId": "58"
+              },
+              {
+                "id": "issue-certificate-list",
+                "title": "Issue Certificate List",
+                "url": "app/indexlist.html?IssueCertificate",
+                "menuId": "75"
+              },
+              {
+                "id": "issue-echo-certificate",
+                "title": "Issue Echo Certificate",
+                "url": "app/indexlist.html?echocertificate",
+                "menuId": "86"
+              },
+              {
+                "id": "ot-list",
+                "title": "OT List",
+                "url": "app/indexlist.html?OTMaster",
+                "menuId": "76"
+              },
+              {
+                "id": "package-master",
+                "title": "Package Master",
+                "url": "app/indexlist.html?packagemst",
+                "menuId": "56"
+              },
+              {
+                "id": "patient-master",
+                "title": "Patient Master",
+                "url": "app/indexlist.html?PatientMaster",
+                "menuId": "16"
+              },
+              {
+                "id": "room-type",
+                "title": "Room Type",
+                "url": "app/indexlist.html?roomtype",
+                "menuId": "27"
+              },
+              {
+                "id": "service-master",
+                "title": "Service Master",
+                "url": "app/indexlist.html?ServicesMaster",
+                "menuId": "20"
+              },
+              {
+                "id": "service-type-master",
+                "title": "Service Type Master",
+                "url": "app/indexlist.html?servicestypemaster",
+                "menuId": "25"
+              },
+              {
+                "id": "symptoms-master",
+                "title": "Symptoms Master",
+                "url": "app/indexlist.html?symptomsmaster",
+                "menuId": "24"
+              },
+              {
+                "id": "tpa-list",
+                "title": "TPA List",
+                "url": "App/IndexList.Html?TPAMaster",
+                "menuId": "91"
+              },
+              {
+                "id": "treatment-card-mst",
+                "title": "Treatement Card Mst",
+                "url": "app/indexlist.html?cardtypemst",
+                "menuId": "57"
+              }
+            ]
+          },
+
+          {
+            "id": "stores-master",
+            "title": "Stores Master",
+
+            "items": [
+              {
+                "id": "diag-for-med",
+                "title": "Diag. for Med.",
+                "url": "app/indexlist.html?DIAGNOSTICMASTERMed",
+                "menuId": "128"
+              },
+              {
+                "id": "godown-master",
+                "title": "Godown Master",
+                "url": "app/indexlist.html?godownmaster",
+                "menuId": "40"
+              },
+              {
+                "id": "item-company-list",
+                "title": "Item Company List",
+                "url": "app/indexlist.html?itemcompany",
+                "menuId": "50"
+              },
+              {
+                "id": "item-list",
+                "title": "Item List",
+                "url": "app/indexlist.html?itemmaster",
+                "menuId": "19"
+              },
+              {
+                "id": "item-list-batch-wise",
+                "title": "Item List Batch Wise",
+                "url": "app/indexlist.html?ITEMMASTERBatchWise",
+                "menuId": "123"
+              },
+              {
+                "id": "item-report",
+                "title": "Item Report",
+                "url": "app/index.html?itemview",
+                "menuId": "48"
+              },
+              {
+                "id": "item-type-master",
+                "title": "Item Type Master",
+                "url": "app/indexlist.html?itemtypemaster",
+                "menuId": "33"
+              },
+              {
+                "id": "merge-item",
+                "title": "Merge Item",
+                "url": "app/index.html?ITEM_MERGE/0",
+                "menuId": "126"
+              },
+              {
+                "id": "unit-of-measurement",
+                "title": "Unit of Measurement",
+                "url": "app/indexlist.html?uommst",
+                "menuId": "22"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "hospital",
+        "title": "Hospital",
+        "icon": "icon-home",
+
+        "subModules": [
+          {
+            "id": "abha",
+            "title": "ABHA",
+
+            "items": [
+              {
+                "id": "abha-patient-master",
+                "title": "ABHA Patient Master",
+                "url": "PatientABHAProfile",
+                "menuId": "158"
+              },
+              {
+                "id": "abha-patient-web",
+                "title": "ABHA Patient Web",
+                "url": "app/indexlist.html?PatientABHAProfile",
+                "menuId": "159"
+              }
+            ]
+          },
+
+          {
+            "id": "hospital",
+            "title": "Hospital",
+
+            "items": [
+              {
+                "id": "admit-lab-list",
+                "title": "Admit Lab List",
+                "url": "app/indexlist.html?AdmitLabHdr",
+                "menuId": "111"
+              },
+              {
+                "id": "appointment-list",
+                "title": "Appointment List",
+                "url": "app/indexlist.html?appoinmentmaster",
+                "menuId": "15"
+              },
+              {
+                "id": "appointment-list-new",
+                "title": "Appointment List New",
+                "url": "app/indexlist.html?PreAppoinmentMst",
+                "menuId": "151"
+              },
+              {
+                "id": "discharge-patient-details",
+                "title": "Discharge Patient Details",
+                "url": "App/IndexList.Html?DischargePatient",
+                "menuId": "94"
+              },
+              {
+                "id": "discharge-summary",
+                "title": "Discharge Summary",
+                "url": "App/IndexList.Html?DischargeSummery",
+                "menuId": "92"
+              },
+              {
+                "id": "final-bill",
+                "title": "Final Bill",
+                "url": "app/indexlist.html?FinalBillHdr",
+                "menuId": "105"
+              },
+              {
+                "id": "ipd-charges-list",
+                "title": "IPD Charges List",
+                "url": "app/indexlist.html?admitchargehdr",
+                "menuId": "23"
+              },
+              {
+                "id": "ipd-list",
+                "title": "IPD List",
+                "url": "app/indexlist.html?Admitformmaster",
+                "menuId": "18"
+              },
+              {
+                "id": "monitoring-sheet-list",
+                "title": "Monitoring Sheet List",
+                "url": "app/indexlist.html?admitmsheeta",
+                "menuId": "64"
+              },
+              {
+                "id": "opd-dr",
+                "title": "OPD DR",
+                "url": "app/indexlist.html?opdmaster2",
+                "menuId": "127"
+              },
+              {
+                "id": "opd-list",
+                "title": "OPD List",
+                "url": "app/indexlist.html?opdmaster",
+                "menuId": "17"
+              },
+              {
+                "id": "ot-note",
+                "title": "OT Note",
+                "url": "app/indexlist.html?OTNoteHdr",
+                "menuId": "116"
+              },
+              {
+                "id": "pending-appointment-list",
+                "title": "Pending Appointment List",
+                "url": "app/indexlist.html?DoctorWiseAppoinment",
+                "menuId": "54"
+              },
+              {
+                "id": "pending-pkg",
+                "title": "Pending PKG",
+                "url": "app/indexlist.html?AdmitPatientAprAmt",
+                "menuId": "121"
+              },
+              {
+                "id": "procedure-surgery-process",
+                "title": "Procedure / Surgery Process",
+                "url": "app/indexlist.html?surgeryprocess",
+                "menuId": "73"
+              },
+              {
+                "id": "room-transfer-list",
+                "title": "RoomTransfer List",
+                "url": "app/indexlist.html?ROOMTRANSFER",
+                "menuId": "93"
+              }
+            ]
+          },
+
+          {
+            "id": "hospital-report",
+            "title": "Hospital Report",
+
+            "items": [
+              {
+                "id": "diagnosis-entry",
+                "title": "Diagnosis entry",
+                "url": "App/indexlist.html?DiagnosisEntry",
+                "addUrl": "app/index.html?DiagnosisEntry/0",
+                "menuId": "154"
+              },
+              {
+                "id": "ipd-deposit-report",
+                "title": "IPD Deposit Report",
+                "url": "App/IndexList.Html?DepositeHdr",
+                "menuId": "95"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "inventory",
+        "title": "Inventory",
+        "icon": "icon-home-2",
+
+        "subModules": [
+          {
+            "id": "stores-report",
+            "title": "Stores Report",
+
+            "items": [
+              {
+                "id": "current-stock",
+                "title": "Current Stock",
+                "url": "app/indexlist.html?ItemStock",
+                "menuId": "114"
+              },
+              {
+                "id": "item-stock-datewise",
+                "title": "Item Stock Datewise",
+                "url": "app/indexlist.html?ItemStockDatewise",
+                "menuId": "124"
+              },
+              {
+                "id": "stock-statement",
+                "title": "Stock Statement",
+                "url": "app/indexlist.html?StockStatement",
+                "menuId": "115"
+              }
+            ]
+          },
+
+          {
+            "id": "stores-transaction",
+            "title": "Stores Transaction",
+
+            "items": [
+              {
+                "id": "gatepass-list",
+                "title": "Gatepass List",
+                "url": "app/indexlist.html?str_transaction_gatepass",
+                "menuId": "46"
+              },
+              {
+                "id": "goods-receive-note",
+                "title": "Goods Receive Note",
+                "url": "App/IndexList.Html?str_transaction_grn",
+                "menuId": "38"
+              },
+              {
+                "id": "issue-item-list",
+                "title": "Issue Item List",
+                "url": "app/indexlist.html?str_transaction_issue",
+                "menuId": "42"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "laboratory",
+        "title": "Laboratory",
+        "icon": "fa-flask",
+
+        "subModules": [
+          {
+            "id": "lab-master",
+            "title": "Lab Master",
+
+            "items": [
+              {
+                "id": "lab-bill-abstract",
+                "title": "Lab Bill Abstract",
+                "url": "app/indexlist.html?lababstractbill",
+                "menuId": "134"
+              },
+              {
+                "id": "lab-reports-list",
+                "title": "Lab Reports List",
+                "url": "app/indexlist.html?LabSubRepotFields",
+                "menuId": "100"
+              },
+              {
+                "id": "lab-value-list",
+                "title": "Lab Value List",
+                "url": "app/indexlist.html?LabValueMst",
+                "menuId": "109"
+              },
+              {
+                "id": "lab-variable-group-list",
+                "title": "Lab Variable Group List",
+                "url": "app/indexlist.html?LabVariableGroup",
+                "menuId": "107"
+              },
+              {
+                "id": "lab-variable-list",
+                "title": "Lab Variable List",
+                "url": "app/indexlist.html?LabVariableMst",
+                "menuId": "108"
+              }
+            ]
+          },
+
+          {
+            "id": "lab-test",
+            "title": "Lab Test",
+
+            "items": [
+              {
+                "id": "lab-bill",
+                "title": "Lab Bill",
+                "url": "app/indexlist.html?LabBillHdr",
+                "menuId": "104"
+              },
+              {
+                "id": "lab-issue-reports-list",
+                "title": "Lab Issue Reports List",
+                "url": "app/indexlist.html?IssueReport",
+                "menuId": "101"
+              },
+              {
+                "id": "lab-sample-collection",
+                "title": "Lab Sample Collection",
+                "url": "app/indexlist.html?LabSampleCollection",
+                "menuId": "102"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "purchase",
+        "title": "Purchase",
+        "icon": "icon-book",
+
+        "subModules": [
+          {
+            "id": "purchase-transaction",
+            "title": "Purchase Transaction",
+
+            "items": [
+              {
+                "id": "purchase-order",
+                "title": "Purchase Order",
+                "url": "app/indexlist.html?POHdr",
+                "menuId": "47"
+              },
+              {
+                "id": "purchase-invoice",
+                "title": "Purchase Invoice",
+                "url": "app/indexlist.html?FasPurchase",
+                "menuId": "62"
+              },
+              {
+                "id": "purchase-order-mv",
+                "title": "Purchase Order MV",
+                "url": "app/indexlist.html?pomvhdr",
+                "addUrl": "app/index.html?pomvhdr",
+                "menuId": "106"
+              },
+              {
+                "id": "purchase-return-dn",
+                "title": "Purchase Return DN",
+                "url": "app/indexlist.html?FasPurchaseRtn",
+                "menuId": "113"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "sales",
+        "title": "Sales",
+        "icon": "icon-book",
+
+        "subModules": [
+          {
+            "id": "sales-report",
+            "title": "Sales Report",
+
+            "items": [
+              {
+                "id": "sales-profit",
+                "title": "Sales Profit",
+                "url": "app/indexlist.html?FasSalesItemProfit",
+                "menuId": "139"
+              }
+            ]
+          },
+
+          {
+            "id": "sales-transaction",
+            "title": "Sales Transaction",
+
+            "items": [
+              {
+                "id": "nbd-list",
+                "title": "NBD List",
+                "url": "app/indexlist.html?FasNBD",
+                "addUrl": "app/index.html?FasNBD",
+                "menuId": "112"
+              },
+              {
+                "id": "sales-invoice-b2b",
+                "title": "Sales Invoice B2B",
+                "url": "app/indexlist.html?FASSalesB2B",
+                "menuId": "155"
+              },
+              {
+                "id": "sales-invoice-list",
+                "title": "Sales Invoice List",
+                "url": "app/indexlist.html?FasSales2",
+                "menuId": "49"
+              },
+              {
+                "id": "sales-invoice-print-list",
+                "title": "Sales Invoice Print list",
+                "url": "app/indexlist.html?Salesinvoiceprint",
+                "menuId": "122"
+              },
+              {
+                "id": "sales-return-list",
+                "title": "Sales Return List",
+                "url": "app/indexlist.html?FasSalesReturn",
+                "menuId": "87"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "other",
+        "title": "Other",
+        "icon": "fa-ticket",
+
+        "items": [
+          {
+            "id": "help-file",
+            "title": "Help File",
+            "url": "Main/listreport?rname=helpreport"
+          },
+          {
+            "id": "menu-list",
+            "title": "Menu List",
+            "url": "usermgt/menu.aspx"
+          },
+          {
+            "id": "calculator",
+            "title": "Calculator",
+            "url": "calc.aspx"
+          }
+        ]
+      }
+    ],
+
+    "systemActions": {
+      "searchMenu": true,
+      "notifications": true,
+      "eTalk": true,
+      "liveUsers": true,
+      "fullscreen": true,
+      "logout": true,
+      "tabSystem": true
+    }
+  }
+}

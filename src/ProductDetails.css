@@ -1460,3 +1460,402 @@
     transition: none;
   }
 }
+
+/* =========================================================
+   MOBILE PRODUCT DETAILS - FORCE VISIBILITY / FIX
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .product-detail-section {
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    overflow: visible;
+  }
+
+  .product-detail-container {
+    width: calc(100% - 32px);
+    max-width: none;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .product-detail-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 50px;
+    overflow: visible;
+  }
+
+  .product-detail-main {
+    width: 100%;
+    min-width: 0;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    overflow: visible;
+  }
+
+  .product-detail-heading {
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-detail-heading h2,
+  .product-detail-heading p,
+  .product-detail-heading > span {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-detail-image {
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    overflow: hidden;
+  }
+
+  .product-detail-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    object-fit: cover;
+  }
+
+  .product-content-block {
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    overflow: visible;
+  }
+
+  .product-content-block p {
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-modules {
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    overflow: visible;
+  }
+
+  .product-module {
+    width: 100%;
+    display: grid;
+    visibility: visible;
+    opacity: 1;
+    box-sizing: border-box;
+  }
+
+  .product-module-content {
+    min-width: 0;
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-module-content h4,
+  .product-module-content p,
+  .product-module-content ul,
+  .product-module-content li {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-benefits {
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-benefits-grid {
+    width: 100%;
+    display: grid;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .benefit-item {
+    min-width: 0;
+    visibility: visible;
+    opacity: 1;
+    box-sizing: border-box;
+  }
+
+  .product-detail-cta {
+    width: 100%;
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    box-sizing: border-box;
+  }
+
+  /* Sidebar */
+  .product-sidebar {
+    width: 100%;
+    min-width: 0;
+    position: static;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-sidebar-card,
+  .product-sidebar-header,
+  .product-sidebar-list,
+  .product-sidebar-item,
+  .product-sidebar-cta {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   MOBILE - 767px
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .product-detail-section {
+    padding: 55px 0 70px;
+  }
+
+  .product-detail-container {
+    width: calc(100% - 30px);
+    max-width: none;
+  }
+
+  .product-detail-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .product-detail-main {
+    order: 1;
+    width: 100%;
+  }
+
+  .product-sidebar {
+    order: 2;
+    width: 100%;
+  }
+
+  .product-detail-heading {
+    margin-bottom: 28px;
+  }
+
+  .product-detail-heading h2 {
+    font-size: 36px;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .product-detail-heading p {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .product-detail-image {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 32px;
+    border-radius: 16px;
+  }
+
+  .product-content-block {
+    padding: 0;
+  }
+
+  .product-content-block p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .product-modules {
+    margin-top: 55px;
+  }
+
+  .product-section-title {
+    width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .product-section-title h3 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .product-module {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 16px;
+    padding: 25px 0;
+  }
+
+  .product-module-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+  }
+
+  .product-module-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .product-module-content h4 {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .product-module-content p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .product-module-content ul {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .product-module-content li {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .product-benefits {
+    margin-top: 60px;
+    padding-top: 50px;
+  }
+
+  .product-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-item {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .product-detail-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 50px;
+    padding: 28px 22px;
+  }
+
+  .product-detail-cta button {
+    width: 100%;
+    min-height: 48px;
+    justify-content: space-between;
+  }
+
+  /* Sidebar */
+  .product-sidebar {
+    width: 100%;
+  }
+
+  .product-sidebar-card {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .product-sidebar-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: none;
+    overflow: visible;
+    padding: 8px;
+  }
+
+  .product-sidebar-item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) 24px;
+    min-height: 52px;
+    box-sizing: border-box;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .product-detail-container {
+    width: calc(100% - 26px);
+  }
+
+  .product-detail-section {
+    padding: 45px 0 60px;
+  }
+
+  .product-detail-heading h2 {
+    font-size: 32px;
+  }
+
+  .product-detail-heading p {
+    font-size: 13px;
+  }
+
+  .product-detail-image {
+    height: 240px;
+  }
+
+  .product-content-block p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .product-module {
+    display: block;
+  }
+
+  .product-module-number {
+    margin-bottom: 15px;
+  }
+
+  .product-module-content h4 {
+    font-size: 18px;
+  }
+
+  .product-module-content p {
+    font-size: 13px;
+  }
+
+  .product-section-title h3 {
+    font-size: 26px;
+  }
+
+  .product-detail-cta {
+    padding: 24px 19px;
+  }
+}

@@ -251,8 +251,7 @@
   letter-spacing: 0.15px;
 
   color: #64748b;
-
-  text-transform: uppercase;
+ 
 
   opacity: 0.85;
 }
@@ -2010,4 +2009,31 @@
     transition:
       none !important;
   }
+}
+.de-product-grid .de-product-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  padding: 14px 16px;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: left;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.de-product-grid .de-product-link:hover {
+  background: #f0f9ff;
+  color: #039EE3;
 }

@@ -166,11 +166,7 @@ const ServiceList: React.FC = () => {
               </h2>
             </div>
 
-            <div className="services-count">
-              <strong>09</strong>
-              <span>Services</span>
-            </div>
-
+            
           </div>
 
           <div className="services-grid">
@@ -195,9 +191,7 @@ const ServiceList: React.FC = () => {
 
                   <div className="modern-service-image-overlay" />
 
-                  <span className="service-number">
-                    {service.number}
-                  </span>
+                 
 
                   <span className="service-tag">
                     {service.tag}

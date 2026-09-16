@@ -77,7 +77,7 @@ const ContactUs: React.FC = () => {
             </div>
 
             <div className="contact-vertical-text">
-              DEV ERP SOLUTIONS
+              DevERP SOLUTIONS
             </div>
 
           </div>
@@ -104,7 +104,7 @@ const ContactUs: React.FC = () => {
             <div className="contact-intro-left contact-scroll-left">
 
               <span className="contact-section-label">
-                TALK TO DEV​ERP
+                Talk To Dev​ERP
               </span>
 
               <h2>
@@ -361,7 +361,7 @@ const ContactUs: React.FC = () => {
               <div className="contact-form-visual-content">
 
                 <span>
-                  DEV​ERP SOLUTIONS
+                  Dev​ERP SOLUTIONS
                 </span>
 
                 <h2>

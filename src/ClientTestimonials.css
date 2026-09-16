@@ -102,8 +102,7 @@
   margin-bottom: 17px;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
+  letter-spacing: 2.5px; 
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -121,7 +120,6 @@
   line-height: 1.05;
   font-weight: 750;
   letter-spacing: -2.5px;
-  text-transform: none;
 }
 
 .client-testimonials-heading p {
@@ -259,8 +257,7 @@
   font-size: 14px;
   line-height: 1.3;
   font-weight: 750;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
+  letter-spacing: 0.8px; 
   color: #ffffff;
 }
 

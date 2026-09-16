@@ -244,6 +244,10 @@ const Header: React.FC = () => {
     handleNavigate("/contact_us", e);
   };
 
+    const goDD = (e: React.MouseEvent) => {
+    handleNavigate("/dd", e);
+  };
+
   return (
     <header
       className="de-header cursor-normal"
@@ -334,8 +338,11 @@ const Header: React.FC = () => {
                         ? "de-active"
                         : ""
                     }`}
-                    onClick={() =>
-                      toggleDropdown("products")
+                    onClick={() => {
+                      navigate('/products-list')
+                       toggleDropdown("products")
+                    }
+                     
                     }
                     aria-expanded={
                       openDropdown === "products"
@@ -366,33 +373,23 @@ const Header: React.FC = () => {
                     </div>
 
                     <div className="de-product-grid">
+ {products.map((product, index) => (
+  <button
+    type="button"
+    key={product.id}
+    className="de-product-link"
+    onClick={(e) => goProducts(product, e)}
+  >
+    <span className="de-product-number">
+      {String(index + 1).padStart(2, "0")}
+    </span>
 
-                      {products.map(
-                        (product, index) => (
-                          <a
-                            href="/products"
-                            key={product.id}
-                            onClick={(e) =>
-                              goProducts(
-                                product,
-                                e
-                              )
-                            }
-                          >
-                            <span className="de-product-number">
-                              {String(
-                                index + 1
-                              ).padStart(2, "0")}
-                            </span>
-
-                            <span>
-                              {product.title}
-                            </span>
-                          </a>
-                        )
-                      )}
-
-                    </div>
+    <span>
+      {product.title}
+    </span>
+  </button>
+))}
+</div>
                   </div>
                 </li>
 
@@ -416,8 +413,11 @@ const Header: React.FC = () => {
                         ? "de-active"
                         : ""
                     }`}
-                    onClick={() =>
-                      toggleDropdown("about")
+                    onClick={() => {
+                      navigate('/about')
+                       toggleDropdown("about")
+                    }
+                     
                     }
                     aria-expanded={
                       openDropdown === "about"
@@ -434,7 +434,7 @@ const Header: React.FC = () => {
 
                     <div className="de-mini-heading">
                       <span>
-                        ABOUT DEV ERP
+                        ABOUT DevERP
                       </span>
                     </div>
 
@@ -502,7 +502,9 @@ const Header: React.FC = () => {
                         : ""
                     }`}
                     onClick={() =>
-                      toggleDropdown("career")
+                     {
+                      navigate('/career')
+                      toggleDropdown("career")}
                     }
                     aria-expanded={
                       openDropdown === "career"
@@ -577,6 +579,19 @@ const Header: React.FC = () => {
                   </a>
                 </li>
 
+<li className="de-menu-item">
+                  <a
+                    href="/dd"
+                    className={`de-menu-link ${
+                      isActive("/dd")
+                        ? "de-active"
+                        : ""
+                    }`}
+                    onClick={goDD}
+                  >
+                    <span>ddd</span>
+                  </a>
+                </li>
               </ul>
             </nav>
 

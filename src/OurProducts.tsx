@@ -1976,7 +1976,7 @@ export const products: any = [
 
 const OurProducts: React.FC = () => {
   const featuredProduct = products[0];
-  const remainingProducts = products.slice(1);
+  const remainingProducts = products;
   const navigate = useNavigate();
 
   return (
@@ -1997,7 +1997,7 @@ const OurProducts: React.FC = () => {
 
               <div className="products-kicker">
                 <span className="products-kicker-line" />
-                DEV ERP SOLUTIONS
+                DevERP SOLUTIONS
               </div>
 
               <h1>
@@ -2150,9 +2150,7 @@ const OurProducts: React.FC = () => {
                     decoding="async"
                   />
 
-                  <span className="solution-number">
-                    {String(index + 2).padStart(2, "0")}
-                  </span>
+                  
 
                   <div className="solution-card-image-arrow">
                     ↗
@@ -2203,12 +2201,7 @@ const OurProducts: React.FC = () => {
 
       </div>
 
-
-      {/* =====================================================
-          CTA
-          {\"seq\":\"7\",\"name\":\"Business Card\",\"code\":\"BC\",\"link\":\"BusinessCardMst\",\"iconname\":\"add-card\"}
-          {\"seq\":\"7\",\"name\":\"Business Card\",\"code\":\"BC\",\"link\":\"BusinessCardMst\",\"iconname\":\"add-card\",\"isapplink\":\"True\",\"title\":\"\",\"url\":\"BusinessCardMst\",\"isfrombusinesscard\":\"True\"}
-      ===================================================== */}
+ 
 
       <div className="products-cta-section">
 

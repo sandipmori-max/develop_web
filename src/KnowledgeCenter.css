@@ -75,8 +75,7 @@
   color: #5c9ff0;
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 2.2px;
-  text-transform: uppercase;
+  letter-spacing: 2.2px; 
 }
 
 .knowledge-kicker::before {
