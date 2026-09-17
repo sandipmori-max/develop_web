@@ -2078,3 +2078,1603 @@
   }
 
 }
+
+/* =========================================================
+   CLIENT ECOSYSTEM
+========================================================= */
+
+.clients-ecosystem-section {
+  position: relative;
+  padding: 110px 0 130px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.clients-ecosystem-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(20, 80, 130, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 80, 130, 0.07) 1px, transparent 1px);
+  background-size: 100px 100px;
+  pointer-events: none;
+}
+
+.ecosystem-heading {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.ecosystem-heading span {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #1677e8;
+}
+
+.ecosystem-heading h2 {
+  margin: 0;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.08;
+  font-weight: 400;
+  color: #101010;
+}
+
+.ecosystem-heading h2 strong {
+  color: #176fc1;
+  font-weight: 500;
+}
+
+.ecosystem-heading p {
+  max-width: 580px;
+  margin: 18px auto 0;
+  color: #687586;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* MAIN ECOSYSTEM */
+
+.ecosystem {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px minmax(0, 1fr);
+  align-items: center;
+
+  max-width: 1480px;
+  margin: auto;
+  min-height: 720px;
+}
+
+
+/* CENTER */
+
+.ecosystem-center {
+  position: relative;
+
+  width: 220px;
+  height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+}
+
+.ecosystem-core {
+  position: relative;
+  z-index: 5;
+
+  width: 112px;
+  height: 112px;
+
+  border-radius: 18px;
+
+  background: #fff;
+
+  border: 1px solid #dce8f2;
+
+  box-shadow:
+    0 15px 40px rgba(20, 76, 120, 0.12),
+    0 3px 10px rgba(20, 76, 120, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ecosystem-core span {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #176fc1;
+  font-weight: 500;
+}
+
+.ecosystem-core strong {
+  font-size: 24px;
+  line-height: 1;
+  color: #111;
+  letter-spacing: 1px;
+}
+
+.ecosystem-core small {
+  margin-top: 8px;
+  font-size: 6px;
+  letter-spacing: 1.5px;
+  color: #8292a2;
+}
+
+
+/* ROTATING RINGS */
+
+.ecosystem-ring {
+  position: absolute;
+
+  border: 1px solid rgba(32, 125, 238, 0.45);
+
+  border-radius: 50%;
+}
+
+.ecosystem-ring-one {
+  width: 180px;
+  height: 180px;
+}
+
+.ecosystem-ring-two {
+  width: 330px;
+  height: 330px;
+
+  border-color: rgba(32, 125, 238, 0.18);
+}
+
+
+/* SIDE */
+
+.ecosystem-side {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.ecosystem-group {
+  position: relative;
+  min-height: 82px;
+}
+
+.ecosystem-group-left {
+  padding-right: 20px;
+}
+
+.ecosystem-group-right {
+  padding-left: 20px;
+}
+
+
+/* CONNECTOR */
+
+.ecosystem-connector {
+  position: absolute;
+  top: 39px;
+
+  width: 100px;
+  height: 1px;
+
+  background: #80b8f4;
+
+  display: flex;
+  align-items: center;
+}
+
+.ecosystem-group-left .ecosystem-connector {
+  right: -80px;
+}
+
+.ecosystem-group-right .ecosystem-connector {
+  left: -80px;
+}
+
+.ecosystem-connector span {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 2px;
+
+  background: #e7eef5;
+}
+
+.ecosystem-group-left .ecosystem-connector span {
+  right: -1px;
+}
+
+.ecosystem-group-right .ecosystem-connector span {
+  left: -1px;
+}
+
+.ecosystem-connector strong {
+  position: absolute;
+
+  white-space: nowrap;
+
+  font-size: 9px;
+  letter-spacing: 3px;
+  font-weight: 600;
+
+  color: #1677e8;
+}
+
+.ecosystem-group-left .ecosystem-connector strong {
+  right: 15px;
+  transform: translateX(100%);
+}
+
+.ecosystem-group-right .ecosystem-connector strong {
+  left: 15px;
+  transform: translateX(-100%);
+}
+
+
+/* LOGOS */
+
+.ecosystem-logos {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.ecosystem-group-left .ecosystem-logos {
+  justify-content: flex-start;
+}
+
+.ecosystem-group-right .ecosystem-logos {
+  justify-content: flex-end;
+}
+
+.ecosystem-logo,
+.ecosystem-more {
+  width: 72px;
+  height: 68px;
+
+  flex: 0 0 72px;
+
+  border-radius: 9px;
+
+  border: 1px solid #dce7f0;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 5px 15px rgba(25, 72, 110, 0.07);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ecosystem-logo {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ecosystem-logo:hover {
+  transform: translateY(-5px);
+
+  border-color: #8bbcf0;
+
+  box-shadow:
+    0 12px 25px rgba(25, 100, 180, 0.15);
+}
+
+.ecosystem-logo img {
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+}
+
+.ecosystem-more {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1677e8;
+
+  background: #f7fbff;
+}
+
+/* =========================================================
+   DEV ERP CLIENT ECOSYSTEM
+========================================================= */
+
+.clients-ecosystem-section {
+  position: relative;
+  width: 100%;
+  padding: 95px 0 110px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+.clients-ecosystem-grid-bg {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(36, 126, 226, 0.075) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(36, 126, 226, 0.075) 1px,
+      transparent 1px
+    );
+
+  background-size: 100px 100px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.ecosystem-heading {
+  position: relative;
+  z-index: 5;
+
+  text-align: center;
+
+  margin-bottom: 48px;
+}
+
+.ecosystem-eyebrow {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #1677e8;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.ecosystem-heading h2 {
+  margin: 0;
+
+  color: #101010;
+
+  font-size: clamp(38px, 4vw, 54px);
+  line-height: 1.12;
+
+  font-weight: 400;
+
+  letter-spacing: -1.8px;
+}
+
+.ecosystem-heading h2 span {
+  color: #1677e8;
+}
+
+.ecosystem-heading p {
+  margin: 17px auto 0;
+
+  max-width: 650px;
+
+  color: #65758a;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
+
+.ecosystem-wrapper {
+  position: relative;
+  z-index: 3;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    210px
+    minmax(0, 1fr);
+
+  width: 100%;
+
+  max-width: 1540px;
+
+  margin: 0 auto;
+
+  min-height: 570px;
+}
+
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.ecosystem-column {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  min-width: 0;
+}
+
+.ecosystem-column-left {
+  padding-right: 0;
+}
+
+.ecosystem-column-right {
+  padding-left: 0;
+}
+
+
+/* =========================================================
+   ROW
+========================================================= */
+
+.ecosystem-row {
+  position: relative;
+
+  height: 76px;
+
+  display: grid;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   LEFT ROW
+
+   CATEGORY | LOGOS | LINE
+========================================================= */
+
+.ecosystem-row-left {
+  grid-template-columns:
+    88px
+    minmax(0, 1fr)
+    270px;
+}
+
+
+/* =========================================================
+   RIGHT ROW
+
+   LINE | CATEGORY | LOGOS
+========================================================= */
+
+.ecosystem-row-right {
+  grid-template-columns:
+    270px
+    125px
+    minmax(0, 1fr);
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.ecosystem-category {
+  position: relative;
+  z-index: 4;
+
+  color: #1476dc;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1.35;
+
+  letter-spacing: 2.8px;
+
+  text-transform: uppercase;
+}
+
+.ecosystem-row-left .ecosystem-category {
+  text-align: left;
+
+  padding-left: 18px;
+}
+
+.ecosystem-row-right .ecosystem-category {
+  text-align: left;
+
+  padding-left: 12px;
+}
+
+
+/* =========================================================
+   LOGO CONTAINER
+========================================================= */
+
+.ecosystem-client-logos {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   LOGO CARD
+========================================================= */
+
+.ecosystem-client-card {
+  position: relative;
+
+  flex: 0 0 68px;
+
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #dce8f3;
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 5px 15px rgba(21, 83, 135, 0.07);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ecosystem-client-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #a4cff7;
+
+  box-shadow:
+    0 12px 25px rgba(21, 112, 205, 0.13);
+
+  z-index: 10;
+}
+
+.ecosystem-client-card img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   +N CARD
+========================================================= */
+
+.ecosystem-more-card {
+  flex: 0 0 56px;
+
+  width: 56px;
+  height: 68px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dce8f3;
+
+  border-radius: 9px;
+
+  background: rgba(248, 252, 255, 0.96);
+
+  color: #1677e8;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow:
+    0 5px 15px rgba(21, 83, 135, 0.05);
+}
+
+
+/* =========================================================
+   CONNECTOR
+========================================================= */
+
+.ecosystem-line-wrap {
+  position: relative;
+
+  height: 76px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.ecosystem-line {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background: #83baf0;
+}
+
+
+/* =========================================================
+   LEFT CONNECTOR
+========================================================= */
+
+.ecosystem-row-left .ecosystem-line-wrap {
+  justify-content: flex-end;
+}
+
+.ecosystem-row-left .ecosystem-line {
+  width: 270px;
+}
+
+
+/* =========================================================
+   RIGHT CONNECTOR
+========================================================= */
+
+.ecosystem-row-right .ecosystem-line-wrap {
+  justify-content: flex-start;
+}
+
+.ecosystem-row-right .ecosystem-line {
+  width: 270px;
+}
+
+
+/* =========================================================
+   CONNECTOR DOT
+========================================================= */
+
+.ecosystem-line-dot {
+  position: absolute;
+
+  top: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  margin-top: -4px;
+
+  border-radius: 2px;
+
+  background: #e5edf4;
+
+  z-index: 5;
+}
+
+.ecosystem-row-left .ecosystem-line-dot {
+  right: 0;
+}
+
+.ecosystem-row-right .ecosystem-line-dot {
+  left: 0;
+}
+
+
+/* =========================================================
+   CENTER AREA
+========================================================= */
+
+.ecosystem-center {
+  position: relative;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 210px;
+
+  min-height: 570px;
+}
+
+
+/* =========================================================
+   CENTER CARD
+========================================================= */
+
+.ecosystem-center-card {
+  position: relative;
+
+  z-index: 30;
+
+  width: 128px;
+  height: 128px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid #d9e7f3;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 12px 30px rgba(30, 86, 135, 0.10),
+    0 2px 8px rgba(30, 86, 135, 0.05);
+}
+
+
+/* =========================================================
+   DEV ERP ICON
+========================================================= */
+
+.ecosystem-dev-icon {
+  height: 35px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 4px;
+
+  margin-bottom: 7px;
+}
+
+.ecosystem-dev-icon span {
+  display: block;
+
+  width: 7px;
+
+  border-radius: 2px 2px 0 0;
+
+  background: #1677e8;
+}
+
+.ecosystem-dev-icon span:nth-child(1) {
+  height: 15px;
+}
+
+.ecosystem-dev-icon span:nth-child(2) {
+  height: 23px;
+}
+
+.ecosystem-dev-icon span:nth-child(3) {
+  height: 31px;
+}
+
+
+/* =========================================================
+   DEV ERP TEXT
+========================================================= */
+
+.ecosystem-deverp {
+  color: #082b52;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   CENTER GLOW
+========================================================= */
+
+.ecosystem-center-glow {
+  position: absolute;
+
+  width: 185px;
+  height: 185px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(45, 143, 242, 0.07) 0%,
+      rgba(45, 143, 242, 0.025) 45%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1400
+========================================================= */
+
+@media (max-width: 1400px) {
+
+  .ecosystem-wrapper {
+    grid-template-columns:
+      minmax(0, 1fr)
+      180px
+      minmax(0, 1fr);
+  }
+
+  .ecosystem-center {
+    width: 180px;
+  }
+
+  .ecosystem-row-left {
+    grid-template-columns:
+      78px
+      minmax(0, 1fr)
+      190px;
+  }
+
+  .ecosystem-row-right {
+    grid-template-columns:
+      190px
+      115px
+      minmax(0, 1fr);
+  }
+
+  .ecosystem-row-left .ecosystem-line {
+    width: 190px;
+  }
+
+  .ecosystem-row-right .ecosystem-line {
+    width: 190px;
+  }
+
+  .ecosystem-client-card {
+    flex-basis: 64px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .ecosystem-more-card {
+    width: 50px;
+    flex-basis: 50px;
+    height: 64px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1100
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .clients-ecosystem-section {
+    padding: 80px 20px;
+  }
+
+  .ecosystem-wrapper {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .ecosystem-center {
+    order: 1;
+
+    width: 100%;
+    min-height: 150px;
+  }
+
+  .ecosystem-column-left {
+    order: 2;
+  }
+
+  .ecosystem-column-right {
+    order: 3;
+  }
+
+  .ecosystem-row-left,
+  .ecosystem-row-right {
+    display: flex;
+
+    height: auto;
+
+    min-height: 82px;
+
+    gap: 14px;
+  }
+
+  .ecosystem-line-wrap {
+    display: none;
+  }
+
+  .ecosystem-category {
+    width: 125px;
+
+    flex: 0 0 125px;
+
+    padding: 0 !important;
+
+    display: flex;
+
+    align-items: center;
+  }
+
+  .ecosystem-client-logos {
+    flex-wrap: wrap;
+  }
+
+  .ecosystem-row-right .ecosystem-category {
+    order: 1;
+  }
+
+  .ecosystem-row-right .ecosystem-client-logos {
+    order: 2;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 700
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .clients-ecosystem-section {
+    padding: 65px 15px 80px;
+  }
+
+  .ecosystem-heading {
+    margin-bottom: 40px;
+  }
+
+  .ecosystem-heading h2 {
+    font-size: 34px;
+  }
+
+  .ecosystem-heading p {
+    font-size: 13px;
+  }
+
+  .ecosystem-row-left,
+  .ecosystem-row-right {
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 12px;
+  }
+
+  .ecosystem-category {
+    width: auto;
+
+    flex: none;
+
+    justify-content: center;
+
+    text-align: center !important;
+
+    font-size: 10px;
+  }
+
+  .ecosystem-client-logos {
+    justify-content: center;
+
+    width: 100%;
+  }
+
+  .ecosystem-client-card {
+    width: 70px;
+    height: 66px;
+    flex-basis: 70px;
+  }
+
+  .ecosystem-more-card {
+    width: 55px;
+    height: 66px;
+    flex-basis: 55px;
+  }
+
+  .ecosystem-center {
+    min-height: 130px;
+  }
+
+  .ecosystem-center-card {
+    width: 112px;
+    height: 112px;
+  }
+
+  .ecosystem-dev {
+    font-size: 21px;
+  }
+}
+/* =========================================================
+   DEV ERP CLIENT ECOSYSTEM
+========================================================= */
+
+.clients-ecosystem {
+  position: relative;
+  width: 100%;
+  min-height: 760px;
+
+  padding: 75px 0 90px;
+
+  background: #fff;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   GRID BACKGROUND
+========================================================= */
+
+.eco-grid-bg {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(219, 229, 238, 0.72) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(219, 229, 238, 0.72) 1px,
+      transparent 1px
+    );
+
+  background-size: 100px 100px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.eco-heading {
+  position: relative;
+
+  z-index: 10;
+
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.eco-heading h2 {
+  margin: 0;
+
+  color: #111;
+
+  font-size: clamp(32px, 3.4vw, 52px);
+
+  line-height: 1.18;
+
+  font-weight: 400;
+
+  letter-spacing: -1.8px;
+}
+
+.eco-heading h2 span {
+  color: #176fc1;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.eco-layout {
+  position: relative;
+
+  width: 1500px;
+
+  max-width: calc(100vw - 36px);
+
+  height: 650px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   SVG CONNECTORS
+========================================================= */
+
+.eco-connectors {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.eco-connectors path {
+  fill: none;
+
+  stroke: #6eaef0;
+
+  stroke-width: 1.15;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.eco-connectors rect {
+  fill: #e5edf3;
+}
+
+
+/* =========================================================
+   LEFT / RIGHT SIDES
+========================================================= */
+
+.eco-side {
+  position: absolute;
+
+  top: 0;
+
+  width: 500px;
+
+  height: 650px;
+
+  z-index: 5;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.eco-left {
+  left: 0;
+}
+
+.eco-right {
+  right: 0;
+}
+
+
+/* =========================================================
+   ROW
+========================================================= */
+
+.eco-row {
+  position: relative;
+
+  width: 500px;
+
+  height: 76px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   LEFT ROW
+
+   CATEGORY | LOGOS
+========================================================= */
+
+.eco-row-left {
+  justify-content: flex-start;
+}
+
+
+/* =========================================================
+   RIGHT ROW
+
+   LOGOS | CATEGORY
+========================================================= */
+
+.eco-row-right {
+  justify-content: flex-end;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.eco-category {
+  width: 88px;
+
+  flex: 0 0 88px;
+
+  color: #1476d8;
+
+  font-size: 9px;
+
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.eco-row-left .eco-category {
+  text-align: left;
+
+  padding-left: 2px;
+}
+
+.eco-row-right .eco-category {
+  width: 125px;
+
+  flex-basis: 125px;
+
+  text-align: left;
+
+  padding-left: 13px;
+}
+
+
+/* =========================================================
+   LOGOS
+========================================================= */
+
+.eco-logos {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  height: 76px;
+}
+
+
+/* =========================================================
+   LOGO CARD
+========================================================= */
+
+.eco-logo-card {
+  width: 68px;
+  height: 68px;
+
+  flex: 0 0 68px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px;
+
+  background: #fff;
+
+  border: 1px solid #dbe7f0;
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 5px 14px rgba(31, 75, 112, 0.07);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.eco-logo-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #9bc8f5;
+
+  box-shadow:
+    0 10px 22px rgba(31, 105, 180, 0.13);
+}
+
+.eco-logo-card img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   +N
+========================================================= */
+
+.eco-more-card {
+  width: 56px;
+  height: 68px;
+
+  flex: 0 0 56px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dbe7f0;
+
+  border-radius: 9px;
+
+  background: #fff;
+
+  color: #1680df;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 5px 14px rgba(31, 75, 112, 0.06);
+}
+
+
+/* =========================================================
+   CENTER
+========================================================= */
+
+.eco-center {
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 210px;
+  height: 650px;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   CENTER CARD
+========================================================= */
+
+.eco-center-card {
+  position: relative;
+
+  width: 126px;
+  height: 126px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+
+  border: 1px solid #dbe7f0;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 14px 30px rgba(31, 76, 116, 0.11),
+    0 2px 8px rgba(31, 76, 116, 0.06);
+}
+
+
+/* =========================================================
+   DEV ERP MARK
+========================================================= */
+
+.eco-brand-mark {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 4px;
+
+  height: 34px;
+
+  margin-bottom: 6px;
+}
+
+.eco-brand-mark span {
+  width: 7px;
+
+  border-radius: 2px 2px 0 0;
+
+  background: #1677e8;
+}
+
+.eco-brand-mark span:nth-child(1) {
+  height: 14px;
+}
+
+.eco-brand-mark span:nth-child(2) {
+  height: 22px;
+}
+
+.eco-brand-mark span:nth-child(3) {
+  height: 31px;
+}
+
+.eco-center-card strong {
+  color: #082b52;
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .clients-ecosystem {
+    overflow-x: auto;
+  }
+
+  .eco-layout {
+    max-width: none;
+
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .clients-ecosystem {
+    min-height: auto;
+
+    padding: 65px 15px 80px;
+
+    overflow: hidden;
+  }
+
+  .eco-heading {
+    margin-bottom: 40px;
+  }
+
+  .eco-heading h2 {
+    font-size: 32px;
+  }
+
+  .eco-layout {
+    width: 100%;
+
+    height: auto;
+
+    max-width: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+  }
+
+  .eco-connectors {
+    display: none;
+  }
+
+  .eco-side {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+
+    height: auto;
+
+    gap: 25px;
+  }
+
+  .eco-center {
+    position: relative;
+
+    order: -1;
+
+    left: auto;
+    top: auto;
+
+    width: 100%;
+    height: 130px;
+
+    transform: none;
+  }
+
+  .eco-row,
+  .eco-row-left,
+  .eco-row-right {
+    width: 100%;
+
+    height: auto;
+
+    min-height: 76px;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 10px;
+  }
+
+  .eco-category,
+  .eco-row-right .eco-category {
+    width: auto;
+
+    flex-basis: auto;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+  .eco-logos {
+    width: 100%;
+
+    height: auto;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+}

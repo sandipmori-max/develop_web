@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import ScrollProgress from "./ScrollProgress";
 import { products } from "./OurProducts";
+import { services } from "./ServiceList";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -224,9 +225,28 @@ const Header: React.FC = () => {
   // SERVICES
   // =====================================================
 
-  const goServices = (e: React.MouseEvent) => {
-    handleNavigate("/services", e);
-  };
+ const goServices = (
+  service: any,
+  e: React.MouseEvent
+) => {
+  e.preventDefault();
+
+  closeMenu();
+
+  navigate("/services", {
+    state: {
+      service,
+      services,
+    },
+  });
+
+  requestAnimationFrame(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+};
 
   // =====================================================
   // BLOG
@@ -244,7 +264,7 @@ const Header: React.FC = () => {
     handleNavigate("/contact_us", e);
   };
 
-    const goDD = (e: React.MouseEvent) => {
+  const goDD = (e: React.MouseEvent) => {
     handleNavigate("/dd", e);
   };
 
@@ -292,11 +312,10 @@ const Header: React.FC = () => {
             ====================================================== */}
 
             <nav
-              className={`de-navigation ${
-                mobileOpen
+              className={`de-navigation ${mobileOpen
                   ? "de-navigation-open"
                   : ""
-              }`}
+                }`}
             >
               <ul className="de-menu">
 
@@ -307,11 +326,10 @@ const Header: React.FC = () => {
                 <li className="de-menu-item">
                   <a
                     href="/"
-                    className={`de-menu-link ${
-                      isActive("/")
+                    className={`de-menu-link ${isActive("/")
                         ? "de-active"
                         : ""
-                    }`}
+                      }`}
                     onClick={goHome}
                   >
                     <span>Home</span>
@@ -323,26 +341,24 @@ const Header: React.FC = () => {
                 ====================================================== */}
 
                 <li
-                  className={`de-menu-item de-has-dropdown ${
-                    openDropdown === "products"
+                  className={`de-menu-item de-has-dropdown ${openDropdown === "products"
                       ? "de-dropdown-open"
                       : ""
-                  }`}
+                    }`}
                 >
                   <button
                     type="button"
-                    className={`de-menu-link de-dropdown-trigger ${
-                      location.pathname.startsWith(
-                        "/products"
-                      )
+                    className={`de-menu-link de-dropdown-trigger ${location.pathname.startsWith(
+                      "/products"
+                    )
                         ? "de-active"
                         : ""
-                    }`}
+                      }`}
                     onClick={() => {
                       navigate('/products-list')
-                       toggleDropdown("products")
+                      toggleDropdown("products")
                     }
-                     
+
                     }
                     aria-expanded={
                       openDropdown === "products"
@@ -373,23 +389,89 @@ const Header: React.FC = () => {
                     </div>
 
                     <div className="de-product-grid">
- {products.map((product, index) => (
-  <button
-    type="button"
-    key={product.id}
-    className="de-product-link"
-    onClick={(e) => goProducts(product, e)}
-  >
-    <span className="de-product-number">
-      {String(index + 1).padStart(2, "0")}
-    </span>
+                      {products.map((product: any, index: any) => (
+                        <button
+                          type="button"
+                          key={product.id}
+                          className="de-product-link"
+                          onClick={(e) => goProducts(product, e)}
+                        > 
+                          <span>
+                            {product.title}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+                
 
-    <span>
-      {product.title}
-    </span>
-  </button>
-))}
-</div>
+                  {/* =====================================================
+                    SERVICE
+                ====================================================== */}
+
+                <li
+                  className={`de-menu-item de-has-dropdown ${openDropdown === "service"
+                      ? "de-dropdown-open"
+                      : ""
+                    }`}
+                >
+                  <button
+                    type="button"
+                    className={`de-menu-link de-dropdown-trigger ${location.pathname.startsWith(
+                      "/service"
+                    )
+                        ? "de-active"
+                        : ""
+                      }`}
+                    onClick={() => {
+                      navigate('/service-list')
+                      toggleDropdown("service")
+                    }
+
+                    }
+                    aria-expanded={
+                      openDropdown === "service"
+                    }
+                  >
+                    <span>Services</span>
+
+                    <span className="de-chevron">
+                      ⌄
+                    </span>
+                  </button>
+
+                  <div className="de-dropdown de-products-dropdown">
+
+                    <div className="de-dropdown-header">
+                      <span className="de-dropdown-label">
+                        OUR Services
+                      </span>
+
+                      <h3>
+                        Industry-specific ERP
+                      </h3>
+
+                      <p>
+                        Powerful solutions designed for
+                        growing businesses.
+                      </p>
+                    </div>
+
+                    <div className="de-product-grid">
+                      {services.map((product: any, index: any) => (
+                        <button
+                          type="button"
+                          key={product.id}
+                          className="de-product-link"
+                          onClick={(e) => goServices(product, e)}
+                        > 
+                          <span>
+                            {product.title}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </li>
 
@@ -398,26 +480,24 @@ const Header: React.FC = () => {
                 ====================================================== */}
 
                 <li
-                  className={`de-menu-item de-has-dropdown ${
-                    openDropdown === "about"
+                  className={`de-menu-item de-has-dropdown ${openDropdown === "about"
                       ? "de-dropdown-open"
                       : ""
-                  }`}
+                    }`}
                 >
                   <button
                     type="button"
-                    className={`de-menu-link de-dropdown-trigger ${
-                      location.pathname.startsWith(
-                        "/about"
-                      )
+                    className={`de-menu-link de-dropdown-trigger ${location.pathname.startsWith(
+                      "/about"
+                    )
                         ? "de-active"
                         : ""
-                    }`}
+                      }`}
                     onClick={() => {
                       navigate('/about')
-                       toggleDropdown("about")
+                      toggleDropdown("about")
                     }
-                     
+
                     }
                     aria-expanded={
                       openDropdown === "about"
@@ -441,8 +521,7 @@ const Header: React.FC = () => {
                     <a
                       href="/about"
                       onClick={goAbout}
-                    >
-                      <span>01</span>
+                    > 
 
                       <strong>
                         Who we are
@@ -452,8 +531,7 @@ const Header: React.FC = () => {
                     <a
                       href="/knowledge"
                       onClick={goKnowledge}
-                    >
-                      <span>02</span>
+                    > 
 
                       <strong>
                         Knowledge Center DevERP
@@ -470,11 +548,10 @@ const Header: React.FC = () => {
                 <li className="de-menu-item">
                   <a
                     href="/clients"
-                    className={`de-menu-link ${
-                      isActive("/clients")
+                    className={`de-menu-link ${isActive("/clients")
                         ? "de-active"
                         : ""
-                    }`}
+                      }`}
                     onClick={goClients}
                   >
                     <span>Clients</span>
@@ -486,25 +563,23 @@ const Header: React.FC = () => {
                 ====================================================== */}
 
                 <li
-                  className={`de-menu-item de-has-dropdown ${
-                    openDropdown === "career"
+                  className={`de-menu-item de-has-dropdown ${openDropdown === "career"
                       ? "de-dropdown-open"
                       : ""
-                  }`}
+                    }`}
                 >
                   <button
                     type="button"
-                    className={`de-menu-link de-dropdown-trigger ${
-                      location.pathname.startsWith(
-                        "/career"
-                      )
+                    className={`de-menu-link de-dropdown-trigger ${location.pathname.startsWith(
+                      "/career"
+                    )
                         ? "de-active"
                         : ""
-                    }`}
-                    onClick={() =>
-                     {
+                      }`}
+                    onClick={() => {
                       navigate('/career')
-                      toggleDropdown("career")}
+                      toggleDropdown("career")
+                    }
                     }
                     aria-expanded={
                       openDropdown === "career"
@@ -530,10 +605,7 @@ const Header: React.FC = () => {
                     <a
                       href="/career"
                       onClick={goCareer}
-                    >
-                      <span>
-                        01
-                      </span>
+                    > 
 
                       <strong>
                         LIFE @ DevERP
@@ -550,11 +622,10 @@ const Header: React.FC = () => {
                 <li className="de-menu-item">
                   <a
                     href="/blog"
-                    className={`de-menu-link ${
-                      isActive("/blog")
+                    className={`de-menu-link ${isActive("/blog")
                         ? "de-active"
                         : ""
-                    }`}
+                      }`}
                     onClick={goBlog}
                   >
                     <span>Blog</span>
@@ -568,18 +639,17 @@ const Header: React.FC = () => {
                 <li className="de-menu-item">
                   <a
                     href="/contact_us"
-                    className={`de-menu-link ${
-                      isActive("/contact_us")
+                    className={`de-menu-link ${isActive("/contact_us")
                         ? "de-active"
                         : ""
-                    }`}
+                      }`}
                     onClick={goContact}
                   >
                     <span>Contact Us</span>
                   </a>
                 </li>
 
-<li className="de-menu-item">
+                {/* <li className="de-menu-item">
                   <a
                     href="/dd"
                     className={`de-menu-link ${
@@ -591,7 +661,7 @@ const Header: React.FC = () => {
                   >
                     <span>ddd</span>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </nav>
 
@@ -601,11 +671,10 @@ const Header: React.FC = () => {
 
             <button
               type="button"
-              className={`de-mobile-toggle ${
-                mobileOpen
+              className={`de-mobile-toggle ${mobileOpen
                   ? "de-mobile-active"
                   : ""
-              }`}
+                }`}
               onClick={toggleMobileMenu}
               aria-label="Toggle navigation"
               aria-expanded={mobileOpen}

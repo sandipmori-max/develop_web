@@ -84,332 +84,223 @@ const Footer: React.FC = () => {
       {/* =====================================================
           MAIN FOOTER
       ====================================================== */}
-      <section className="de-footer-main">
-        <div className="de-footer-container">
+{/* =====================================================
+    MAIN FOOTER — SINGLE ROW
+===================================================== */}
+<section className="de-footer-main">
+  <div className="de-footer-container">
 
-          <div className="de-footer-main-grid">
+    <div className="de-footer-modern-row">
 
-            {/* BRAND */}
-            <div className="de-footer-brand">
+      {/* =====================================================
+          BRAND
+      ===================================================== */}
+      <div className="de-footer-modern-brand">
 
-              <button
-                type="button"
-                className="de-footer-logo"
-                onClick={() => goTo("/")}
-                aria-label="DevERP Home"
-              >
-                <img
-                  src="CMSassets/images/logos/logo.png"
-                  alt="DevERP"
-                />
-              </button>
+        <button
+          type="button"
+          onClick={() => goTo("/")}
+          className="de-footer-modern-logo"
+          aria-label="DevERP Home"
+        >
+          <img
+            src="CMSassets/images/logos/logo.png"
+            alt="DevERP"
+          />
+        </button>
 
-              <p>
-                Enterprise software built around your
-                business. DevERP delivers customized
-                technology solutions that help businesses
-                work smarter and grow faster.
-              </p>
+        <p>
+          Enterprise software built around your business.
+        </p>
 
-              <button
-                type="button"
-                className="de-footer-brand-link"
-                onClick={() => goTo("/about")}
-              >
-                Discover DevERP
-                <span>↗</span>
-              </button>
-
-            </div>
-
-
-            {/* SOLUTIONS */}
-            <div className="de-footer-links">
-
-              <h3>Solutions</h3>
-
-              <ul>
-                {products.slice(0, 5).map((product) => (
-                  <li key={product.id}>
-                    <a
-                      href="/products"
-                      onClick={(e) => goProducts(product, e)}
-                    >
-                      {product.title}
-                      <span>↗</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
- 
-
-            </div>
-
-
-            {/* COMPANY */}
-            <div className="de-footer-links">
-
-              <h3>Company</h3>
-
-              <ul>
-                <li>
-                  <button type="button" onClick={() => goTo("/")}>
-                    Home
-                    <span>↗</span>
-                  </button>
-                </li>
-
-                <li>
-                  <button type="button" onClick={() => goTo("/about")}>
-                    About Us
-                    <span>↗</span>
-                  </button>
-                </li>
-
-                <li>
-                  <button type="button" onClick={() => goTo("/clients")}>
-                    Clients
-                    <span>↗</span>
-                  </button>
-                </li>
-
-                <li>
-                  <button type="button" onClick={() => goTo("/career")}>
-                    Careers
-                    <span>↗</span>
-                  </button>
-                </li>
-
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => goTo("/contact_us")}
-                  >
-                    Contact
-                    <span>↗</span>
-                  </button>
-                </li>
-              </ul>
-
-            </div>
-
-
-            {/* GET IN TOUCH */}
-            <div className="de-footer-contact">
-
-              <h3>Get in touch</h3>
-
-              <div className="de-footer-contact-block">
-
-                <span className="de-footer-contact-label">
-                  INDIA OFFICE
-                </span>
-
-                <p>
-                  405, 407B Primate Complex,
-                  <br />
-                  Opp. Gormoh Hotel, Nr. Judges
-                  <br />
-                  Bunglow Cross Road, Bodakdev,
-                  <br />
-                  Ahmedabad - 380054,
-                  <br />
-                  Gujarat, India.
-                </p>
-
-              </div>
-
-              <div className="de-footer-contact-info">
-
-                <a href="mailto:admin@deverp.com">
-                  admin@deverp.com
-                </a>
-
-                <a href="mailto:suppprt@deverp.com">
-                  suppprt@deverp.com
-                </a>
-
-                <a href="tel:07935312554">
-                  079 3531 2554
-                </a>
-
-                <a href="tel:+919327940159">
-                  +91 93279 40159
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          {/* =====================================================
-              NEWSLETTER
-          ====================================================== */}
-          <div className="de-footer-newsletter">
-
-            <div className="de-footer-newsletter-content">
-              <span>STAY UPDATED</span>
-
-              <h3>
-                Get the latest from DevERP
-              </h3>
-
-              <p>
-                Technology, ERP and business updates.
-              </p>
-            </div>
-
-            <div className="de-footer-newsletter-form">
-
-              <div className="de-footer-input-wrap">
-
-                <input
-                  type="email"
-                  value={email}
-                  placeholder="Enter your email address"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    setMessage("");
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handleSubscribe();
-                    }
-                  }}
-                />
-
-                <button
-                  type="button"
-                  onClick={handleSubscribe}
-                >
-                  Subscribe
-                  <span>↗</span>
-                </button>
-
-              </div>
-
-              {message && (
-                <div
-                  className={`de-footer-newsletter-message ${
-                    message.includes("Thank You")
-                      ? "success"
-                      : "error"
-                  }`}
-                >
-                  {message}
-                </div>
-              )}
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+      </div>
 
 
       {/* =====================================================
-          LOCATION
-      ====================================================== */}
-      <section className="de-footer-location">
+          SOLUTIONS
+      ===================================================== */}
+      <div className="de-footer-modern-section">
 
-        <div className="de-footer-container">
+        <h3>Solutions</h3>
 
-          <div className="de-footer-location-inner">
+        <div className="de-footer-modern-links">
 
-            <div className="de-footer-location-left">
-
-              <div className="de-footer-location-dot">
-                <span />
-              </div>
-
-              <div>
-                <span className="de-footer-location-label">
-                  INDIA OFFICE
-                </span>
-
-                <h3>
-                  Ahmedabad, Gujarat, India
-                </h3>
-              </div>
-
-            </div>
-
+          {products.slice(0, 5).map((product: any) => (
             <a
-              href="https://www.google.com/maps/search/?api=1&query=DevERP+Solutions+Pvt.+Ltd+Ahmedabad"
-              target="_blank"
-              rel="noreferrer"
-              className="de-footer-map-button"
+              key={product.id}
+              href="/products"
+              onClick={(e) => goProducts(product, e)}
             >
-              <span>View on Google Maps</span>
-              <b>↗</b>
+              {product.title}
             </a>
-
-          </div>
+          ))}
 
         </div>
 
-      </section>
+      </div>
 
 
       {/* =====================================================
-          BOTTOM
-      ====================================================== */}
-      <section className="de-footer-bottom">
+          COMPANY
+      ===================================================== */}
+      <div className="de-footer-modern-section">
 
-        <div className="de-footer-container">
+        <h3>Company</h3>
 
-          <div className="de-footer-bottom-inner">
+        <div className="de-footer-modern-links">
 
-            <p>
-              © {currentYear} DevERP Solutions Private Limited.
-              <span> All Rights Reserved.</span>
-            </p>
+          <button type="button" onClick={() => goTo("/")}>
+            Home
+          </button>
 
-            <div className="de-footer-bottom-links">
+          <button type="button" onClick={() => goTo("/about")}>
+            About Us
+          </button>
 
-              <button
-                type="button"
-                onClick={() => goTo("/privacy-policy")}
-              >
-                Privacy Policy
-              </button>
+          <button type="button" onClick={() => goTo("/clients")}>
+            Clients
+          </button>
 
-              <i />
+          <button type="button" onClick={() => goTo("/career")}>
+            Careers
+          </button>
 
-              <button
-                type="button"
-                onClick={() => goTo("/contact_us")}
-              >
-                Contact
-              </button>
+          <button type="button" onClick={() => goTo("/contact_us")}>
+            Contact
+          </button>
 
-              <i />
+        </div>
 
-              <a
-                href="#top"
-                onClick={(e) => {
-                  e.preventDefault();
+      </div>
 
-                  window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                  });
-                }}
-                aria-label="Back to top"
-              >
-                ↑
-              </a>
 
-            </div>
+      {/* =====================================================
+          GET IN TOUCH
+      ===================================================== */}
+      <div className="de-footer-modern-section de-footer-touch">
 
+        <h3>Get in touch</h3>
+
+        <div className="de-footer-address">
+
+          <span>INDIA OFFICE</span>
+
+          <p>
+            405, 407B Primate Complex,
+            <br />
+            Opp. Gormoh Hotel, Nr. Judges Bunglow,
+            <br />
+            Bodakdev, Ahmedabad - 380054
+          </p>
+
+        </div>
+
+        <div className="de-footer-contact-row">
+
+          <a href="mailto:admin@deverp.com">
+            admin@deverp.com
+          </a>
+
+          <a href="tel:07935312554">
+            079 3531 2554
+          </a>
+
+        </div>
+
+      </div>
+
+
+      {/* =====================================================
+          STAY UPDATED
+      ===================================================== */}
+      <div className="de-footer-modern-section de-footer-updated">
+
+        <h3>Stay Updated</h3>
+
+        <p>
+          Get the latest from DevERP
+        </p>
+
+        <div className="de-footer-modern-input">
+
+          <input
+            type="email"
+            value={email}
+            placeholder="Your email address"
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setMessage("");
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSubscribe();
+              }
+            }}
+          />
+
+          <button
+            type="button"
+            onClick={handleSubscribe}
+            aria-label="Subscribe"
+          >
+            <span>↗</span>
+          </button>
+
+        </div>
+
+        {message && (
+          <div
+            className={`de-footer-newsletter-message ${
+              message.includes("Thank You")
+                ? "success"
+                : "error"
+            }`}
+          >
+            {message}
+          </div>
+        )}
+
+      </div>
+
+
+      {/* =====================================================
+          OFFICE / MAP
+      ===================================================== */}
+      <div className="de-footer-modern-office">
+
+        <div className="de-footer-office-top">
+
+          <span>OUR OFFICE</span>
+
+          <div className="de-footer-status">
+            <i></i>
+            India
           </div>
 
         </div>
 
-      </section>
+        <h3>
+          Ahmedabad,
+          <br />
+          Gujarat, India
+        </h3>
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=DevERP+Solutions+Pvt.+Ltd+Ahmedabad"
+          target="_blank"
+          rel="noreferrer"
+          className="de-footer-modern-map"
+        >
+          <span>View on Google Maps</span>
+          <b>↗</b>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
     </footer>
   );

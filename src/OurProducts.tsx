@@ -12,6 +12,7 @@ interface Product {
 export const products: any = [
   {
     image: "CMSassets/images/it_service/RMC.jpg",
+    backImg: './assets/Construction3.png',
     title: "Ready Mix Concrete ERP",
     description:
       "DevERP Ready Mix Concrete ERP is an integrated information system designed specifically for the Ready Mix Concrete industry, helping RMC manufacturers achieve optimum quality, reduce costs, and improve customer satisfaction with an affordable solution.",
@@ -2135,7 +2136,7 @@ const OurProducts: React.FC = () => {
 
           <div className="products-grid">
 
-            {remainingProducts.map((product, index) => (
+            {remainingProducts.map((product: any, index: any) => (
 
               <div className={` solution-card product-card-reveal product-card-delay-${Math.min(index + 1, 5)} `} key={product.link} role="button" tabIndex={0} onClick={() => { navigate("/products", { state: { product, products }, }); }} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { navigate("/products", { state: { product, }, }); } }} >
 

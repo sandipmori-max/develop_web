@@ -1,10 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {
-  ArrowUp,
-  MessageCircle,
-  Phone,
-  Mail,
-} from "lucide-react";
 
 import {
   FaInstagram,
@@ -76,61 +70,70 @@ const CenterButton = () => {
     <div className="center-sticky-actions">
 
       {/* Move To Top */}
-       
-      
+
+
 
       {/* Call */}
-     
-{
-    showTop && <>
-      <button
-        type="button"
-        className="center-sticky-action"
-        onClick={() => handleSocial(instagramUrl)}
-        aria-label="Instagram"
-        title="Instagram"
-      >
-        <FaInstagram size={19} />
-      </button>
 
-      {/* Facebook */}
-      <button
-        type="button"
-        className="center-sticky-action"
-        onClick={() => handleSocial(facebookUrl)}
-        aria-label="Facebook"
-        title="Facebook"
-      >
-        <FaFacebookF size={18} />
-      </button>
+      {
+        showTop && <>
+          <button
+            type="button"
+            className="center-sticky-action"
+            onClick={() => handleSocial(instagramUrl)}
+            aria-label="Instagram"
+            title="Instagram"
+          >
+            {React.createElement(FaInstagram as React.ElementType, {
+              size: 19,
+            })}
+          </button>
 
-      {/* Twitter */}
-      <button
-        type="button"
-        className="center-sticky-action"
-        onClick={() => handleSocial(twitterUrl)}
-        aria-label="Twitter"
-        title="Twitter"
-      >
-        <FaTwitter size={18} />
-      </button>
+          {/* Facebook */}
+          <button
+            type="button"
+            className="center-sticky-action"
+            onClick={() => handleSocial(facebookUrl)}
+            aria-label="Facebook"
+            title="Facebook"
+          >
+            {React.createElement(FaFacebookF as React.ElementType, {
+              size: 19,
+            })}
 
-      {/* LinkedIn */}
-      <button
-        type="button"
-        className="center-sticky-action"
-        onClick={() => handleSocial(linkedinUrl)}
-        aria-label="LinkedIn"
-        title="LinkedIn"
-      >
-        <FaLinkedinIn size={18} />
-      </button>
-    </>
-}
-     
+          </button>
+
+          {/* Twitter */}
+          <button
+            type="button"
+            className="center-sticky-action"
+            onClick={() => handleSocial(twitterUrl)}
+            aria-label="Twitter"
+            title="Twitter"
+          >
+            {React.createElement(FaTwitter as React.ElementType, {
+              size: 19,
+            })}
+          </button>
+
+          {/* LinkedIn */}
+          <button
+            type="button"
+            className="center-sticky-action"
+            onClick={() => handleSocial(linkedinUrl)}
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            {React.createElement(FaLinkedinIn as React.ElementType, {
+              size: 19,
+            })}
+          </button>
+        </>
+      }
+
 
       {/* Instagram */}
-    
+
 
     </div>
   );

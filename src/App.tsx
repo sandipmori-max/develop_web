@@ -36,6 +36,8 @@ import "./ScrollReveal.css";
 import KnowledgeCenter from './KnowledgeCenter';
 import CenterButton from './CenterButton';
 import Dashboard from './Dashboard';
+import ServiceDetails from './ServiceDetails';
+import MobileAppShowcase from './MobileAppShowcase';
 
 // ── Smooth scroll helper ──────────────────────────────────────────────────────
 function scrollToBooking() {
@@ -3281,12 +3283,14 @@ export default function App() {
                 {/* <Dashboard /> */}
                 <HeroSlider />
                 <WhyChooseUs />
+                 <MobileAppShowcase />
                 <ServicesOffer />
                 <OurProducts />
                 <ServiceList />
                 <CareerCulture />
                 <HappyClientele />
                 <ClientTestimonials />
+               
                 {/* <Dashboard /> */}
 
               </>
@@ -3319,10 +3323,12 @@ export default function App() {
             path="/services"
             element={
               <>
-                <ServiceList />
+                <ServiceDetails />
               </>
             }
           />
+
+
           {/* Product list */}
           <Route
             path="/productslist"
@@ -3375,6 +3381,15 @@ export default function App() {
             element={
               <>
                 <BlogPage />
+              </>
+            }
+          />
+          {/* service-list */}
+          <Route
+            path="/service-list"
+            element={
+              <>
+                <ServiceList />
               </>
             }
           />

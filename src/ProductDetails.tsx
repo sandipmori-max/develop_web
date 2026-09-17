@@ -61,10 +61,10 @@ const ProductDetails: React.FC = () => {
   ======================================================= */
 
   const product =
-    location.state?.product as Product | undefined;
+    location.state?.product as any | undefined;
 
   const products =
-    location.state?.products as Product[] | undefined;
+    location.state?.products as any[] | undefined;
 
   /* =======================================================
      NO PRODUCT FOUND
@@ -221,83 +221,175 @@ const ProductDetails: React.FC = () => {
       {/* =====================================================
           MAIN CONTENT
       ====================================================== */}
+<section className="product-detail-section" >
+  <div className="product-detail-container">
+    <div className="product-detail-layout">
 
-      <section className="product-detail-section">
-        <div className="product-detail-container">
-          <div className="product-detail-layout">
+      {/* =====================================================
+          LEFT CONTENT
+      ====================================================== */}
 
-            {/* =================================================
-                LEFT CONTENT
-            ================================================= */}
+      <main className="product-detail-main">
+       
 
-            <main className="product-detail-main">
+        {/* =================================================
+            PRODUCT INTRO / HEADING
+        ================================================= */}
 
-              {/* PRODUCT HEADING */}
+        <div className="product-detail-heading">
 
-              <div className="product-detail-heading">
+          <div className="product-heading-label">
+            <span className="product-heading-line" />
+
+            <span>
+              {details.category}
+            </span>
+          </div>
+
+          <h2>
+            {details.heading.title}{" "}
+            <strong>
+              {details.heading.highlight}
+            </strong>
+          </h2>
+
+          <p>
+            {details.shortDescription}
+          </p>
+
+        </div>
+
+
+        {/* =================================================
+            PRODUCT IMAGE
+        ================================================= */}
+
+        <div className="product-detail-image-wrapper">
+
+          <div className="product-detail-image">
+            <img
+              src={product.image}
+              alt={product.title}
+            />
+          </div>
+
+          <div className="product-image-info">
+
+            <div className="product-image-info-item">
+              <span>PRODUCT</span>
+
+              <strong>
+                {product.title}
+              </strong>
+            </div>
+
+            <div className="product-image-divider" />
+
+            <div className="product-image-info-item">
+              <span>CATEGORY</span>
+
+              <strong>
+                {details.category}
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* =================================================
+            INTRODUCTION
+        ================================================= */}
+
+        <section className="product-introduction">
+
+          <div className="product-section-title">
+
+            <span>
+              ABOUT THE SOLUTION
+            </span>
+
+            <h3>
+              Built Around Your
+              <br />
+              <strong>Business Needs</strong>
+            </h3>
+
+          </div>
+
+          <div className="product-content-block">
+
+            {details.introduction.map(
+              (paragraph: any , index: any) => (
+                <p key={index}>
+                  {paragraph}
+                </p>
+              )
+            )}
+
+          </div>
+
+        </section>
+
+
+        {/* =================================================
+            FUNCTIONAL MODULES
+        ================================================= */}
+
+        {details.modules &&
+          details.modules.length > 0 && (
+            <section className="product-modules">
+
+              <div className="product-section-title">
+
                 <span>
-                  {details.category}
+                  CORE FUNCTIONALITY
                 </span>
 
-                <h2>
-                  {details.heading.title}{" "}
+                <h3>
+                  Functional Modules of
+                  <br />
                   <strong>
-                    {details.heading.highlight}
+                    {product.title}
                   </strong>
-                </h2>
+                </h3>
 
                 <p>
-                  {details.shortDescription}
+                  Powerful modules designed to manage
+                  your business operations efficiently.
                 </p>
+
               </div>
 
-              {/* PRODUCT IMAGE */}
 
-              <div className="product-detail-image">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                />
-              </div>
-
-              {/* INTRODUCTION */}
-
-              <div className="product-content-block">
-                {details.introduction.map(
-                  (paragraph, index) => (
-                    <p key={index}>
-                      {paragraph}
-                    </p>
-                  )
-                )}
-              </div>
-
-              {/* FUNCTIONAL MODULES */}
-
-              <section className="product-modules">
-                <div className="product-section-title">
-                  <span>
-                    CORE FUNCTIONALITY
-                  </span>
-
-                  <h3>
-                    Functional Modules of DevERP
-                    <br />
-                    {product.title}
-                  </h3>
-                </div>
+              <div className="product-module-grid">
 
                 {details.modules.map(
-                  (module) => (
-                    <div
-                      className="product-module"
+                  (module: any, index: any) => (
+                    <article
+                      className="product-module-card"
                       key={module.number}
                     >
-                      <div className="product-module-number">
-                        {module.number}
+
+                      <div className="product-module-card-top">
+
+                        <span className="product-module-number">
+                          {String(index + 1).padStart(
+                            2,
+                            "0"
+                          )}
+                        </span>
+
+                        <span className="product-module-arrow">
+                          ↗
+                        </span>
+
                       </div>
 
+
                       <div className="product-module-content">
+
                         <h4>
                           {module.title}
                         </h4>
@@ -306,195 +398,250 @@ const ProductDetails: React.FC = () => {
                           {module.description}
                         </p>
 
-                        <ul>
-                          {module.features.map(
-                            (feature, index) => (
-                              <li key={index}>
-                                {feature}
-                              </li>
-                            )
+
+                        {module.features &&
+                          module.features.length > 0 && (
+                            <ul>
+
+                              {module.features.map(
+                                (feature: any, featureIndex: any) => (
+                                  <li key={featureIndex}>
+                                    <span>✓</span>
+
+                                    <p>
+                                      {feature}
+                                    </p>
+                                  </li>
+                                )
+                              )}
+
+                            </ul>
                           )}
-                        </ul>
+
                       </div>
-                    </div>
+
+                    </article>
                   )
                 )}
-              </section>
 
-              {/* KEY BENEFITS */}
-
-              <section className="product-benefits">
-                <div className="product-section-title">
-                  <span>
-                    WHY DevERP
-                  </span>
-
-                  <h3>
-                    Key Features &amp; Benefits
-                  </h3>
-                </div>
-
-                <div className="product-benefits-grid">
-                  {details.benefits.map(
-                    (benefit, index) => (
-                      <div
-                        className="benefit-item"
-                        key={index}
-                      >
-                        <span>
-                          {String(index + 1).padStart(
-                            2,
-                            "0"
-                          )}
-                        </span>
-
-                        <p>
-                          {benefit}
-                        </p>
-                      </div>
-                    )
-                  )}
-                </div>
-              </section>
-
-              {/* CTA */}
-
-              <div className="product-detail-cta">
-                <div>
-                  <span>
-                    {details.cta.label}
-                  </span>
-
-                  <h3>
-                    {details.cta.title}
-                  </h3>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    navigate("/contact_us")
-                  }
-                >
-                  {details.cta.buttonText}
-
-                  <span>↗</span>
-                </button>
-              </div>
-            </main>
-
-            {/* =================================================
-                SIDEBAR
-            ================================================= */}
-
-            <aside className="product-sidebar">
-
-              {/* SIDEBAR CARD */}
-
-              <div className="product-sidebar-card">
-
-                {/* SIDEBAR HEADER */}
-
-                <div className="product-sidebar-header">
-                  <div className="sidebar-header-top">
-                    <span className="sidebar-header-line" />
-
-                    <span>
-                      EXPLORE
-                    </span>
-                  </div>
-
-                  <h3>
-                    Our Products
-                  </h3>
-
-                  <p>
-                    Industry-specific ERP solutions.
-                  </p>
-                </div>
-
-                {/* PRODUCT LIST */}
-
-                <div className="product-sidebar-list">
-                  {sidebarProducts.map(
-                    (sidebarProduct, index) => {
-                      const isActive =
-                        sidebarProduct.title ===
-                        product.title;
-
-                      return (
-                        <button
-                          type="button"
-                          key={sidebarProduct.link}
-                          className={`product-sidebar-item ${
-                            isActive
-                              ? "active"
-                              : ""
-                          }`}
-                          onClick={() =>
-                            handleSidebarNavigation(
-                              sidebarProduct
-                            )
-                          }
-                        >
-                          <span className="sidebar-product-number">
-                            {String(index + 1).padStart(
-                              2,
-                              "0"
-                            )}
-                          </span>
-
-                          <span className="sidebar-product-name">
-                            {sidebarProduct.title}
-                          </span>
-
-                          <span className="sidebar-product-arrow">
-                            →
-                          </span>
-                        </button>
-                      );
-                    }
-                  )}
-                </div>
               </div>
 
-              {/* SIDEBAR CTA */}
+            </section>
+          )}
 
-              <div className="product-sidebar-cta">
-                <div className="sidebar-cta-label">
-                  NEED HELP?
-                </div>
 
-                <h3>
-                  Looking for the
-                  <br />
-                  right ERP?
-                </h3>
+        {/* =================================================
+            KEY BENEFITS
+        ================================================= */}
 
-                <p>
-                  Talk to our team and find the
-                  solution that fits your business.
-                </p>
+       {details.benefits &&
+  details.benefits.length > 0 && (
+    <section className="product-benefits">
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    navigate("/contact_us")
-                  }
-                >
-                  Talk to us
+      {/* ================= HEADER ================= */}
+      <div className="product-benefits-header">
 
-                  <span>
-                    ↗
-                  </span>
-                </button>
-              </div>
+        <div className="product-benefits-heading">
 
-            </aside>
+          <div className="product-benefits-eyebrow">
+            <span className="benefits-eyebrow-line" />
+            <span>WHY DEVERP</span>
+          </div>
+
+          <h3>
+            Key Features &amp;
+            <br />
+            <strong>Business Benefits</strong>
+          </h3>
+
+        </div>
+
+        <p className="product-benefits-description">
+          Designed to improve productivity, visibility
+          and overall business performance with a
+          smarter and more connected ERP experience.
+        </p>
+
+      </div>
+
+
+      {/* ================= BENEFITS ================= */}
+      <div className="product-benefits-grid">
+
+        {details.benefits.map((benefit: any, index: any) => (
+          <article
+            className="benefit-item"
+            key={index}
+          >
+
+            {/* TOP */}
+            <div className="benefit-item-top">
+
+              <span className="benefit-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <span className="benefit-icon">
+                <span>✓</span>
+              </span>
+
+            </div>
+
+
+            {/* CONTENT */}
+            <div className="benefit-item-content">
+
+              <span className="benefit-label">
+                BUSINESS BENEFIT
+              </span>
+
+              <p>{benefit}</p>
+
+            </div>
+
+
+            {/* BOTTOM */}
+            <div className="benefit-item-bottom">
+
+              <span className="benefit-line" />
+
+              <span className="benefit-arrow">
+                ↗
+              </span>
+
+            </div>
+
+          </article>
+        ))}
+
+      </div>
+
+    </section>
+  )}
+
+        {/* =================================================
+            CTA
+        ================================================= */}
+
+        <div className="product-detail-cta">
+
+          <div className="product-cta-content">
+
+            <span>
+              {details.cta.label}
+            </span>
+
+            <h3>
+              {details.cta.title}
+            </h3>
 
           </div>
+
+
+         
+
         </div>
-      </section>
+
+      </main>
+
+
+      {/* =====================================================
+          SIDEBAR
+      ====================================================== */}
+
+      <aside className="product-sidebar">
+
+        {/* =================================================
+            PRODUCT NAVIGATION
+        ================================================= */}
+
+        <div className="product-sidebar-card">
+
+          <div className="product-sidebar-header">
+
+            <div className="sidebar-header-top">
+
+              <span className="sidebar-header-line" />
+
+              <span>
+                EXPLORE
+              </span>
+
+            </div>
+
+            <h3>
+              Our Products
+            </h3>
+
+            <p>
+              Explore our industry-specific ERP
+              solutions.
+            </p>
+
+          </div>
+
+
+          <div className="product-sidebar-list">
+
+            {sidebarProducts.map(
+              (sidebarProduct, index) => {
+
+                const isActive =
+                  sidebarProduct.title ===
+                  product.title;
+
+                return (
+                  <button
+                    type="button"
+                    key={sidebarProduct.link}
+                    className={`product-sidebar-item ${
+                      isActive
+                        ? "active"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      handleSidebarNavigation(
+                        sidebarProduct
+                      )
+                    }
+                  >
+
+                    <span className="sidebar-product-number">
+                      {String(index + 1).padStart(
+                        2,
+                        "0"
+                      )}
+                    </span>
+
+                    <span className="sidebar-product-name">
+                      {sidebarProduct.title}
+                    </span>
+
+                    <span className="sidebar-product-arrow">
+                      →
+                    </span>
+
+                  </button>
+                );
+              }
+            )}
+
+          </div>
+
+        </div>
+
+
+        {/* =================================================
+            SIDEBAR CTA
+        ================================================= */}
+
+     
+
+      </aside>
+
+    </div>
+  </div>
+</section>
     </>
   );
 };

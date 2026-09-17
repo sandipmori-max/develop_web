@@ -2,13 +2,77 @@ import React, { useMemo, useState } from "react";
 import "./Clients.css";
 import { useNavigate } from "react-router-dom";
 
-interface Client {
-  image: string;
-  name: string;
-  category: string;
+interface EcosystemRowProps {
+  title: React.ReactNode;
+  clients: any[];
+  side: "left" | "right";
+  rowIndex: number;
 }
 
-const clients: Client[] = [
+const EcosystemRow: React.FC<EcosystemRowProps> = ({
+  title,
+  clients,
+  side,
+  rowIndex,
+}) => {
+  const visible = clients.slice(0, 5);
+  const remaining = Math.max(clients.length - 5, 0);
+
+  return (
+    <div
+      className={`eco-row eco-row-${side}`}
+      style={
+        {
+          "--row": rowIndex,
+        } as React.CSSProperties
+      }
+    >
+      {side === "left" ? (
+        <>
+          <div className="eco-category">{title}</div>
+
+          <div className="eco-logos">
+            {visible.map((client, index) => (
+              <div
+                className="eco-logo-card"
+                key={`${client.name}-${index}`}
+                title={client.name}
+              >
+                <img src={client.image} alt={client.name} />
+              </div>
+            ))}
+
+            {remaining > 0 && (
+              <div className="eco-more-card">+{remaining}</div>
+            )}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="eco-logos">
+            {visible.map((client, index) => (
+              <div
+                className="eco-logo-card"
+                key={`${client.name}-${index}`}
+                title={client.name}
+              >
+                <img src={client.image} alt={client.name} />
+              </div>
+            ))}
+
+            {remaining > 0 && (
+              <div className="eco-more-card">+{remaining}</div>
+            )}
+          </div>
+
+          <div className="eco-category">{title}</div>
+        </>
+      )}
+    </div>
+  );
+};
+
+const clients: any[] = [
   {
     image: "./CMSassets/images/Client_Logo/logo (6).png",
     name: "Hindustan RMC",
@@ -452,7 +516,7 @@ const filters = [
 
 const Clients: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
-  const [selectedClient, setSelectedClient] = useState<Client | null>(null);
+  const [selectedClient, setSelectedClient] = useState<any | null>(null);
   const navigate = useNavigate();
 
   const filteredClients = useMemo(() => {
@@ -625,139 +689,212 @@ const Clients: React.FC = () => {
   {/* =========================================
       CLIENTS
   ========================================= */}
-  <section className="clients-gallery-section">
+<section className="clients-ecosystem">
+  <div className="eco-grid-bg" />
 
-    <div className="clients-container">
+  <div className="clients-container">
 
-      {/* FILTER */}
-      <div className="clients-filter-wrapper clients-filter-reveal">
-
-        <div className="clients-filter">
-
-          {filters.map((filter) => (
-
-            <button
-              key={filter.key}
-              type="button"
-              className={
-                activeFilter === filter.key
-                  ? "client-filter active"
-                  : "client-filter"
-              }
-              onClick={() => setActiveFilter(filter.key)}
-            >
-              {filter.label}
-            </button>
-
-          ))}
-
-        </div>
-
-      </div>
-
-
-      {/* RESULT INFO */}
-      <div className="clients-result-bar clients-result-reveal">
-
-        <div>
-          Showing{" "}
-          <strong>{filteredClients.length}</strong> client
-          {filteredClients.length !== 1 ? "s" : ""}
-        </div>
-
-        {activeFilter !== "all" && (
-
-          <button
-            type="button"
-            onClick={() => setActiveFilter("all")}
-          >
-            Clear filter <span>×</span>
-          </button>
-
-        )}
-
-      </div>
-
-
-      {/* GRID */}
-      <div className="clients-grid">
-
-        {filteredClients.map((client, index) => (
-
-          <article
-            className={`
-              client-card
-              client-card-reveal
-              client-card-delay-${Math.min(index + 1, 5)}
-            `}
-            key={`${client.name}-${index}`}
-            onClick={() => setSelectedClient(client)}
-          >
-
-            <div className="client-card-number">
-              {String(index + 1).padStart(2, "0")}
-            </div>
-
-            <div className="client-logo-box">
-
-              <img
-                src={client.image}
-                alt={client.name}
-                loading="lazy"
-              />
-
-            </div>
-
-            <div className="client-card-footer">
-
-              <span>
-                {client.name}
-              </span>
-
-              <span className="client-card-arrow">
-                ↗
-              </span>
-
-            </div>
-
-          </article>
-
-        ))}
-
-      </div>
-
-
-      {/* EMPTY */}
-      {filteredClients.length === 0 && (
-
-        <div className="clients-empty clients-empty-reveal">
-
-          <div className="clients-empty-icon">
-            ⌕
-          </div>
-
-          <h3>
-            No clients found
-          </h3>
-
-          <p>
-            There are no clients available in this category.
-          </p>
-
-          <button
-            type="button"
-            onClick={() => setActiveFilter("all")}
-          >
-            Show all clients
-          </button>
-
-        </div>
-
-      )}
-
+    <div className="eco-heading">
+      <h2>
+        Built-in ecosystem on which
+        <br />
+        your business is <span>built-on</span>
+      </h2>
     </div>
 
-  </section>
+    <div className="eco-layout">
+
+      {/* SVG CONNECTORS */}
+      <svg
+        className="eco-connectors"
+        viewBox="0 0 1500 650"
+        preserveAspectRatio="none"
+      >
+
+        {/* LEFT */}
+        <path d="M500 75 H650 C735 75 735 325 750 325" />
+        <path d="M500 175 H635 C700 175 700 325 750 325" />
+        <path d="M500 275 H750" />
+        <path d="M500 375 H635 C700 375 700 325 750 325" />
+        <path d="M500 475 H650 C735 475 735 325 750 325" />
+        <path d="M500 575 H650 C735 575 735 325 750 325" />
+
+        {/* RIGHT */}
+        <path d="M1000 75 H850 C765 75 765 325 750 325" />
+        <path d="M1000 175 H865 C800 175 800 325 750 325" />
+        <path d="M1000 275 H750" />
+        <path d="M1000 375 H865 C800 375 800 325 750 325" />
+        <path d="M1000 475 H850 C765 475 765 325 750 325" />
+        <path d="M1000 575 H850 C765 575 765 325 750 325" />
+
+        {/* LEFT DOTS */}
+        <rect x="497" y="72" width="7" height="7" rx="2" />
+        <rect x="497" y="172" width="7" height="7" rx="2" />
+        <rect x="497" y="272" width="7" height="7" rx="2" />
+        <rect x="497" y="372" width="7" height="7" rx="2" />
+        <rect x="497" y="472" width="7" height="7" rx="2" />
+        <rect x="497" y="572" width="7" height="7" rx="2" />
+
+        {/* RIGHT DOTS */}
+        <rect x="996" y="72" width="7" height="7" rx="2" />
+        <rect x="996" y="172" width="7" height="7" rx="2" />
+        <rect x="996" y="272" width="7" height="7" rx="2" />
+        <rect x="996" y="372" width="7" height="7" rx="2" />
+        <rect x="996" y="472" width="7" height="7" rx="2" />
+        <rect x="996" y="572" width="7" height="7" rx="2" />
+
+      </svg>
+
+
+      {/* LEFT SIDE */}
+      <div className="eco-side eco-left">
+
+        <EcosystemRow
+          title="RMC"
+          clients={clients.filter(c => c.category === "RMC")}
+          side="left"
+          rowIndex={0}
+        />
+
+        <EcosystemRow
+          title="REAL ESTATE"
+          clients={clients.filter(c => c.category === "RealEstate")}
+          side="left"
+          rowIndex={1}
+        />
+
+        <EcosystemRow
+          title="ENGRAVING"
+          clients={clients.filter(c => c.category === "Engraving")}
+          side="left"
+          rowIndex={2}
+        />
+
+        <EcosystemRow
+          title="MACHINE"
+          clients={clients.filter(c => c.category === "Machine")}
+          side="left"
+          rowIndex={3}
+        />
+
+        <EcosystemRow
+          title={
+            <>
+              LIGHT
+              <br />
+              WEIGHT
+              <br />
+              BLOCK
+            </>
+          }
+          clients={clients.filter(c => c.category === "LightWeightBlock")}
+          side="left"
+          rowIndex={4}
+        />
+
+        <EcosystemRow
+          title={
+            <>
+              PULSE /
+              <br />
+              RICE MILL
+            </>
+          }
+          clients={clients.filter(c => c.category === "PRM")}
+          side="left"
+          rowIndex={5}
+        />
+
+      </div>
+
+
+      {/* CENTER */}
+      <div className="eco-center">
+
+        <div className="eco-center-card">
+
+          <div className="eco-brand-mark">
+            <span />
+            <span />
+            <span />
+          </div>
+
+          <strong>DevERP</strong>
+
+        </div>
+
+      </div>
+
+
+      {/* RIGHT SIDE */}
+      <div className="eco-side eco-right">
+
+        <EcosystemRow
+          title="TRANSPORTATION"
+          clients={clients.filter(c => c.category === "Transportation")}
+          side="right"
+          rowIndex={0}
+        />
+
+        <EcosystemRow
+          title="SCHOOL"
+          clients={clients.filter(c => c.category === "School")}
+          side="right"
+          rowIndex={1}
+        />
+
+        <EcosystemRow
+          title="PHARMACEUTICAL"
+          clients={clients.filter(c => c.category === "Pharama")}
+          side="right"
+          rowIndex={2}
+        />
+
+        <EcosystemRow
+          title="BOOK DEPOT"
+          clients={clients.filter(c => c.category === "Bookdepot")}
+          side="right"
+          rowIndex={3}
+        />
+
+        <EcosystemRow
+          title={
+            <>
+              PETROLPUMP /
+              <br />
+              SURVEY
+            </>
+          }
+          clients={[
+            ...clients.filter(c => c.category === "Petrolpump"),
+            ...clients.filter(c => c.category === "Survey"),
+          ]}
+          side="right"
+          rowIndex={4}
+        />
+
+        <EcosystemRow
+          title={
+            <>
+              OTHER /
+              <br />
+              INDUSTRIES
+            </>
+          }
+          clients={[
+            ...clients.filter(c => c.category === "Flexo"),
+            ...clients.filter(c => c.category === "Trading"),
+            ...clients.filter(c => c.category === "Food"),
+          ]}
+          side="right"
+          rowIndex={5}
+        />
+
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
   {/* =========================================
