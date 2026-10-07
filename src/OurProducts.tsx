@@ -2072,7 +2072,7 @@ const OurProducts: React.FC = () => {
 
               </div>
 
-              <div className="products-floating-card">
+              {/* <div className="products-floating-card">
 
                 <div className="products-floating-icon">
                   ✓
@@ -2088,7 +2088,7 @@ const OurProducts: React.FC = () => {
                   </span>
                 </div>
 
-              </div>
+              </div> */}
 
             </div>
 
@@ -2109,7 +2109,7 @@ const OurProducts: React.FC = () => {
           {/* ================= SECTION HEADER ================= */}
 
           <div className="products-section-header product-scroll-left">
-
+ 
             <div>
 
               <span className="products-section-label">

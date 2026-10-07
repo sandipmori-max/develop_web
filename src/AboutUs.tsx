@@ -44,7 +44,22 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
     };
   }, []);
 
+  const resetForm = () => {
+  setFormData({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    businessName: "",
+    subject: "",
+    description: "",
+  });
+
+  setValidationMessage("");
+};
+
   const openAppointment = () => {
+    resetForm()
     if (setShow) {
       setShow(true);
     } else {
@@ -53,7 +68,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
   };
 
   const closeAppointment = () => {
-    if (setShow) {
+    resetForm()
+     if (setShow) {
       setShow(false);
     }
 
@@ -344,8 +360,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
         <div className="about-image-area about-content-slide-right">
 
           <div className="about-image-decoration about-decoration-one" />
-          <div className="about-image-decoration about-decoration-two" />
-
+ 
           <div className="about-image-card">
 
             <img
@@ -377,7 +392,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
 
           </div>
 
-          <div className="about-floating-card">
+          {/* <div className="about-floating-card">
             <span className="about-floating-icon">
               ✦
             </span>
@@ -386,7 +401,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
               <strong>Next-Generation</strong>
               <span>Enterprise Solutions</span>
             </div>
-          </div>
+          </div> */}
 
         </div>
 
@@ -433,48 +448,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
   </section>
 
 
-  {/* =========================================
-      CTA
-  ========================================= */}
-  <section className="about-cta">
-
-    <div className="about-cta-glow" />
-
-    <div className="about-container about-cta-inner">
-
-      <div className="about-cta-content about-cta-slide-left">
-
-        <span className="about-kicker about-kicker-light">
-          LET'S BUILD TOGETHER
-        </span>
-
-        <h2>
-          Ready to make your
-          <br />
-          business <span>smarter?</span>
-        </h2>
-
-        <p>
-          Let's discuss your business requirements and create
-          technology that actually works for you.
-        </p>
-
-      </div>
-
-
-      <button
-        type="button"
-        className="about-cta-button about-cta-slide-right"
-        onClick={openAppointment}
-      >
-        <span>Schedule Appointment</span>
-        <span className="about-cta-arrow">↗</span>
-      </button>
-
-    </div>
-
-  </section>
-
+ 
 
   {/* =========================================
       APPOINTMENT MODAL
@@ -509,7 +483,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ setShow }) => {
           </span>
 
           <h2>
-            Schedule Appointment
+            Schedule Appointment 
           </h2>
 
           <p>

@@ -1,21 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Footer.css";
-import {
-  ArrowUpRight,
-  ArrowRight,
-  MapPin,
-  Mail,
-  Phone,
-  Building2,
-  BriefcaseBusiness,
-  Users,
-  House,
-  Contact,
-  Newspaper,
-  Sparkles,
-  Send,
-} from "lucide-react";  
+ 
 import { products } from "./OurProducts";
 
 const Footer: React.FC = () => {
@@ -104,6 +90,7 @@ const Footer: React.FC = () => {
           aria-label="DevERP Home"
         >
           <img
+            style={{height: 86, width: 86}}
             src="CMSassets/images/logos/logo.png"
             alt="DevERP"
           />
@@ -226,7 +213,7 @@ const Footer: React.FC = () => {
           <input
             type="email"
             value={email}
-            placeholder="Your email address"
+            placeholder="  Your email address"
             onChange={(e) => {
               setEmail(e.target.value);
               setMessage("");
@@ -242,6 +229,10 @@ const Footer: React.FC = () => {
             type="button"
             onClick={handleSubscribe}
             aria-label="Subscribe"
+            style={{
+              padding: '5px',
+              marginTop: 4
+            }}
           >
             <span>↗</span>
           </button>
@@ -272,11 +263,6 @@ const Footer: React.FC = () => {
 
           <span>OUR OFFICE</span>
 
-          <div className="de-footer-status">
-            <i></i>
-            India
-          </div>
-
         </div>
 
         <h3>
@@ -290,6 +276,7 @@ const Footer: React.FC = () => {
           target="_blank"
           rel="noreferrer"
           className="de-footer-modern-map"
+          style={{padding: 4}}
         >
           <span>View on Google Maps</span>
           <b>↗</b>

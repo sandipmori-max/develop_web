@@ -90,7 +90,7 @@ const KnowledgeCenter: React.FC = () => {
         <div className="knowledge-container">
           <div className="knowledge-hero-content">
             <span className="knowledge-kicker">
-              DEVErp KNOWLEDGE
+              DevERP KNOWLEDGE
             </span>
 
             <h1>
@@ -150,29 +150,14 @@ const KnowledgeCenter: React.FC = () => {
                 {/* IMAGE */}
                 <div
                   className="knowledge-card-image"
-                  onClick={() => openTraining(item.link)}
+                  // onClick={() => openTraining(item.link)}
                 >
                   <img
                     src={item.image}
                     alt={item.title}
                   />
 
-                  <div className="knowledge-card-image-overlay">
-                    <span>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openTraining(item.link);
-                      }}
-                      aria-label={`Read ${item.title}`}
-                    >
-                      ↗
-                    </button>
-                  </div>
+                  
                 </div>
 
                 {/* CONTENT */}
@@ -183,7 +168,7 @@ const KnowledgeCenter: React.FC = () => {
                   </div>
 
                   <h3
-                    onClick={() => openTraining(item.link)}
+                    // onClick={() => openTraining(item.link)}
                   >
                     {item.title}
                   </h3>
@@ -215,16 +200,16 @@ const KnowledgeCenter: React.FC = () => {
                   {/* FOOTER */}
                   <div className="knowledge-card-footer">
 
-                    <button
+                    {/* <button
                       type="button"
                       className="knowledge-read-more"
                       onClick={() => openTraining(item.link)}
                     >
                       READ MORE
                       <span>↗</span>
-                    </button>
+                    </button> */}
 
-                    <div className="knowledge-share">
+                    {/* <div className="knowledge-share">
 
                       <span>Share:</span>
 
@@ -250,7 +235,7 @@ const KnowledgeCenter: React.FC = () => {
                         <i className="fa fa-twitter" />
                       </a>
 
-                    </div>
+                    </div> */}
 
                   </div>
                 </div>

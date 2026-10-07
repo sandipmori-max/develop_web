@@ -852,7 +852,7 @@ const ServiceList: React.FC = () => {
             <button
               type="button"
               className="services-cta-button service-cta-right"
-              onClick={() => navigate("/contact")}
+              onClick={() => navigate("/contact_us")}
             >
               <span>
                 Talk to our team

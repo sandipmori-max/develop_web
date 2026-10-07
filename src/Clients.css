@@ -625,7 +625,7 @@
   align-items: center;
   justify-content: center;
   padding: 30px;
-  background: #f7f9fc;
+  background: #fff;
   border-radius: 15px;
 }
 
@@ -2459,8 +2459,7 @@
   font-weight: 700;
 
   letter-spacing: 5px;
-  text-transform: uppercase;
-}
+ }
 
 .ecosystem-heading h2 {
   margin: 0;
@@ -2599,8 +2598,7 @@
 
   letter-spacing: 2.8px;
 
-  text-transform: uppercase;
-}
+ }
 
 .ecosystem-row-left .ecosystem-category {
   text-align: left;
@@ -3339,8 +3337,8 @@
   font-weight: 600;
 
   letter-spacing: 3px;
-
-  text-transform: uppercase;
+  margin-left: 14px;
+ 
 }
 
 .eco-row-left .eco-category {
@@ -3487,8 +3485,8 @@
 .eco-center-card {
   position: relative;
 
-  width: 126px;
-  height: 126px;
+  width: 86px;
+  height: 86px;
 
   display: flex;
 
@@ -3501,7 +3499,7 @@
 
   border: 1px solid #dbe7f0;
 
-  border-radius: 14px;
+  border-radius: 64px;
 
   box-shadow:
     0 14px 30px rgba(31, 76, 116, 0.11),
@@ -3677,4 +3675,1062 @@
 
     justify-content: center;
   }
+}
+
+/* =========================================
+   MAIN CLIENT LIST
+========================================= */
+
+.clients-main-list {
+  position: relative;
+  padding: 80px 0;
+  background: #fff;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.clients-main-list-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.clients-main-list-header h2 {
+  margin: 10px 0 0;
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #101828;
+}
+
+.clients-main-list-header h2 span {
+  color: #039ee3;
+}
+
+.clients-main-list-count {
+  flex-shrink: 0;
+
+  padding: 10px 18px;
+
+  border-radius: 30px;
+
+  background: rgba(3, 158, 227, 0.08);
+
+  color: #039ee3;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   FILTERS
+========================================= */
+
+.clients-main-filters {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 28px;
+}
+
+.clients-main-filters button {
+  border: 1px solid rgba(3, 158, 227, 0.15);
+
+  background: #ffffff;
+
+  color: #475467;
+
+  border-radius: 30px;
+
+  padding: 9px 16px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    all 0.25s ease;
+}
+
+.clients-main-filters button:hover {
+  border-color: #039ee3;
+
+  color: #039ee3;
+
+  transform: translateY(-2px);
+}
+
+.clients-main-filters button.active {
+  background: #039ee3;
+
+  color: #ffffff;
+
+  border-color: #039ee3;
+
+  box-shadow:
+    0 7px 18px rgba(3, 158, 227, 0.2);
+}
+
+
+/* =========================================
+   MAIN SCROLL AREA
+========================================= */
+
+.clients-main-scroll {
+  width: 100%;
+
+  /*
+    4 rows visible
+    145px card + 18px gap
+    = approx 634px
+  */
+  height: 650px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 5px 12px 25px 5px;
+
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+
+  overscroll-behavior: contain;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.clients-main-scroll::-webkit-scrollbar {
+  width: 7px;
+}
+
+.clients-main-scroll::-webkit-scrollbar-track {
+  background: rgba(3, 158, 227, 0.06);
+
+  border-radius: 20px;
+}
+
+.clients-main-scroll::-webkit-scrollbar-thumb {
+  background: rgba(3, 158, 227, 0.35);
+
+  border-radius: 20px;
+}
+
+.clients-main-scroll::-webkit-scrollbar-thumb:hover {
+  background: #039ee3;
+}
+
+
+/* Firefox */
+
+.clients-main-scroll {
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(3, 158, 227, 0.35)
+    rgba(3, 158, 227, 0.06);
+}
+
+
+/* =========================================
+   4 COLUMN GRID
+========================================= */
+
+.clients-main-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  grid-auto-rows: 145px;
+
+  gap: 18px;
+
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   CLIENT CARD
+========================================= */
+
+.clients-main-card {
+  position: relative;
+
+  min-width: 0;
+
+  height: 145px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border:
+    1px solid
+    rgba(3, 158, 227, 0.12);
+
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+
+/* top line */
+
+.clients-main-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: #039ee3;
+
+  transform:
+    scaleX(0);
+
+  transform-origin:
+    center;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.clients-main-card:hover::before {
+  transform:
+    scaleX(1);
+}
+
+.clients-main-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(3, 158, 227, 0.35);
+
+  box-shadow:
+    0 15px 35px
+    rgba(3, 158, 227, 0.12);
+
+  background:
+    #fbfeff;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.clients-main-logo {
+  width: 100%;
+
+  height: 78px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.clients-main-logo img {
+  display: block;
+
+  max-width: 90%;
+
+  max-height: 64px;
+
+  width: auto;
+
+  height: auto;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.clients-main-card:hover
+.clients-main-logo img {
+  transform:
+    scale(1.07);
+}
+
+
+/* =========================================
+   CLIENT INFO
+========================================= */
+
+.clients-main-info {
+  width: 100%;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  gap: 4px;
+}
+
+.clients-main-info strong {
+  display: block;
+
+  max-width: 100%;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color: #172033;
+
+  font-size: 13px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.clients-main-info span {
+  display: block;
+
+  max-width: 100%;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color: #039ee3;
+
+  font-size: 9px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 0.6px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .clients-main-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .clients-main-scroll {
+    height: 625px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .clients-main-list {
+    padding: 60px 0;
+  }
+
+  .clients-main-list-header {
+    align-items: flex-start;
+
+    margin-bottom: 22px;
+  }
+
+  .clients-main-list-header h2 {
+    font-size: 32px;
+  }
+
+  .clients-main-list-count {
+    padding:
+      8px 13px;
+
+    font-size: 11px;
+  }
+
+
+  .clients-main-filters {
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    padding-bottom: 8px;
+
+    margin-bottom: 22px;
+
+    scrollbar-width: none;
+  }
+
+  .clients-main-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .clients-main-filters button {
+    flex-shrink: 0;
+
+    font-size: 11px;
+
+    padding:
+      8px 13px;
+  }
+
+
+  .clients-main-scroll {
+    height: 560px;
+
+    padding:
+      5px
+      8px
+      20px
+      2px;
+  }
+
+
+  .clients-main-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    grid-auto-rows:
+      130px;
+
+    gap: 12px;
+  }
+
+
+  .clients-main-card {
+    height: 130px;
+
+    padding: 10px;
+
+    border-radius: 13px;
+  }
+
+
+  .clients-main-logo {
+    height: 65px;
+  }
+
+  .clients-main-logo img {
+    max-height: 52px;
+  }
+
+  .clients-main-info strong {
+    font-size: 11px;
+  }
+
+  .clients-main-info span {
+    font-size: 8px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .clients-main-scroll {
+    height: 530px;
+  }
+
+  .clients-main-grid {
+    gap: 10px;
+
+    grid-auto-rows:
+      120px;
+  }
+
+  .clients-main-card {
+    height: 120px;
+  }
+
+  .clients-main-logo {
+    height: 60px;
+  }
+
+  .clients-main-logo img {
+    max-height: 48px;
+  }
+
+}
+
+/* =========================================
+   CLIENT LIST CARD — UPDATED UI
+========================================= */
+
+.clients-main-card {
+  position: relative;
+
+  min-width: 0;
+  height: 145px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 16px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #fbfdff 100%
+    );
+
+  border: 1px solid #e7eef5;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+
+/* -----------------------------------------
+   TOP ACCENT
+----------------------------------------- */
+
+.clients-main-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 18px;
+  right: 18px;
+
+  height: 2px;
+
+  background: #039ee3;
+
+  border-radius: 0 0 5px 5px;
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* -----------------------------------------
+   SMALL CORNER DETAIL
+----------------------------------------- */
+
+.clients-main-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -28px;
+  bottom: -28px;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: rgba(3, 158, 227, 0.05);
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* -----------------------------------------
+   HOVER
+----------------------------------------- */
+
+.clients-main-card:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(3, 158, 227, 0.28);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 30px
+    rgba(16, 24, 40, 0.08);
+}
+
+.clients-main-card:hover::before {
+  transform: scaleX(1);
+}
+
+.clients-main-card:hover::after {
+  transform: scale(1.5);
+}
+
+
+/* =========================================
+   LOGO AREA
+========================================= */
+
+.clients-main-logo {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 7px;
+
+  padding: 5px;
+
+  box-sizing: border-box;
+}
+
+
+/* Logo background */
+
+.clients-main-logo::before {
+  content: "";
+
+  position: absolute;
+
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(3, 158, 227, 0.035);
+
+  border:
+    1px solid
+    rgba(3, 158, 227, 0.07);
+
+  z-index: -1;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.clients-main-card:hover
+.clients-main-logo::before {
+  transform: scale(1.08);
+
+  background:
+    rgba(3, 158, 227, 0.07);
+}
+
+
+/* =========================================
+   LOGO IMAGE
+========================================= */
+
+.clients-main-logo img {
+  display: block;
+
+  max-width: 82%;
+  max-height: 58px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  mix-blend-mode: multiply;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+.clients-main-card:hover
+.clients-main-logo img {
+  transform: scale(1.08);
+}
+
+
+/* =========================================
+   CLIENT INFO
+========================================= */
+
+.clients-main-info {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  gap: 4px;
+}
+
+
+/* Client name */
+
+.clients-main-info strong {
+  display: block;
+
+  max-width: 92%;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color: #172033;
+
+  font-size: 12px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.1px;
+
+  transition:
+    color 0.25s ease;
+}
+
+
+.clients-main-card:hover
+.clients-main-info strong {
+  color: #039ee3;
+}
+
+
+/* Category */
+
+.clients-main-info span {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  max-width: 90%;
+
+  padding:
+    3px 8px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(3, 158, 227, 0.07);
+
+  color: #039ee3;
+
+  font-size: 8px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 0.6px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.clients-main-card:hover
+.clients-main-info span {
+  background: #039ee3;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   NUMBER / INDEX
+   Optional decorative number
+========================================= */
+
+.clients-main-card .client-index {
+  position: absolute;
+
+  top: 10px;
+  left: 12px;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  color: #c7d3df;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   MAIN SCROLL
+   KEEP 4 × 4
+========================================= */
+
+.clients-main-scroll {
+  width: 100%;
+
+  height: 650px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding:
+    5px 12px 25px 5px;
+
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(3, 158, 227, 0.35)
+    rgba(3, 158, 227, 0.06);
+}
+
+
+/* Chrome / Edge / Safari */
+
+.clients-main-scroll::-webkit-scrollbar {
+  width: 7px;
+}
+
+.clients-main-scroll::-webkit-scrollbar-track {
+  background:
+    rgba(3, 158, 227, 0.06);
+
+  border-radius: 20px;
+}
+
+.clients-main-scroll::-webkit-scrollbar-thumb {
+  background:
+    rgba(3, 158, 227, 0.35);
+
+  border-radius: 20px;
+}
+
+.clients-main-scroll::-webkit-scrollbar-thumb:hover {
+  background: #039ee3;
+}
+
+
+/* =========================================
+   4 COLUMN GRID
+========================================= */
+
+.clients-main-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  grid-auto-rows: 145px;
+
+  gap: 18px;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .clients-main-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .clients-main-scroll {
+    height: 625px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .clients-main-scroll {
+    height: 560px;
+
+    padding:
+      5px 8px 20px 2px;
+  }
+
+  .clients-main-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    grid-auto-rows: 130px;
+
+    gap: 12px;
+  }
+
+  .clients-main-card {
+    height: 130px;
+
+    padding: 10px;
+
+    border-radius: 13px;
+  }
+
+  .clients-main-logo {
+    height: 62px;
+
+    margin-bottom: 5px;
+  }
+
+  .clients-main-logo::before {
+    width: 58px;
+    height: 58px;
+  }
+
+  .clients-main-logo img {
+    max-height: 48px;
+  }
+
+  .clients-main-info strong {
+    font-size: 10px;
+  }
+
+  .clients-main-info span {
+    font-size: 7px;
+
+    padding:
+      3px 7px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .clients-main-grid {
+    gap: 10px;
+
+    grid-auto-rows: 120px;
+  }
+
+  .clients-main-card {
+    height: 120px;
+
+    padding: 8px;
+  }
+
+  .clients-main-logo {
+    height: 57px;
+  }
+
+  .clients-main-logo::before {
+    width: 52px;
+    height: 52px;
+  }
+
+  .clients-main-logo img {
+    max-height: 43px;
+  }
+
 }

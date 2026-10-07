@@ -265,7 +265,7 @@ const Header: React.FC = () => {
   };
 
   const goDD = (e: React.MouseEvent) => {
-    handleNavigate("/dd", e);
+    handleNavigate("/module", e);
   };
 
   return (
@@ -487,12 +487,12 @@ const Header: React.FC = () => {
                 >
                   <button
                     type="button"
-                    className={`de-menu-link de-dropdown-trigger ${location.pathname.startsWith(
-                      "/about"
-                    )
-                        ? "de-active"
-                        : ""
-                      }`}
+                    className={`de-menu-link de-dropdown-trigger ${
+    location.pathname.startsWith("/about") ||
+    location.pathname.startsWith("/knowledge")
+      ? "de-active"
+      : ""
+  }`}
                     onClick={() => {
                       navigate('/about')
                       toggleDropdown("about")
@@ -545,6 +545,19 @@ const Header: React.FC = () => {
                     CLIENTS
                 ====================================================== */}
 
+<li className="de-menu-item">
+                  <a
+                    href="/module"
+                    className={`de-menu-link ${
+                      isActive("/module")
+                        ? "de-active"
+                        : ""
+                    }`}
+                    onClick={goDD}
+                  >
+                    <span>Functions</span>
+                  </a>
+                </li>
                 <li className="de-menu-item">
                   <a
                     href="/clients"
@@ -649,19 +662,7 @@ const Header: React.FC = () => {
                   </a>
                 </li>
 
-                {/* <li className="de-menu-item">
-                  <a
-                    href="/dd"
-                    className={`de-menu-link ${
-                      isActive("/dd")
-                        ? "de-active"
-                        : ""
-                    }`}
-                    onClick={goDD}
-                  >
-                    <span>ddd</span>
-                  </a>
-                </li> */}
+                
               </ul>
             </nav>
 

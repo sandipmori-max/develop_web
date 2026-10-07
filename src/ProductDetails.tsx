@@ -371,21 +371,7 @@ const ProductDetails: React.FC = () => {
                       className="product-module-card"
                       key={module.number}
                     >
-
-                      <div className="product-module-card-top">
-
-                        <span className="product-module-number">
-                          {String(index + 1).padStart(
-                            2,
-                            "0"
-                          )}
-                        </span>
-
-                        <span className="product-module-arrow">
-                          ↗
-                        </span>
-
-                      </div>
+ 
 
 
                       <div className="product-module-content">
@@ -406,9 +392,7 @@ const ProductDetails: React.FC = () => {
                               {module.features.map(
                                 (feature: any, featureIndex: any) => (
                                   <li key={featureIndex}>
-                                    <span>✓</span>
-
-                                    <p>
+                                     <p>
                                       {feature}
                                     </p>
                                   </li>
@@ -445,7 +429,7 @@ const ProductDetails: React.FC = () => {
 
           <div className="product-benefits-eyebrow">
             <span className="benefits-eyebrow-line" />
-            <span>WHY DEVERP</span>
+            <span>WHY DevERP</span>
           </div>
 
           <h3>
@@ -480,10 +464,7 @@ const ProductDetails: React.FC = () => {
               <span className="benefit-number">
                 {String(index + 1).padStart(2, "0")}
               </span>
-
-              <span className="benefit-icon">
-                <span>✓</span>
-              </span>
+ 
 
             </div>
 
@@ -504,10 +485,7 @@ const ProductDetails: React.FC = () => {
             <div className="benefit-item-bottom">
 
               <span className="benefit-line" />
-
-              <span className="benefit-arrow">
-                ↗
-              </span>
+ 
 
             </div>
 

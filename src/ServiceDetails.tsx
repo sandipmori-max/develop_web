@@ -742,7 +742,7 @@ const ServiceDetails: React.FC = () => {
     <section className="service-why-dev-erp">
 
       <div className="service-section-title">
-        <span>WHY DEV ERP</span>
+        <span>WHY DevERP</span>
 
         <h3>
           Why Businesses Choose <strong>DevERP</strong>
@@ -760,15 +760,7 @@ const ServiceDetails: React.FC = () => {
             className="service-why-card"
             key={index}
           >
-            <div className="service-why-card-top">
-              <span className="service-why-index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <span className="service-why-icon">
-                <span />
-              </span>
-            </div>
+          
 
             <div className="service-why-card-content">
               <h4>
@@ -781,10 +773,7 @@ const ServiceDetails: React.FC = () => {
 
               <p>{reason}</p>
             </div>
-
-            <div className="service-why-arrow">
-              →
-            </div>
+ 
           </div>
         ))}
       </div>

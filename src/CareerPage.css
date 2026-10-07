@@ -1735,3 +1735,31 @@
     display: none;
   }
 }
+
+.career-cta-button {
+  color: #039ee3;
+  transition: all 0.3s ease;
+}
+
+.career-cta-button:hover {
+  color: #ffffff;
+}
+
+.career-cta-button:hover span {
+  color: #ffffff;
+}
+
+.career-cta-button {
+  color: #039ee3;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.career-cta-button:hover {
+  color: #ffffff;
+  background: #039ee3;
+}
+
+.career-cta-button:hover span {
+  color: #ffffff;
+}

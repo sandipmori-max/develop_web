@@ -1549,8 +1549,7 @@
   color: #039ee3;
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  letter-spacing: 2px; 
 
   margin-bottom: 13px;
 }
@@ -1898,8 +1897,7 @@
 
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  letter-spacing: 2px; 
 
   margin-bottom: 13px;
 }
@@ -2234,8 +2232,7 @@
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
-  text-transform: uppercase;
-
+ 
   margin-bottom: 13px;
 }
 

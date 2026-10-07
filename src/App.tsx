@@ -38,6 +38,8 @@ import CenterButton from './CenterButton';
 import Dashboard from './Dashboard';
 import ServiceDetails from './ServiceDetails';
 import MobileAppShowcase from './MobileAppShowcase';
+import HelpCenter from './HelpCenter';
+import BlogDetails from './BlogDetails';
 
 // ── Smooth scroll helper ──────────────────────────────────────────────────────
 function scrollToBooking() {
@@ -469,7 +471,7 @@ const Hero: React.FC = () => {
     </section>
   );
 };
- 
+
 // ── Benefits ──────────────────────────────────────────────────────────────────
 const BENEFITS = [
   { icon: <Ic.trend />, label: 'Increase Productivity', stat: '+32%', color: '#039EE3', desc: 'Up to 32% improvement in plant output within 6 months of go-live.' },
@@ -1367,8 +1369,8 @@ const QUAL_INDUSTRIES = [
   'Printing & Packaging', 'Gravure / Cylinder Manufacturing', 'Ready Mix Concrete', 'Construction', 'Medical', 'Other']
 const QUAL_EMP = ['1–25', '26–50', '51–100', '101–250', '250+']
 const QUAL_CHALLENGES = [
-  
-'Accounting', 'CRM', 'Production Planning', 'Inventory', 'Quality', 'Job Costing', 'Dispatch', 'Manual Work', 'Reporting', 'Purchase', 'Sales', 'Other']
+
+  'Accounting', 'CRM', 'Production Planning', 'Inventory', 'Quality', 'Job Costing', 'Dispatch', 'Manual Work', 'Reporting', 'Purchase', 'Sales', 'Other']
 const QUAL_INTENT = ['Book Live Demo', 'Need ERP Consultation', 'Want Pricing', 'Need Product Information', 'Exploring ERP Solutions']
 
 const CAL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -1548,134 +1550,134 @@ function CalendarView({ industry, qualData }: { industry: string, qualData: any 
     else if (!/^\d{10}$/.test(form.phone)) e.phone = 'Enter a valid 10-digit mobile number'
     return e
   }
- async function handleSubmit(e: React.FormEvent) {
-  e.preventDefault()
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
 
-  const errs = validate()
+    const errs = validate()
 
-  if (Object.keys(errs).length > 0) {
-    setErrors(errs)
-    return
-  }
-
-  const bookingDate = selDate
-    ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
-    : ''
-
-  const submitData = {
-    qualification: {
-      step1: {
-        industry: qualData?.industry ?? '',
-      },
-      step2: {
-        employees: qualData?.employees ?? '',
-      },
-      step3: {
-        challenges: qualData?.challenges ?? [],
-      },
-      step4: {
-        intent: qualData?.intent ?? '',
-      },
-    },
-
-    booking: {
-      date: bookingDate,
-      time: selSlot ?? '',
-      timezone: tz,
-    },
-
-    contact: {
-      name: form.name,
-      company: form.company,
-      email: form.email,
-      phone: form.phone,
-      notes: form.notes,
-    },
-  }
-
-  console.log('FINAL SUBMIT DATA:', submitData)
-
-  try {
-    // ==========================================
-    // EMAILJS TEMPLATE PARAMETERS
-    // ==========================================
-
-    const templateParams = {
-      name: form.name ?? '',
-      company: form.company ?? '',
-      email: form.email ?? '',
-      phone: form.phone ?? '',
-
-      industry: qualData?.industry ?? '',
-
-      employees: qualData?.employees ?? '',
-
-      challenges: (qualData?.challenges ?? []).join(', '),
-
-      intent: qualData?.intent ?? '',
-
-      date: bookingDate,
-
-      time: selSlot ?? '',
-
-      timezone: tz ?? '',
-
-      notes: form.notes ?? '',
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs)
+      return
     }
 
-    console.log('EMAILJS TEMPLATE PARAMS:', templateParams)
+    const bookingDate = selDate
+      ? `${y}-${String(m + 1).padStart(2, '0')}-${String(selDate).padStart(2, '0')}`
+      : ''
 
-    // ==========================================
-    // 1. ADMIN EMAIL
-    // ==========================================
+    const submitData = {
+      qualification: {
+        step1: {
+          industry: qualData?.industry ?? '',
+        },
+        step2: {
+          employees: qualData?.employees ?? '',
+        },
+        step3: {
+          challenges: qualData?.challenges ?? [],
+        },
+        step4: {
+          intent: qualData?.intent ?? '',
+        },
+      },
 
-    const adminResponse = await emailjs.send(
-      'service_qgskadb',
-      'template_87r9tyh',
-      templateParams,
-      {
-        publicKey: 'FeOzGWONpKAKG4Ohs',
+      booking: {
+        date: bookingDate,
+        time: selSlot ?? '',
+        timezone: tz,
+      },
+
+      contact: {
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        notes: form.notes,
+      },
+    }
+
+    console.log('FINAL SUBMIT DATA:', submitData)
+
+    try {
+      // ==========================================
+      // EMAILJS TEMPLATE PARAMETERS
+      // ==========================================
+
+      const templateParams = {
+        name: form.name ?? '',
+        company: form.company ?? '',
+        email: form.email ?? '',
+        phone: form.phone ?? '',
+
+        industry: qualData?.industry ?? '',
+
+        employees: qualData?.employees ?? '',
+
+        challenges: (qualData?.challenges ?? []).join(', '),
+
+        intent: qualData?.intent ?? '',
+
+        date: bookingDate,
+
+        time: selSlot ?? '',
+
+        timezone: tz ?? '',
+
+        notes: form.notes ?? '',
       }
-    )
 
-    console.log('ADMIN EMAIL SENT:', adminResponse)
+      console.log('EMAILJS TEMPLATE PARAMS:', templateParams)
 
-    // ==========================================
-    // 2. USER THANK YOU EMAIL
-    // ==========================================
+      // ==========================================
+      // 1. ADMIN EMAIL
+      // ==========================================
 
-   const userTemplateParams = {
-  customer_name: form.name,
-  to_email: form.email,
+      const adminResponse = await emailjs.send(
+        'service_qgskadb',
+        'template_87r9tyh',
+        templateParams,
+        {
+          publicKey: 'FeOzGWONpKAKG4Ohs',
+        }
+      )
 
-  company: form.company,
-  industry: qualData?.industry ?? '',
-  date: bookingDate,
-  time: selSlot ?? '',
-  timezone: tz ?? '',
-}
+      console.log('ADMIN EMAIL SENT:', adminResponse)
 
-    const userResponse = await emailjs.send(
-      'service_qgskadb',
-      'template_ovk7ifk',
-      userTemplateParams,
-      {
-        publicKey: 'FeOzGWONpKAKG4Ohs',
+      // ==========================================
+      // 2. USER THANK YOU EMAIL
+      // ==========================================
+
+      const userTemplateParams = {
+        customer_name: form.name,
+        to_email: form.email,
+
+        company: form.company,
+        industry: qualData?.industry ?? '',
+        date: bookingDate,
+        time: selSlot ?? '',
+        timezone: tz ?? '',
       }
-    )
 
-    // console.log('USER EMAIL SENT:', userResponse)
+      const userResponse = await emailjs.send(
+        'service_qgskadb',
+        'template_ovk7ifk',
+        userTemplateParams,
+        {
+          publicKey: 'FeOzGWONpKAKG4Ohs',
+        }
+      )
 
-    // ==========================================
-    // BOTH SUCCESS
-    // ==========================================
+      // console.log('USER EMAIL SENT:', userResponse)
 
-    setSubmitted(true)
+      // ==========================================
+      // BOTH SUCCESS
+      // ==========================================
 
-  } catch (error) {
-    console.error('SUBMIT ERROR:', error)
+      setSubmitted(true)
+
+    } catch (error) {
+      console.error('SUBMIT ERROR:', error)
+    }
   }
-}
 
   if (submitted) {
     return (
@@ -1722,10 +1724,31 @@ function CalendarView({ industry, qualData }: { industry: string, qualData: any 
               <input type={f.type} placeholder={`${f.placeholder} *`} value={form[f.key]}
                 onChange={e => { setForm(d => ({ ...d, [f.key]: e.target.value })); setErrors(d => ({ ...d, [f.key]: '' })) }}
                 className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
-                style={{ background: '#F8FAFF', border: `1.5px solid ${errors[f.key] ? '#EF4444' : '#E2E8F0'}`, color: '#0F172A' }}
-                onFocus={e => (e.target.style.border = `1.5px solid ${errors[f.key] ? '#EF4444' : '#039EE3'}`)}
-                onBlur={e => (e.target.style.border = `1.5px solid ${errors[f.key] ? '#EF4444' : '#E2E8F0'}`)}
-              />
+                style={{
+                  background: '#F8FAFF',
+                  border: `1.5px solid ${errors[f.key] ? '#EF4444' : '#E2E8F0'
+                    }`,
+                  color: '#0F172A'
+                }} onFocus={e => (e.target.style.border = `1.5px solid ${errors[f.key] ? '#EF4444' : '#039EE3'}`)}
+                onBlur={e => {
+                  const value = e.target.value.trim();
+
+                  if (f.key === 'email') {
+                    if (!value) {
+                      setErrors(d => ({
+                        ...d,
+                        email: 'Work Email is required',
+                      }));
+                    } else if (
+                      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value)
+                    ) {
+                      setErrors(d => ({
+                        ...d,
+                        email: 'Please enter a valid email address',
+                      }));
+                    }
+                  }
+                }} />
               {errors[f.key] && <p className="text-xs mt-1 pl-1" style={{ color: '#EF4444' }}>{errors[f.key]}</p>}
             </div>
           ))}
@@ -1771,7 +1794,7 @@ function CalendarView({ industry, qualData }: { industry: string, qualData: any 
         </div>
       </div>
       <div className="flex items-center gap-1.5 mb-4 text-xs" style={{ color: '#94A3B8' }}>
-         
+
       </div>
       <div className="grid grid-cols-7 mb-2">
         {CAL_DAYS.map(d => <div key={d} className="text-center text-xs font-semibold py-1" style={{ color: '#94A3B8' }}>{d}</div>)}
@@ -1831,7 +1854,7 @@ function BookingSection() {
 
         {/* Header */}
         <div className="scroll-reveal text-center mb-14">
-         
+
 
           <h2
             className="font-black tracking-tight mb-4"
@@ -1840,11 +1863,11 @@ function BookingSection() {
               color: '#040D20',
             }}
           >
-             Book Your Demo
-            
+            Book Your Demo
+
           </h2>
 
-           <div
+          <div
             className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
             style={{
               background: 'rgba(3,158,227,0.08)',
@@ -2118,7 +2141,7 @@ const TIMELINE_STEPS = [
   { step: '03', label: 'Your Personalized Walkthrough', desc: 'A live ERP demo configured for your exact industry, processes, and team size.', icon: '🖥️', color: '#0891B2' },
   { step: '04', label: 'Your Implementation Roadmap', desc: 'A clear go-live plan with timelines, training schedule, and dedicated onboarding support.', icon: '🚀', color: '#22C55E' },
 ]
-  
+
 
 function ProcessTimeline() {
   const [activeStep, setActiveStep] = useState(0)
@@ -2468,7 +2491,7 @@ function ProcessTimeline() {
                             style={{
                               background:
                                 isActive ||
-                                isCompleted
+                                  isCompleted
                                   ? "#039EE3"
                                   : "#ffffff",
 
@@ -2479,8 +2502,8 @@ function ProcessTimeline() {
                                 isActive
                                   ? "0 8px 28px rgba(3,158,227,0.30)"
                                   : isCompleted
-                                  ? "0 5px 18px rgba(3,158,227,0.16)"
-                                  : "0 2px 8px rgba(3,158,227,0.10)",
+                                    ? "0 5px 18px rgba(3,158,227,0.16)"
+                                    : "0 2px 8px rgba(3,158,227,0.10)",
 
                               transform:
                                 isActive
@@ -2497,7 +2520,7 @@ function ProcessTimeline() {
                               style={{
                                 color:
                                   isActive ||
-                                  isCompleted
+                                    isCompleted
                                     ? "#ffffff"
                                     : "#039EE3",
 
@@ -2682,7 +2705,7 @@ function ProcessTimeline() {
                           style={{
                             background:
                               isActive ||
-                              isCompleted
+                                isCompleted
                                 ? "#039EE3"
                                 : "#ffffff",
 
@@ -2709,7 +2732,7 @@ function ProcessTimeline() {
                             style={{
                               color:
                                 isActive ||
-                                isCompleted
+                                  isCompleted
                                   ? "#ffffff"
                                   : "#039EE3",
 
@@ -3270,10 +3293,10 @@ export default function App() {
             "'Inter',-apple-system,BlinkMacSystemFont,sans-serif",
         }}
       >
-         <ScrollReveal />
-        
+        <ScrollReveal />
 
-        <Header/>
+
+        <Header />
         <Routes>
           {/* Home */}
           <Route
@@ -3283,14 +3306,15 @@ export default function App() {
                 {/* <Dashboard /> */}
                 <HeroSlider />
                 <WhyChooseUs />
-                 <MobileAppShowcase />
+                {/* <MobileAppShowcase /> */}
+                {/* <HelpCenter /> */}
                 <ServicesOffer />
                 <OurProducts />
                 <ServiceList />
                 <CareerCulture />
                 <HappyClientele />
                 <ClientTestimonials />
-               
+
                 {/* <Dashboard /> */}
 
               </>
@@ -3308,16 +3332,27 @@ export default function App() {
             }
           />
 
+          {/* blog-details */}
           <Route
-            path="/dd"
+            path="/blog-details"
             element={
               <>
 
-                <Dashboard />
+                <BlogDetails />
               </>
             }
           />
-          
+
+          <Route
+            path="/module"
+            element={
+              <>
+
+                <HelpCenter />
+              </>
+            }
+          />
+
           {/* ServiceList */}
           <Route
             path="/services"
@@ -3347,7 +3382,7 @@ export default function App() {
               </>
             }
           />
-            {/* Products */}
+          {/* Products */}
           <Route
             path="/products-list"
             element={
@@ -3408,12 +3443,12 @@ export default function App() {
           <Route
             path="/book-demo"
             element={
-              <> 
-              <BookingSection />
+              <>
+                <BookingSection />
                 <Hero />
                 <Benefits />
                 <DashboardShowcase />
-               
+
                 <ProcessTimeline />
                 <TrustStats />
               </>
@@ -3430,10 +3465,10 @@ export default function App() {
               </>
             }
           />
-        </Routes> 
+        </Routes>
         <BookDemoButton />
-            <StickyActions />
-            <CenterButton />
+        <StickyActions />
+        <CenterButton />
         <Footer />
       </div>
     </BrowserRouter>

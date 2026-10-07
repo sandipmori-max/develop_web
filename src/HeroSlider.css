@@ -246,8 +246,9 @@
 }
 
 .hero-slide-button:hover {
-  background: #0d5be3;
+  background: #fff;
   border-color: #0d5be3;
+  color: #0d5be3;
 
   transform: translateY(-2px);
 

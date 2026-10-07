@@ -70,7 +70,6 @@ const CareerPage = () => {
             <div className="career-orbit career-orbit-three"></div>
 
             <div className="career-orbit-center">
-              <span>01</span>
               <small>CAREER</small>
             </div>
 
@@ -114,10 +113,6 @@ const CareerPage = () => {
 
             {/* LEFT CONTENT */}
             <div className="career-content career-content-slide-left">
-
-              <span className="career-content-number">
-                01
-              </span>
 
               <h3>
                 Career
@@ -234,10 +229,17 @@ const CareerPage = () => {
 
               <div className="career-image-card">
 
-                <img
-                  src="CMSassets/images/it_service/career.jpg"
-                  alt="DevERP Career"
-                />
+               <img
+  src="CMSassets/images/it_service/career.jpg"
+  alt="DevERP Career"
+  style={{
+    width: "100%",
+    height: "400px",
+    display: "block",
+    objectFit: "contain",
+    backgroundColor: "#f5f9fc",
+  }}
+/>
 
                 <div className="career-image-overlay" />
 
@@ -248,10 +250,10 @@ const CareerPage = () => {
 
               </div>
 
-              <div className="career-floating-card">
+              {/* <div className="career-floating-card">
                 <span>DevERP</span>
                 <strong>Grow With Us</strong>
-              </div>
+              </div> */}
 
             </div>
 

@@ -212,7 +212,7 @@ const ContactUs: React.FC = () => {
 
                   <a href="tel:+919327940159">
                     <span>☎</span>
-                    +91 93279 40159
+                    +0000000000
                   </a>
 
                 </div>
