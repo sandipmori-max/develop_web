@@ -166,53 +166,82 @@ const ProductDetails: React.FC = () => {
       ====================================================== */}
 
       <section className="product-detail-hero">
-        <div className="product-detail-hero-bg">
-          <img
-            src="CMSassets/images/it_service/inner_page_banner2.jpg"
-            alt="DevERP Products"
-          />
-        </div>
-
+        <div className="product-detail-hero-bg" />
         <div className="product-detail-hero-overlay" />
 
         <div className="product-detail-container">
-          <div className="product-detail-hero-content">
-            <span className="product-detail-eyebrow">
-              ENTERPRISE SOLUTIONS
-            </span>
+          <div className="product-detail-hero-grid">
+            <div className="product-detail-hero-content">
+              <span className="product-detail-eyebrow">
+                {details.category}
+              </span>
 
-            <h1>PRODUCTS</h1>
+              <h1>{product.title}</h1>
 
-            <p>
-              Industry-focused ERP solutions designed to
-              simplify operations and improve business
-              performance.
-            </p>
-
-            {/* Breadcrumb */}
-
-            <div className="product-detail-breadcrumb">
-              <button
-                type="button"
-                onClick={() => navigate("/")}
-              >
-                Home
-              </button>
-
-              <span>/</span>
+              <p>
+                {details.shortDescription}
+              </p>
 
               <button
                 type="button"
-                onClick={() => navigate("/products-list")}
+                className="product-detail-hero-action"
+                onClick={() => {
+                  const target =
+                    document.getElementById("product-modules") ??
+                    document.querySelector(".product-introduction");
+
+                  target?.scrollIntoView({ behavior: "smooth" });
+                }}
               >
-                Products
+                Explore solution
+                <span aria-hidden="true">↓</span>
               </button>
 
-              <span>/</span>
+              <div className="product-detail-breadcrumb">
+                <button
+                  type="button"
+                  onClick={() => navigate("/")}
+                >
+                  Home
+                </button>
 
-              <strong>
-                {product.title}
-              </strong>
+                <span>/</span>
+
+                <button
+                  type="button"
+                  onClick={() => navigate("/products-list")}
+                >
+                  Products
+                </button>
+
+                <span>/</span>
+
+                <strong>
+                  {product.title}
+                </strong>
+              </div>
+            </div>
+
+            <div className="product-detail-hero-visual">
+              <div className="product-detail-hero-image">
+                <img src={product.image} alt={product.title} />
+                <div className="product-detail-hero-image-caption">
+                  <span>INDUSTRY SOLUTION</span>
+                  <strong>{details.category}</strong>
+                </div>
+              </div>
+
+              <div className="product-detail-hero-stat">
+                <span className="product-detail-hero-stat-icon" aria-hidden="true">
+                  ↗
+                </span>
+                <span className="product-detail-hero-stat-copy">
+                  <strong>
+                    {String(details.modules?.length ?? 0).padStart(2, "0")}
+                  </strong>
+                  <span>Integrated modules</span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -339,7 +368,7 @@ const ProductDetails: React.FC = () => {
 
         {details.modules &&
           details.modules.length > 0 && (
-            <section className="product-modules">
+            <section className="product-modules" id="product-modules">
 
               <div className="product-section-title">
 
@@ -371,8 +400,14 @@ const ProductDetails: React.FC = () => {
                       className="product-module-card"
                       key={module.number}
                     >
- 
-
+                      <div className="product-module-card-top">
+                        <span className="product-module-number">
+                          {module.number}
+                        </span>
+                        <span className="product-module-arrow" aria-hidden="true">
+                          ↗
+                        </span>
+                      </div>
 
                       <div className="product-module-content">
 
@@ -392,7 +427,8 @@ const ProductDetails: React.FC = () => {
                               {module.features.map(
                                 (feature: any, featureIndex: any) => (
                                   <li key={featureIndex}>
-                                     <p>
+                                    <span aria-hidden="true">✓</span>
+                                    <p>
                                       {feature}
                                     </p>
                                   </li>
@@ -515,8 +551,13 @@ const ProductDetails: React.FC = () => {
 
           </div>
 
-
-         
+          <button
+            type="button"
+            onClick={() => navigate("/contact_us")}
+          >
+            {details.cta.buttonText}
+            <b aria-hidden="true">→</b>
+          </button>
 
         </div>
 

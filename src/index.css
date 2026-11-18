@@ -10,14 +10,156 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #ffffff;
   color: #0f172a;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+.hero-slider,
+.de-footer,
+.de-header,
+.products-hero,
+.de-navbar,
+main,
+section {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+@media (max-width: 767px) {
+  body {
+    min-width: 320px;
+  }
+
+  [class*="-container"],
+  [class*="_container"] {
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   Consistent page and section spacing
+========================================================= */
+
+#root > div > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.why-choose-section,
+.services-offer-section,
+.services-intro,
+.services-list-section,
+.career-culture-section,
+.happy-clientele,
+.client-testimonials,
+.about-intro,
+.about-experience,
+.blog-section,
+.blog-details-bottom,
+.knowledge-hero,
+.knowledge-products,
+.knowledge-features,
+.knowledge-training,
+.clients-cta,
+.contact-hero,
+.contact-section,
+.career-bottom-cta {
+  margin-block: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .why-choose-section,
+  .services-offer-section,
+  .career-culture-section,
+  .happy-clientele,
+  .client-testimonials,
+  .about-intro,
+  .about-experience,
+  .blog-section,
+  .blog-details-bottom,
+  .knowledge-hero,
+  .knowledge-products,
+  .knowledge-features,
+  .knowledge-training,
+  .clients-cta,
+  .contact-hero,
+  .contact-section,
+  .career-bottom-cta {
+    padding-top: 96px !important;
+    padding-bottom: 96px !important;
+  }
+
+  .services-intro {
+    padding-top: 96px !important;
+    padding-bottom: 96px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .why-choose-section,
+  .services-offer-section,
+  .career-culture-section,
+  .happy-clientele,
+  .client-testimonials,
+  .about-intro,
+  .about-experience,
+  .blog-section,
+  .blog-details-bottom,
+  .knowledge-hero,
+  .knowledge-products,
+  .knowledge-features,
+  .knowledge-training,
+  .clients-cta,
+  .contact-hero,
+  .contact-section,
+  .career-bottom-cta {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+
+  .services-intro,
+  .services-list-section {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
 }
 
 /* ========================================
